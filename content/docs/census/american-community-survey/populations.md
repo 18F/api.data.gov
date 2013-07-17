@@ -61,7 +61,7 @@ summary: Return the populations of all states.
 
 ### JSON Output Format
 
-<div class="doc-example-url">GET <a href="http://api.data.gov/census/american-community-survey/v1/2011/populations?api_key=DEMO_KEY">http://api.data.gov/census/american-community-survey/v1/2011/populations?api_key=DEMO_KEY</a></div>
+<div class="doc-example-url">GET <a href="http://api.data.gov/census/american-community-survey/v1/2011/populations?api_key=DEMO_KEY">/census/american-community-survey/v1/2011/populations?api_key=DEMO_KEY</a></div>
 
 ```json
 [

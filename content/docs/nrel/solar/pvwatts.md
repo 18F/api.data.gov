@@ -495,7 +495,7 @@ The response is composed of service-related informational fields and the results
 
 ### JSON Output Format
 
-<div class="doc-example-url">GET <a href="http://developer.nrel.gov/api/pvwatts/v4.json?api_key=DEMO_KEY&amp;system_size=4&amp;dataset=tmy2&amp;derate=0.77&amp;lat=40&amp;lon=-105">http://developer.nrel.gov/api/pvwatts/v4.json?api_key=DEMO_KEY&amp;system_size=4&amp;dataset=tmy2&amp;derate=0.77&amp;lat=40&amp;lon=-105</a></div>
+<div class="doc-example-url">GET <a href="http://api.data.gov/nrel/pvwatts/v4.json?api_key=DEMO_KEY&amp;system_size=4&amp;dataset=tmy2&amp;derate=0.77&amp;lat=40&amp;lon=-105">/nrel/pvwatts/v4.json?api_key=DEMO_KEY&amp;system_size=4&amp;dataset=tmy2&amp;derate=0.77&amp;lat=40&amp;lon=-105</a></div>
 
 ```json
 {
@@ -593,7 +593,7 @@ The response is composed of service-related informational fields and the results
 
 ### XML Output Format
 
-<div class="doc-example-url">GET <a href="http://developer.nrel.gov/api/pvwatts/v4.xml?api_key=DEMO_KEY&amp;system_size=4&amp;dataset=tmy2&amp;derate=0.77&amp;lat=40&amp;lon=-105">http://developer.nrel.gov/api/pvwatts/v4.xml?api_key=DEMO_KEY&amp;system_size=4&amp;dataset=tmy2&amp;derate=0.77&amp;lat=40&amp;lon=-105</a></div>
+<div class="doc-example-url">GET <a href="http://api.data.gov/nrel/pvwatts/v4.xml?api_key=DEMO_KEY&amp;system_size=4&amp;dataset=tmy2&amp;derate=0.77&amp;lat=40&amp;lon=-105">/nrel/pvwatts/v4.xml?api_key=DEMO_KEY&amp;system_size=4&amp;dataset=tmy2&amp;derate=0.77&amp;lat=40&amp;lon=-105</a></div>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
