@@ -17,7 +17,7 @@ def commit_message
 end
 
 desc "Publish to http://api.data.gov"
-task :publish => [:clean] do
+task :publish do
   mesg = commit_message
 
   FileUtils.rm_r('output') if File.exist?('output')
