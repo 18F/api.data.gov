@@ -7,7 +7,7 @@ require "bootstrap-sass"
 
 Nanoc::Helpers::Sprockets.configure do |config|
   config.environment = Nanoc::Filters::Sprockets.environment
-  config.prefix      = "/assets"
+  config.prefix      = "/static/assets"
   config.digest      = true
 end
 
