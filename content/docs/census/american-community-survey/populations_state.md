@@ -1,0 +1,97 @@
+---
+title: Populations - Single State
+summary: Return the population of a given state.
+---
+
+# <%= @item[:title] %>
+<%= @item[:summary] %>
+
+## Request URL
+
+`GET http://api.data.gov/census/american-community-survey/v1/{year}/populations/{state}?parameters`
+
+## Request Parameters
+
+<table border="0" cellpadding="0" cellspacing="0" class="doc-parameters">
+  <thead>
+    <tr>
+      <th class="doc-parameters-name" scope="col">Parameter</th>
+      <th class="doc-parameters-required" scope="col">Required</th>
+      <th class="doc-parameters-value" scope="col">Value</th>
+      <th class="doc-parameters-description" scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="doc-parameter-name" scope="row">year</th>
+      <td class="doc-parameter-required">Yes</td>
+      <td class="doc-parameter-value">
+        <div class="doc-parameter-value-field">
+          <strong>Type:</strong> integer</div>
+
+        <div class="doc-parameter-value-field">
+          <strong>Default:</strong> None</div>
+
+        <div class="doc-parameter-value-field">
+          <strong>Options:</strong> <em>2010</em>, <em>2011</em>
+        </div>
+      </td>
+      <td class="doc-parameter-description">
+        <p>The American Community Survey year to pick.</p>
+      </td>
+    </tr>
+    <tr>
+      <th class="doc-parameter-name" scope="row">state</th>
+      <td class="doc-parameter-required">Yes</td>
+      <td class="doc-parameter-value">
+        <div class="doc-parameter-value-field">
+          <strong>Type:</strong> string</div>
+
+        <div class="doc-parameter-value-field">
+          <strong>Default:</strong> None</div>
+
+        <div class="doc-parameter-value-field">
+          <strong>Options:</strong> <em>json</em>, <em>xml</em>
+        </div>
+      </td>
+      <td class="doc-parameter-description">
+        <p>Two letter <a href="http://en.wikipedia.org/wiki/List_of_U.S._state_abbreviations#Table">USPS state code</a> of the state.</p>
+      </td>
+    </tr>
+    <tr>
+      <th class="doc-parameter-name" scope="row">api_key</th>
+      <td class="doc-parameter-required">Yes</td>
+      <td class="doc-parameter-value">
+        <div class="doc-parameter-value-field">
+          <strong>Type:</strong> string</div>
+
+        <div class="doc-parameter-value-field">
+          <strong>Default:</strong> None</div>
+      </td>
+      <td class="doc-parameter-description">
+        <p>Your developer API key. See <a href="/doc/api-key">API keys</a> for more information.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Examples
+
+### JSON Output Format
+
+<div class="doc-example-url">GET <a href="http://api.data.gov/census/american-community-survey/v1/2011/populations/NY?api_key=DEMO_KEY">http://api.data.gov/census/american-community-survey/v1/2011/populations/NY?api_key=DEMO_KEY</a></div>
+
+```json
+[
+  ["B02001_001E","NAME","state"],
+  ["19302448","New York","36"]
+]
+```
+
+## Rate Limits
+
+[Standard rate limits](/docs/rate-limits) apply. No more than 1,000 requests may be made in any hour. No more than 10,000 requests may be made in any day.
+
+## Errors
+
+[Standard errors](/docs/errors) may be returned.

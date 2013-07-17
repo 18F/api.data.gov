@@ -1,0 +1,8 @@
+<% @item.children.each do |child| %>
+<% if(child[:kind] != "info") %>
+<h2><%= link_to(child[:title], child) %></h2>
+<% if(child[:summary]) %>
+<p><%= child[:summary] %></p>
+<% end %>
+<% end %>
+<% end %>

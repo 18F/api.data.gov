@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= @item[:title] %></title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="en" name="language">
+    <meta content="width=1015,maximum-scale=1.0" name="viewport">
+    <meta name="generator" content="nanoc <%= Nanoc::VERSION %>"> 
+
+    <link rel="stylesheet" type="text/css" media="all" href="<%= asset_path("application.scss") %>" />
+    <!--[if IE]>
+      <link rel="stylesheet" type="text/css" media="all" href="<%= asset_path("ie.scss") %>" />
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="<%= asset_path("ie_lt_9.js") %>"></script>
+    <![endif]-->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="<%= asset_path("application.js") %>"></script>
+  </head>
+  <body>
+    <%= render("preheader") %>
+
+    <div class="container-fluid">
+      <div class="corner-ribbon-wrapper right">
+        <div class="corner-ribbon">
+          <span>BETA</span>
+        </div>
+      </div>
+
+      <div id="main" class="row-fluid">
+        <header>
+          <div id="logo"><a class="logo" href="#" title="Home">Data.gov</a></div>
+        </header>
+        <%= render("navigation") %>
+
+        <%= render("breadcrumbs") %>
+
+        <div id="content">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer" class="container-fluid">
+      <div id="footer-inner">
+        <div id="footer-menu">
+          <ul class="menu">
+            <li class="first leaf"><a href="http://www.data.gov/about">About</a></li>
+            <li class="leaf"><a href="http://www.data.gov/accessibility">Accessibility</a></li>
+            <li class="leaf"><a href="http://www.data.gov/contact-us">Contact Us</a></li>
+            <li class="leaf"><a href="http://www.data.gov/data-policy">Data Policy</a></li>
+            <li class="leaf"><a href="http://www.data.gov/faq">FAQ</a></li>
+            <li class="leaf"><a href="http://www.data.gov/privacy-policy">Privacy Policy</a></li>
+            <li class="leaf"><a href="http://www.data.gov/sitemap" title="">Sitemap</a></li>
+            <li class="last leaf"><a href="http://www.usa.gov" title="">USA.gov</a></li>
+          </ul>
+        </div>
+        <div id="footer-logo"><img src="/images/gsa/datagov-footer-logo.png" alt="Data.gov" /></div>
+      </div>
+    </div>
+  </body>
+</html>

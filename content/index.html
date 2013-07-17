@@ -1,0 +1,37 @@
+---
+title: Home
+---
+
+<p>Data.gov's developer network helps developers access and use Web services across the federal government.</p>
+<hr>
+
+<div class="row-fluid">
+  <div class="span4 feature feature-doc">
+    <h2><a href="/docs">Web Service Documentation</a></h2>
+    <p>Explore our available Web services.</p>
+    <ul>
+      <% @item.children.each do |child| %>
+        <% if(child[:kind] != "info") %>
+          <li><%= link_to(child[:title], child) %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="span4 feature feature-key">
+    <h2><a href="/signup">API Key</a></h2>
+    <p>Sign up to use our APIs.</p>
+    <ul>
+      <li><a href="/signup">Get an API Key</a></li>
+    </ul>
+
+  </div>
+
+  <div class="span4 feature feature-community">
+    <h2><a href="/community">Community</a></h2>
+    <p>Join the discussion and stay updated.</p>
+    <ul>
+      <li><a href="http://twitter.com/usadatagov">Follow Us on Twitter</a></li>
+    </ul>
+  </div>
+</div>
