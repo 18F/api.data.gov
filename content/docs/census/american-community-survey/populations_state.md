@@ -8,7 +8,7 @@ summary: Return the population of a given state.
 
 ## Request URL
 
-`GET http://api.data.gov/census/american-community-survey/v1/{year}/populations/{state}?parameters`
+`GET http://api.data.gov/census/american-community-survey/v1/{year}/populations/states/{state}?parameters`
 
 ## Request Parameters
 
@@ -79,7 +79,7 @@ summary: Return the population of a given state.
 
 ### JSON Output Format
 
-<div class="doc-example-url">GET <a href="http://api.data.gov/census/american-community-survey/v1/2011/populations/NY?api_key=DEMO_KEY">/census/american-community-survey/v1/2011/populations/NY?api_key=DEMO_KEY</a></div>
+<div class="doc-example-url">GET <a href="http://api.data.gov/census/american-community-survey/v1/2011/populations/states/NY?api_key=DEMO_KEY">/census/american-community-survey/v1/2011/populations/states/NY?api_key=DEMO_KEY</a></div>
 
 ```json
 [
