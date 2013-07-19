@@ -30,7 +30,11 @@ compile '*' do
 
     case item[:extension]
     when 'md'
-      filter :redcarpet, :renderer => HTMLwithPygments, :options => { :fenced_code_blocks => true }
+      filter :redcarpet, :renderer => HTMLwithPygments, :options => {
+        :fenced_code_blocks => true,
+        :disable_indented_code_blocks => true,
+        :no_intra_emphasis => true,
+      }
     end
 
     layout 'default'
