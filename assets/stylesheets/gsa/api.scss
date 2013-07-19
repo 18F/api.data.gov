@@ -84,4 +84,32 @@ div#footer div#footer-menu ul.menu {
   font-size: pxtoem(12px);
 }
 
+hr {
+  margin: 18px 0px;
+}
+
+.home-callout {
+  text-align: center;
+  font-size: pxtoem(16px);
+  padding: 0px;
+  margin: 20px 0px 35px 0px;
+}
+
+.home-about {
+  text-align: center;
+  margin: 18px 0px;
+}
+
+.btn {
+  color: #333 !important;
+  text-decoration: none !important;
+}
+
+.btn-primary, .btn-info {
+  color: #fff !important;
+}
+
+.home-about {
+}
+
 @import "gsa/corner_ribbon";
