@@ -1,0 +1,9 @@
+---
+title: Accessibility Clearinghouse
+summary: The 21st Century Communications and Video Accessibility Act put into motion new requirements to ensure that everyone has access to communications as well as the ability to send and receive emergency information and services.
+---
+
+# <%= @item[:title] %>
+<%= @item[:summary] %>
+
+For web service details, documentation, and access, see the [Accessibility Clearinghouse API documentation](http://apps.fcc.gov/accessibilityclearinghouse/developers.html). Your api.data.gov API key can be used to make all API calls there.
