@@ -1,5 +1,6 @@
 ---
 title: About api.data.gov
+body_class: about-page
 ---
 
 # About api.data.gov
@@ -10,12 +11,17 @@ title: About api.data.gov
 
 api.data.gov acts as a layer above your existing APIs. It transparently adds  extra functionality to your APIs and helps deal with some of the repetitive parts of managing APIs.
 
+![features of api.data.gov](http://farm4.staticflickr.com/3680/9302707420_dbc7c2c437_o.png)
+
 - **You're in control:** You still have complete control of building and hosting your APIs however you like.
 - **No changes required:** No changes are required to your API, but when it's accessed through api.data.gov, we'll transparently add features and handle the boring stuff.
 - **Focus on the APIs:** You're freed from worrying about things like API keys, rate limiting, and gathering usage stats, so you can focus on building the next great API.
+- **Make it easy for your users:** By providing a standard entry point to participating APIs, it's easier for developers to explore and use APIs across the federal government.
+
+![join the api.data.gov federated api network!](http://farm6.staticflickr.com/5515/9299911959_bdc195fb56_o.png)
 
 ## Features
-![features of api.data.gov](http://farm4.staticflickr.com/3680/9302707420_dbc7c2c437_o.png)
+
 ### API Keys
 
 We'll handle API keys for you:
@@ -38,9 +44,6 @@ We'll track all the traffic to your API and give you tools to easily analyze it:
 
 We can help with publishing documentation for your API:
 - **Hosted or linked:** We can host the documentation of your API, or, if you already have your own developer portal, we can simply link to it.
-
-![join the api.data.gov federated api network!](http://farm6.staticflickr.com/5515/9299911959_bdc195fb56_o.png)
-
 - **One stop shop:** As more agencies add APIs to api.data.gov, users will be able to discover and explore more government APIs all at one destination.
 
 ### Rate Limiting

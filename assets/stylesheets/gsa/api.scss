@@ -109,7 +109,24 @@ hr {
   color: #fff !important;
 }
 
-.home-about {
+.about-page {
+  p, li {
+    font-size: pxtoem(15px);
+  }
+
+  p {
+    padding: 0px;
+    margin: 15px 0px;
+  }
+
+  h2 {
+    border-bottom: 1px solid #eee;
+    margin: 18px 0px 10px 0px;
+  }
+
+  h3 {
+    margin: 16px 0px 8px 0px;
+  }
 }
 
 @import "gsa/corner_ribbon";

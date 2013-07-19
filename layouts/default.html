@@ -18,7 +18,7 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript" src="<%= asset_path("application.js") %>"></script>
   </head>
-  <body>
+  <body class="<%= @item[:body_class] %>">
     <%= render("preheader") %>
 
     <div class="container-fluid">
