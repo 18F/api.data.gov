@@ -8,7 +8,7 @@ summary: Search for all providers with a specified name.
 
 ## Request URL
 
-`GET http://api.data.gov/fcc/broadbandmap/provider?parameters`
+<pre>GET http://api.data.gov/fcc/broadbandmap/provider<em>?parameters</em></pre>
 
 ## Request Parameters
 
@@ -152,8 +152,7 @@ summary: Search for all providers with a specified name.
 
 ### JSON Output Format
 
-<div class="doc-example-url">GET <a href="/fcc/broadbandmap/provider?api_key=DEMO_KEY&amp;format=json">/fcc/broadbandmap/provider?api_key=DEMO_KEY&amp;format=json</a>
-</div>
+<pre>GET <a href="/fcc/broadbandmap/provider?api_key=DEMO_KEY&amp;format=json">/fcc/broadbandmap/provider?api_key=DEMO_KEY&amp;format=json</a></pre>
 
 ```json
 {
@@ -180,8 +179,7 @@ summary: Search for all providers with a specified name.
 
 ### XML Output Format
 
-<div class="doc-example-url">GET <a href="/fcc/broadbandmap/provider?api_key=DEMO_KEY&amp;format=xml">/fcc/broadbandmap/provider?api_key=DEMO_KEY&amp;format=xml</a>
-</div>
+<pre>GET <a href="/fcc/broadbandmap/provider?api_key=DEMO_KEY&amp;format=xml">/fcc/broadbandmap/provider?api_key=DEMO_KEY&amp;format=xml</a></pre>
 
 ```xml
 <?xml version="1.0" ?>
