@@ -1,10 +1,14 @@
 ---
 title: Nearest Stations
 summary: Return the nearest alternative fuel stations within a distance of a given location.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

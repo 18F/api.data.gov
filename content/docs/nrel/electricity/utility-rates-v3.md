@@ -1,12 +1,16 @@
 ---
 title: Utility Rates
 summary: This service returns annual average utility rates ($/kWH) for residential, commercial and industrial sectors as well as the local utility name for a specific location. This service does not return complex rate information.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
 
 Version 3 is the current version of the utility rates API. Previous versions have been deprecated and its users are encouraged to migrate to this newly enhanced version.
+
+<ul id="toc"></ul>
 
 ## Request URL
 

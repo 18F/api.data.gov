@@ -1,10 +1,14 @@
 ---
 title: All Stations
 summary: Return a full list of alternative fuel stations that match your query.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

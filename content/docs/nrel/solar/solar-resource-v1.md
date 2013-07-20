@@ -1,10 +1,14 @@
 ---
 title: Solar Resource Data
 summary: Returns various types of solar data for a location. The service currently returns data for average Direct Normal Irradiance, average Global Horizontal Irradiance, and average Tilt at Latitude.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

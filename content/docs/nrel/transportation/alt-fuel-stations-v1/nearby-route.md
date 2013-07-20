@@ -1,12 +1,16 @@
 ---
 title: Stations Nearby Route
 summary: Find alternative fuel stations within a distance of a driving route.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
 
 Driving directions and route generation are not provided by this service. You must first determine your route and then pass this service a representation of that route as a line (a series of latitude and longitude points).
+
+<ul id="toc"></ul>
 
 ## Request URL
 

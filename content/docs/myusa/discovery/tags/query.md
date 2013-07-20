@@ -1,10 +1,14 @@
 ---
 title: Tags Query
 summary: Lookup Tags by query
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

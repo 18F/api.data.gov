@@ -30,6 +30,8 @@ compile '*' do
 
     case item[:extension]
     when 'md'
+      filter :mustache
+
       filter :redcarpet, :renderer => HTMLwithPygments, :options => {
         :fenced_code_blocks => true,
         :disable_indented_code_blocks => true,
@@ -37,10 +39,12 @@ compile '*' do
       }
     end
 
+    filter :add_ids_to_headers
+
     layout 'default'
 
     filter :cache_buster
-  end
+end
 end
 
 route "/CNAME/" do

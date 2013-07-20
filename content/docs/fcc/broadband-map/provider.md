@@ -1,10 +1,14 @@
 ---
 title: Broadband Providers
 summary: Search for all providers with a specified name.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

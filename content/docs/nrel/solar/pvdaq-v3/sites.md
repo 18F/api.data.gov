@@ -1,10 +1,14 @@
 ---
 title: Sites Metadata
 summary: Fetch metadata for PVDAQ sites.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

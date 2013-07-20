@@ -1,9 +1,10 @@
 ---
 title: Tags
 summary: 
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
 
 <%= render("child_links") %>

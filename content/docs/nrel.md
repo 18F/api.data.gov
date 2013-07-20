@@ -1,7 +1,8 @@
 ---
 title: National Renewable Energy Laboratory
+
 ---
 
-# <%= @item[:title] %>
+# {{title}}
 
 <%= render("child_links") %>

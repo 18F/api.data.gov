@@ -1,7 +1,8 @@
 ---
 title: Census
+
 ---
 
-# <%= @item[:title] %>
+# {{title}}
 
 <%= render("child_links") %>

@@ -1,10 +1,14 @@
 ---
 title: Last Updated Date
 summary: Retrieve the date when the alternative fuel stations data were last updated.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

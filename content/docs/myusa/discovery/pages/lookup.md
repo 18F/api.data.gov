@@ -1,10 +1,14 @@
 ---
 title: Get a page by URL
 summary: Lookup a page by its URL
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

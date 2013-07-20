@@ -1,10 +1,14 @@
 ---
 title: Populations - Single State
 summary: Return the population of a given state.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

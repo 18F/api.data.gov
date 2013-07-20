@@ -1,10 +1,14 @@
 ---
 title: Populations - All States
 summary: Return the populations of all states.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

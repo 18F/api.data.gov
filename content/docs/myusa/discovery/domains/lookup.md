@@ -1,10 +1,14 @@
 ---
 title: Domain Query
 summary: Lookup domains by reverse name
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

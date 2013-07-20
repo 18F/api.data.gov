@@ -1,7 +1,8 @@
 ---
 title: Federal Communications Commission
+
 ---
 
-# <%= @item[:title] %>
+# {{title}}
 
 <%= render("child_links") %>

@@ -8,21 +8,17 @@ h2, h3 {
   margin-top: 12px;
 }
 
-.toc {
+#toc {
   border: 1px solid #e2e2e2;
   background-color: #f7f7f7;
   color: #999;
-  float: left;
-  padding: 10px 0px;
-}
+  margin: 0px 0px 1em 0px;
+  padding: 0.6em 2em;
+  display: inline-block;
 
-.toc ul {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-.toc a:visited {
-  color:#004f99;
+  a:visited {
+    color:#004f99;
+  }
 }
 
 .doc-service-url {

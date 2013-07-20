@@ -1,10 +1,14 @@
 ---
 title: Solar Dataset Query
 summary: Returns information on the closest climate data for a location.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

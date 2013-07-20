@@ -1,10 +1,14 @@
 ---
 title: Domain Lookup
 summary: Lookup domains by ID
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

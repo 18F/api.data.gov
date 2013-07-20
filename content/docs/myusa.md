@@ -1,7 +1,8 @@
 ---
 title: MyUSA
+
 ---
 
-# <%= @item[:title] %>
+# {{title}}
 
 <%= render("child_links") %>

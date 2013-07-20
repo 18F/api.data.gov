@@ -1,10 +1,14 @@
 ---
 title: Get Station by ID
 summary: Fetch the details of a specific alternative fuel station given the station's ID.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

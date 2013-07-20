@@ -1,10 +1,14 @@
 ---
 title: Commercial Building Vocabularies
 summary: A list of terms for a given vocabulary in the Commercial Buildings Resource Database.  Useful for advanced search integration.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

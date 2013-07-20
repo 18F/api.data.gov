@@ -1,10 +1,14 @@
 ---
 title: Commercial Building Resources
 summary: A searchable and filterable list of resources.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

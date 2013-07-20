@@ -1,10 +1,14 @@
 ---
 title: Get a page by ID
 summary: Retrieve a page by its ID
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

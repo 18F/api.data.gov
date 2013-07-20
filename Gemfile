@@ -28,6 +28,12 @@ gem "redcarpet"
 # Syntax highlighting
 gem "pygments.rb"
 
+# HTML parsing
+gem "nokogiri"
+
+# For simple variables in templates
+gem "mustache"
+
 group :development do
   # Static file server for nanoc development
   gem "adsf"

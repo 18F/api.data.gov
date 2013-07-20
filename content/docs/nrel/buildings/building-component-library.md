@@ -1,10 +1,11 @@
 ---
 title: Building Component Library
 summary: Access energy data on individual components or energy conservation measures for buildings. This data can be used to create building energy models.
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
 
 For web service details, documentation, and access, see the [Building Component Library API documentation](https://bcl.nrel.gov/developer).
 

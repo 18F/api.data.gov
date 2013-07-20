@@ -1,6 +1,7 @@
 ---
 title: General Web Service Errors
 kind: info
+
 ---
 
 # General Web Service Errors

@@ -1,10 +1,14 @@
 ---
 title: Update a page
 summary: Rate a page or update its tags
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

@@ -1,12 +1,16 @@
 ---
 title: PVWatts
 summary: NREL's PVWatts calculates the energy production and cost savings of grid-connected photovoltaic (PV) energy systems. This service estimates the performance of hypothetical residential and small commercial PV installations.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
 
 Version 4 is the current version of the PVWatts API. Previous versions have been deprecated and its users are encouraged to migrate to this newly enhanced version.
+
+<ul id="toc"></ul>
 
 ## Request URL
 

@@ -1,10 +1,14 @@
 ---
 title: Raw Data
 summary: Return raw data for a specific PVDAQ system and date range.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

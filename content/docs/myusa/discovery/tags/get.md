@@ -1,10 +1,14 @@
 ---
 title: Pages by tag
 summary: Retrieve a page by tag(s)
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 

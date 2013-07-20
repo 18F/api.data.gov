@@ -1,10 +1,14 @@
 ---
 title: Utility Rates by Census Region
 summary: Given a location and Census Bureau region level (block, blockgroup, tract), return the Census Bureau ID, utility rate and company information.
+disqus: true
+
 ---
 
-# <%= @item[:title] %>
-<%= @item[:summary] %>
+# {{title}}
+{{summary}}
+
+<ul id="toc"></ul>
 
 ## Request URL
 
