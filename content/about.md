@@ -55,6 +55,10 @@ You might not want to allow all users to have uncontrolled access to your APIs:
 - **Per user limits:** Individual users can be given higher or lower rate limits.
 - **No coding required:** No code changes are required to your API. If your API is being hit, you can simply assume it's from a user that hasn't exceeded their rate limits.
 
+### Open Source
+
+api.data.gov is powered by the open source project [API Umbrella](https://github.com/NREL/api-umbrella/). You can contribute to the development of this platform, or setup your own instance and run all this same stack yourself.
+
 ## How To Participate
 
 If you're interested in exploring any of this for your APIs please [contact us](http://api.data.gov/contact). In general, it's easy to take an existing API and put it behind api.data.gov, so you can see how things work.
