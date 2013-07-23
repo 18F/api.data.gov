@@ -44,6 +44,7 @@ We'll track all the traffic to your API and give you tools to easily analyze it:
 ### Documentation
 
 We can help with publishing documentation for your API:
+
 - **Hosted or linked:** We can host the documentation of your API, or, if you already have your own developer portal, we can simply link to it.
 - **One stop shop:** As more agencies add APIs to api.data.gov, users will be able to discover and explore more government APIs all at one destination.
 
