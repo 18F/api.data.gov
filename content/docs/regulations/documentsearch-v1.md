@@ -21,7 +21,7 @@ disqus: true
 
 ## Request Parameters
 
-<table>
+<table border="0" cellpadding="0" cellspacing="0" class="doc-parameters">
   <thead>
     <tr>
       <th>Parameter</th>
