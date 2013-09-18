@@ -12,13 +12,13 @@ disqus: true
 
 ## Request URL
 
-<pre>GET http://api.data.gov/regulations/getdocument/v1<em>.format?parameters</em></pre>
+<pre>GET http://api.data.gov/regulations/document/v2<em>.format?parameters</em></pre>
 
 ## Sample Requests
 
-1. Using FR Number: <pre><a href="http://api.data.gov/regulations/getdocument/v1.xml?api_key=DEMO_KEY&FR=2011-31912">http://api.data.gov/regulations/getdocument/v1.xml?api_key=DEMO_KEY&FR=2011-31912</a></pre>
-2. Using Document ID: <pre><a href="http://api.data.gov/regulations/getdocument/v1.xml?api_key=DEMO_KEY&D=EPA_FRDOC_0001-10857">http://api.data.gov/regulations/getdocument/v1.xml?api_key=DEMO_KEY&D=EPA_FRDOC_0001-10857</a></pre>
-3. Using JSON output: <pre><a href="http://api.data.gov/regulations/getdocument/v1.json?api_key=DEMO_KEY&FR=2011-31912">http://api.data.gov/regulations/getdocument/v1.json?api_key=DEMO_KEY&FR=2011-31912</a></pre>
+1. Using FR Number: <pre><a href="http://api.data.gov/regulations/document/v2.xml?api_key=DEMO_KEY&FR=2011-31912">http://api.data.gov/regulations/document/v2.xml?api_key=DEMO_KEY&FR=2011-31912</a></pre>
+2. Using Document ID: <pre><a href="http://api.data.gov/regulations/document/v2.xml?api_key=DEMO_KEY&D=EPA_FRDOC_0001-10857">http://api.data.gov/regulations/document/v2.xml?api_key=DEMO_KEY&D=EPA_FRDOC_0001-10857</a></pre>
+3. Using JSON output: <pre><a href="http://api.data.gov/regulations/document/v2.json?api_key=DEMO_KEY&FR=2011-31912">http://api.data.gov/regulations/document/v2.json?api_key=DEMO_KEY&FR=2011-31912</a></pre>
 
 ## Request Parameters
 
