@@ -8,6 +8,10 @@ disqus: true
 # {{title}}
 {{summary}}
 
+<p style="background-color:#FFFFCC; border:2px solid #707070; padding: 5px">
+Please review the Regulations.gov <a href="http://www.regulations.gov/#!developers;page=termsOfService">Terms of Service</a>
+</p>
+
 <ul id="toc"></ul>
 
 ## Request URL
@@ -285,9 +289,9 @@ disqus: true
     <tr>
       <td></td>
       <td>
-        <p><a href="http://regsdr.erulemaking.net/apitest/api/documentsearch/v1.xml?api_key=5cab55bb-8bde-4b95-80c0-bd745fe3d412&amp;encoded=1&amp;countsOnly=0&amp;dct=N%252BFR%252BPR&amp;np=0"><strong>-</strong></a> &lt;documents&gt;<br>
-        <a href="http://regsdr.erulemaking.net/apitest/api/documentsearch/v1.xml?api_key=5cab55bb-8bde-4b95-80c0-bd745fe3d412&amp;encoded=1&amp;countsOnly=0&amp;dct=N%252BFR%252BPR&amp;np=0"><strong>+</strong></a> &lt;document&gt;<br>
-        <a href="http://regsdr.erulemaking.net/apitest/api/documentsearch/v1.xml?api_key=5cab55bb-8bde-4b95-80c0-bd745fe3d412&amp;encoded=1&amp;countsOnly=0&amp;dct=N%252BFR%252BPR&amp;np=0"><strong>-</strong></a> &lt;document&gt;</p>
+        <p><a href="http://api.data.gov/regulations/v2/documents?api_key=DEMO_KEY&amp;encoded=1&amp;countsOnly=0&amp;dct=N%252BFR%252BPR&amp;np=0"><strong>-</strong></a> &lt;documents&gt;<br>
+        <a href="http://api.data.gov/regulations/v2/documents?api_key=DEMO_KEY&amp;encoded=1&amp;countsOnly=0&amp;dct=N%252BFR%252BPR&amp;np=0"><strong>+</strong></a> &lt;document&gt;<br>
+        <a href="http://api.data.gov/regulations/v2/documents?api_key=DEMO_KEY&amp;encoded=1&amp;countsOnly=0&amp;dct=N%252BFR%252BPR&amp;np=0"><strong>-</strong></a> &lt;document&gt;</p>
       </td>
     </tr>
 
@@ -368,22 +372,22 @@ disqus: true
 
     <tr>
       <td></td>
-      <td><a href="http://regsdr.erulemaking.net/apitest/api/documentsearch/v1.xml?api_key=5cab55bb-8bde-4b95-80c0-bd745fe3d412&amp;encoded=1&amp;countsOnly=0&amp;dct=N%252BFR%252BPR&amp;np=0"><strong>-</strong></a> &lt;metadata&gt;</td>
+      <td><a href="http://api.data.gov/regulations/v2/documents?api_key=DEMO_KEY&amp;encoded=1&amp;countsOnly=0&amp;dct=N%252BFR%252BPR&amp;np=0"><strong>-</strong></a> &lt;metadata&gt;</td>
     </tr>
 
     <tr>
       <td><strong>Query for Document Status (Posted, Withdrawn)</strong></td>
-      <td><a href="http://regsdr.erulemaking.net/apitest/api/documentsearch/v1.xml?api_key=5cab55bb-8bde-4b95-80c0-bd745fe3d412&amp;encoded=1&amp;countsOnly=0&amp;dct=N%252BFR%252BPR&amp;np=0"><strong>-</strong></a> &lt;entry name="<span style="color: rgb(0,0,255);">Status</span>"&gt;<span style="color: rgb(0,0,255);">Posted</span>&lt;/entry&gt;</td>
+      <td><a href="http://api.data.gov/regulations/v2/documents?api_key=DEMO_KEY&amp;encoded=1&amp;countsOnly=0&amp;dct=N%252BFR%252BPR&amp;np=0"><strong>-</strong></a> &lt;entry name="<span style="color: rgb(0,0,255);">Status</span>"&gt;<span style="color: rgb(0,0,255);">Posted</span>&lt;/entry&gt;</td>
     </tr>
 
     <tr>
       <td><strong>Query for Date Posted (MM/DD/YYYY)</strong></td>
-      <td><a href="http://regsdr.erulemaking.net/apitest/api/documentsearch/v1.xml?api_key=5cab55bb-8bde-4b95-80c0-bd745fe3d412&amp;encoded=1&amp;countsOnly=0&amp;dct=N%252BFR%252BPR&amp;np=0"><strong>-</strong></a> &lt;entry name="<span style="color: rgb(0,0,255);">Date Posted</span>"&gt;<span style="color: rgb(0,0,255);">December 02 2011, at 12:00 AM Eastern Standard Time</span>&lt;/entry&gt;</td>
+      <td><a href="http://api.data.gov/regulations/v2/documents?api_key=DEMO_KEY&amp;encoded=1&amp;countsOnly=0&amp;dct=N%252BFR%252BPR&amp;np=0"><strong>-</strong></a> &lt;entry name="<span style="color: rgb(0,0,255);">Date Posted</span>"&gt;<span style="color: rgb(0,0,255);">December 02 2011, at 12:00 AM Eastern Standard Time</span>&lt;/entry&gt;</td>
     </tr>
 
     <tr>
       <td><strong>Query for Comment Due Date (MM/DD/YYYY)</strong></td>
-      <td><a href="http://regsdr.erulemaking.net/apitest/api/documentsearch/v1.xml?api_key=5cab55bb-8bde-4b95-80c0-bd745fe3d412&amp;encoded=1&amp;countsOnly=0&amp;dct=N%252BFR%252BPR&amp;np=0"><strong>-</strong></a> &lt;entry name="<span style="color: rgb(0,0,255);">Comment Due Date</span>"&gt;<span style="color: rgb(0,0,255);">January 17 2012, at 11:59 PM Eastern Standard Time</span>&lt;/entry&gt;</td>
+      <td><a href="http://api.data.gov/regulations/v2/documents?api_key=DEMO_KEY&amp;encoded=1&amp;countsOnly=0&amp;dct=N%252BFR%252BPR&amp;np=0"><strong>-</strong></a> &lt;entry name="<span style="color: rgb(0,0,255);">Comment Due Date</span>"&gt;<span style="color: rgb(0,0,255);">January 17 2012, at 11:59 PM Eastern Standard Time</span>&lt;/entry&gt;</td>
     </tr>
 
     <tr>
