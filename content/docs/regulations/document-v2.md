@@ -8,6 +8,10 @@ disqus: true
 # {{title}}
 {{summary}}
 
+<p style="background-color:#FFFFCC; border:2px solid #707070; padding: 5px">
+Please review the Regulations.gov <a href="http://www.regulations.gov/#!developers;page=termsOfService">Terms of Service</a>
+</p>
+
 <ul id="toc"></ul>
 
 ## Request URL
