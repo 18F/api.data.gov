@@ -20,7 +20,7 @@ Please review the Regulations.gov <a href="http://www.regulations.gov/#!develope
 
 ## Sample Requests
 
-<pre><a href="http://api.data.gov/regulations/v2/docket.xml?api_key=DEMO_KEY&D=EPA_FRDOC_0001">http://api.data.gov/regulations/docket/v2.xml?api_key=DEMO_KEY&D=EPA_FRDOC_0001</a></pre>
+<pre><a href="http://api.data.gov/regulations/v2/docket.xml?api_key=DEMO_KEY&D=EPA_FRDOC_0001">http://api.data.gov/regulations/v2/docket.xml?api_key=DEMO_KEY&D=EPA_FRDOC_0001</a></pre>
 
 ## Request Parameters
 
