@@ -16,11 +16,11 @@ Please review the Regulations.gov <a href="http://www.regulations.gov/#!develope
 
 ## Request URL
 
-<pre>GET http://api.data.gov/regulations/docket/v2<em>.format?parameters</em></pre>
+<pre>GET http://api.data.gov/regulations/v2/docket<em>.format?parameters</em></pre>
 
 ## Sample Requests
 
-<pre><a href="http://api.data.gov/regulations/docket/v2.xml?api_key=DEMO_KEY&D=EPA_FRDOC_0001">http://api.data.gov/regulations/docket/v2.xml?api_key=DEMO_KEY&D=EPA_FRDOC_0001</a></pre>
+<pre><a href="http://api.data.gov/regulations/v2/docket.xml?api_key=DEMO_KEY&D=EPA_FRDOC_0001">http://api.data.gov/regulations/v2/docket.xml?api_key=DEMO_KEY&D=EPA_FRDOC_0001</a></pre>
 
 ## Request Parameters
 
