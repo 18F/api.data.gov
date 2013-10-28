@@ -16,11 +16,11 @@ Please review the Regulations.gov <a href="http://www.regulations.gov/#!develope
 
 ## Request URL
 
-<pre>GET http://api.data.gov/regulations/documentsearch/v1<em>.format?parameters</em></pre>
+<pre>GET http://api.data.gov/regulations/2/documents<em>.format?parameters</em></pre>
 
 ## Sample Requests
 
-1. All EPA documents containing the search term 'tires': <pre><a href="http://api.data.gov/regulations/documentsearch/v1.xml?api_key=DEMO_KEY&a=EPA&rpp=10&po=0&s=tires&encoded=1&countsOnly=0">http://api.data.gov/regulations/documentsearch/v1.xml?api_key=DEMO_KEY&a=EPA&rpp=10&po=0&s=tires&encoded=1&countsOnly=0</a></pre>
+1. All EPA documents containing the search term 'tires': <pre><a href="http://api.data.gov/regulations/v2/documents.xml?api_key=DEMO_KEY&a=EPA&rpp=10&po=0&s=tires&encoded=1&countsOnly=0">http://api.data.gov/regulations/documentsearch/v1.xml?api_key=DEMO_KEY&a=EPA&rpp=10&po=0&s=tires&encoded=1&countsOnly=0</a></pre>
 2. All FR documents posted today: <pre><a href="http://api.data.gov/regulations/v2/documents.xml?api_key=DEMO_KEY&encoded=1&countsOnly=0&dct=N%252BFR%252BPR&np=0">http://api.data.gov/regulations/v2/documents.xml?api_key=DEMO_KEY&encoded=1&countsOnly=0&dct=N%252BFR%252BPR&np=0</a></pre>
 
 ## Request Parameters
