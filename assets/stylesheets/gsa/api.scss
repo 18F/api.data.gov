@@ -129,4 +129,36 @@ hr {
   }
 }
 
+h3.doc {
+  margin-top: 0.5em;
+  margin-bottom: 2px;
+}
+
+h1 span.url,
+h3.doc span.url {
+  color: #777;
+  font-weight: normal;
+  padding-left: 12px;
+}
+
+h1 span.url {
+  font-size: 14px;
+}
+
+h3.doc span.url {
+  font-size: 12px;
+}
+
+h3#general-information {
+  margin-top: 1.5em;
+}
+
+span {
+  color: inherit;
+}
+
+.CodeRay {
+  margin-bottom: 1em;
+}
+
 @import "gsa/corner_ribbon";

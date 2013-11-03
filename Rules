@@ -32,10 +32,12 @@ compile '*' do
     when 'md'
       filter :mustache
 
-      filter :redcarpet, :renderer => HTMLwithPygments, :options => {
-        :fenced_code_blocks => true,
-        :disable_indented_code_blocks => true,
-        :no_intra_emphasis => true,
+      filter :kramdown, {
+        :input => 'GFM',
+        :smart_quotes => ['apos', 'apos', 'quot', 'quot'],
+        :enable_coderay => true,
+        :coderay_css => :class,
+        :coderay_line_numbers => nil,
       }
     end
 
@@ -44,7 +46,7 @@ compile '*' do
     layout 'default'
 
     filter :cache_buster
-end
+  end
 end
 
 route "/CNAME/" do

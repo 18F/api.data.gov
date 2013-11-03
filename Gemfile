@@ -14,19 +14,20 @@ gem "nanoc-cachebuster"
 
 # Javascript compression
 gem "uglifier"
+gem "therubyracer"
 
 # Sass stylesheets and compression
 gem "sass"
 gem "compass"
 
 # Twitter bootstrap
-gem "bootstrap-sass"
+gem "bootstrap-sass", "~> 2.3.2.2"
 
 # Markdown
-gem "redcarpet"
+gem "kramdown", ">= 1.2.0"
 
 # Syntax highlighting
-gem "pygments.rb"
+gem "coderay"
 
 # HTML parsing
 gem "nokogiri"

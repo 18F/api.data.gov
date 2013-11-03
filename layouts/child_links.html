@@ -1,9 +1,10 @@
-<% @item.children.sort_by { |i| i[:title] }.each do |child| %>
-<% next if(child[:hidden]) %>
-<% if(child[:kind] != "info") %>
-<h2><%= link_to(child[:title], child) %></h2>
-<% if(child[:summary]) %>
-<p><%= child[:summary] %></p>
-<% end %>
-<% end %>
+<% primary = @item.children.reject { |i| (i[:deprecated] == true) }.sort_by { |i| i[:title] } %>
+<% deprecated = @item.children.find_all { |i| (i[:deprecated] == true) }.sort_by { |i| i[:title] } %>
+
+<%= render("children", :children => primary) %>
+
+<% if(deprecated.any?) %>
+<hr>
+<h2>Deprecated</h2>
+<%= render("children", :children => deprecated) %>
 <% end %>

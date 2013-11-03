@@ -1,0 +1,14 @@
+<% children.each do |child| %>
+<% next if(child[:hidden]) %>
+<% if(child[:kind] != "info") %>
+<h3 class="doc">
+<%= link_to(child[:title], child) %>
+<% if(child[:url]) %>
+<span class="url">(<%= child[:url] %>)</span>
+<% end %>
+</h3>
+<% if(child[:summary]) %>
+<%= child[:summary] %>
+<% end %>
+<% end %>
+<% end %>
