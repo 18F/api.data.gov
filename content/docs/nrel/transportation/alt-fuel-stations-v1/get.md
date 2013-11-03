@@ -1,18 +1,20 @@
 ---
 title: Get Station by ID
-summary: Fetch the details of a specific alternative fuel station given the station's ID.
+summary: Fetch the details of a specific alternative fuel station given the station's
+  ID.
+url: GET /api/alt-fuel-stations/v1/:id
 disqus: true
 
 ---
 
-# {{title}}
+# {{title}} <span class="url">({{url}})</span>
 {{summary}}
 
 <ul id="toc"></ul>
 
 ## Request URL
 
-<pre>GET http://api.data.gov/nrel/alt-fuel-stations/v1/:id<em>.format?parameters</em></pre>
+<pre>GET /api/alt-fuel-stations/v1/:id<em>.format?parameters</em></pre>
 
 ## Request Parameters
 
@@ -58,7 +60,7 @@ The following query parameters may be passed in the request to control the outpu
         </div>
       </td>
       <td class="doc-parameter-description">
-        <p>Your developer API key. See <a href="/doc/api-key">API key usage</a> for more information.</p>
+        <p>Your developer API key. See <a href="/docs/api-key/">API key usage</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -391,7 +393,9 @@ The response is composed of the fuel station matching the requested query. The s
           <strong>Type:</strong> record
         </div>
       </td>
-      <td class="doc-parameter-description">If the station is owned by a federal agency, a record for the federal agency that owns this station. See <a href="#federal-agency-record-fields">federal agency record fields</a> for response details.</td>
+      <td class="doc-parameter-description">
+        If the station is owned by a federal agency, a record for the federal agency that owns this station. See <a href="#federal-agency-record-fields">federal agency record fields</a> for response details.
+      </td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">bd_blends</th>
@@ -728,7 +732,9 @@ The response is composed of the fuel station matching the requested query. The s
           <strong>Type:</strong> datetime
         </div>
       </td>
-      <td class="doc-parameter-description">The time the station's details were last updated (<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format).</td>
+      <td class="doc-parameter-description">
+        The time the station's details were last updated (<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format).
+      </td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">id</th>
@@ -778,7 +784,7 @@ The response is composed of the fuel station matching the requested query. The s
 
 ### JSON Output Format
 
-<pre>GET <a href="/nrel/alt-fuel-stations/v1/39534.json?api_key=DEMO_KEY">/nrel/alt-fuel-stations/v1/39534.json?api_key=DEMO_KEY</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/alt-fuel-stations/v1/39534.json?api_key=DEMO_KEY">/api/alt-fuel-stations/v1/39534.json?api_key=DEMO_KEY</a></pre>
 
 ```json
 {
@@ -828,44 +834,44 @@ The response is composed of the fuel station matching the requested query. The s
 
 ### XML Output Format
 
-<pre>GET <a href="/nrel/alt-fuel-stations/v1/39534.xml?api_key=DEMO_KEY">/nrel/alt-fuel-stations/v1/39534.xml?api_key=DEMO_KEY</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/alt-fuel-stations/v1/39534.xml?api_key=DEMO_KEY">/api/alt-fuel-stations/v1/39534.xml?api_key=DEMO_KEY</a></pre>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <alt-fuel-station>
-  <access-days-time nil="true" />
-  <bd-blends nil="true" />
-  <cards-accepted nil="true" />
+  <access-days-time nil="true"/>
+  <bd-blends nil="true"/>
+  <cards-accepted nil="true"/>
   <city>Golden</city>
   <date-last-confirmed>2012-12-31</date-last-confirmed>
-  <expected-date nil="true" />
+  <expected-date nil="true"/>
   <fuel-type-code>ELEC</fuel-type-code>
   <geocode-status>200-8</geocode-status>
   <groups-with-access-code>Private access only</groups-with-access-code>
-  <hy-status-link nil="true" />
+  <hy-status-link nil="true"/>
   <intersection-directions>Building 17</intersection-directions>
   <latitude>39.7408399</latitude>
   <longitude>-105.1685277</longitude>
   <open-date>2011-05-20</open-date>
   <owner-type-code>FG</owner-type-code>
-  <plus4 nil="true" />
+  <plus4 nil="true"/>
   <station-name>National Renewable Energy Laboratory - Denver West</station-name>
-  <station-phone nil="true" />
+  <station-phone nil="true"/>
   <status-code>E</status-code>
   <street-address>15013 Denver West Pkwy</street-address>
   <zip>80401</zip>
   <state>CO</state>
-  <ng-fill-type-code nil="true" />
-  <ng-psi nil="true" />
-  <ng-vehicle-class nil="true" />
-  <e85-blender-pump nil="true" />
-  <ev-level1-evse-num nil="true" />
+  <ng-fill-type-code nil="true"/>
+  <ng-psi nil="true"/>
+  <ng-vehicle-class nil="true"/>
+  <e85-blender-pump nil="true"/>
+  <ev-level1-evse-num nil="true"/>
   <ev-level2-evse-num>38</ev-level2-evse-num>
-  <ev-dc-fast-num nil="true" />
-  <ev-other-evse nil="true" />
-  <ev-network nil="true" />
-  <ev-network-web nil="true" />
-  <lpg-primary nil="true" />
+  <ev-dc-fast-num nil="true"/>
+  <ev-other-evse nil="true"/>
+  <ev-network nil="true"/>
+  <ev-network-web nil="true"/>
+  <lpg-primary nil="true"/>
   <id>39534</id>
   <updated-at>2013-01-16T16:09:02Z</updated-at>
   <federal-agency>
@@ -877,7 +883,7 @@ The response is composed of the fuel station matching the requested query. The s
 
 ### CSV Output Format
 
-<pre>GET <a href="/nrel/alt-fuel-stations/v1/39534.csv?api_key=DEMO_KEY">/nrel/alt-fuel-stations/v1/39534.csv?api_key=DEMO_KEY</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/alt-fuel-stations/v1/39534.csv?api_key=DEMO_KEY">/api/alt-fuel-stations/v1/39534.csv?api_key=DEMO_KEY</a></pre>
 
 ```
 Fuel Type Code,Station Name,Street Address,Intersection Directions,City,State,ZIP,Plus4,Station Phone,Status Code,Expected Date,Groups With Access Code,Access Days Time,Cards Accepted,BD Blends,NG Fill Type Code,NG PSI,EV Level1 EVSE Num,EV Level2 EVSE Num,EV DC Fast Count,EV Other Info,EV Network,EV Network Web,Geocode Status,Latitude,Longitude,Date Last Confirmed,ID,Updated At,Owner Type Code,Federal Agency ID,Federal Agency Name,Open Date,Hydrogen Status Link,NG Vehicle Class,LPG Primary,E85 Blender Pump

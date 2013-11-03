@@ -1,18 +1,19 @@
 ---
 title: Solar Dataset Query
 summary: Returns information on the closest climate data for a location.
+url: GET /api/solar/data_query/v1
 disqus: true
 
 ---
 
-# {{title}}
+# {{title}} <span class="url">({{url}})</span>
 {{summary}}
 
 <ul id="toc"></ul>
 
 ## Request URL
 
-<pre>GET http://api.data.gov/nrel/solar/data_query/v1<em>.format?parameters</em></pre>
+<pre>GET /api/solar/data_query/v1<em>.format?parameters</em></pre>
 
 ## Request Parameters
 
@@ -56,7 +57,7 @@ disqus: true
         </div>
       </td>
       <td class="doc-parameter-description">
-        <p>Your developer API key. See <a href="/doc/api-key">API keys</a> for more information.</p>
+        <p>Your developer API key. See <a href="/docs/api-key/">API keys</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -164,11 +165,15 @@ The response is composed of service-related informational fields and information
             </tr>
             <tr>
               <th scope="row">tmy2</th>
-              <td>TMY2 station data (see <a href="http://rredc.nrel.gov/solar/old_data/nsrdb/1961-1990/tmy2/State.html" target="_blank">Typical Meteorological Year, version 2</a>)</td>
+              <td>
+                TMY2 station data (see <a href="http://rredc.nrel.gov/solar/old_data/nsrdb/1961-1990/tmy2/State.html" target="_blank">Typical Meteorological Year, version 2</a>)
+              </td>
             </tr>
             <tr>
               <th scope="row">tmy3</th>
-              <td>TMY3 station data (see <a href="http://rredc.nrel.gov/solar/old_data/nsrdb/1991-2005/tmy3/by_USAFN.html">Typical Meteorological Year version 3</a>)</td>
+              <td>
+                TMY3 station data (see <a href="http://rredc.nrel.gov/solar/old_data/nsrdb/1991-2005/tmy3/by_USAFN.html">Typical Meteorological Year version 3</a>)
+              </td>
             </tr>
             <tr>
               <th scope="row">intl</th>
@@ -241,63 +246,62 @@ The output fields contain the following information regarding climate data files
 
 ### JSON Output Format
 
-<pre>GET <a href="http://api.data.gov/nrel/solar/data_query/v1.json?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105">http://api.data.gov/nrel/solar/data_query/v1.json?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/solar/data_query/v1.json?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105">/api/solar/data_query/v1.json?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105</a></pre>
 
 ```json
 {
-    "metadata": {
+  "metadata": {
+  },
+  "errors": [
 
+  ],
+  "version": "0.0.9",
+  "inputs": {
+    "lon": "-105",
+    "lat": "40",
+    "api_key": "DEMO_KEY"
+  },
+  "warnings": [
+
+  ],
+  "outputs": {
+    "perez": {
+      "lon": -105.3,
+      "elevation": 1555,
+      "city": "satellite data",
+      "state": "",
+      "id": "0-10440-105054005",
+      "timezone": -7,
+      "distance": 42089,
+      "lat": 40.3
     },
-    "errors": [
-
-    ],
-    "version": "0.0.9",
-    "inputs": {
-        "lon": "-105",
-        "lat": "40",
-        "api_key": "DEMO_KEY"
+    "tmy2": {
+      "lon": -105.15,
+      "elevation": 1634,
+      "city": "BOULDER",
+      "state": "CO",
+      "id": "1-94018",
+      "timezone": -7,
+      "distance": 16924,
+      "lat": 40.1
     },
-    "warnings": [
-
-    ],
-    "outputs": {
-        "perez": {
-            "lon": -105.3,
-            "elevation": 1555,
-            "city": "satellite data",
-            "state": "",
-            "id": "0-10440-105054005",
-            "timezone": -7,
-            "distance": 42089,
-            "lat": 40.3
-        },
-        "tmy2": {
-            "lon": -105.15,
-            "elevation": 1634,
-            "city": "BOULDER",
-            "state": "CO",
-            "id": "1-94018",
-            "timezone": -7,
-            "distance": 16924,
-            "lat": 40.1
-        },
-        "tmy3": {
-            "lon": -105.24,
-            "elevation": 1689,
-            "city": "BROOMFIELD/JEFFCO [BOULDER - SURFRAD]",
-            "state": "CO",
-            "id": "2-724699",
-            "timezone": -7,
-            "distance": 24977,
-            "lat": 40.13
-        }
+    "tmy3": {
+      "lon": -105.24,
+      "elevation": 1689,
+      "city": "BROOMFIELD/JEFFCO [BOULDER - SURFRAD]",
+      "state": "CO",
+      "id": "2-724699",
+      "timezone": -7,
+      "distance": 24977,
+      "lat": 40.13
     }
+  }
 }
 ```
 
 ### XML Output Format
 
-<pre>GET <a href="http://api.data.gov/nrel/solar/data_query/v1.xml?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105">http://api.data.gov/nrel/solar/data_query/v1.xml?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/solar/data_query/v1.xml?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105">/api/solar/data_query/v1.xml?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105</a></pre>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -305,8 +309,7 @@ The output fields contain the following information regarding climate data files
   <version>0.0.9</version>
   <warnings type="array"/>
   <errors type="array"/>
-  <metadata>
-  </metadata>
+  <metadata/>
   <inputs>
     <api-key>DEMO_KEY</api-key>
     <lat>40</lat>
@@ -316,7 +319,7 @@ The output fields contain the following information regarding climate data files
     <perez>
       <id>0-10440-105054005</id>
       <city>satellite data</city>
-      <state></state>
+      <state/>
       <timezone type="integer">-7</timezone>
       <lat type="float">40.3</lat>
       <lon type="float">-105.3</lon>

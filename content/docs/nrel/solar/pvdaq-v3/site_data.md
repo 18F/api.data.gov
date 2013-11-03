@@ -1,18 +1,19 @@
 ---
 title: Aggregated Site Data
 summary: Return aggregated IEC61724 data for a specific PVDAQ system and date range.
+url: GET /api/pvdaq/v3/site_data
 disqus: true
 
 ---
 
-# {{title}}
+# {{title}} <span class="url">({{url}})</span>
 {{summary}}
 
 <ul id="toc"></ul>
 
 ## Request URL
 
-<pre>GET https://api.data.gov/nrel/pvdaq/v3/site_data<em>.format?parameters</em></pre>
+<pre>GET /api/pvdaq/v3/site_data<em>.format?parameters</em></pre>
 
 ## HTTP Basic Authentication
 
@@ -60,7 +61,7 @@ For PVDAQ services, in addition to your developer API key, you must also provide
         </div>
       </td>
       <td class="doc-parameter-description">
-        <p>Your developer API key. See <a href="/doc/api-key">API keys</a> for more information.</p>
+        <p>Your developer API key. See <a href="/docs/api-key/">API keys</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -162,8 +163,6 @@ For PVDAQ services, in addition to your developer API key, you must also provide
 
 ## Response Fields
 
-
-
 <table border="0" cellpadding="0" cellspacing="0" class="doc-parameters">
   <thead>
     <tr>
@@ -246,12 +245,16 @@ For PVDAQ services, in addition to your developer API key, you must also provide
 
 ### JSON Output Format
 
-<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/site_data.json?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011&amp;aggregate=hourly">https://api.data.gov/nrel/pvdaq/v3/site_data.json?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011&amp;aggregate=hourly</a></pre>
+<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/site_data.json?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011&amp;aggregate=hourly">/api/pvdaq/v3/site_data.json?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011&amp;aggregate=hourly</a></pre>
 
 ```json
 {
-  "errors": [],
-  "infos": [],
+  "errors": [
+
+  ],
+  "infos": [
+
+  ],
   "inputs": {
     "aggregate": "hourly",
     "api_key": "DEMO_KEY",
@@ -331,13 +334,15 @@ For PVDAQ services, in addition to your developer API key, you must also provide
     ]
   ],
   "version": "3.0.1",
-  "warnings": []
+  "warnings": [
+
+  ]
 }
 ```
 
 ### XML Output Format
 
-<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/site_data.xml?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011&amp;aggregate=hourly">https://api.data.gov/nrel/pvdaq/v3/site_data.xml?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011&amp;aggregate=hourly</a></pre>
+<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/site_data.xml?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011&amp;aggregate=hourly">/api/pvdaq/v3/site_data.xml?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011&amp;aggregate=hourly</a></pre>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -429,7 +434,7 @@ For PVDAQ services, in addition to your developer API key, you must also provide
 
 ### CSV Output Format
 
-<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/site_data.csv?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011&amp;aggregate=hourly">https://api.data.gov/nrel/pvdaq/v3/site_data.csv?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011&amp;aggregate=hourly</a></pre>
+<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/site_data.csv?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011&amp;aggregate=hourly">/api/pvdaq/v3/site_data.csv?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011&amp;aggregate=hourly</a></pre>
 
 ```
 measdatetime,array_capture_losses,array_energy_fraction,array_performance_ratio,array_yield,availability,bos_efficiency,bos_losses,energy_from_array,energy_from_grid,energy_to_grid,final_yield,load_efficiency,mean_array_efficiency,poa_irradiation,reference_yield,system_id,system_performance_ratio,total_energy_input,total_energy_output,total_system_efficiency
@@ -455,7 +460,9 @@ measdatetime,array_capture_losses,array_energy_fraction,array_performance_ratio,
   <tbody>
     <tr>
       <th class="doc-parameter-name" scope="row">401</th>
-      <td class="doc-parameter-description">Unauthorized - For PVDAQ services, you must also provide a username and password for your PVDAQ account via <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Authentication</a>. For login credentials, contact <a href="mailto:ryan.smith@nrel.gov">Ryan Smith</a>.</td>
+      <td class="doc-parameter-description">
+        Unauthorized - For PVDAQ services, you must also provide a username and password for your PVDAQ account via <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Authentication</a>. For login credentials, contact <a href="mailto:ryan.smith@nrel.gov">Ryan Smith</a>.
+      </td>
     </tr>
   </tbody>
   <tbody>

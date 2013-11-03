@@ -1,18 +1,21 @@
 ---
 title: Solar Resource Data
-summary: Returns various types of solar data for a location. The service currently returns data for average Direct Normal Irradiance, average Global Horizontal Irradiance, and average Tilt at Latitude.
+summary: Returns various types of solar data for a location. The service currently
+  returns data for average Direct Normal Irradiance, average Global Horizontal Irradiance,
+  and average Tilt at Latitude.
+url: GET /api/solar/solar_resource/v1
 disqus: true
 
 ---
 
-# {{title}}
+# {{title}} <span class="url">({{url}})</span>
 {{summary}}
 
 <ul id="toc"></ul>
 
 ## Request URL
 
-<pre>GET http://api.data.gov/nrel/solar/solar_resource/v1<em>.format?parameters</em></pre>
+<pre>GET /api/solar/solar_resource/v1<em>.format?parameters</em></pre>
 
 ## Request Parameters
 
@@ -56,7 +59,7 @@ disqus: true
         </div>
       </td>
       <td class="doc-parameter-description">
-        <p>Your developer API key. See <a href="/doc/api-key">API keys</a> for more information.</p>
+        <p>Your developer API key. See <a href="/docs/api-key/">API keys</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -151,14 +154,17 @@ The response is composed of service-related informational fields and the results
     <tr>
       <th class="doc-parameter-name" scope="row">outputs</th>
       <td class="doc-parameter-value"><strong>Type:</strong> collection</td>
-      <td class="doc-parameter-description">The data outputs from the request. (see <a href="#output-fields">output fields</a> for more detail)</td>
+      <td class="doc-parameter-description">
+        The data outputs from the request. (see <a href="#output-fields">output fields</a> for more detail)
+      </td>
     </tr>
   </tbody>
 </table>
 
 ### Output Fields
 
-<span>The output fields contain the following solar data.</span>
+The output fields contain the following solar data.
+
 <table border="0" cellpadding="0" cellspacing="0" class="doc-parameters">
   <thead>
     <tr>
@@ -175,7 +181,9 @@ The response is composed of service-related informational fields and the results
         <p>decimal (annual),</p>
         <p>collection of decimals (monthly)</p>
       </td>
-      <td class="doc-parameter-description"><strong>Average Direct Normal Irradiance</strong>: This data provides monthly average and annual average daily total solar resource averaged over surface cells of 0.1 degrees in both latitude and longitude, or about 10 km in size. The values returned are kWh/m<sup>2</sup>/day (kilowatt hours per square meter per day). The insolation values represent the resource available to concentrating systems that track the sun throughout the day. The data are created using the SUNY Satellite Solar Radiation model (Perez, et.al., 2002). The data are averaged from hourly model output over 12 years (1998-2009). This model uses hourly radiance images from geostationary weather satellites, daily snow cover data, and monthly averages of atmospheric water vapor, trace gases, and the amount of aerosols in the atmosphere to calculate the hourly total insolation (sun and sky) falling on a horizontal surface. The direct beam radiation is then calculated using the atmospheric water vapor, trace gases, and aerosols, which are derived from a variety of sources. Where possible, existing ground measurement stations are used to validate the data. (see <a href="http://www.nrel.gov/gis" target="_blank">http://www.nrel.gov/gis</a>)</td>
+      <td class="doc-parameter-description">
+        <strong>Average Direct Normal Irradiance</strong>: This data provides monthly average and annual average daily total solar resource averaged over surface cells of 0.1 degrees in both latitude and longitude, or about 10 km in size. The values returned are kWh/m<sup>2</sup>/day (kilowatt hours per square meter per day). The insolation values represent the resource available to concentrating systems that track the sun throughout the day. The data are created using the SUNY Satellite Solar Radiation model (Perez, et.al., 2002). The data are averaged from hourly model output over 12 years (1998-2009). This model uses hourly radiance images from geostationary weather satellites, daily snow cover data, and monthly averages of atmospheric water vapor, trace gases, and the amount of aerosols in the atmosphere to calculate the hourly total insolation (sun and sky) falling on a horizontal surface. The direct beam radiation is then calculated using the atmospheric water vapor, trace gases, and aerosols, which are derived from a variety of sources. Where possible, existing ground measurement stations are used to validate the data. (see <a href="http://www.nrel.gov/gis" target="_blank">http://www.nrel.gov/gis</a>)
+      </td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">avg_ghi</th>
@@ -184,7 +192,9 @@ The response is composed of service-related informational fields and the results
         <p>decimal (annual),</p>
         <p>collection of decimals (monthly)</p>
       </td>
-      <td class="doc-parameter-description"><strong>Average Global Horizontal Irradiance</strong>: This data provides monthly average and annual average daily total solar resource averaged over surface cells of 0.1 degrees in both latitude and longitude, or about 10 km in size. The values returned are kWh/m<sup>2</sup>/day (kilowatt hours per square meter per day). The insolation values represent the global horizontal resource - the geometric sum of direct normal and diffuse irradiance components, representing total energy available on a planar surface. The data are created using the SUNY Satellite Solar Radiation model (Perez, et.al., 2002). The data are averaged from hourly model output over 12 years (1998-2009). This model uses hourly radiance images from geostationary weather satellites, daily snow cover data, and monthly averages of atmospheric water vapor, trace gases, and the amount of aerosols in the atmosphere to calculate the hourly total insolation (sun and sky) falling on a horizontal surface. The direct beam radiation is then calculated using the atmospheric water vapor, trace gases, and aerosols, which are derived from a variety of sources. Where possible, existing ground measurement stations are used to validate the data. (see <a href="http://www.nrel.gov/gis" target="_blank">http://www.nrel.gov/gis</a>)</td>
+      <td class="doc-parameter-description">
+        <strong>Average Global Horizontal Irradiance</strong>: This data provides monthly average and annual average daily total solar resource averaged over surface cells of 0.1 degrees in both latitude and longitude, or about 10 km in size. The values returned are kWh/m<sup>2</sup>/day (kilowatt hours per square meter per day). The insolation values represent the global horizontal resource - the geometric sum of direct normal and diffuse irradiance components, representing total energy available on a planar surface. The data are created using the SUNY Satellite Solar Radiation model (Perez, et.al., 2002). The data are averaged from hourly model output over 12 years (1998-2009). This model uses hourly radiance images from geostationary weather satellites, daily snow cover data, and monthly averages of atmospheric water vapor, trace gases, and the amount of aerosols in the atmosphere to calculate the hourly total insolation (sun and sky) falling on a horizontal surface. The direct beam radiation is then calculated using the atmospheric water vapor, trace gases, and aerosols, which are derived from a variety of sources. Where possible, existing ground measurement stations are used to validate the data. (see <a href="http://www.nrel.gov/gis" target="_blank">http://www.nrel.gov/gis</a>)
+      </td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">avg_lat_tilt</th>
@@ -193,7 +203,9 @@ The response is composed of service-related informational fields and the results
         <p>decimal (annual),</p>
         <p>collection of decimals (monthly)</p>
       </td>
-      <td class="doc-parameter-description"><strong>Average Tilt at Latitude</strong>: This data provides monthly average and annual average daily total solar resource averaged over surface cells of 0.1 degrees in both latitude and longitude, or about 10 km in size. The values returned are kWh/m<sup>2</sup>/day (kilowatt hours per square meter per day). The insolation values represent the resource available to fixed flat plate system tilted towards the equator at an angle equal to the latitude. The data are created using the SUNY Satellite Solar Radiation model (Perez, et.al., 2002). The data are averaged from hourly model output over 12 years (1998-2009). This model uses hourly radiance images from geostationary weather satellites, daily snow cover data, and monthly averages of atmospheric water vapor, trace gases, and the amount of aerosols in the atmosphere to calculate the hourly total insolation (sun and sky) falling on a horizontal surface. The direct beam radiation is then calculated using the atmospheric water vapor, trace gases, and aerosols, which are derived from a variety of sources. Where possible, existing ground measurement stations are used to validate the data. (see <a href="http://www.nrel.gov/gis" target="_blank">http://www.nrel.gov/gis</a>)</td>
+      <td class="doc-parameter-description">
+        <strong>Average Tilt at Latitude</strong>: This data provides monthly average and annual average daily total solar resource averaged over surface cells of 0.1 degrees in both latitude and longitude, or about 10 km in size. The values returned are kWh/m<sup>2</sup>/day (kilowatt hours per square meter per day). The insolation values represent the resource available to fixed flat plate system tilted towards the equator at an angle equal to the latitude. The data are created using the SUNY Satellite Solar Radiation model (Perez, et.al., 2002). The data are averaged from hourly model output over 12 years (1998-2009). This model uses hourly radiance images from geostationary weather satellites, daily snow cover data, and monthly averages of atmospheric water vapor, trace gases, and the amount of aerosols in the atmosphere to calculate the hourly total insolation (sun and sky) falling on a horizontal surface. The direct beam radiation is then calculated using the atmospheric water vapor, trace gases, and aerosols, which are derived from a variety of sources. Where possible, existing ground measurement stations are used to validate the data. (see <a href="http://www.nrel.gov/gis" target="_blank">http://www.nrel.gov/gis</a>)
+      </td>
     </tr>
   </tbody>
 </table>
@@ -202,73 +214,77 @@ The response is composed of service-related informational fields and the results
 
 ### JSON Output Format
 
-<pre>GET <a href="http://api.data.gov/nrel/solar/solar_resource/v1.json?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105">http://api.data.gov/nrel/solar/solar_resource/v1.json?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/solar/solar_resource/v1.json?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105">/api/solar/solar_resource/v1.json?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105</a></pre>
 
 ```json
 {
-  version: "1.0.0",
-  warnings: [ ],
-  errors: [ ],
-  metadata: {
-    sources: [
+  "version": "1.0.0",
+  "warnings": [
+
+  ],
+  "errors": [
+
+  ],
+  "metadata": {
+    "sources": [
       "Perez-SUNY/NREL, 2012"
     ]
   },
-  inputs: {
-    api_key: "DEMO_KEY",
-    lat: "40",
-    lon: "-105"
+  "inputs": {
+    "api_key": "DEMO_KEY",
+    "lat": "40",
+    "lon": "-105"
   },
-  outputs: {
-    avg_dni: {
-      annual: 6.06,
-      monthly: {
-        jan: 5,
-        feb: 5.34,
-        mar: 5.94,
-        apr: 6.11,
-        may: 6.36,
-        jun: 7.43,
-        jul: 7.48,
-        aug: 6.65,
-        sep: 6.81,
-        oct: 5.82,
-        nov: 5.11,
-        dec: 4.67
+  "outputs": {
+    "avg_dni": {
+      "annual": 6.06,
+      "monthly": {
+        "jan": 5,
+        "feb": 5.34,
+        "mar": 5.94,
+        "apr": 6.11,
+        "may": 6.36,
+        "jun": 7.43,
+        "jul": 7.48,
+        "aug": 6.65,
+        "sep": 6.81,
+        "oct": 5.82,
+        "nov": 5.11,
+        "dec": 4.67
       }
     },
-    avg_ghi: {
-      annual: 4.81,
-      monthly: {
-        jan: 2.5,
-        feb: 3.43,
-        mar: 4.69,
-        apr: 5.69,
-        may: 6.6,
-        jun: 7.25,
-        jul: 7.14,
-        aug: 6.24,
-        sep: 5.35,
-        oct: 3.85,
-        nov: 2.75,
-        dec: 2.19
+    "avg_ghi": {
+      "annual": 4.81,
+      "monthly": {
+        "jan": 2.5,
+        "feb": 3.43,
+        "mar": 4.69,
+        "apr": 5.69,
+        "may": 6.6,
+        "jun": 7.25,
+        "jul": 7.14,
+        "aug": 6.24,
+        "sep": 5.35,
+        "oct": 3.85,
+        "nov": 2.75,
+        "dec": 2.19
       }
     },
-    avg_lat_tilt: {
-      annual: 5.82,
-      monthly: {
-        jan: 4.79,
-        feb: 5.4,
-        mar: 6.07,
-        apr: 6.11,
-        may: 6.25,
-        jun: 6.47,
-        jul: 6.58,
-        aug: 6.44,
-        sep: 6.53,
-        oct: 5.71,
-        nov: 4.99,
-        dec: 4.47
+    "avg_lat_tilt": {
+      "annual": 5.82,
+      "monthly": {
+        "jan": 4.79,
+        "feb": 5.4,
+        "mar": 6.07,
+        "apr": 6.11,
+        "may": 6.25,
+        "jun": 6.47,
+        "jul": 6.58,
+        "aug": 6.44,
+        "sep": 6.53,
+        "oct": 5.71,
+        "nov": 4.99,
+        "dec": 4.47
       }
     }
   }
@@ -277,9 +293,10 @@ The response is composed of service-related informational fields and the results
 
 ### XML Output Format
 
-<pre>GET <a href="http://api.data.gov/nrel/solar/solar_resource/v1.xml?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105">http://api.data.gov/nrel/solar/solar_resource/v1.xml?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/solar/solar_resource/v1.xml?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105">/api/solar/solar_resource/v1.xml?api_key=DEMO_KEY&amp;lat=40&amp;lon=-105</a></pre>
 
 ```xml
+<?xml version="1.0"?>
 <response>
   <version>1.0.0</version>
   <warnings type="array"/>

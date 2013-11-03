@@ -1,18 +1,19 @@
 ---
 title: Raw Data
 summary: Return raw data for a specific PVDAQ system and date range.
+url: GET /api/pvdaq/v3/data
 disqus: true
 
 ---
 
-# {{title}}
+# {{title}} <span class="url">({{url}})</span>
 {{summary}}
 
 <ul id="toc"></ul>
 
 ## Request URL
 
-<pre>GET https://api.data.gov/nrel/pvdaq/v3/data<em>.format?parameters</em></pre>
+<pre>GET /api/pvdaq/v3/data<em>.format?parameters</em></pre>
 
 ## HTTP Basic Authentication
 
@@ -60,7 +61,7 @@ For PVDAQ services, in addition to your developer API key, you must also provide
         </div>
       </td>
       <td class="doc-parameter-description">
-        <p>Your developer API key. See <a href="/doc/api-key">API keys</a> for more information.</p>
+        <p>Your developer API key. See <a href="/docs/api-key/">API keys</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -126,8 +127,6 @@ For PVDAQ services, in addition to your developer API key, you must also provide
 
 ## Response Fields
 
-
-
 <table border="0" cellpadding="0" cellspacing="0" class="doc-parameters">
   <thead>
     <tr>
@@ -144,7 +143,9 @@ For PVDAQ services, in addition to your developer API key, you must also provide
           <strong>Type:</strong> record
         </div>
       </td>
-      <td class="doc-parameter-description">A record containing the data and header names. See <a href="#output-record-fields">output record fields</a> for response details.</td>
+      <td class="doc-parameter-description">
+        A record containing the data and header names. See <a href="#output-record-fields">output record fields</a> for response details.
+      </td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">errors</th>
@@ -240,12 +241,16 @@ For PVDAQ services, in addition to your developer API key, you must also provide
 
 ### JSON Output Format
 
-<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/data.json?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011">https://api.data.gov/nrel/pvdaq/v3/data.json?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011</a></pre>
+<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/data.json?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011">/api/pvdaq/v3/data.json?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011</a></pre>
 
 ```json
 {
-  "errors": [],
-  "infos": [],
+  "errors": [
+
+  ],
+  "infos": [
+
+  ],
   "inputs": {
     "api_key": "DEMO_KEY",
     "end_date": "3/25/2011",
@@ -301,13 +306,15 @@ For PVDAQ services, in addition to your developer API key, you must also provide
     ]
   },
   "version": "3.0.0",
-  "warnings": []
+  "warnings": [
+
+  ]
 }
 ```
 
 ### XML Output Format
 
-<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/data.xml?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011">https://api.data.gov/nrel/pvdaq/v3/data.xml?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011</a></pre>
+<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/data.xml?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011">/api/pvdaq/v3/data.xml?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011</a></pre>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -375,7 +382,7 @@ For PVDAQ services, in addition to your developer API key, you must also provide
 
 ### CSV Output Format
 
-<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/data.csv?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011">https://api.data.gov/nrel/pvdaq/v3/data.csv?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011</a></pre>
+<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/data.csv?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011">/api/pvdaq/v3/data.csv?api_key=DEMO_KEY&amp;system_id=2&amp;start_date=3/24/2011&amp;end_date=3/25/2011</a></pre>
 
 ```
 SiteID,Date-Time,poa_irradiance,dc_power,dc_pos_voltage,dc_pos_current,module_temp_1,das_temp,das_battery_voltage
@@ -405,7 +412,9 @@ If the service estimates that the amount of data that will be returned for a req
   <tbody>
     <tr>
       <th class="doc-parameter-name" scope="row">401</th>
-      <td class="doc-parameter-description">Unauthorized - For PVDAQ services, you must also provide a username and password for your PVDAQ account via <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Authentication</a>. For login credentials, contact <a href="mailto:ryan.smith@nrel.gov">Ryan Smith</a>.</td>
+      <td class="doc-parameter-description">
+        Unauthorized - For PVDAQ services, you must also provide a username and password for your PVDAQ account via <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Authentication</a>. For login credentials, contact <a href="mailto:ryan.smith@nrel.gov">Ryan Smith</a>.
+      </td>
     </tr>
   </tbody>
   <tbody>

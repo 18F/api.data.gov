@@ -1,18 +1,19 @@
 ---
 title: Commercial Building Resources
 summary: A searchable and filterable list of resources.
+url: GET /api/commercial-building-resources/v1/resources
 disqus: true
 
 ---
 
-# {{title}}
+# {{title}} <span class="url">({{url}})</span>
 {{summary}}
 
 <ul id="toc"></ul>
 
 ## Request URL
 
-<pre>GET http://api.data.gov/nrel/commercial-building-resources/resources<em>.format?parameters</em></pre>
+<pre>GET /api/commercial-building-resources/resources<em>.format?parameters</em></pre>
 
 ## Request Parameters
 
@@ -56,7 +57,7 @@ disqus: true
         </div>
       </td>
       <td class="doc-parameter-description">
-        <p>Your developer API key. See <a href="/doc/api-key">API keys</a> for more information.</p>
+        <p>Your developer API key. See <a href="/docs/api-key/">API keys</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -259,9 +260,9 @@ disqus: true
 
 ## Response Fields
 
-The top-level structure of response is different for JSON vs XML format requests.   The XML format responds with a single array result of resource items.  The JSON format responds with a hash.  Each key in the JSON response hash is a nid value, and each value is a resource item.  The fields for individual resource items are consistent for JSON and XML format, and described below.  For more specfics, see Examples below. 
+*The top-level structure of response is different for JSON vs XML format requests. The XML format responds with a single array **result** of resource items. The JSON format responds with a hash. Each key in the JSON response hash is a nid value, and each value is a resource item. The fields for individual resource items are consistent for JSON and XML format, and described below. For more specfics, see Examples below.*
 
-Resource Response Fields 
+### Resource Response Fields
 
 <table border="0" cellpadding="0" cellspacing="0" class="doc-parameters">
   <thead>
@@ -676,7 +677,7 @@ Resource Response Fields
 
 ### JSON Output Format
 
-<pre>GET <a href="http://api.data.gov/nrel/commercial-building-resources/v1/resources.json?api_key=DEMO_KEY">http://api.data.gov/nrel/commercial-building-resources/v1/resources.json?api_key=DEMO_KEY</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/commercial-building-resources/v1/resources.json?portal=Energy%20Performance-Based%20Acquisition&amp;api_key=DEMO_KEY">/api/commercial-building-resources/v1/resources.json?portal=Energy%20Performance-Based%20Acquisition&amp;api_key=DEMO_KEY</a></pre>
 
 ```json
 {
@@ -726,7 +727,7 @@ Resource Response Fields
 
 ### XML Output Format
 
-<pre>GET <a href="http://api.data.gov/nrel/commercial-building-resources/v1/resources.xml?api_key=DEMO_KEY">http://api.data.gov/nrel/commercial-building-resources/v1/resources.xml?api_key=DEMO_KEY</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/commercial-building-resources/v1/resources.xml?portal=Energy%20Performance-Based%20Acquisition&amp;api_key=DEMO_KEY">/api/commercial-building-resources/v1/resources.xml?portal=Energy%20Performance-Based%20Acquisition&amp;api_key=DEMO_KEY</a></pre>
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

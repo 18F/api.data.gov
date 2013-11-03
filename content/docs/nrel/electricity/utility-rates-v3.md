@@ -1,11 +1,14 @@
 ---
 title: Utility Rates
-summary: This service returns annual average utility rates ($/kWH) for residential, commercial and industrial sectors as well as the local utility name for a specific location. This service does not return complex rate information.
+summary: This service returns annual average utility rates ($/kWH) for residential,
+  commercial and industrial sectors as well as the local utility name for a specific
+  location. This service does not return complex rate information.
+url: GET /api/utility_rates/v3
 disqus: true
 
 ---
 
-# {{title}}
+# {{title}} <span class="url">({{url}})</span>
 {{summary}}
 
 Version 3 is the current version of the utility rates API. Previous versions have been deprecated and its users are encouraged to migrate to this newly enhanced version.
@@ -14,7 +17,7 @@ Version 3 is the current version of the utility rates API. Previous versions hav
 
 ## Request URL
 
-<pre>GET http://api.data.gov/nrel/utility_rates/v3<em>.format?parameters</em></pre>
+<pre>GET /api/utility_rates/v3<em>.format?parameters</em></pre>
 
 ## Request Parameters
 
@@ -58,7 +61,7 @@ Version 3 is the current version of the utility rates API. Previous versions hav
         </div>
       </td>
       <td class="doc-parameter-description">
-        <p>Your developer API key. See <a href="/doc/api-key">API keys</a> for more information.</p>
+        <p>Your developer API key. See <a href="/docs/api-key/">API keys</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -153,7 +156,9 @@ The response is composed of service-related informational fields and the results
     <tr>
       <th class="doc-parameter-name" scope="row">outputs</th>
       <td class="doc-parameter-value"><strong>Type:</strong> collection</td>
-      <td class="doc-parameter-description">The data outputs from the request. (see <a href="#output-fields">output fields</a> for more detail)</td>
+      <td class="doc-parameter-description">
+        The data outputs from the request. (see <a href="#output-fields">output fields</a> for more detail)
+      </td>
     </tr>
   </tbody>
 </table>
@@ -206,47 +211,51 @@ The response is composed of service-related informational fields and the results
 
 ### JSON Output Format
 
-<pre>GET <a href="http://api.data.gov/nrel/utility_rates/v3.json?api_key=DEMO_KEY&amp;lat=37&amp;lon=-92">http://api.data.gov/nrel/utility_rates/v3.json?api_key=DEMO_KEY&amp;lat=37&amp;lon=-92</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/utility_rates/v3.json?api_key=DEMO_KEY&amp;lat=37&amp;lon=-92">/api/utility_rates/v3.json?api_key=DEMO_KEY&amp;lat=37&amp;lon=-92</a></pre>
 
 ```json
 {
-  inputs: {
-    api_key: "DEMO_KEY",
-    lat: "37",
-    lon: "-92"
+  "inputs": {
+    "api_key": "DEMO_KEY",
+    "lat": "37",
+    "lon": "-92"
   },
-  errors: [ ],
-  warnings: [ ],
-  version: "3.0.2",
-  metadata: {
-    sources: [
+  "errors": [
+
+  ],
+  "warnings": [
+
+  ],
+  "version": "3.0.2",
+  "metadata": {
+    "sources": [
       "Ventyx Research (2011)",
       "EIA (2011)"
     ]
   },
-  outputs: {
-    company_id: "62965|61860",
-    utility_name: "Sho ME Power Electric Coop|Howell Oregon Electric Coop Inc",
-    utility_info: [
+  "outputs": {
+    "company_id": "62965|61860",
+    "utility_name": "Sho ME Power Electric Coop|Howell Oregon Electric Coop Inc",
+    "utility_info": [
       {
-        company_id: "62965",
-        utility_name: "Sho ME Power Electric Coop"
+        "company_id": "62965",
+        "utility_name": "Sho ME Power Electric Coop"
       },
       {
-        company_id: "61860",
-        utility_name: "Howell Oregon Electric Coop Inc"
+        "company_id": "61860",
+        "utility_name": "Howell Oregon Electric Coop Inc"
       }
     ],
-    commercial: 0.0855,
-    industrial: 0.0755,
-    residential: 0.0952
+    "commercial": 0.0855,
+    "industrial": 0.0755,
+    "residential": 0.0952
   }
 }
 ```
 
 ### XML Output Format
 
-<pre>GET <a href="http://api.data.gov/nrel/utility_rates/v3.xml?api_key=DEMO_KEY&amp;lat=37&amp;lon=-92">http://api.data.gov/nrel/utility_rates/v3.xml?api_key=DEMO_KEY&amp;lat=37&amp;lon=-92</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/utility_rates/v3.xml?api_key=DEMO_KEY&amp;lat=37&amp;lon=-92">/api/utility_rates/v3.xml?api_key=DEMO_KEY&amp;lat=37&amp;lon=-92</a></pre>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -1,18 +1,20 @@
 ---
 title: Utility Rates by Census Region
-summary: Given a location and Census Bureau region level (block, blockgroup, tract), return the Census Bureau ID, utility rate and company information.
+summary: Given a location and Census Bureau region level (block, blockgroup, tract),
+  return the Census Bureau ID, utility rate and company information.
+url: GET /api/census_rate/v3
 disqus: true
 
 ---
 
-# {{title}}
+# {{title}} <span class="url">({{url}})</span>
 {{summary}}
 
 <ul id="toc"></ul>
 
 ## Request URL
 
-<pre>GET http://api.data.gov/nrel/census_rate/v3<em>.format?parameters</em></pre>
+<pre>GET /api/census_rate/v3<em>.format?parameters</em></pre>
 
 ## Request Parameters
 
@@ -56,7 +58,7 @@ disqus: true
         </div>
       </td>
       <td class="doc-parameter-description">
-        <p>Your developer API key. See <a href="/doc/api-key">API keys</a> for more information.</p>
+        <p>Your developer API key. See <a href="/docs/api-key/">API keys</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -131,10 +133,12 @@ disqus: true
           <strong>Default:</strong> block
         </div>
         <div class="doc-parameter-value-field">
-          <span><b>Options:</b></span> <em><span>block, blockgroup, tract</span></em>
+          <span style="font-weight: bold">Options:</span> <em><span>block, blockgroup, tract</span></em>
         </div>
       </td>
-      <td class="doc-parameter-description">The <a href="http://en.wikipedia.org/wiki/Census_block">Census Bureau region level</a> to return.</td>
+      <td class="doc-parameter-description">
+        The <a href="http://en.wikipedia.org/wiki/Census_block">Census Bureau region level</a> to return.
+      </td>
     </tr>
   </tbody>
 </table>
@@ -180,7 +184,9 @@ The response is composed of service-related informational fields and the results
     <tr>
       <th class="doc-parameter-name" scope="row">outputs</th>
       <td class="doc-parameter-value"><strong>Type:</strong> collection</td>
-      <td class="doc-parameter-description">The data outputs from the request. (see <a href="#output-fields">output fields</a> for more detail)</td>
+      <td class="doc-parameter-description">
+        The data outputs from the request. (see <a href="#output-fields">output fields</a> for more detail)
+      </td>
     </tr>
   </tbody>
 </table>
@@ -248,38 +254,42 @@ The response is composed of service-related informational fields and the results
 
 ### JSON Output Format
 
-<pre>GET <a href="http://api.data.gov/nrel/census_rate/v3.json?api_key=DEMO_KEY&amp;region=tract&amp;id=101&amp;lat=37&amp;lon=-92">http://api.data.gov/nrel/census_rate/v3.json?api_key=DEMO_KEY&amp;region=tract&amp;id=101&amp;lat=37&amp;lon=-92</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/census_rate/v3.json?api_key=DEMO_KEY&amp;region=tract&amp;id=101&amp;lat=37&amp;lon=-92">/api/census_rate/v3.json?api_key=DEMO_KEY&amp;region=tract&amp;id=101&amp;lat=37&amp;lon=-92</a></pre>
 
 ```json
 {
-  inputs: {
-    api_key: "DEMO_KEY",
-    lat: "37",
-    lon: "-92"
+  "inputs": {
+    "api_key": "DEMO_KEY",
+    "lat": "37",
+    "lon": "-92"
   },
-  errors: [ ],
-  warnings: [ ],
-  outputs: {
-    census_region: "290910901002052",
-    company_id: "62965|61860",
-    utility_name: "Sho ME Power Electric Coop|Howell Oregon Electric Coop Inc",
-    utility_info: [
+  "errors": [
+
+  ],
+  "warnings": [
+
+  ],
+  "outputs": {
+    "census_region": "290910901002052",
+    "company_id": "62965|61860",
+    "utility_name": "Sho ME Power Electric Coop|Howell Oregon Electric Coop Inc",
+    "utility_info": [
       {
-        company_id: "62965",
-        utility_name: "Sho ME Power Electric Coop"
+        "company_id": "62965",
+        "utility_name": "Sho ME Power Electric Coop"
       },
       {
-        company_id: "61860",
-        utility_name: "Howell Oregon Electric Coop Inc"
+        "company_id": "61860",
+        "utility_name": "Howell Oregon Electric Coop Inc"
       }
-    ], 
-    commercial: 8.549,
-    industrial: 7.549,
-    residential: 9.52
+    ],
+    "commercial": 8.549,
+    "industrial": 7.549,
+    "residential": 9.52
   },
-  version: "3.0.2",
-  metadata: {
-    sources: [
+  "version": "3.0.2",
+  "metadata": {
+    "sources": [
       "Ventyx Research (2011)",
       "EIA (2011)"
     ]
@@ -289,7 +299,7 @@ The response is composed of service-related informational fields and the results
 
 ### XML Output Format
 
-<pre>GET <a href="http://api.data.gov/nrel/census_rate/v3.xml?api_key=DEMO_KEY&amp;region=tract&amp;id=101&amp;lat=37&amp;lon=-92">http://api.data.gov/nrel/census_rate/v3.xml?api_key=DEMO_KEY&amp;region=tract&amp;id=101&amp;lat=37&amp;lon=-92</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/census_rate/v3.xml?api_key=DEMO_KEY&amp;region=tract&amp;id=101&amp;lat=37&amp;lon=-92">/api/census_rate/v3.xml?api_key=DEMO_KEY&amp;region=tract&amp;id=101&amp;lat=37&amp;lon=-92</a></pre>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

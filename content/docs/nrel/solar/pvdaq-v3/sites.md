@@ -1,18 +1,19 @@
 ---
 title: Sites Metadata
 summary: Fetch metadata for PVDAQ sites.
+url: GET /api/pvdaq/v3/sites
 disqus: true
 
 ---
 
-# {{title}}
+# {{title}} <span class="url">({{url}})</span>
 {{summary}}
 
 <ul id="toc"></ul>
 
 ## Request URL
 
-<pre>GET https://api.data.gov/nrel/pvdaq/v3/sites<em>.format?parameters</em></pre>
+<pre>GET /api/pvdaq/v3/sites<em>.format?parameters</em></pre>
 
 ## HTTP Basic Authentication
 
@@ -60,7 +61,7 @@ For PVDAQ services, in addition to your developer API key, you must also provide
         </div>
       </td>
       <td class="doc-parameter-description">
-        <p>Your developer API key. See <a href="/doc/api-key">API keys</a> for more information.</p>
+        <p>Your developer API key. See <a href="/docs/api-key/">API keys</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -96,8 +97,6 @@ For PVDAQ services, in addition to your developer API key, you must also provide
 </table>
 
 ## Response Fields
-
-
 
 <table border="0" cellpadding="0" cellspacing="0" class="doc-parameters">
   <thead>
@@ -181,12 +180,16 @@ For PVDAQ services, in addition to your developer API key, you must also provide
 
 ### JSON Output Format
 
-<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/sites.json?api_key=DEMO_KEY&amp;system_id=2">https://api.data.gov/nrel/pvdaq/v3/sites.json?api_key=DEMO_KEY&amp;system_id=2</a></pre>
+<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/sites.json?api_key=DEMO_KEY&amp;system_id=2">/api/pvdaq/v3/sites.json?api_key=DEMO_KEY&amp;system_id=2</a></pre>
 
 ```json
 {
-  "errors": [],
-  "infos": [],
+  "errors": [
+
+  ],
+  "infos": [
+
+  ],
   "inputs": {
     "api_key": "DEMO_KEY",
     "system_id": "2"
@@ -224,13 +227,15 @@ For PVDAQ services, in addition to your developer API key, you must also provide
     }
   ],
   "version": "3.0.1",
-  "warnings": []
+  "warnings": [
+
+  ]
 }
 ```
 
 ### XML Output Format
 
-<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/sites.xml?system_id=2&amp;api_key=DEMO_KEY">https://api.data.gov/nrel/pvdaq/v3/sites.xml?system_id=2&amp;api_key=DEMO_KEY</a></pre>
+<pre>GET <a href="https://api.data.gov/nrel/pvdaq/v3/sites.xml?system_id=2&amp;api_key=DEMO_KEY">/api/pvdaq/v3/sites.xml?system_id=2&amp;api_key=DEMO_KEY</a></pre>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -296,7 +301,9 @@ For PVDAQ services, in addition to your developer API key, you must also provide
   <tbody>
     <tr>
       <th class="doc-parameter-name" scope="row">401</th>
-      <td class="doc-parameter-description">Unauthorized - For PVDAQ services, you must also provide a username and password for your PVDAQ account via <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Authentication</a>. For login credentials, contact <a href="mailto:ryan.smith@nrel.gov">Ryan Smith</a>.</td>
+      <td class="doc-parameter-description">
+        Unauthorized - For PVDAQ services, you must also provide a username and password for your PVDAQ account via <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Authentication</a>. For login credentials, contact <a href="mailto:ryan.smith@nrel.gov">Ryan Smith</a>.
+      </td>
     </tr>
   </tbody>
   <tbody>

@@ -1,18 +1,20 @@
 ---
-title: Commercial Building Vocabularies
-summary: A list of terms for a given vocabulary in the Commercial Buildings Resource Database.  Useful for advanced search integration.
+title: Commercial Building Resource Vocabularies
+summary: A list of terms for a given vocabulary in the Commercial Buildings Resource
+  Database. Useful for advanced search integration.
+url: GET /api/commercial-building-resources/v1/vocabulary-name
 disqus: true
 
 ---
 
-# {{title}}
+# {{title}} <span class="url">({{url}})</span>
 {{summary}}
 
 <ul id="toc"></ul>
 
 ## Request URL
 
-<pre>GET http://api.data.gov/nrel/v1/vocabulary-name<em>.format?parameters</em></pre>
+<pre>GET /api/v1/vocabulary-name<em>.format?parameters</em></pre>
 
 ## Request Parameters
 
@@ -74,15 +76,13 @@ disqus: true
         </div>
       </td>
       <td class="doc-parameter-description">
-        <p>Your developer API key. See <a href="/doc/api-key">API keys</a> for more information.</p>
+        <p>Your developer API key. See <a href="/docs/api-key/">API keys</a> for more information.</p>
       </td>
     </tr>
   </tbody>
 </table>
 
 ## Response Fields
-
-
 
 <table border="0" cellpadding="0" cellspacing="0" class="doc-parameters">
   <thead>
@@ -147,7 +147,7 @@ Fields returned with each result.
       <th class="doc-parameter-name" scope="row">name</th>
       <td class="doc-parameter-value">
         <div class="doc-parameter-value-field">
-          <span><b>Type: String</b></span>
+          <span style="font-weight: bold">Type: String</span>
         </div>
       </td>
       <td class="doc-parameter-description">
@@ -158,7 +158,7 @@ Fields returned with each result.
       <th class="doc-parameter-name" scope="row">description</th>
       <td class="doc-parameter-value">
         <div class="doc-parameter-value-field">
-          <span><b>Type: String</b></span>
+          <span style="font-weight: bold">Type: String</span>
         </div>
       </td>
       <td class="doc-parameter-description">
@@ -169,7 +169,7 @@ Fields returned with each result.
       <th class="doc-parameter-name" scope="row">format</th>
       <td class="doc-parameter-value">
         <div class="doc-parameter-value-field">
-          <span><b>Type: String</b></span>
+          <span style="font-weight: bold">Type: String</span>
         </div>
       </td>
       <td class="doc-parameter-description">
@@ -180,7 +180,7 @@ Fields returned with each result.
       <th class="doc-parameter-name" scope="row">weight</th>
       <td class="doc-parameter-value">
         <div class="doc-parameter-value-field">
-          <span><b>Type: String</b></span>
+          <span style="font-weight: bold">Type: String</span>
         </div>
       </td>
       <td class="doc-parameter-description">
@@ -191,7 +191,7 @@ Fields returned with each result.
       <th class="doc-parameter-name" scope="row">vocabulary_machine_name</th>
       <td class="doc-parameter-value">
         <div class="doc-parameter-value-field">
-          <span><b>Type: String</b></span>
+          <span style="font-weight: bold">Type: String</span>
         </div>
       </td>
       <td class="doc-parameter-description">
@@ -202,7 +202,7 @@ Fields returned with each result.
       <th class="doc-parameter-name" scope="row">rdf_mapping</th>
       <td class="doc-parameter-value">
         <div class="doc-parameter-value-field">
-          <span><b>Type: Object</b></span>
+          <span style="font-weight: bold">Type: Object</span>
         </div>
       </td>
       <td class="doc-parameter-description">
@@ -216,7 +216,7 @@ Fields returned with each result.
 
 ### JSON Output Format
 
-<pre>GET <a href="http://api.data.gov/nrel/commercial-building-resources/v1/building-types.json?api_key=DEMO_KEY">http://api.data.gov/nrel/commercial-building-resources/building-types.json?api_key=DEMO_KEY</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/commercial-building-resources/v1/building-types.json?api_key=DEMO_KEY">/api/commercial-building-resources/building-types.json?api_key=DEMO_KEY</a></pre>
 
 ```json
 {
@@ -265,7 +265,7 @@ Fields returned with each result.
 
 ### XML Output Format
 
-<pre>GET <a href="http://api.data.gov/nrel/commercial-building-resources/v1/building-types.xml?api_key=DEMO_KEY">http://api.data.gov/nrel/commercial-building-resources/v1/service.xml?api_key=DEMO_KEY</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/commercial-building-resources/v1/building-types.xml?api_key=DEMO_KEY">/api/commercial-building-resources/v1/service.xml?api_key=DEMO_KEY</a></pre>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

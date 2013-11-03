@@ -1,6 +1,6 @@
 ---
 title: OpenEI Utility Rates
-summary: Access utility rate information, including time-of-use data, for utility companies from OpenEI's crowd-sourced database.
+summary: Access complex utility rate structure information (across all sectors) for most U.S. utility companies from the National Utility Rate Database. This information is collected and quality controlled on a continual basis by Illinois State University on behalf of DOE and housed within the OpenEI.org platform.
 
 ---
 

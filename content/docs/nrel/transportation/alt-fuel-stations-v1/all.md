@@ -1,18 +1,19 @@
 ---
 title: All Stations
 summary: Return a full list of alternative fuel stations that match your query.
+url: GET /api/alt-fuel-stations/v1
 disqus: true
 
 ---
 
-# {{title}}
+# {{title}} <span class="url">({{url}})</span>
 {{summary}}
 
 <ul id="toc"></ul>
 
 ## Request URL
 
-<pre>GET http://api.data.gov/nrel/alt-fuel-stations/v1<em>.format?parameters</em></pre>
+<pre>GET /api/alt-fuel-stations/v1<em>.format?parameters</em></pre>
 
 ## Request Parameters
 
@@ -58,7 +59,7 @@ The following query parameters may be passed in the request to control the outpu
         </div>
       </td>
       <td class="doc-parameter-description">
-        <p>Your developer API key. See <a href="/doc/api-key">API key usage</a> for more information.</p>
+        <p>Your developer API key. See <a href="/docs/api-key/">API key usage</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -608,7 +609,9 @@ The response is composed of the fuel stations matching the requested query. For 
           <strong>Type:</strong> array
         </div>
       </td>
-      <td class="doc-parameter-description">An array of matching fuel station records returned in no specific order. See <a href="#fuel-station-record-fields">fuel station record fields</a> for response details.</td>
+      <td class="doc-parameter-description">
+        An array of matching fuel station records returned in no specific order. See <a href="#fuel-station-record-fields">fuel station record fields</a> for response details.
+      </td>
     </tr>
   </tbody>
 </table>
@@ -928,7 +931,9 @@ The individual fuel station records are returned in no specific order. Each stat
           <strong>Type:</strong> record
         </div>
       </td>
-      <td class="doc-parameter-description">If the station is owned by a federal agency, a record for the federal agency that owns this station. See <a href="#federal-agency-record-fields">federal agency record fields</a> for response details.</td>
+      <td class="doc-parameter-description">
+        If the station is owned by a federal agency, a record for the federal agency that owns this station. See <a href="#federal-agency-record-fields">federal agency record fields</a> for response details.
+      </td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">bd_blends</th>
@@ -1265,7 +1270,9 @@ The individual fuel station records are returned in no specific order. Each stat
           <strong>Type:</strong> datetime
         </div>
       </td>
-      <td class="doc-parameter-description">The time the station's details were last updated (<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format).</td>
+      <td class="doc-parameter-description">
+        The time the station's details were last updated (<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format).
+      </td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">id</th>
@@ -1315,7 +1322,7 @@ The individual fuel station records are returned in no specific order. Each stat
 
 ### JSON Output Format
 
-<pre>GET <a href="/nrel/alt-fuel-stations/v1.json?api_key=DEMO_KEY&amp;fuel_type=E85,ELEC&amp;state=CA&amp;limit=2">/nrel/alt-fuel-stations/v1.json?api_key=DEMO_KEY&amp;fuel_type=E85,ELEC&amp;state=CA&amp;limit=2</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/alt-fuel-stations/v1.json?api_key=DEMO_KEY&amp;fuel_type=E85,ELEC&amp;state=CA&amp;limit=2">/api/alt-fuel-stations/v1.json?api_key=DEMO_KEY&amp;fuel_type=E85,ELEC&amp;state=CA&amp;limit=2</a></pre>
 
 ```json
 {
@@ -1402,7 +1409,7 @@ The individual fuel station records are returned in no specific order. Each stat
 
 ### XML Output Format
 
-<pre>GET <a href="/nrel/alt-fuel-stations/v1.xml?api_key=DEMO_KEY&amp;fuel_type=E85,ELEC&amp;state=CA&amp;limit=2">/nrel/alt-fuel-stations/v1.xml?api_key=DEMO_KEY&amp;fuel_type=E85,ELEC&amp;state=CA&amp;limit=2</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/alt-fuel-stations/v1.xml?api_key=DEMO_KEY&amp;fuel_type=E85,ELEC&amp;state=CA&amp;limit=2">/api/alt-fuel-stations/v1.xml?api_key=DEMO_KEY&amp;fuel_type=E85,ELEC&amp;state=CA&amp;limit=2</a></pre>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1412,75 +1419,75 @@ The individual fuel station records are returned in no specific order. Each stat
   <fuel-stations type="array">
     <fuel-station>
       <access-days-time>24 hours daily; also accept Propel Clean Drive fleet card</access-days-time>
-      <bd-blends nil="true" />
+      <bd-blends nil="true"/>
       <cards-accepted>A D M V FuelMan Voyager Wright_Exp</cards-accepted>
       <city>Fremont</city>
       <date-last-confirmed>2013-01-31</date-last-confirmed>
-      <expected-date nil="true" />
+      <expected-date nil="true"/>
       <fuel-type-code>E85</fuel-type-code>
       <geocode-status>200-8</geocode-status>
       <groups-with-access-code>Public - credit card at all times</groups-with-access-code>
-      <hy-status-link nil="true" />
+      <hy-status-link nil="true"/>
       <intersection-directions>Stevenson Blvd &amp; Paseo Padre Pkwy</intersection-directions>
       <latitude>37.5486034</latitude>
       <longitude>-121.9717542</longitude>
       <open-date>2010-08-02</open-date>
       <owner-type-code>P</owner-type-code>
-      <plus4 nil="true" />
+      <plus4 nil="true"/>
       <station-name>Propel Fuels</station-name>
       <station-phone>800-871-0773</station-phone>
       <status-code>E</status-code>
       <street-address>39707 Paseo Padre Pkwy</street-address>
       <zip>94538</zip>
       <state>CA</state>
-      <ng-fill-type-code nil="true" />
-      <ng-psi nil="true" />
-      <ng-vehicle-class nil="true" />
+      <ng-fill-type-code nil="true"/>
+      <ng-psi nil="true"/>
+      <ng-vehicle-class nil="true"/>
       <e85-blender-pump>false</e85-blender-pump>
-      <ev-level1-evse-num nil="true" />
-      <ev-level2-evse-num nil="true" />
-      <ev-dc-fast-num nil="true" />
-      <ev-other-evse nil="true" />
-      <ev-network nil="true" />
-      <ev-network-web nil="true" />
-      <lpg-primary nil="true" />
+      <ev-level1-evse-num nil="true"/>
+      <ev-level2-evse-num nil="true"/>
+      <ev-dc-fast-num nil="true"/>
+      <ev-other-evse nil="true"/>
+      <ev-network nil="true"/>
+      <ev-network-web nil="true"/>
+      <lpg-primary nil="true"/>
       <id>35946</id>
       <updated-at>2013-02-14T18:43:05Z</updated-at>
     </fuel-station>
     <fuel-station>
       <access-days-time>24 hours daily</access-days-time>
-      <bd-blends nil="true" />
+      <bd-blends nil="true"/>
       <cards-accepted>A D M V Voyager Wright_Exp</cards-accepted>
       <city>Modesto</city>
       <date-last-confirmed>2012-09-30</date-last-confirmed>
-      <expected-date nil="true" />
+      <expected-date nil="true"/>
       <fuel-type-code>E85</fuel-type-code>
       <geocode-status>200-8</geocode-status>
       <groups-with-access-code>Public - credit card at all times</groups-with-access-code>
-      <hy-status-link nil="true" />
-      <intersection-directions nil="true" />
+      <hy-status-link nil="true"/>
+      <intersection-directions nil="true"/>
       <latitude>37.634028</latitude>
       <longitude>-120.9944148</longitude>
       <open-date>2010-06-15</open-date>
       <owner-type-code>P</owner-type-code>
-      <plus4 nil="true" />
+      <plus4 nil="true"/>
       <station-name>Pacific Pride - Boyett Petroleum</station-name>
       <station-phone>209-577-6000</station-phone>
       <status-code>E</status-code>
       <street-address>401 9th St</street-address>
       <zip>95350</zip>
       <state>CA</state>
-      <ng-fill-type-code nil="true" />
-      <ng-psi nil="true" />
-      <ng-vehicle-class nil="true" />
+      <ng-fill-type-code nil="true"/>
+      <ng-psi nil="true"/>
+      <ng-vehicle-class nil="true"/>
       <e85-blender-pump>false</e85-blender-pump>
-      <ev-level1-evse-num nil="true" />
-      <ev-level2-evse-num nil="true" />
-      <ev-dc-fast-num nil="true" />
-      <ev-other-evse nil="true" />
-      <ev-network nil="true" />
-      <ev-network-web nil="true" />
-      <lpg-primary nil="true" />
+      <ev-level1-evse-num nil="true"/>
+      <ev-level2-evse-num nil="true"/>
+      <ev-dc-fast-num nil="true"/>
+      <ev-other-evse nil="true"/>
+      <ev-network nil="true"/>
+      <ev-network-web nil="true"/>
+      <lpg-primary nil="true"/>
       <id>35947</id>
       <updated-at>2012-10-12T18:28:47Z</updated-at>
     </fuel-station>
@@ -1490,7 +1497,7 @@ The individual fuel station records are returned in no specific order. Each stat
 
 ### CSV Output Format
 
-<pre>GET <a href="/nrel/alt-fuel-stations/v1.csv?api_key=DEMO_KEY&amp;fuel_type=E85,ELEC&amp;state=CA&amp;limit=2">/nrel/alt-fuel-stations/v1.csv?api_key=DEMO_KEY&amp;fuel_type=E85,ELEC&amp;state=CA&amp;limit=2</a></pre>
+<pre>GET <a href="http://api.data.gov/nrel/alt-fuel-stations/v1.csv?api_key=DEMO_KEY&amp;fuel_type=E85,ELEC&amp;state=CA&amp;limit=2">/api/alt-fuel-stations/v1.csv?api_key=DEMO_KEY&amp;fuel_type=E85,ELEC&amp;state=CA&amp;limit=2</a></pre>
 
 ```
 Fuel Type Code,Station Name,Street Address,Intersection Directions,City,State,ZIP,Plus4,Station Phone,Status Code,Expected Date,Groups With Access Code,Access Days Time,Cards Accepted,BD Blends,NG Fill Type Code,NG PSI,EV Level1 EVSE Num,EV Level2 EVSE Num,EV DC Fast Count,EV Other Info,EV Network,EV Network Web,Geocode Status,Latitude,Longitude,Date Last Confirmed,ID,Updated At,Owner Type Code,Federal Agency ID,Federal Agency Name,Open Date,Hydrogen Status Link,NG Vehicle Class,LPG Primary,E85 Blender Pump
