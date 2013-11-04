@@ -37,4 +37,9 @@
   table tbody tr {
     border-bottom-style: none;
   }
+
+  tbody.operation-params ul {
+    list-style-type: disc;
+    margin-left: 25px;
+  }
 }

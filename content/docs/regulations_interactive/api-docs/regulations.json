@@ -107,7 +107,7 @@
             },
             {
               "name": "dct",
-              "description": "",
+              "description": "Document Type<ul><li>N: Notice</li><li>PR: Proposed Rule</li><li>FR: Rule</li><li>O: Other</li><li>SR: Supporting & Related Material</li><li>PS: Public Submission</li></ul>",
               "paramType": "query",
               "required": true,
               "type": "string",
