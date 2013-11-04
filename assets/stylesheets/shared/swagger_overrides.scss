@@ -1,0 +1,40 @@
+.swagger-ui-wrap {
+  max-width: none;
+
+  font-size: 16px;
+  font-family: $baseFontFamily;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $baseFontFamily;
+  }
+
+  h3, h4, h5, h6 {
+    font-weight: normal;
+  }
+
+  .container {
+    width: auto;
+  }
+
+  ul {
+    margin: 0px;
+  }
+
+  ul.endpoints div.heading {
+    ul.options li {
+      line-height: normal;
+    }
+  }
+
+  table {
+    outline-style: none;
+  }
+
+  table thead tr {
+    background: transparent;
+  }
+
+  table tbody tr {
+    border-bottom-style: none;
+  }
+}

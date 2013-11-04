@@ -1,0 +1,3 @@
+[submodule "assets/javascripts/vendor/swagger"]
+	path = assets/javascripts/vendor/swagger
+	url = https://github.com/wordnik/swagger-ui.git

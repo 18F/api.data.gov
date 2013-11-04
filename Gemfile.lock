@@ -63,6 +63,7 @@ DEPENDENCIES
   coderay
   compass
   kramdown (>= 1.2.0)
+  multi_json
   mustache
   nanoc
   nanoc-cachebuster

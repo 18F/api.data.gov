@@ -35,6 +35,9 @@ gem "nokogiri"
 # For simple variables in templates
 gem "mustache"
 
+# JSON validation
+gem "multi_json"
+
 group :development do
   # Static file server for nanoc development
   gem "adsf"

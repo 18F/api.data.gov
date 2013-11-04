@@ -1,0 +1,125 @@
+{
+  "swaggerVersion": "1.2",
+  "apiVersion": "2.0.0",
+  "basePath": "http://api.data.gov/regulations/v2",
+  "apis": [
+    {
+      "path": "/docket.{format}",
+      "operations": [
+        {
+          "method": "GET",
+          "nickname": "docket",
+          "summary": "Docket Information",
+          "notes": "This API allows users to request metadata associated with a specific Docket.",
+          "parameters": [
+            {
+              "name": "format",
+              "description": "Format",
+              "paramType": "path",
+              "required": true,
+              "type": "string",
+              "enum": ["json", "xml"],
+              "defaultValue": "json"
+            },
+            {
+              "name": "api_key",
+              "description": "API Key",
+              "paramType": "query",
+              "required": true,
+              "type": "string",
+              "defaultValue": "DEMO_KEY"
+            },
+            {
+              "name": "D",
+              "description": "FDMS Docket ID",
+              "paramType": "query",
+              "required": true,
+              "type": "string",
+              "defaultValue": "EPA_FRDOC_0001"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/document.{format}",
+      "operations": [
+        {
+          "method": "GET",
+          "nickname": "document",
+          "summary": "Document Information",
+          "notes": "This API allows users to request metadata associated with the specific Document.",
+          "parameters": [
+            {
+              "name": "format",
+              "description": "Format",
+              "paramType": "path",
+              "required": true,
+              "type": "string",
+              "enum": ["json", "xml"],
+              "defaultValue": "json"
+            },
+            {
+              "name": "api_key",
+              "description": "API Key",
+              "paramType": "query",
+              "required": true,
+              "type": "string",
+              "defaultValue": "DEMO_KEY"
+            },
+            {
+              "name": "D",
+              "description": "FDMS Docket ID",
+              "paramType": "query",
+              "required": true,
+              "type": "string",
+              "defaultValue": "EPA_FRDOC_0001-10857"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/documents.{format}",
+      "operations": [
+        {
+          "method": "GET",
+          "nickname": "documents",
+          "summary": "Document Search",
+          "notes": "This API allows users to build a query based on any of the parameters below.",
+          "parameters": [
+            {
+              "name": "format",
+              "description": "Format",
+              "paramType": "path",
+              "required": true,
+              "type": "string",
+              "enum": ["json", "xml"],
+              "defaultValue": "json"
+            },
+            {
+              "name": "api_key",
+              "description": "API Key",
+              "paramType": "query",
+              "required": true,
+              "type": "string",
+              "defaultValue": "DEMO_KEY"
+            },
+            {
+              "name": "dct",
+              "description": "",
+              "paramType": "query",
+              "required": true,
+              "type": "string",
+              "enum": ["N", "PR", "FR", "O", "SR", "PS"],
+              "defaultValue": "EPA_FRDOC_0001-10857"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "produces": [
+    "text/xml"
+  ]
+}
