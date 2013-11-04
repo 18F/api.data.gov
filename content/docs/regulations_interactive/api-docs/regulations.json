@@ -109,10 +109,62 @@
               "name": "dct",
               "description": "Document Type<ul><li>N: Notice</li><li>PR: Proposed Rule</li><li>FR: Rule</li><li>O: Other</li><li>SR: Supporting & Related Material</li><li>PS: Public Submission</li></ul>",
               "paramType": "query",
-              "required": true,
+              "required": false,
               "type": "string",
-              "enum": ["N", "PR", "FR", "O", "SR", "PS"],
-              "defaultValue": "EPA_FRDOC_0001-10857"
+              "enum": ["N", "PR", "FR", "O", "SR", "PS"]
+            },
+            {
+              "name": "dkt",
+              "description": "Docket Type<ul><li>R: Rulemaking</li><li>N: Nonrulemaking</li></ul>",
+              "paramType": "query",
+              "required": false,
+              "type": "string",
+              "enum": ["N", "R"]
+            },
+            {
+              "name": "rpp",
+              "description": "Results Per Page <strong>10, 25, 100</strong>",
+              "paramType": "query",
+              "required": false,
+              "type": "string",
+              "enum": ["10", "25", "100"]
+            },
+            {
+              "name": "sb",
+              "description": "Sort Order<ul><li>docketId (Docket ID)</li><li>docId (Document ID)</li><li>title (Title)</li><li>postedDate (Posted Date)</li><li>agency (Agency)</li><li>documentType (Document Type)</li><li>submitterName (Submitter Name)</li><li>organization (Organization)</li></ul>",
+              "paramType": "query",
+              "required": false,
+              "type": "string",
+              "enum": ["docketId", "docId", "title","postedDate","agency","documentType","submitterName","organization"]
+            },
+            {
+              "name": "so",
+              "description": "Results Per Page<ul><li>ASC: Ascending</li><li>DESC: Descending</li></ul>",
+              "paramType": "query",
+              "required": false,
+              "type": "string",
+              "enum": ["ASC", "DESC"]
+            },
+            {
+              "name": "dkst",
+              "description": "Docket Subtype: Accepted values listed in Appendix B",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "dktst2",
+              "description": "Docket Sub-subtype: Accepted values listed in Appendix C",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "dktst",
+              "description": "Document Subtype: Accepted values listed in Appendix D",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
             }
           ]
         }
