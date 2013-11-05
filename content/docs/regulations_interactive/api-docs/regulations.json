@@ -182,7 +182,7 @@
             "description": "Total number of records matching the given criteria"
         },
         "docketModel": {
-            "type": "Docket",
+            "type": "Docket"
         },
         "documents": {
           "type": "array",
@@ -202,7 +202,7 @@
     },
     "Document": {
       "id": "Document",
-      "properties" {
+      "properties": {
         "documentId": {
           "type": "string"
         }
