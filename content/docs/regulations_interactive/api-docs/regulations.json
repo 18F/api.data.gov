@@ -87,6 +87,7 @@
           "nickname": "documents",
           "summary": "Document Search",
           "notes": "This API allows users to build a query based on any of the parameters below.",
+          "responseClass": "SearchResults",
           "parameters": [
             {
               "name": "format",
@@ -171,7 +172,41 @@
       ]
     }
   ],
-  "produces": [
-    "text/xml"
-  ]
+  "models": {
+    "searchResult":{
+      "id":"SearchResult",
+      "properties":{
+        "totalNumRecords": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Total number of records matching the given criteria"
+        },
+        "docketModel": {
+            "type": "Docket",
+        },
+        "documents": {
+          "type": "array",
+          "items":{
+            "$ref": "Document"
+          }
+        }
+      }
+    },
+    "Docket": {
+      "id": "Docket",
+      "properties": {
+        "docketId": {
+          "type":"string"
+        }
+      }
+    },
+    "Document": {
+      "id": "Document",
+      "properties" {
+        "documentId": {
+          "type": "string"
+        }
+      }
+    }
+  }
 }
