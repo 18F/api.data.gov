@@ -87,7 +87,7 @@
           "nickname": "documents",
           "summary": "Document Search",
           "notes": "This API allows users to build a query based on any of the parameters below.",
-          "responseClass": "SearchResults",
+          "type": "SearchResult",
           "parameters": [
             {
               "name": "format",
@@ -173,7 +173,7 @@
     }
   ],
   "models": {
-    "searchResult":{
+    "SearchResult":{
       "id":"SearchResult",
       "properties":{
         "totalNumRecords": {
