@@ -8,6 +8,8 @@ disqus: true
 # {{title}}
 {{summary}}
 
+<div class="alert alert-error">The Regulations.gov API is currently inaccessible. We're working hard to get it back online soon.</div>
+
 <p style="background-color:#FFFFCC; border:2px solid #707070; padding: 5px">
 Please review the Regulations.gov <a href="http://www.regulations.gov/#!developers;page=termsOfService">Terms of Service</a>
 </p>
