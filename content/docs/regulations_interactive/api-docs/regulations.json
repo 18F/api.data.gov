@@ -11,6 +11,7 @@
           "nickname": "docket",
           "summary": "Docket Information",
           "notes": "This API allows users to request metadata associated with a specific Docket.",
+          "type": "Docket",
           "parameters": [
             {
               "name": "format",
@@ -196,7 +197,12 @@
       "id": "Docket",
       "properties": {
         "docketId": {
-          "type":"string"
+          "type":"string",
+          "description": "a unique identifier established for a docket"
+        },
+        "rin": {
+          "type":"string",
+          "description": "TODO: Insert RIN description here"
         }
       }
     },
