@@ -25,7 +25,7 @@ Please review the Regulations.gov <a href="http://www.regulations.gov/#!develope
 1. Using FR Number:
    <pre><a href="http://api.data.gov/regulations/v2/document.xml?api_key=DEMO_KEY&FR=2011-31912">http://api.data.gov/regulations/v2/document.xml?api_key=DEMO_KEY&FR=2011-31912</a></pre>
 2. Using Document ID:
-   <pre><a href="http://api.data.gov/regulations/v2/document.xml?api_key=DEMO_KEY&D=EPA_FRDOC_0001-10857">http://api.data.gov/regulations/v2/document.xml?api_key=DEMO_KEY&D=EPA_FRDOC_0001-10857</a></pre>
+   <pre><a href="http://api.data.gov/regulations/v2/document.xml?api_key=DEMO_KEY&D=EPA-HQ-OECA-2013-0333-0002">http://api.data.gov/regulations/v2/document.xml?api_key=DEMO_KEY&D=EPA-HQ-OECA-2013-0333-0002</a></pre>
 3. Using JSON output:
    <pre><a href="http://api.data.gov/regulations/v2/document.json?api_key=DEMO_KEY&FR=2011-31912">http://api.data.gov/regulations/v2/document.json?api_key=DEMO_KEY&FR=2011-31912</a></pre>
 
