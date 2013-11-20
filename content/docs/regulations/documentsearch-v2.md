@@ -16,7 +16,7 @@ Please review the Regulations.gov <a href="http://www.regulations.gov/#!develope
 
 ## Request URL
 
-<pre>GET http://api.data.gov/regulations/2/documents<em>.format?parameters</em></pre>
+<pre>GET http://api.data.gov/regulations/v2/documents<em>.format?parameters</em></pre>
 
 ## Sample Requests
 
