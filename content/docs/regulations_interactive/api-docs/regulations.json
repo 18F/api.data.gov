@@ -32,11 +32,11 @@
             },
             {
               "name": "D",
-              "description": "FDMS Docket ID",
+              "description": "Docket ID",
               "paramType": "query",
               "required": true,
               "type": "string",
-              "defaultValue": "EPA_FRDOC_0001"
+              "defaultValue": "EPA-HQ-OAR-2011-0028"
             }
           ]
         }
@@ -70,11 +70,19 @@
             },
             {
               "name": "D",
-              "description": "FDMS Docket ID",
+              "description": "FDMS Document ID",
               "paramType": "query",
               "required": true,
               "type": "string",
-              "defaultValue": "EPA_FRDOC_0001-10857"
+              "defaultValue": "EPA-HQ-OAR-2011-0028-0108"
+            },
+            {
+              "name": "FR",
+              "description": "Federal Register Document Number",
+              "paramType": "query",
+              "required": true,
+              "type": "string",
+              "defaultValue": "2013-23804"
             }
           ]
         }
@@ -106,6 +114,14 @@
               "required": true,
               "type": "string",
               "defaultValue": "DEMO_KEY"
+            },
+            {
+              "name": "s",
+              "description": "Keyword(s)",
+              "paramType": "string",
+              "required": false,
+              "type": "string",
+              "defaultValue": "greenhouse gases"
             },
             {
               "name": "dct",
@@ -207,12 +223,109 @@
       }
     },
     "Document": {
-      "id": "Document",
-      "properties": {
-        "documentId": {
-          "type": "string"
+        "id": "Document",
+        "properties": {
+            "documentId": {
+                "type": "string",
+                "description": ""
+            },
+            "agencyId": {
+                "type": "string",
+                "description": "Federal Agency that published the Document"
+            },
+            "commentEndDate": {
+                "type": "Date",
+                "description": ""
+            },
+            "commentStartDate": {
+                "type": "Date",
+                "description": ""
+            },
+            "effectiveDate": {
+                "type": "Date",
+                "description": ""
+            },
+            "receivedDate": {
+                "type": "Date",
+                "description": ""
+            },
+            "documentType": {
+                "type": "string",
+                "description": ""
+            },
+            "frDoc": {
+                "type": "boolean",
+                "description": ""
+            },
+            "title": {
+                "type": "string",
+                "description": ""
+            },
+            "canCommentOnDocument": {
+                "type": "boolean",
+                "description": ""
+            },
+            "commentText": {
+                "type": "string",
+                "description": ""
+            },
+            "docComments": {
+                "type": "string",
+                "description": ""
+            },
+            "docketId": {
+                "type": "string",
+                "description": ""
+            },
+            "docketType": {
+                "type": "string",
+                "description": ""
+            },
+            "rin": {
+                "type": "string",
+                "description": ""
+            },
+            "numCommentsReceived": {
+                "type": "integer",
+                "format": "int64",
+                "description": ""
+            },
+            "frNumber": {
+                "type": "string",
+                "description": ""
+            },
+            "pageCount": {
+                "type": "integer",
+                "format": "int64",
+                "description": ""
+            },
+            "documentSubtype": {
+                "type": "string",
+                "description": ""
+            },
+            "cfr": {
+                "type": "string",
+                "description": ""
+            },
+            "startEndPage": {
+                "type": "string",
+                "description": ""
+            },
+            "agencyAcronym": {
+                "type": "string",
+                "description": ""
+            },
+            "agencyName": {
+                "type": "string",
+                "description": "Full name of the FederalAgency"
+            },
+            "attachmentCount": {
+                "type": "integer",
+                "format": "int64",
+                "description": ""
+            }
         }
-      }
     }
+
   }
 }
