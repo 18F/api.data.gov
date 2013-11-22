@@ -96,7 +96,7 @@
           "method": "GET",
           "nickname": "documents",
           "summary": "Document Search",
-          "notes": "This API allows users to build a query based on any of the parameters below.",
+          "notes": "This API allows users to build a query based on any of the parameters below.  If you have trouble building queries, you may wish to try them through the <a href="http://www.regulations.gov/#!advancedSearch">Advanced Search</a> page on the Regulations.gov website.",
           "type": "SearchResult",
           "parameters": [
             {
@@ -119,7 +119,7 @@
             {
               "name": "s",
               "description": "Keyword(s)",
-              "paramType": "string",
+              "paramType": "query",
               "required": false,
               "type": "string",
               "defaultValue": "greenhouse gases"
@@ -135,6 +135,22 @@
             {
               "name": "dkt",
               "description": "Docket Type<ul><li>R: Rulemaking</li><li>N: Nonrulemaking</li></ul>",
+              "paramType": "query",
+              "required": false,
+              "type": "string",
+              "enum": ["N", "R"]
+            },
+            {
+              "name": "cp",
+              "description": "Comment Period<ul><li>O: Open</li><li>C: Closed</li></ul>",
+              "paramType": "query",
+              "required": false,
+              "type": "string",
+              "enum": ["N", "R"]
+            },
+            {
+              "name": "a",
+              "description": "Federal Agency: Accepted values listed in Appendix A. This field allows multiple values. Ex. <pre>a=FMCSA%252BEPA%252BFDA</pre>",
               "paramType": "query",
               "required": false,
               "type": "string",
@@ -166,7 +182,7 @@
             },
             {
               "name": "dkst",
-              "description": "Docket Subtype: Accepted values listed in Appendix B",
+              "description": "Docket Subtype: Accepted values listed in Appendix B. Only one value at a time may be selected. One or more agency values must be part of the request. Only values valid for the selected agency will be returned.",
               "paramType": "query",
               "required": false,
               "type": "string"
@@ -184,6 +200,13 @@
               "paramType": "query",
               "required": false,
               "type": "string"
+            },
+            {
+              "name":"encoded",
+              "description": "<p>1 (will accept Regulations.gov style encoded parameters)<br/> 0 (will not accept such encoded parameters)</p><p>Individual parameters and values from Regulations.gov search URLs can be used, but since they are encoded, this flag tells the API service to decode them first. For example, below is the Regulations.gov URL for searching all open FR documents:</p><pre>http://www.regulations.gov/#!searchResults;rpp=10;po=0;dct=N%252BPR%252BFR%252BO;cp=O</pre><p>In order to use this with the API, user will need to specify ‘encoded=1’ in the URL along with providing one or more encoded parameters.</p><pre>http://api.data.gov/regulations/v2/documents.json?encoded=1&rpp=10&po=0&dct=N%252BPR%252BFR%252BO&cp=O",
+              "paramType": "query",
+            "required": false,
+            "type": "string"
             }
           ]
         }
