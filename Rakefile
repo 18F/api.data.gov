@@ -3,6 +3,12 @@ task :compile do
   `nanoc compile`
 end
 
+desc "Test to ensure the site will compile from scratch"
+task :test do
+  FileUtils.rm_r('output') if File.exist?('output')
+  exec("nanoc compile")
+end
+
 # prompt user for a commit message; default: HEAD commit 1-liner
 def commit_message
   last_commit = `git log -1 --pretty=format:"%s"`.chomp.strip
@@ -47,3 +53,5 @@ task :publish do
 
   FileUtils.rm_r('output') if File.exist?('output')
 end
+
+task :default => [:test]
