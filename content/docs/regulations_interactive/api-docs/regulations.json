@@ -96,7 +96,7 @@
           "method": "GET",
           "nickname": "documents",
           "summary": "Document Search",
-          "notes": "This API allows users to build a query based on any of the parameters below.  If you have trouble building queries, you may wish to try them through the <a href="http://www.regulations.gov/#!advancedSearch">Advanced Search</a> page on the Regulations.gov website.",
+          "notes": "This API allows users to build a query based on any of the parameters below.  If you have trouble building queries, you may wish to try them through the <a href=\"http://www.regulations.gov/#!advancedSearch\">Advanced Search</a> page on the Regulations.gov website.",
           "type": "SearchResult",
           "parameters": [
             {
