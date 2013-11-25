@@ -1,0 +1,105 @@
+{
+  "swaggerVersion": "1.2",
+  "apiVersion": "2.0.0",
+  "basePath": "http://api.data.gov/nrel/building-case-studies",
+  "apis": [
+    {
+      "path": "/project.{output_format}",
+      "operations": [
+        {
+          "method": "GET",
+          "nickname": "project",
+          "summary": "A filterable list of projects.",
+          "notes": "",
+          "parameters": [
+            {
+              "name": "output_format",
+              "description": "Response Format",
+              "paramType": "path",
+              "required": true,
+              "type": "string",
+              "enum": ["json", "xml"],
+              "defaultValue": "xml"
+            },
+            {
+              "name": "api_key",
+              "description": "API Key",
+              "paramType": "query",
+              "required": true,
+              "type": "string",
+              "defaultValue": "DEMO_KEY"
+            },
+            {
+              "name": "search",
+              "description": "Search Text",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "portal",
+              "description": "Portal ID",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "page",
+              "description": "Page Number",
+              "paramType": "query",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "city",
+              "description": "City",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/project/{project_id}.{output_format}",
+      "operations": [
+        {
+          "method": "GET",
+          "nickname": "document",
+          "summary": "Project Details",
+          "notes": "This API allows users to request metadata associated with the specific Document.",
+          "parameters": [
+            {
+              "name": "output_format",
+              "description": "Response Format",
+              "paramType": "path",
+              "required": true,
+              "type": "string",
+              "enum": ["json", "xml"],
+              "defaultValue": "json"
+            },
+            {
+              "name": "api_key",
+              "description": "API Key",
+              "paramType": "query",
+              "required": true,
+              "type": "string",
+              "defaultValue": "DEMO_KEY"
+            },
+            {
+              "name": "project_id",
+              "description": "Project ID",
+              "paramType": "path",
+              "required": true,
+              "type": "integer"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "produces": [
+    "text/xml"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "basePath": "<%= ENV["SWAGGER_HOST"] || "http://localhost:3000" %>/docs/buildings/building-case-studies/api-docs",
+  "apis": [
+    {
+      "path": "/project.json",
+      "description": "API endpoints related to buildings."
+    }
+  ],
+  "info": {
+    "title": "High Performance Building Database",
+    "description": "The Buildings Database is a shared resource for the building industry. The Database, developed by the U.S. Department of Energy and the National Renewable Energy Laboratory (NREL), is a unique central repository of in-depth information and data on high-performance, green building projects across the United States and abroad.  "
+  }
+}

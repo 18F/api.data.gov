@@ -10,9 +10,13 @@ disqus: true
 # {{title}} <span class="url">({{url}})</span>
 {{summary}}
 
-These data are updated often, but as the DSIRE data is continuously updated there is the possibility of their being slightly outdated.
-
 This is the current version of the energy incentives API. Previous versions have been deprecated and its users are encouraged to migrate to this newly enhanced version.
+
+<div class="alert alert-error">
+  <p>The DSIRE database, which is managed by the the North Carolina Solar Center and provides the quantitative data that support this web service, is undergoing substantial changes with their new contract with DOE. This transition will involve a significant gap in the provision of the quantitative data that support this web service. As a result of this, the data available in this web service will not be updated between Sept 1st and June 30th. The service will remain active to ensure that the best available data remains accessible.</p>
+
+  <p>Announcement from DSIRE: The U.S. Department of Energy and the North Carolina Solar Center are excited to announce that a new, modernized DSIRE is under construction. The new version of DSIRE will offer significant improvements over the current version, including expanded data accessibility and an array of new tools for site users. The new DSIRE site will be available in the summer of 2014. Staff are currently working hard on the new DSIRE and are unfortunately only able to make minimal updates to the DSIRE website at this time. We apologize for any inconvenience and thank you for using DSIRE.</p>
+</div>
 
 <ul id="toc"></ul>
 
