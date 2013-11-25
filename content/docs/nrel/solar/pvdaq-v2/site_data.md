@@ -1,6 +1,6 @@
 ---
 title: Aggregated Site Data (Deprecated)
-summary: 'Deprecated: We encourage you to migrate to [version 3](/docs/solar/pvdaq-v3/)
+summary: 'Deprecated: We encourage you to migrate to [version 3](/docs/nrel/solar/pvdaq-v3/)
   of the PVDAQ API.'
 url: GET /api/georeserv/app/pvdaq/site_data
 disqus: true

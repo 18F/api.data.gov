@@ -1,6 +1,6 @@
 ---
 title: Utility Rates (Version 2 - Deprecated)
-summary: 'Deprecated: We encourage you to migrate to [version 3](/docs/electricity/utility-rates-v3/)
+summary: 'Deprecated: We encourage you to migrate to [version 3](/docs/nrel/electricity/utility-rates-v3/)
   of the utility rates API.'
 url: GET /api/georeserv/service/utility_rates
 disqus: true

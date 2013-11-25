@@ -1,6 +1,6 @@
 ---
 title: PVWatts (Version 2 - Deprecated)
-summary: 'Deprecated: We encourage you to migrate to [version 4](/docs/solar/pvwatts-v4/)
+summary: 'Deprecated: We encourage you to migrate to [version 4](/docs/nrel/solar/pvwatts-v4/)
   of the PVWatts API.'
 url: GET /api/georeserv/app/sam/pvwatts
 disqus: true

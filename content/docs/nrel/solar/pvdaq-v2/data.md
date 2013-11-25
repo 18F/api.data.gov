@@ -1,6 +1,6 @@
 ---
 title: Raw Data (Deprecated)
-summary: 'Deprecated: We encourage you to migrate to [version 3](/docs/solar/pvdaq-v3/)
+summary: 'Deprecated: We encourage you to migrate to [version 3](/docs/nrel/solar/pvdaq-v3/)
   of the PVDAQ API.'
 url: GET /api/georeserv/app/pvdaq/data
 disqus: true
@@ -13,7 +13,7 @@ deprecated: true
 
 Obtain raw data from the PVDAQ system for a given date range.
 
-Note that you must [login](/docs/solar/pvdaq-v2/login_handler/) with your PVDAQ credentials to obtain an authorization cookie in order to utilize this service.
+Note that you must [login](/docs/nrel/solar/pvdaq-v2/login_handler/) with your PVDAQ credentials to obtain an authorization cookie in order to utilize this service.
 
 Also, if you are an admin or a PVDAQ admin, you can obtain data on behalf of another user by providing their user\_id as a parameter.
 

@@ -1,7 +1,7 @@
 {
   "apiVersion": "1.0",
   "swaggerVersion": "1.2",
-  "basePath": "<%= ENV["SWAGGER_HOST"] || "http://localhost:3000" %>/docs/buildings/building-case-studies/api-docs",
+  "basePath": "<%= ENV["SWAGGER_HOST"] || "http://localhost:3000" %>/docs/nrel/buildings/building-case-studies/api-docs",
   "apis": [
     {
       "path": "/project.json",

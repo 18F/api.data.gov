@@ -1,6 +1,6 @@
 ---
 title: Sites Metadata (Deprecated)
-summary: 'Deprecated: We encourage you to migrate to [version 3](/docs/solar/pvdaq-v3/)
+summary: 'Deprecated: We encourage you to migrate to [version 3](/docs/nrel/solar/pvdaq-v3/)
   of the PVDAQ API.'
 url: GET /api/georeserv/app/pvdaq/sites
 disqus: true
@@ -13,7 +13,7 @@ deprecated: true
 
 Sites service. Gives metadata for all or one available site. Only gives "all" information to an administrative user.
 
-Otherwise, a check is made to determine of the user can view the metadata for a given system. This service can only be accessed by a PVDAQ administrator. Utilize [login](/docs/solar/pvdaq-v2/login_handler/) to access this service.
+Otherwise, a check is made to determine of the user can view the metadata for a given system. This service can only be accessed by a PVDAQ administrator. Utilize [login](/docs/nrel/solar/pvdaq-v2/login_handler/) to access this service.
 
 <ul id="toc"></ul>
 

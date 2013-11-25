@@ -1,6 +1,6 @@
 ---
 title: Direct Normal Irradiance (Deprecated)
-summary: 'Deprecated: We encourage you to migrate the new [Solar Resource web service](/docs/solar/solar-resource-v1/).'
+summary: 'Deprecated: We encourage you to migrate the new [Solar Resource web service](/docs/nrel/solar/solar-resource-v1/).'
 url: GET /api/georeserv/service/solar/dni
 disqus: true
 deprecated: true

@@ -1,6 +1,6 @@
 ---
 title: Incentives (Deprecated)
-summary: 'Deprecated: We encourage you to migrate to [the new energy incentives API](/docs/electricity/energy-incentives-v1/).'
+summary: 'Deprecated: We encourage you to migrate to [the new energy incentives API](/docs/nrel/electricity/energy-incentives-v1/).'
 url: GET /api/georeserv/service/incentives
 disqus: true
 deprecated: true
