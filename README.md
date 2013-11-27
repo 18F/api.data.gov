@@ -9,6 +9,7 @@ All contributions are welcome. To submit a change, fork this repo, commit your c
 Ruby 1.9+ is required to build the site.
 
 ```sh
+$ git update --init --recursive # Make sure to pull in git submodules
 $ bundle install
 ```
 
