@@ -14,4 +14,8 @@ set :rails_env, "development"
 set :bundle_without, [:test]
 set :bundle_flags, "--quiet"
 
+# Reset forced "vagrant" user. Deploy as the running user
+# (api-umbrella-deployer in the case of the git hook).
+set :user, nil
+
 default_environment["SWAGGER_HOST"] = "http://api.vagrant"
