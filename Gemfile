@@ -41,4 +41,9 @@ gem "multi_json"
 group :development do
   # Static file server for nanoc development
   gem "adsf"
+
+  # Deployment
+  gem "capistrano", "~> 2.15.5"
+  gem "capistrano-ext"
+  gem "capistrano_nrel_ext", :git => "https://github.com/NREL/capistrano_nrel_ext.git"
 end

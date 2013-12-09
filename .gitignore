@@ -1,5 +1,10 @@
 .bundle
 _site
 crash.log
-output
 tmp
+/output
+/log
+/vendor/bundle
+/REVISION
+/config/deployed.yml
+/config/nginx/site.conf
