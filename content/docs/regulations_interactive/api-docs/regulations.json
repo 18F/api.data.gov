@@ -98,117 +98,252 @@
           "summary": "Document Search",
           "notes": "This API allows users to build a query based on any of the parameters below.  If you have trouble building queries, you may wish to try them through the <a href=\"http://www.regulations.gov/#!advancedSearch\">Advanced Search</a> page on the Regulations.gov website.",
           "type": "SearchResult",
-          "parameters": [
-            {
-              "name": "format",
-              "description": "Format",
-              "paramType": "path",
-              "required": true,
-              "type": "string",
-              "enum": ["json", "xml"],
-              "defaultValue": "json"
-            },
-            {
-              "name": "api_key",
-              "description": "API Key",
-              "paramType": "query",
-              "required": true,
-              "type": "string",
-              "defaultValue": "DEMO_KEY"
-            },
-            {
-              "name": "s",
-              "description": "Keyword(s)",
-              "paramType": "query",
-              "required": false,
-              "type": "string",
-              "defaultValue": "greenhouse gases"
-            },
-            {
-              "name": "dct",
-              "description": "Document Type<ul><li>N: Notice</li><li>PR: Proposed Rule</li><li>FR: Rule</li><li>O: Other</li><li>SR: Supporting & Related Material</li><li>PS: Public Submission</li></ul>",
-              "paramType": "query",
-              "required": false,
-              "type": "string",
-              "enum": ["N", "PR", "FR", "O", "SR", "PS"]
-            },
-            {
-              "name": "dkt",
-              "description": "Docket Type<ul><li>R: Rulemaking</li><li>N: Nonrulemaking</li></ul>",
-              "paramType": "query",
-              "required": false,
-              "type": "string",
-              "enum": ["N", "R"]
-            },
-            {
-              "name": "cp",
-              "description": "Comment Period<ul><li>O: Open</li><li>C: Closed</li></ul>",
-              "paramType": "query",
-              "required": false,
-              "type": "string",
-              "enum": ["N", "R"]
-            },
-            {
-              "name": "a",
-              "description": "Federal Agency: Accepted values listed in Appendix A. This field allows multiple values. Ex. <pre>a=FMCSA%252BEPA%252BFDA</pre>",
-              "paramType": "query",
-              "required": false,
-              "type": "string",
-              "enum": ["N", "R"]
-            },
-            {
-              "name": "rpp",
-              "description": "Results Per Page <strong>10, 25, 100</strong>",
-              "paramType": "query",
-              "required": false,
-              "type": "string",
-              "enum": ["10", "25", "100"]
-            },
-            {
-              "name": "sb",
-              "description": "Sort Order<ul><li>docketId (Docket ID)</li><li>docId (Document ID)</li><li>title (Title)</li><li>postedDate (Posted Date)</li><li>agency (Agency)</li><li>documentType (Document Type)</li><li>submitterName (Submitter Name)</li><li>organization (Organization)</li></ul>",
-              "paramType": "query",
-              "required": false,
-              "type": "string",
-              "enum": ["docketId", "docId", "title","postedDate","agency","documentType","submitterName","organization"]
-            },
-            {
-              "name": "so",
-              "description": "Results Per Page<ul><li>ASC: Ascending</li><li>DESC: Descending</li></ul>",
-              "paramType": "query",
-              "required": false,
-              "type": "string",
-              "enum": ["ASC", "DESC"]
-            },
-            {
-              "name": "dkst",
-              "description": "Docket Subtype: Accepted values listed in Appendix B. Only one value at a time may be selected. One or more agency values must be part of the request. Only values valid for the selected agency will be returned.",
-              "paramType": "query",
-              "required": false,
-              "type": "string"
-            },
-            {
-              "name": "dktst2",
-              "description": "Docket Sub-subtype: Accepted values listed in Appendix C",
-              "paramType": "query",
-              "required": false,
-              "type": "string"
-            },
-            {
-              "name": "dktst",
-              "description": "Document Subtype: Accepted values listed in Appendix D",
-              "paramType": "query",
-              "required": false,
-              "type": "string"
-            },
-            {
-              "name":"encoded",
-              "description": "<p>1 (will accept Regulations.gov style encoded parameters)<br/> 0 (will not accept such encoded parameters)</p><p>Individual parameters and values from Regulations.gov search URLs can be used, but since they are encoded, this flag tells the API service to decode them first. For example, below is the Regulations.gov URL for searching all open FR documents:</p><pre>http://www.regulations.gov/#!searchResults;rpp=10;po=0;dct=N%252BPR%252BFR%252BO;cp=O</pre><p>In order to use this with the API, user will need to specify ‘encoded=1’ in the URL along with providing one or more encoded parameters.</p><pre>http://api.data.gov/regulations/v2/documents.json?encoded=1&rpp=10&po=0&dct=N%252BPR%252BFR%252BO&cp=O",
-              "paramType": "query",
-            "required": false,
-            "type": "string"
-            }
-          ]
+  "parameters": [
+    {
+      "description": "Format", 
+      "name": "format", 
+      "paramType": "path", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "API Key", 
+      "name": "api_key", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "Keyword(s)", 
+      "name": "s", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "Document Type: <ul><li>N: Notice</li><li>PR: Proposed Rule</li><li>FR: Rule</li><li>O: Other</li><li>SR: Supporting & Related Material</li><li>PS: Public Submission</li></ul>", 
+      "enum": [
+        "N", 
+        "PR", 
+        "FR", 
+        "O", 
+        "SR", 
+        "PS"
+      ], 
+      "name": "dct", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "Valid Docket ID (ex. SEC-2012-0044)", 
+      "name": "dktid", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "Docket Type: <ul><li>R: Rulemaking</li><li>N: Nonrulemaking</li></ul>", 
+      "enum": [
+        "N", 
+        "R"
+      ], 
+      "name": "dkt", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "Comment Period: <ul><li>O: Open</li><li>C: Closed</li></ul>", 
+      "enum": [
+        "O", 
+        "C"
+      ], 
+      "name": "cp", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "Federal Agency: Accepted values listed in Appendix A. This field allows multiple values. Ex. a=FMCSA%252BEPA%252BFDA", 
+      "name": "a", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "Results Per Page 10, 25, 100", 
+      "enum": [
+        "10", 
+        "25", 
+        "100"
+      ], 
+      "name": "rpp", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "Enter the page offset (always starts with 0). This is used in conjunction with results per page to fetch large data sets in chunks. For example, if a search produces 82 results and the result per page is set to 25, this will generate 4 pages. 3 pages will have 25 results and the last page will have 7 results. Page offset values for each page will be <pre>Page 1: po=0 Page 2: po=25 Page 3: po=50 Page 4: po=75</pre> So total number of pages is [total results/results per page] and page offset for page X is [X-1 * results per page]", 
+      "name": "po", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "integer"
+    }, 
+    {
+      "description": "Comment Period Closing Soon: <ul><li>0 (closing today)</li><li>3 (closing within 3 days)</li><li>15 (closing within 15 days)</li><li>30 (closing within 30 days)</li><li>90 (closing within 90 days)</li></ul>", 
+      "enum": [
+        0, 
+        3, 
+        15, 
+        30, 
+        90
+      ], 
+      "name": "cs", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "integer"
+    }, 
+    {
+      "description": "Newly Posted: <ul><li>0 (posted today)</li><li>3 (posted within last 3 days)</li><li>15 (posted within last 15 days)</li><li>30 (posted within last 30 days)</li><li>90 (posted within last 90 days)</li></ul>", 
+      "enum": [
+        0, 
+        3, 
+        15, 
+        30, 
+        90
+      ], 
+      "name": "np", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "integer"
+    }, 
+    {
+      "description": "Comment Period Start Date: Enter a date in the form of MM%7CDD%7CYY. The date must be before the Comment Period End Date, if it is also provided.", 
+      "name": "cmsd", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "date"
+    }, 
+    {
+      "description": "Comment Period End Date: Enter a date in the form of MM%7CDD%7CYY. The date must be after the Comment Period Start Date, if it is also provided. <br/>** Comment Period Start and End Dates are mutually exclusive with the 'closing soon' parameter. If both are provided, 'closing soon' will be ignored.", 
+      "name": "cmd", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "date"
+    }, 
+    {
+      "description": "Creation Date: Enter a date in the form of MM%7CDD%7CYY.", 
+      "name": "crd", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "date"
+    }, 
+    {
+      "description": "Received Date: Enter a date in the form of MM%7CDD%7CYY.", 
+      "name": "rd", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "date"
+    }, 
+    {
+      "description": "Posted Date: Enter a date in the form of MM%7CDD%7CYY.", 
+      "name": "pd", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "date"
+    }, 
+    {
+      "description": "Document Category: <ul><li>AD (Aerospace and Transportation)</li> <li>AEP (Agriculture, Environment and Public Lands)</li> <li>BFS (Banking and Financial)</li> <li>CT(Commerce and International)</li> <li>LES (Defense, Law Enforcement, and Security)</li> <li>EELS (Education, Labor, Presidential, and Government Services)</li> <li>EUMM (Energy, Natural Resources, and Utilities)</li> <li>HCFP (Food Safety, Health, and Pharmaceutical)</li> <li>PRE(Housing, Development, and Real Estate)</li> <li>ITT (Technology and Telecommunications)</li></ul>", 
+      "enum": [
+        "AD", 
+        "AEP", 
+        "BFS", 
+        "CT", 
+        "LES", 
+        "EELS", 
+        "EUMM", 
+        "HCFP", 
+        "PRE", 
+        "ITT"
+      ], 
+      "name": "cat", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "Sort Order: <ul><li>docketId (Docket ID)docId (Document ID)</li><li>title (Title)</li><li>postedDate (Posted Date)</li><li>agency (Agency)</li><li>documentType (Document Type)</li><li>submitterName (Submitter Name)</li><li>organization (Organization)</li></ul>", 
+      "enum": [
+        "docketId", 
+        "docId", 
+        "title", 
+        "postedDate", 
+        "agency", 
+        "documentType", 
+        "submitterName", 
+        "organization"
+      ], 
+      "name": "sb", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "Sort Order: <ul><li>ASC: Ascending</li><li>DESC: Descending</li></ul>", 
+      "enum": [
+        "ASC", 
+        "DESC"
+      ], 
+      "name": "so", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "Docket Subtype: Accepted values listed in Appendix B. Only one value at a time may be selected. One or more agency values must be part of the request. Only values valid for the selected agency will be returned.", 
+      "name": "dkst", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "Docket Sub-subtype: Accepted values listed in Appendix C", 
+      "name": "dktst2", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "Document Subtype: Accepted values listed in Appendix D", 
+      "name": "dktst", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "string"
+    }, 
+    {
+      "description": "Counts Only: <ul><li>1 (will return only the document count for a search query)</li><li>0 (will return documents as well)</li></ul>", 
+      "enum": [
+        0, 
+        1
+      ], 
+      "name": "countsOnly", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "integer"
+    }, 
+    {
+      "description": "Encoded: <ul><li>1 (will accept Regulations.gov style encoded parameters)</li><li>0 (will not accept such encoded parameters)</li></ul>  * See Implementation Notes section for more information on how to use this parameter.", 
+      "enum": [
+        0, 
+        1
+      ], 
+      "name": "encoded", 
+      "paramType": "query", 
+      "required": false, 
+      "type": "integer"
+    }
+  ]
         }
       ]
     }
