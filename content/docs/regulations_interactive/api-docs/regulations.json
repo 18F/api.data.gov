@@ -248,106 +248,132 @@
     },
     "Document": {
         "id": "Document",
-        "properties": {
-            "documentId": {
-                "type": "string",
-                "description": ""
-            },
-            "agencyId": {
-                "type": "string",
-                "description": "Federal Agency that published the Document"
-            },
-            "commentEndDate": {
-                "type": "Date",
-                "description": ""
-            },
-            "commentStartDate": {
-                "type": "Date",
-                "description": ""
-            },
-            "effectiveDate": {
-                "type": "Date",
-                "description": ""
-            },
-            "receivedDate": {
-                "type": "Date",
-                "description": ""
-            },
-            "documentType": {
-                "type": "string",
-                "description": ""
-            },
-            "frDoc": {
-                "type": "boolean",
-                "description": ""
-            },
-            "title": {
-                "type": "string",
-                "description": ""
-            },
-            "canCommentOnDocument": {
-                "type": "boolean",
-                "description": ""
-            },
-            "commentText": {
-                "type": "string",
-                "description": ""
-            },
-            "docComments": {
-                "type": "string",
-                "description": ""
-            },
-            "docketId": {
-                "type": "string",
-                "description": ""
-            },
-            "docketType": {
-                "type": "string",
-                "description": ""
-            },
-            "rin": {
-                "type": "string",
-                "description": ""
-            },
-            "numCommentsReceived": {
-                "type": "integer",
-                "format": "int64",
-                "description": ""
-            },
-            "frNumber": {
-                "type": "string",
-                "description": ""
-            },
-            "pageCount": {
-                "type": "integer",
-                "format": "int64",
-                "description": ""
-            },
-            "documentSubtype": {
-                "type": "string",
-                "description": ""
-            },
-            "cfr": {
-                "type": "string",
-                "description": ""
-            },
-            "startEndPage": {
-                "type": "string",
-                "description": ""
-            },
-            "agencyAcronym": {
-                "type": "string",
-                "description": ""
-            },
-            "agencyName": {
-                "type": "string",
-                "description": "Full name of the FederalAgency"
-            },
-            "attachmentCount": {
-                "type": "integer",
-                "format": "int64",
-                "description": ""
-            }
+  "properties": {
+    "abstract": {
+      "description": "The detailed description of a document.", 
+      "type": "string"
+    }, 
+    "agencyAcronym": {
+      "description": "An abbreviation of the agency name.", 
+      "type": "string"
+    }, 
+    "agencyId": {
+      "description": "The Federal Agency that published the document.", 
+      "type": "string"
+    }, 
+    "agencyName": {
+      "description": "Full name of the Federal Agency.", 
+      "type": "string"
+    }, 
+    "allowLateComment": {
+      "description": "Some agencies will accept comments after the due date.", 
+      "type": "boolean"
+    }, 
+    "attachmentCount": {
+      "description": "Number of attachments associated with a document.", 
+      "type": "string"
+    }, 
+    "attachments": {
+      "description": "Additional files associated with this document", 
+      "type": "array"
+    }, 
+    "cfr": {
+      "description": "Rules are published in the Federal Register by executive departments and agencies of the Federal Government. A CFR Citation Number exists for each regulation referring to these rules. ", 
+      "type": "string"
+    }, 
+    "comment": {
+      "description": "The text of the submitter's comment.", 
+      "type": "string"
+    }, 
+    "commentDueDate": {
+      "description": "Date and time when the period for the public to comment ends.", 
+      "type": "dateTime"
+    }, 
+    "commentStartDate": {
+      "description": "Date and time when the period for the public to comment begins.", 
+      "type": "dateTime"
+    }, 
+    "docketId": {
+      "description": "A unique identifier established for a docket.", 
+      "type": "string"
+    }, 
+    "docketType": {
+      "description": "A docket is a collection or repository of one or more regulatory documents as they relate to a rulemaking or nonrulemaking action.", 
+      "type": "string"
+    }, 
+    "documentId": {
+      "description": "A unique identifier established for a document.", 
+      "type": "string"
+    }, 
+    "documentStatus": {
+      "description": "The status of the document.", 
+      "type": "string"
+    }, 
+    "documentSubtype": {
+      "description": "A secondary classification of a document.", 
+      "type": "string"
+    }, 
+    "documentType": {
+      "description": "A primary classification of a document.", 
+      "type": "string"
+    }, 
+    "effectiveDate": {
+      "description": "The date, specified in the Federal Register, when a rule takes effect and is enforced.", 
+      "type": "dateTime"
+    }, 
+    "federalRegisterNumber": {
+      "description": "The unique identifier of a document from the Federal Register (example FR Doc. E6-540).", 
+      "type": "string"
+    }, 
+    "fileFormats": {
+      "description": "", 
+      "type": ""
+    }, 
+    "formats": {
+      "description": "Formats of the document, included as URLs to download from the API", 
+      "type": "array"
+    }, 
+    "frDoc": {
+      "description": "A document published in the Federal Register ", 
+      "type": "boolan"
+    }, 
+    "numCommentsReceived": {
+      "description": "The total number of comments received in a Docket.", 
+      "type": "integer"
+    }, 
+    "openForComment": {
+      "description": "The document is open for Comment.", 
+      "type": "boolean"
+    }, 
+    "pageCount": {
+      "description": "The number of pages in the document.", 
+      "type": "integer"
+    }, 
+    "postedDate": {
+      "description": "The date a document was posted to Regulations.gov and made available for public view and comment.", 
+      "type": "dateTime"
+    }, 
+    "receivedDate": {
+      "description": "For a comment submitted through Regulations.gov, this marks the date a comment is submitted by the commenter. ", 
+      "type": "dateTime"
+    }, 
+    "receivedate": {
+      "description": "For a comment submitted through Regulations.gov, this marks the date a comment is entered by the commenter. ", 
+      "type": "string"
+    }, 
+    "rin": {
+      "description": "The number assigned to each regulation that allows it to be cross-referenced with the Regulatory Agenda.", 
+      "type": "string"
+    }, 
+    "startEndPage": {
+      "description": "The first and last page numbers of the document.", 
+      "type": "string"
+    }, 
+    "title": {
+      "description": "The formal title of the document.", 
+      "type": "string"
+    }
+  }
         }
     }
 
