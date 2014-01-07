@@ -160,10 +160,6 @@ The response is composed of service-related informational fields and information
           </thead>
           <tbody>
             <tr>
-              <th scope="row">perez</th>
-              <td>Perez Satellite Solar Resource Data Set</td>
-            </tr>
-            <tr>
               <th scope="row">tmy2</th>
               <td>
                 TMY2 station data (see <a href="http://rredc.nrel.gov/solar/old_data/nsrdb/1961-1990/tmy2/State.html" target="_blank">Typical Meteorological Year, version 2</a>)
@@ -207,37 +203,37 @@ The output fields contain the following information regarding climate data files
     <tr>
       <th class="doc-parameter-name" scope="row">lat</th>
       <td class="doc-parameter-value"><strong>Type:</strong> decimal</td>
-      <td class="doc-parameter-description">The latitude of the station (tmy2/tmy3) or grid cell (perez).</td>
+      <td class="doc-parameter-description">The latitude of the station.</td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">lon</th>
       <td class="doc-parameter-value"><strong>Type:</strong> decimal</td>
-      <td class="doc-parameter-description">The longitude of the station (tmy2/tmy3) or grid cell (perez).</td>
+      <td class="doc-parameter-description">The longitude of the station.</td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">city</th>
       <td class="doc-parameter-value"><strong>Type:</strong> string</td>
-      <td class="doc-parameter-description">The city where the station is located (for perez it will say "satellite data").</td>
+      <td class="doc-parameter-description">The city where the station is located.</td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">state</th>
-      <td class="doc-parameter-value"><strong>Type:</strong> array of decimal</td>
-      <td class="doc-parameter-description">The state where the station is located (for perez it will be an empty string).</td>
+      <td class="doc-parameter-value"><strong>Type:</strong> string</td>
+      <td class="doc-parameter-description">The state where the station is located.</td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">timezone</th>
       <td class="doc-parameter-value"><strong>Type:</strong> integer</td>
-      <td class="doc-parameter-description">The timezone of the station or grid cell, relative to GMT.</td>
+      <td class="doc-parameter-description">The timezone of the station, relative to GMT.</td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">elevation</th>
       <td class="doc-parameter-value"><strong>Type:</strong> integer</td>
-      <td class="doc-parameter-description">The elevation of the station or grid cell in meters.</td>
+      <td class="doc-parameter-description">The elevation of the station in meters.</td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">distance</th>
       <td class="doc-parameter-value"><strong>Type:</strong> integer</td>
-      <td class="doc-parameter-description">The distance in meters from the input location to the station or grid cell.</td>
+      <td class="doc-parameter-description">The distance in meters from the input location to the station.</td>
     </tr>
   </tbody>
 </table>
@@ -265,16 +261,6 @@ The output fields contain the following information regarding climate data files
 
   ],
   "outputs": {
-    "perez": {
-      "lon": -105.3,
-      "elevation": 1555,
-      "city": "satellite data",
-      "state": "",
-      "id": "0-10440-105054005",
-      "timezone": -7,
-      "distance": 42089,
-      "lat": 40.3
-    },
     "tmy2": {
       "lon": -105.15,
       "elevation": 1634,
@@ -316,16 +302,6 @@ The output fields contain the following information regarding climate data files
     <lon>-105</lon>
   </inputs>
   <outputs>
-    <perez>
-      <id>0-10440-105054005</id>
-      <city>satellite data</city>
-      <state/>
-      <timezone type="integer">-7</timezone>
-      <lat type="float">40.3</lat>
-      <lon type="float">-105.3</lon>
-      <elevation type="integer">1555</elevation>
-      <distance type="integer">42089</distance>
-    </perez>
     <tmy2>
       <id>1-94018</id>
       <city>BOULDER</city>

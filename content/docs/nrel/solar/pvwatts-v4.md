@@ -156,10 +156,10 @@ Version 4 is the current version of the PVWatts API. Previous versions have been
           <strong>Type:</strong> string
         </div>
         <div class="doc-parameter-value-field">
-          <strong>Default:</strong> perez
+          <strong>Default:</strong> tmy3
         </div>
         <div class="doc-parameter-value-field">
-          <strong>Options:</strong> <i>perez, tmy2, tmy3, intl</i>
+          <strong>Options:</strong> <i>tmy2, tmy3, intl</i>
         </div>
       </td>
       <td class="doc-parameter-description">
@@ -173,13 +173,9 @@ Version 4 is the current version of the PVWatts API. Previous versions have been
           </thead>
           <tbody>
             <tr>
-              <th scope="row">perez</th>
-              <td>Perez Satellite Solar Resource Data Set</td>
-            </tr>
-            <tr>
               <th scope="row">tmy2</th>
               <td>
-                TMY2 station data (see <a href="http://rredc.nrel.gov/solar/old_data/nsrdb/1961-1990/tmy2/State.html" target="_blank">Typical Meteorological Year, version 2</a>)
+                <p>TMY2 station data (see <a href="http://rredc.nrel.gov/solar/old_data/nsrdb/1961-1990/tmy2/State.html" target="_blank">Typical Meteorological Year, version 2</a>)</p>
               </td>
             </tr>
             <tr>
