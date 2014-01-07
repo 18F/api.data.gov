@@ -12,4 +12,4 @@ set :rails_env, "development"
 set :bundle_without, [:test]
 set :bundle_flags, "--quiet"
 
-default_environment["SWAGGER_HOST"] = "http://api.vagrant"
+default_environment["SWAGGER_HOST"] = "//api.vagrant"

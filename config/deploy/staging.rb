@@ -11,4 +11,4 @@ set :base_domain_aliases, ["stage-api.anydns.com"]
 # Set the Rails environment.
 set :rails_env, "staging"
 
-default_environment["SWAGGER_HOST"] = "http://stage-api.data.gov"
+default_environment["SWAGGER_HOST"] = "//stage-api.data.gov"

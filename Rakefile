@@ -31,7 +31,7 @@ task :publish do
 
   FileUtils.rm_r('output') if File.exist?('output')
 
-  sh "SWAGGER_HOST='http://api.data.gov' nanoc compile"
+  sh "SWAGGER_HOST='//api.data.gov' nanoc compile"
 
   ENV['GIT_DIR'] = File.expand_path(`git rev-parse --git-dir`.chomp)
   old_sha = `git rev-parse refs/remotes/origin/gh-pages`.chomp

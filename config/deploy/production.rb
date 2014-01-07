@@ -8,4 +8,4 @@ set :base_domain, "api.data.gov"
 # Set the Rails environment.
 set :rails_env, "production"
 
-default_environment["SWAGGER_HOST"] = "http://api.data.gov"
+default_environment["SWAGGER_HOST"] = "//api.data.gov"
