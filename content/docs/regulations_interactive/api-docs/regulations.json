@@ -355,7 +355,7 @@
         "totalNumRecords": {
             "type": "integer",
             "format": "int64",
-            "description": "Total number of records matching the given criteria"
+            "description": "Total number of search records matching the given criteria"
         },
         "docketModel": {
             "type": "Docket"
@@ -392,10 +392,6 @@
       "description": "An abbreviation of the agency name.", 
       "type": "string"
     }, 
-    "agencyId": {
-      "description": "The Federal Agency that published the document.", 
-      "type": "string"
-    }, 
     "agencyName": {
       "description": "Full name of the Federal Agency.", 
       "type": "string"
@@ -413,7 +409,7 @@
       "type": "array"
     }, 
     "cfr": {
-      "description": "Rules are published in the Federal Register by executive departments and agencies of the Federal Government. A CFR Citation Number exists for each regulation referring to these rules. ", 
+      "description": "To: A Code of Federal Regulations (CFR) Citation Number exists for each regulation referring to the rules published in the Federal Register by executive departments and agencies of the Federal Government.", 
       "type": "string"
     }, 
     "comment": {
@@ -441,7 +437,7 @@
       "type": "string"
     }, 
     "documentStatus": {
-      "description": "The status of the document.", 
+      "description": "Identifies whether the document is Posted on or Withdrawn from Regulations.gov.", 
       "type": "string"
     }, 
     "documentSubtype": {
@@ -469,11 +465,11 @@
       "type": "array"
     }, 
     "frDoc": {
-      "description": "A document published in the Federal Register ", 
+      "description": "Indicates if this is a document published in the Federal Register which includes proposed rules, rules, and notices.", 
       "type": "boolan"
     }, 
     "numCommentsReceived": {
-      "description": "The total number of comments received in a Docket.", 
+      "description": "The total number of comments received on this document.", 
       "type": "integer"
     }, 
     "openForComment": {
@@ -497,7 +493,7 @@
       "type": "string"
     }, 
     "rin": {
-      "description": "The number assigned to each regulation that allows it to be cross-referenced with the Regulatory Agenda.", 
+      "description": "The Regulation Identifier Number (RIN) assigned to each regulation which allows it to be cross-referenced with the Regulatory Agenda.", 
       "type": "string"
     }, 
     "startEndPage": {
