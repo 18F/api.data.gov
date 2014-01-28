@@ -17,7 +17,7 @@ disqus: true
 
 ## HTTP Basic Authentication
 
-For PVDAQ services, in addition to your developer API key, you must also provide a username and password for your PVDAQ account via [HTTP Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). For login credentials, contact [Ryan Smith](ryan.smith@nrel.gov).
+For PVDAQ services, in addition to your developer API key, you must also provide a username and password for your PVDAQ account via [HTTP Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). For login credentials, contact [Ryan Smith](mailto:ryan.smith@nrel.gov).
 
 ## Request Parameters
 
