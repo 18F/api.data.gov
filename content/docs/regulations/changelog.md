@@ -12,12 +12,11 @@ kind: info
 # 2.1 - March 2014
 - Improvements to XML and JSON allow for easier processing
 - Each piece of information is now directly referrable via a key/element name
-- Many attributes now include a human-readable label as well as a key
-- Attributes missing from 1.0 to 2.0 have been restored
+- Many fields now include a human-readable label as well as a key. The label is included as an attribute on the XML element.  JSON response include the label as a key/value pair under an object.
 - Dates are formatted as ISO 8601 with the time zone
 - Values now represented in a display-friendly format:	- documentStatus:  "POSTED" to "Posted"	- documentType: "PROPOSED_RULES" to "Proposed Rule".	- dockeType: "NON_RULEMAKING" to "Nonrulemaking"
 - Charset is set to UTF-8 in all service responses
-- Renamed the attribute commentEndDate to commentDueDate
+- Renamed the field commentEndDate to commentDueDate
 
 ## Document
 - Renamed the parameters:
@@ -32,27 +31,28 @@ kind: info
 - Fields removed:
 	- commentOnObjId
 	- isFrDoc
-- Restored attributes: (missing from v1 to v2)
+- New fields:
 	- frCitation
 	- postedDate
 	- rin
 	- docStatus
 	- abstract
-	- CommentOnDocf
-		- Restored with simplified attributes.  Only documentId, documentType, and title are included 
+	- CommentOnDoc
+		- Only documentId, documentType, and title are included (changed from v1).
 - File Content download URL's now listed as api.data.gov links and a "Download" service
 - fileFormats are no longer available for Public Submissions; Instead the values are available as metadata
+- Metadata 'entry' fields are now at the root-level and include a label for data presentation.
+	- Ex. `<entry name="Page Count">20</entry>` becomes `<pageCount label="Page Count">20</pageCount>`
+	- Ex. `{ "@name": "Page Count", $: "20" }` becomes `pageCount: { "label": "Page Count", "value": "20" }`
 - XML Improvements:
 	- fileFormats tag surrounds fileFormat entries in XML response
 	- Topics are now wrapped with a topics element, and each topic is singular
-- Metadata 'entry' attributes are now at the root-level and include a label for data presentation.
-	- Ex. `<entry name="Page Count">20</entry>` becomes `<pageCount label="Page Count">20</pageCount>`
-	- Ex. `{ @name: "Page Count", $: "20" }` becomes `pageCount: { label: "Page Count", value: "20" }`
+
 
 
 ## Docket
 - Renamed the parameter: D to docketId
-- The "metadata" and "ualist" sets of attributes have been collapsed to the root level of the XML/Object
+- The "metadata" and "ualist" field sets have been collapsed to the root level of the XML/Object
  
 ## Search
 - File formats are no longer available. To download files, make a request for each Document
