@@ -1,511 +1,714 @@
 {
-  "swaggerVersion": "1.2",
   "apiVersion": "2.0.0",
-  "basePath": "http://api.data.gov/regulations/v2",
   "apis": [
     {
-      "path": "/docket.{format}",
       "operations": [
         {
           "method": "GET",
           "nickname": "docket",
-          "summary": "Docket Information",
           "notes": "This API allows users to request metadata associated with a specific Docket.",
-          "type": "Docket",
           "parameters": [
             {
-              "name": "format",
+              "defaultValue": "json",
               "description": "Format",
+              "enum": [
+                "json",
+                "xml"
+              ],
+              "name": "response_format",
               "paramType": "path",
               "required": true,
-              "type": "string",
-              "enum": ["json", "xml"],
-              "defaultValue": "json"
+              "type": "string"
             },
             {
-              "name": "api_key",
+              "defaultValue": "DEMO_KEY",
               "description": "API Key",
+              "name": "api_key",
               "paramType": "query",
               "required": true,
-              "type": "string",
-              "defaultValue": "DEMO_KEY"
+              "type": "string"
             },
             {
-              "name": "D",
+              "defaultValue": "EPA-HQ-OAR-2011-0028",
               "description": "Docket ID",
+              "name": "docketId",
               "paramType": "query",
               "required": true,
-              "type": "string",
-              "defaultValue": "EPA-HQ-OAR-2011-0028"
+              "type": "string"
             }
-          ]
+          ],
+          "summary": "Docket Information",
+          "type": "Docket"
         }
-      ]
+      ],
+      "path": "/docket.{response_format}"
     },
     {
-      "path": "/document.{format}",
       "operations": [
         {
           "method": "GET",
           "nickname": "document",
-          "summary": "Document Information",
           "notes": "This API allows users to request metadata associated with the specific Document.",
-          "type": "Document",
           "parameters": [
             {
-              "name": "format",
+              "defaultValue": "json",
               "description": "Format",
+              "enum": [
+                "json",
+                "xml"
+              ],
+              "name": "response_format",
               "paramType": "path",
               "required": true,
-              "type": "string",
-              "enum": ["json", "xml"],
-              "defaultValue": "json"
+              "type": "string"
             },
             {
-              "name": "api_key",
+              "defaultValue": "DEMO_KEY",
               "description": "API Key",
+              "name": "api_key",
               "paramType": "query",
               "required": true,
-              "type": "string",
-              "defaultValue": "DEMO_KEY"
+              "type": "string"
             },
             {
-              "name": "D",
+              "defaultValue": "EPA-HQ-OAR-2011-0028-0108",
               "description": "FDMS Document ID",
+              "name": "documentId",
               "paramType": "query",
               "required": true,
-              "type": "string",
-              "defaultValue": "EPA-HQ-OAR-2011-0028-0108"
+              "type": "string"
             },
             {
-              "name": "FR",
+              "defaultValue": "2013-23804",
               "description": "Federal Register Document Number",
+              "name": "federalRegisterNumber",
               "paramType": "query",
               "required": true,
-              "type": "string",
-              "defaultValue": "2013-23804"
+              "type": "string"
             }
-          ]
+          ],
+          "summary": "Document Information",
+          "type": "Document"
         }
-      ]
+      ],
+      "path": "/document.{response_format}"
     },
     {
-      "path": "/documents.{format}",
       "operations": [
         {
           "method": "GET",
           "nickname": "documents",
-          "summary": "Document Search",
           "notes": "This API allows users to build a query based on any of the parameters below.  If you have trouble building queries, you may wish to try them through the <a href=\"http://www.regulations.gov/#!advancedSearch\">Advanced Search</a> page on the Regulations.gov website.",
-          "type": "SearchResult",
-  "parameters": [
-    {
-      "description": "Format", 
-      "name": "format", 
-      "paramType": "path", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "API Key", 
-      "name": "api_key", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "Keyword(s)", 
-      "name": "s", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "Document Type: <ul><li>N: Notice</li><li>PR: Proposed Rule</li><li>FR: Rule</li><li>O: Other</li><li>SR: Supporting & Related Material</li><li>PS: Public Submission</li></ul>", 
-      "enum": [
-        "N", 
-        "PR", 
-        "FR", 
-        "O", 
-        "SR", 
-        "PS"
-      ], 
-      "name": "dct", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "Valid Docket ID (ex. SEC-2012-0044)", 
-      "name": "dktid", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "Docket Type: <ul><li>R: Rulemaking</li><li>N: Nonrulemaking</li></ul>", 
-      "enum": [
-        "N", 
-        "R"
-      ], 
-      "name": "dkt", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "Comment Period: <ul><li>O: Open</li><li>C: Closed</li></ul>", 
-      "enum": [
-        "O", 
-        "C"
-      ], 
-      "name": "cp", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "Federal Agency: Accepted values listed in Appendix A. This field allows multiple values. Ex. a=FMCSA%252BEPA%252BFDA", 
-      "name": "a", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "Results Per Page 10, 25, 100", 
-      "enum": [
-        "10", 
-        "25", 
-        "100"
-      ], 
-      "name": "rpp", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "Enter the page offset (always starts with 0). This is used in conjunction with results per page to fetch large data sets in chunks. For example, if a search produces 82 results and the result per page is set to 25, this will generate 4 pages. 3 pages will have 25 results and the last page will have 7 results. Page offset values for each page will be <pre>Page 1: po=0 Page 2: po=25 Page 3: po=50 Page 4: po=75</pre> So total number of pages is [total results/results per page] and page offset for page X is [X-1 * results per page]", 
-      "name": "po", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "integer"
-    }, 
-    {
-      "description": "Comment Period Closing Soon: <ul><li>0 (closing today)</li><li>3 (closing within 3 days)</li><li>15 (closing within 15 days)</li><li>30 (closing within 30 days)</li><li>90 (closing within 90 days)</li></ul>", 
-      "enum": [
-        0, 
-        3, 
-        15, 
-        30, 
-        90
-      ], 
-      "name": "cs", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "integer"
-    }, 
-    {
-      "description": "Newly Posted: <ul><li>0 (posted today)</li><li>3 (posted within last 3 days)</li><li>15 (posted within last 15 days)</li><li>30 (posted within last 30 days)</li><li>90 (posted within last 90 days)</li></ul>", 
-      "enum": [
-        0, 
-        3, 
-        15, 
-        30, 
-        90
-      ], 
-      "name": "np", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "integer"
-    }, 
-    {
-      "description": "Comment Period Start Date: Enter a date in the form of MM%7CDD%7CYY. The date must be before the Comment Period End Date, if it is also provided.", 
-      "name": "cmsd", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "date"
-    }, 
-    {
-      "description": "Comment Period End Date: Enter a date in the form of MM%7CDD%7CYY. The date must be after the Comment Period Start Date, if it is also provided. <br/>** Comment Period Start and End Dates are mutually exclusive with the 'closing soon' parameter. If both are provided, 'closing soon' will be ignored.", 
-      "name": "cmd", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "date"
-    }, 
-    {
-      "description": "Creation Date: Enter a date in the form of MM%7CDD%7CYY.", 
-      "name": "crd", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "date"
-    }, 
-    {
-      "description": "Received Date: Enter a date in the form of MM%7CDD%7CYY.", 
-      "name": "rd", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "date"
-    }, 
-    {
-      "description": "Posted Date: Enter a date in the form of MM%7CDD%7CYY.", 
-      "name": "pd", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "date"
-    }, 
-    {
-      "description": "Document Category: <ul><li>AD (Aerospace and Transportation)</li> <li>AEP (Agriculture, Environment and Public Lands)</li> <li>BFS (Banking and Financial)</li> <li>CT(Commerce and International)</li> <li>LES (Defense, Law Enforcement, and Security)</li> <li>EELS (Education, Labor, Presidential, and Government Services)</li> <li>EUMM (Energy, Natural Resources, and Utilities)</li> <li>HCFP (Food Safety, Health, and Pharmaceutical)</li> <li>PRE(Housing, Development, and Real Estate)</li> <li>ITT (Technology and Telecommunications)</li></ul>", 
-      "enum": [
-        "AD", 
-        "AEP", 
-        "BFS", 
-        "CT", 
-        "LES", 
-        "EELS", 
-        "EUMM", 
-        "HCFP", 
-        "PRE", 
-        "ITT"
-      ], 
-      "name": "cat", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "Sort Order: <ul><li>docketId (Docket ID)docId (Document ID)</li><li>title (Title)</li><li>postedDate (Posted Date)</li><li>agency (Agency)</li><li>documentType (Document Type)</li><li>submitterName (Submitter Name)</li><li>organization (Organization)</li></ul>", 
-      "enum": [
-        "docketId", 
-        "docId", 
-        "title", 
-        "postedDate", 
-        "agency", 
-        "documentType", 
-        "submitterName", 
-        "organization"
-      ], 
-      "name": "sb", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "Sort Order: <ul><li>ASC: Ascending</li><li>DESC: Descending</li></ul>", 
-      "enum": [
-        "ASC", 
-        "DESC"
-      ], 
-      "name": "so", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "Docket Subtype: Accepted values listed in Appendix B. Only one value at a time may be selected. One or more agency values must be part of the request. Only values valid for the selected agency will be returned.", 
-      "name": "dkst", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "Docket Sub-subtype: Accepted values listed in Appendix C", 
-      "name": "dktst2", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "Document Subtype: Accepted values listed in Appendix D", 
-      "name": "dktst", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "string"
-    }, 
-    {
-      "description": "Counts Only: <ul><li>1 (will return only the document count for a search query)</li><li>0 (will return documents as well)</li></ul>", 
-      "enum": [
-        0, 
-        1
-      ], 
-      "name": "countsOnly", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "integer"
-    }, 
-    {
-      "description": "Encoded: <ul><li>1 (will accept Regulations.gov style encoded parameters)</li><li>0 (will not accept such encoded parameters)</li></ul>  * See Implementation Notes section for more information on how to use this parameter.", 
-      "enum": [
-        0, 
-        1
-      ], 
-      "name": "encoded", 
-      "paramType": "query", 
-      "required": false, 
-      "type": "integer"
-    }
-  ]
+          "parameters": [
+            {
+              "defaultValue": "json",
+              "description": "Format",
+              "enum": [
+                "json",
+                "xml"
+              ],
+              "name": "response_format",
+              "paramType": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "API Key",
+              "name": "api_key",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Keyword(s)",
+              "name": "s",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Document Type: <ul><li>N: Notice</li><li>PR: Proposed Rule</li><li>FR: Rule</li><li>O: Other</li><li>SR: Supporting & Related Material</li><li>PS: Public Submission</li></ul>",
+              "enum": [
+                "N",
+                "PR",
+                "FR",
+                "O",
+                "SR",
+                "PS"
+              ],
+              "name": "dct",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Valid Docket ID (ex. SEC-2012-0044)",
+              "name": "dktid",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Docket Type: <ul><li>R: Rulemaking</li><li>N: Nonrulemaking</li></ul>",
+              "enum": [
+                "N",
+                "R"
+              ],
+              "name": "dkt",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Comment Period: <ul><li>O: Open</li><li>C: Closed</li></ul>",
+              "enum": [
+                "O",
+                "C"
+              ],
+              "name": "cp",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Federal Agency: Accepted values listed in Appendix A. This field allows multiple values. Ex. a=FMCSA%252BEPA%252BFDA",
+              "name": "a",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Results Per Page 10, 25, 100",
+              "enum": [
+                "10",
+                "25",
+                "100"
+              ],
+              "name": "rpp",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Enter the page offset (always starts with 0). This is used in conjunction with results per page to fetch large data sets in chunks. For example, if a search produces 82 results and the result per page is set to 25, this will generate 4 pages. 3 pages will have 25 results and the last page will have 7 results. Page offset values for each page will be <pre>Page 1: po=0 Page 2: po=25 Page 3: po=50 Page 4: po=75</pre> So total number of pages is [total results/results per page] and page offset for page X is [X-1 * results per page]",
+              "name": "po",
+              "paramType": "query",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "description": "Comment Period Closing Soon: <ul><li>0 (closing today)</li><li>3 (closing within 3 days)</li><li>15 (closing within 15 days)</li><li>30 (closing within 30 days)</li><li>90 (closing within 90 days)</li></ul>",
+              "enum": [
+                0,
+                3,
+                15,
+                30,
+                90
+              ],
+              "name": "cs",
+              "paramType": "query",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "description": "Newly Posted: <ul><li>0 (posted today)</li><li>3 (posted within last 3 days)</li><li>15 (posted within last 15 days)</li><li>30 (posted within last 30 days)</li><li>90 (posted within last 90 days)</li></ul>",
+              "enum": [
+                0,
+                3,
+                15,
+                30,
+                90
+              ],
+              "name": "np",
+              "paramType": "query",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "description": "Comment Period Start Date: Enter a date in the form of MM%7CDD%7CYY. The date must be before the Comment Period End Date, if it is also provided.",
+              "name": "cmsd",
+              "paramType": "query",
+              "required": false,
+              "type": "date"
+            },
+            {
+              "description": "Comment Period End Date: Enter a date in the form of MM%7CDD%7CYY. The date must be after the Comment Period Start Date, if it is also provided. <br/>** Comment Period Start and End Dates are mutually exclusive with the 'closing soon' parameter. If both are provided, 'closing soon' will be ignored.",
+              "name": "cmd",
+              "paramType": "query",
+              "required": false,
+              "type": "date"
+            },
+            {
+              "description": "Creation Date: Enter a date in the form of MM%7CDD%7CYY.",
+              "name": "crd",
+              "paramType": "query",
+              "required": false,
+              "type": "date"
+            },
+            {
+              "description": "Received Date: Enter a date in the form of MM%7CDD%7CYY.",
+              "name": "rd",
+              "paramType": "query",
+              "required": false,
+              "type": "date"
+            },
+            {
+              "description": "Posted Date: Enter a date in the form of MM%7CDD%7CYY.",
+              "name": "pd",
+              "paramType": "query",
+              "required": false,
+              "type": "date"
+            },
+            {
+              "description": "Document Category: <ul><li>AD (Aerospace and Transportation)</li> <li>AEP (Agriculture, Environment and Public Lands)</li> <li>BFS (Banking and Financial)</li> <li>CT(Commerce and International)</li> <li>LES (Defense, Law Enforcement, and Security)</li> <li>EELS (Education, Labor, Presidential, and Government Services)</li> <li>EUMM (Energy, Natural Resources, and Utilities)</li> <li>HCFP (Food Safety, Health, and Pharmaceutical)</li> <li>PRE(Housing, Development, and Real Estate)</li> <li>ITT (Technology and Telecommunications)</li></ul>",
+              "enum": [
+                "AD",
+                "AEP",
+                "BFS",
+                "CT",
+                "LES",
+                "EELS",
+                "EUMM",
+                "HCFP",
+                "PRE",
+                "ITT"
+              ],
+              "name": "cat",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Sort Order: <ul><li>docketId (Docket ID)docId (Document ID)</li><li>title (Title)</li><li>postedDate (Posted Date)</li><li>agency (Agency)</li><li>documentType (Document Type)</li><li>submitterName (Submitter Name)</li><li>organization (Organization)</li></ul>",
+              "enum": [
+                "docketId",
+                "docId",
+                "title",
+                "postedDate",
+                "agency",
+                "documentType",
+                "submitterName",
+                "organization"
+              ],
+              "name": "sb",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Sort Order: <ul><li>ASC: Ascending</li><li>DESC: Descending</li></ul>",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "name": "so",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Docket Subtype: Accepted values listed in Appendix B. Only one value at a time may be selected. One or more agency values must be part of the request. Only values valid for the selected agency will be returned.",
+              "name": "dkst",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Docket Sub-subtype: Accepted values listed in Appendix C",
+              "name": "dktst2",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Document Subtype: Accepted values listed in Appendix D",
+              "name": "dktst",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Counts Only: <ul><li>1 (will return only the document count for a search query)</li><li>0 (will return documents as well)</li></ul>",
+              "enum": [
+                0,
+                1
+              ],
+              "name": "countsOnly",
+              "paramType": "query",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "description": "Encoded: <ul><li>1 (will accept Regulations.gov style encoded parameters)</li><li>0 (will not accept such encoded parameters)</li></ul>  * See Implementation Notes section for more information on how to use this parameter.",
+              "enum": [
+                0,
+                1
+              ],
+              "name": "encoded",
+              "paramType": "query",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "summary": "Document Search",
+          "type": "SearchResult"
         }
-      ]
+      ],
+      "path": "/documents.{response_format}"
     }
   ],
+  "basePath": "http://api.data.gov/regulations/v2",
   "models": {
-    "SearchResult":{
-      "id":"SearchResult",
-      "properties":{
-        "totalNumRecords": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Total number of search records matching the given criteria"
+    "AgencyContact": {
+      "id": "AgencyContact",
+      "properties": {
+        "agency": {
+          "type": "string",
+          "description": "Agency"
         },
-        "docketModel": {
-            "type": "Docket"
+        "contactTitle": {
+          "type": "string",
+          "description": "Contact Title"
         },
-        "documents": {
-          "type": "array",
-          "items":{
-            "$ref": "Document"
-          }
+        "prefix": {
+          "type": "string",
+          "description": "Prefix"
+        },
+        "firstName": {
+          "type": "string",
+          "description": "First Name of Agency Contact"
+        },
+        "middleName": {
+          "type": "string",
+          "description": "Middle Name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Last Name of Agency Contact"
+        },
+        "suffix": {
+          "type": "string",
+          "description": "Suffix"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone"
+        },
+        "fax": {
+          "type": "string",
+          "description": "Fax"
+        },
+        "tddPhone": {
+          "type": "string",
+          "description": "TDD Phone"
+        },
+        "emailAddress": {
+          "type": "string",
+          "description": "Email Address"
+        },
+        "streetAddress": {
+          "type": "string",
+          "description": "Street Address"
+        },
+        "city": {
+          "type": "string",
+          "description": "City"
+        },
+        "state": {
+          "type": "string",
+          "description": "State"
+        },
+        "zip": {
+          "type": "string",
+          "description": "Zip"
         }
       }
     },
     "Docket": {
       "id": "Docket",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Formal title of the docket."
+    },
+    "docketId": {
+      "type": "string",
+      "description": "A unique identifier established for a docket."
+    },
+    "agency": {
+      "type": "string",
+      "description": "A government entity that publishes rules or notices in the Federal Register. "
+    },
+    "agencyAcronym": {
+      "type": "string",
+      "description": "An abbreviation of the agency name."
+    },
+    "rin": {
+      "type": "string",
+      "description": "The number assigned to each regulation that allows it to be cross-referenced with the Regulatory Agenda."
+    },
+    "parentAgency": {
+      "type": "string",
+      "description": "Some agencies are aligned to a department within the Executive branch."
+    },
+    "parentAgencyAcronym": {
+      "type": "string",
+      "description": "An abbreviation of the department name."
+    },
+    "type": {
+      "type": "string",
+      "description": "Docket Type (Rulemaking or Non-Rulemaking)"
+    },
+    "docketType": {
+      "type": "string",
+      "description": "A docket is a collection or repository of one or more regulatory documents as they relate to a rulemaking or nonrulemaking action."
+    },
+    "cfrCitation": {
+      "type": "string",
+      "description": "The section(s) of the Code of Federal Regulations (CFR) that will be affected by the action."
+    },
+    "priority": {
+      "type": "string",
+      "description": "An indication of the significance of the regulation. Agencies assign each entry to one of the following: Economically Significant; Other Significant; Substantive, Nonsignificant; Routine and Frequent; and Informational/Administrative/Other."
+    },
+    "impactsAndEffects": {
+      "type": "string",
+      "description": "A summary of expected impacts and effects of the rulemaking action, including Energy, International, and Small Entities. "
+    },
+    "timeTables action": {
+      "type": "string",
+      "description": "Listed by dates and citations (if available), all past steps and a projected date for at least the next step for the regulatory action. "
+    },
+    "actionQualifier": {
+      "type": "string",
+      "description": "Not sure what this means? Seems to be a duplicate of Action"
+    },
+    "date": {
+      "type": "string",
+      "description": "Projected date for the next step for the regulatory action."
+    },
+    "frCitation": {
+      "type": "string",
+      "description": "The volume and page number in the Federal Register."
+    },
+    "contact": {
+      "description": "The agency representative who will answer questions about the rulemaking.",
+      "type": "array",
+      "items": {
+            "$ref": "AgencyContact"
+       }
+    },
+    "numberOfComments": {
+      "type": "string",
+      "description": "This count refers to the total comments received on this docket, as of 11:59 PM yesterday, from Regulations.gov and alternate means."
+    },
+    "relatedRins": {
+      "type": "string",
+      "description": "One or more past or current RIN(s) associated with activity related to this action, such as merged RINs, split RINs, new activity for previously completed RINs, or duplicate RINs."
+    },
+    "relatedDockets": {
+      "type": "string",
+      "description": "One or more past or current Dockets associated with activity related to this action."
+    },
+    "ualist": {
+      "type": "",
+      "description": ""
+    },
+    "publicationPeriod": {
+      "type": "string",
+      "description": "Specific month and year that the rulemaking action is published in the Unified Agenda."
+    },
+    "agendaStageOfRulemaking": {
+      "type": "string",
+      "description": "Each entry in the Agenda is associated with one of the following stages: Prerule Stage, Proposed Rule stage, Final Rule Stage, Long-Term Actions, and Completed Actions"
+    },
+    "majorRule": {
+      "type": "string",
+      "description": "An indication of whether or not the rule is \"major\" under 5 U.S.C. 801 (Pub. L. 104-121) because it has resulted or is likely to result in an annual effect on the economy of $100 million or more or meets other criteria specified in that Act. "
+    },
+    "legalAuthorities": {
+      "type": "string",
+      "description": "The section(s) of the United States Code (U.S.C.) or Public Law (Pub. L.) or the Executive Order (E.O.) that authorize(s) the regulatory action. "
+    },
+    "legalDeadlines": {
+      "type": "string",
+      "description": "An indication of whether or not the action is subject to a statutory or judicial deadline, the date of that deadline, and whether the deadline pertains to an NPRM, a Final Action, or some other action."
+    },
+    "governmentLevelsAffected": {
+      "type": "string",
+      "description": "An indication of whether or not the action is expected to affect levels of government and, if so, whether the governments are State, local, tribal, or Federal."
+    },
+    "federalismImplications": {
+      "type": "string",
+      "description": "An indication of whether or not the action has \"federalism implications\" as defined in Executive Order 13132. This term refers to actions \"that have substantial direct effects on the States, on the relationship between the national government and the States, or on the distribution of power and responsibilities among the various levels of government.\""
+    },
+    "unfundedMandates": {
+      "type": "string",
+      "description": "An indication of whether or not the rule is covered by section 202 of the Unfunded Mandates Reform Act of 1995 (Pub. L. 104-4). "
+    },
+    "requiresRegulatoryFlexibilityAnalysis": {
+      "type": "string",
+      "description": "An indication of whether or not an analysis is required by the Regulatory Flexibility Act (5 U.S.C. 601 et seq.) because the rulemaking action is likely to have a significant economic impact on a substantial number of small entities as defined by the Act."
+    },
+    "smallEntitiesAffected": {
+      "type": "string",
+      "description": "The types of small entities (businesses, governmental jurisdictions, or organizations) on which the rulemaking action is likely to have an impact as defined by the Regulatory Flexibility Act. "
+    },
+    "internationalImpacts": {
+      "type": "string",
+      "description": "An indication of whether or not the regulation is expected to have international trade and investment effects, or otherwise may be of interest to the Nation's international trading partners."
+    },
+    "energyEffects": {
+      "type": "string",
+      "description": "An indication of whether or not the agency has prepared or plans to prepare a Statement of Energy Effects for the action, as required by Executive Order 13211 \"Actions Concerning Regulations That Significantly Affect Energy Supply, Distribution, or Use,\" signed May 18, 2001 (66 FR 28355)."
+    },
+    "includedInRegulatoryPlan": {
+      "type": "string",
+      "description": "An indication of whether or not the rulemaking was included in the agency's current regulatory plan published in the fall of any given year."
+    }
+  }
+    },
+    "Document": {
+      "id": "Document",
       "properties": {
+        "abstract": {
+          "description": "The detailed description of a document.",
+          "type": "string"
+        },
+        "agencyAcronym": {
+          "description": "An abbreviation of the agency name.",
+          "type": "string"
+        },
+        "agencyName": {
+          "description": "Full name of the Federal Agency.",
+          "type": "string"
+        },
+        "allowLateComment": {
+          "description": "Some agencies will accept comments after the due date.",
+          "type": "boolean"
+        },
+        "attachmentCount": {
+          "description": "Number of attachments associated with a document.",
+          "type": "string"
+        },
+        "attachments": {
+          "description": "Additional files associated with this document",
+          "type": "array"
+        },
+        "cfr": {
+          "description": "To: A Code of Federal Regulations (CFR) Citation Number exists for each regulation referring to the rules published in the Federal Register by executive departments and agencies of the Federal Government.",
+          "type": "string"
+        },
+        "comment": {
+          "description": "The text of the submitter's comment.",
+          "type": "string"
+        },
+        "commentDueDate": {
+          "description": "Date and time when the period for the public to comment ends.",
+          "type": "dateTime"
+        },
+        "commentStartDate": {
+          "description": "Date and time when the period for the public to comment begins.",
+          "type": "dateTime"
+        },
         "docketId": {
-          "type":"string",
-          "description": "a unique identifier established for a docket"
+          "description": "A unique identifier established for a docket.",
+          "type": "string"
+        },
+        "docketType": {
+          "description": "A docket is a collection or repository of one or more regulatory documents as they relate to a rulemaking or nonrulemaking action.",
+          "type": "string"
+        },
+        "documentId": {
+          "description": "A unique identifier established for a document.",
+          "type": "string"
+        },
+        "documentStatus": {
+          "description": "Identifies whether the document is Posted on or Withdrawn from Regulations.gov.",
+          "type": "string"
+        },
+        "documentSubtype": {
+          "description": "A secondary classification of a document.",
+          "type": "string"
+        },
+        "documentType": {
+          "description": "A primary classification of a document.",
+          "type": "string"
+        },
+        "effectiveDate": {
+          "description": "The date, specified in the Federal Register, when a rule takes effect and is enforced.",
+          "type": "dateTime"
+        },
+        "federalRegisterNumber": {
+          "description": "The unique identifier of a document from the Federal Register (example FR Doc. E6-540).",
+          "type": "string"
+        },
+        "fileFormats": {
+          "description": "",
+          "type": ""
+        },
+        "formats": {
+          "description": "Formats of the document, included as URLs to download from the API",
+          "type": "array"
+        },
+        "frDoc": {
+          "description": "Indicates if this is a document published in the Federal Register which includes proposed rules, rules, and notices.",
+          "type": "boolan"
+        },
+        "numCommentsReceived": {
+          "description": "The total number of comments received on this document.",
+          "type": "integer"
+        },
+        "openForComment": {
+          "description": "The document is open for Comment. This value is recalculated daily based on the comment end date. If allowLateComment is true, then the comment remains open indefinitely.",
+          "type": "boolean"
+        },
+        "pageCount": {
+          "description": "The number of pages in the document.",
+          "type": "integer"
+        },
+        "postedDate": {
+          "description": "The date a document was posted to Regulations.gov and made available for public view and comment.",
+          "type": "dateTime"
+        },
+        "receivedDate": {
+          "description": "For a comment submitted through Regulations.gov, this marks the date a comment is submitted by the commenter. ",
+          "type": "dateTime"
+        },
+        "receivedate": {
+          "description": "For a comment submitted through Regulations.gov, this marks the date a comment is entered by the commenter. ",
+          "type": "string"
         },
         "rin": {
-          "type":"string",
-          "description": "TODO: Insert RIN description here"
+          "description": "The Regulation Identifier Number (RIN) assigned to each regulation which allows it to be cross-referenced with the Regulatory Agenda.",
+          "type": "string"
+        },
+        "startEndPage": {
+          "description": "The first and last page numbers of the document.",
+          "type": "string"
+        },
+        "title": {
+          "description": "The formal title of the document.",
+          "type": "string"
         }
       }
     },
-    "Document": {
-        "id": "Document",
-  "properties": {
-    "abstract": {
-      "description": "The detailed description of a document.", 
-      "type": "string"
-    }, 
-    "agencyAcronym": {
-      "description": "An abbreviation of the agency name.", 
-      "type": "string"
-    }, 
-    "agencyName": {
-      "description": "Full name of the Federal Agency.", 
-      "type": "string"
-    }, 
-    "allowLateComment": {
-      "description": "Some agencies will accept comments after the due date.", 
-      "type": "boolean"
-    }, 
-    "attachmentCount": {
-      "description": "Number of attachments associated with a document.", 
-      "type": "string"
-    }, 
-    "attachments": {
-      "description": "Additional files associated with this document", 
-      "type": "array"
-    }, 
-    "cfr": {
-      "description": "To: A Code of Federal Regulations (CFR) Citation Number exists for each regulation referring to the rules published in the Federal Register by executive departments and agencies of the Federal Government.", 
-      "type": "string"
-    }, 
-    "comment": {
-      "description": "The text of the submitter's comment.", 
-      "type": "string"
-    }, 
-    "commentDueDate": {
-      "description": "Date and time when the period for the public to comment ends.", 
-      "type": "dateTime"
-    }, 
-    "commentStartDate": {
-      "description": "Date and time when the period for the public to comment begins.", 
-      "type": "dateTime"
-    }, 
-    "docketId": {
-      "description": "A unique identifier established for a docket.", 
-      "type": "string"
-    }, 
-    "docketType": {
-      "description": "A docket is a collection or repository of one or more regulatory documents as they relate to a rulemaking or nonrulemaking action.", 
-      "type": "string"
-    }, 
-    "documentId": {
-      "description": "A unique identifier established for a document.", 
-      "type": "string"
-    }, 
-    "documentStatus": {
-      "description": "Identifies whether the document is Posted on or Withdrawn from Regulations.gov.", 
-      "type": "string"
-    }, 
-    "documentSubtype": {
-      "description": "A secondary classification of a document.", 
-      "type": "string"
-    }, 
-    "documentType": {
-      "description": "A primary classification of a document.", 
-      "type": "string"
-    }, 
-    "effectiveDate": {
-      "description": "The date, specified in the Federal Register, when a rule takes effect and is enforced.", 
-      "type": "dateTime"
-    }, 
-    "federalRegisterNumber": {
-      "description": "The unique identifier of a document from the Federal Register (example FR Doc. E6-540).", 
-      "type": "string"
-    }, 
-    "fileFormats": {
-      "description": "", 
-      "type": ""
-    }, 
-    "formats": {
-      "description": "Formats of the document, included as URLs to download from the API", 
-      "type": "array"
-    }, 
-    "frDoc": {
-      "description": "Indicates if this is a document published in the Federal Register which includes proposed rules, rules, and notices.", 
-      "type": "boolan"
-    }, 
-    "numCommentsReceived": {
-      "description": "The total number of comments received on this document.", 
-      "type": "integer"
-    }, 
-    "openForComment": {
-      "description": "The document is open for Comment.", 
-      "type": "boolean"
-    }, 
-    "pageCount": {
-      "description": "The number of pages in the document.", 
-      "type": "integer"
-    }, 
-    "postedDate": {
-      "description": "The date a document was posted to Regulations.gov and made available for public view and comment.", 
-      "type": "dateTime"
-    }, 
-    "receivedDate": {
-      "description": "For a comment submitted through Regulations.gov, this marks the date a comment is submitted by the commenter. ", 
-      "type": "dateTime"
-    }, 
-    "receivedate": {
-      "description": "For a comment submitted through Regulations.gov, this marks the date a comment is entered by the commenter. ", 
-      "type": "string"
-    }, 
-    "rin": {
-      "description": "The Regulation Identifier Number (RIN) assigned to each regulation which allows it to be cross-referenced with the Regulatory Agenda.", 
-      "type": "string"
-    }, 
-    "startEndPage": {
-      "description": "The first and last page numbers of the document.", 
-      "type": "string"
-    }, 
-    "title": {
-      "description": "The formal title of the document.", 
-      "type": "string"
-    }
-  }
+    "SearchResult": {
+      "id": "SearchResult",
+      "properties": {
+        "documents": {
+          "items": {
+            "$ref": "Document"
+          },
+          "type": "array"
+        },
+        "totalNumRecords": {
+          "description": "Total number of search records matching the given criteria",
+          "format": "int64",
+          "type": "integer"
         }
+      }
     }
-
-  }
+  },
+  "swaggerVersion": "1.2"
+}
