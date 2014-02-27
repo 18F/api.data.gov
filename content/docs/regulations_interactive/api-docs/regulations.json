@@ -1,5 +1,7 @@
 {
   "apiVersion": "2.0.0",
+    "swaggerVersion": "1.2",
+    "basePath": "http://api.data.gov/regulations/v2",
   "apis": [
     {
       "operations": [
@@ -98,7 +100,7 @@
         {
           "method": "GET",
           "nickname": "documents",
-          "notes": "This API allows users to build a query based on any of the parameters below.  If you have trouble building queries, you may wish to try them through the <a href=\"http://www.regulations.gov/#!advancedSearch\">Advanced Search</a> page on the Regulations.gov website.",
+          "notes": "This API allows users to build a query based on any of the parameters below.  If you have trouble building queries, you may wish to try them through the <a href=\"http://www.regulations.gov/#!advancedSearch\">Advanced Search</a> page on the Regulations.gov website. The parameters in the browser address can be translated to the API by converting the semicolons to ampresands and appending the 'encoded=1' parameter your API parameters. ",
           "parameters": [
             {
               "defaultValue": "json",
@@ -171,7 +173,7 @@
               "type": "string"
             },
             {
-              "description": "Federal Agency: Accepted values listed in Appendix A. This field allows multiple values. Ex. a=FMCSA%252BEPA%252BFDA",
+              "description": "Federal Agency: List of accepted <a href=\"/docs/regulations_interactive/federalagencies/\">Federal Agency</a> values. This field allows multiple values. Ex. a=FMCSA%252BEPA%252BFDA",
               "name": "a",
               "paramType": "query",
               "required": false,
@@ -260,7 +262,7 @@
               "type": "date"
             },
             {
-              "description": "Document Category: <ul><li>AD (Aerospace and Transportation)</li> <li>AEP (Agriculture, Environment and Public Lands)</li> <li>BFS (Banking and Financial)</li> <li>CT(Commerce and International)</li> <li>LES (Defense, Law Enforcement, and Security)</li> <li>EELS (Education, Labor, Presidential, and Government Services)</li> <li>EUMM (Energy, Natural Resources, and Utilities)</li> <li>HCFP (Food Safety, Health, and Pharmaceutical)</li> <li>PRE(Housing, Development, and Real Estate)</li> <li>ITT (Technology and Telecommunications)</li></ul>",
+              "description": "Document Category: <ul><li>AD (Aerospace and Transportation)</li> <li>AEP (Agriculture, Environment, and Public Lands)</li> <li>BFS (Banking and Financial)</li> <li>CT(Commerce and International)</li> <li>LES (Defense, Law Enforcement, and Security)</li> <li>EELS (Education, Labor, Presidential, and Government Services)</li> <li>EUMM (Energy, Natural Resources, and Utilities)</li> <li>HCFP (Food Safety, Health, and Pharmaceutical)</li> <li>PRE(Housing, Development, and Real Estate)</li> <li>ITT (Technology and Telecommunications)</li></ul>",
               "enum": [
                 "AD",
                 "AEP",
@@ -279,7 +281,7 @@
               "type": "string"
             },
             {
-              "description": "Sort Order: <ul><li>docketId (Docket ID)docId (Document ID)</li><li>title (Title)</li><li>postedDate (Posted Date)</li><li>agency (Agency)</li><li>documentType (Document Type)</li><li>submitterName (Submitter Name)</li><li>organization (Organization)</li></ul>",
+              "description": "Sort Order: <ul><li>docketId (Docket ID)</li><li>docId (Document ID)</li><li>title (Title)</li><li>postedDate (Posted Date)</li><li>agency (Agency)</li><li>documentType (Document Type)</li><li>submitterName (Submitter Name)</li><li>organization (Organization)</li></ul>",
               "enum": [
                 "docketId",
                 "docId",
@@ -307,7 +309,7 @@
               "type": "string"
             },
             {
-              "description": "Docket Subtype: Accepted values listed in Appendix B. Only one value at a time may be selected. One or more agency values must be part of the request. Only values valid for the selected agency will be returned.",
+              "description": "Docket Subtype: List of valid <a href=\"/docs/regulations/docketsubtypes/\">Docket Subtypes</a>. Only one value at a time may be selected. One or more agency values must be part of the request. Only values valid for the selected agency will be returned.",
               "name": "dkst",
               "paramType": "query",
               "required": false,
@@ -357,10 +359,9 @@
       "path": "/documents.{response_format}"
     }
   ],
-  "basePath": "http://api.data.gov/regulations/v2",
   "models": {
     "AgencyContact": {
-      "id": "AgencyContact",
+      "id": "Agency Contact",
       "properties": {
         "agency": {
           "type": "string",
@@ -424,8 +425,27 @@
         }
       }
     },
+    "Attachment": {
+		"id": "Attachment",
+		"description": "Optional. A  file attached to a Document.",
+		"properties": {
+		"title": {"type":"string","description" :"The title of the attachment."}, 
+		"postingRestriction": {"type" :"string","description" :"Restriction on posting the content file to Regulations.gov."}, 
+		"agencyNotes": {"type" :"string","description" :"An agency may provide specific notes on a particular document."}, 
+		"reasonRestricted": {"type" :"string","description" :"The reason why the content file is restricted from Regulations.gov."}, 
+		"fileFormats": {"type" :"array","description" :"A URL to download the file. Multiple formats may be available."}
+		}
+	},
     "Docket": {
       "id": "Docket",
+      "description": "A docket is a collection or repository of one or more regulatory documents as they relate to a rulemaking or nonrulemaking action.",
+  "required": [
+  	"agency",
+  	"agencyAcronym",
+  	"docketId",
+  	"type",
+    "title"
+  ],
   "properties": {
     "title": {
       "type": "string",
@@ -445,7 +465,7 @@
     },
     "rin": {
       "type": "string",
-      "description": "The number assigned to each regulation that allows it to be cross-referenced with the Regulatory Agenda."
+      "description": "The number assigned to each regulation that allows it to be cross-referenced with the Regulatory Agenda. Only applies to 'Rulemaking' dockets."
     },
     "parentAgency": {
       "type": "string",
@@ -459,10 +479,6 @@
       "type": "string",
       "description": "Docket Type (Rulemaking or Non-Rulemaking)"
     },
-    "docketType": {
-      "type": "string",
-      "description": "A docket is a collection or repository of one or more regulatory documents as they relate to a rulemaking or nonrulemaking action."
-    },
     "cfrCitation": {
       "type": "string",
       "description": "The section(s) of the Code of Federal Regulations (CFR) that will be affected by the action."
@@ -475,21 +491,12 @@
       "type": "string",
       "description": "A summary of expected impacts and effects of the rulemaking action, including Energy, International, and Small Entities. "
     },
-    "timeTables action": {
-      "type": "string",
-      "description": "Listed by dates and citations (if available), all past steps and a projected date for at least the next step for the regulatory action. "
-    },
-    "actionQualifier": {
-      "type": "string",
-      "description": "Not sure what this means? Seems to be a duplicate of Action"
-    },
-    "date": {
-      "type": "string",
-      "description": "Projected date for the next step for the regulatory action."
-    },
-    "frCitation": {
-      "type": "string",
-      "description": "The volume and page number in the Federal Register."
+    "timeTables": {
+      "type": "array",
+      "description": "Listed by dates and citations (if available), all past steps and a projected date for at least the next step for the regulatory action. ",
+      "items": {
+      		"$ref": "TimeTableItem"
+      		}
     },
     "contact": {
       "description": "The agency representative who will answer questions about the rulemaking.",
@@ -509,10 +516,6 @@
     "relatedDockets": {
       "type": "string",
       "description": "One or more past or current Dockets associated with activity related to this action."
-    },
-    "ualist": {
-      "type": "",
-      "description": ""
     },
     "publicationPeriod": {
       "type": "string",
@@ -593,10 +596,13 @@
         },
         "attachments": {
           "description": "Additional files associated with this document",
-          "type": "array"
+          "type": "array",
+          "items": {
+            "$ref": "Attachment"
+       		}
         },
         "cfr": {
-          "description": "To: A Code of Federal Regulations (CFR) Citation Number exists for each regulation referring to the rules published in the Federal Register by executive departments and agencies of the Federal Government.",
+          "description": "A Code of Federal Regulations (CFR) Citation Number exists for each regulation referring to the rules published in the Federal Register by executive departments and agencies of the Federal Government.",
           "type": "string"
         },
         "comment": {
@@ -605,11 +611,11 @@
         },
         "commentDueDate": {
           "description": "Date and time when the period for the public to comment ends.",
-          "type": "dateTime"
+          "type": "date-time"
         },
         "commentStartDate": {
           "description": "Date and time when the period for the public to comment begins.",
-          "type": "dateTime"
+          "type": "date-time"
         },
         "docketId": {
           "description": "A unique identifier established for a docket.",
@@ -637,27 +643,15 @@
         },
         "effectiveDate": {
           "description": "The date, specified in the Federal Register, when a rule takes effect and is enforced.",
-          "type": "dateTime"
+          "type": "date-time"
         },
         "federalRegisterNumber": {
           "description": "The unique identifier of a document from the Federal Register (example FR Doc. E6-540).",
           "type": "string"
         },
         "fileFormats": {
-          "description": "",
-          "type": ""
-        },
-        "formats": {
           "description": "Formats of the document, included as URLs to download from the API",
           "type": "array"
-        },
-        "frDoc": {
-          "description": "Indicates if this is a document published in the Federal Register which includes proposed rules, rules, and notices.",
-          "type": "boolan"
-        },
-        "numCommentsReceived": {
-          "description": "The total number of comments received on this document.",
-          "type": "integer"
         },
         "openForComment": {
           "description": "The document is open for Comment. This value is recalculated daily based on the comment end date. If allowLateComment is true, then the comment remains open indefinitely.",
@@ -669,15 +663,11 @@
         },
         "postedDate": {
           "description": "The date a document was posted to Regulations.gov and made available for public view and comment.",
-          "type": "dateTime"
+          "type": "date-time"
         },
         "receivedDate": {
           "description": "For a comment submitted through Regulations.gov, this marks the date a comment is submitted by the commenter. ",
-          "type": "dateTime"
-        },
-        "receivedate": {
-          "description": "For a comment submitted through Regulations.gov, this marks the date a comment is entered by the commenter. ",
-          "type": "string"
+          "type": "date-time"
         },
         "rin": {
           "description": "The Regulation Identifier Number (RIN) assigned to each regulation which allows it to be cross-referenced with the Regulatory Agenda.",
@@ -693,12 +683,78 @@
         }
       }
     },
+   "DocumentSummary": {
+      "id": "Document Summary",
+      "description": "A limited set of properties representing a document in a list within Search Results",
+      "properties": {
+        "agencyAcronym": {
+          "description": "An abbreviation of the agency name.",
+          "type": "string"
+        },
+        "allowLateComment": {
+          "description": "Some agencies will accept comments after the due date.",
+          "type": "boolean"
+        },
+        "attachmentCount": {
+          "description": "Number of attachments associated with a document.",
+          "type": "string"
+        },
+        "comment": {
+          "description": "The text of the submitter's comment.",
+          "type": "string"
+        },
+        "commentDueDate": {
+          "description": "Date and time when the period for the public to comment ends.",
+          "type": "date-time"
+        },
+        "commentStartDate": {
+          "description": "Date and time when the period for the public to comment begins.",
+          "type": "date-time"
+        },
+        "docketId": {
+          "description": "A unique identifier established for a docket.",
+          "type": "string"
+        },
+        "docketType": {
+          "description": "Docket Type (Rulemaking or Non-Rulemaking)",
+          "type": "string"
+        },
+        "documentId": {
+          "description": "A unique identifier established for a document.",
+          "type": "string"
+        },
+        "documentStatus": {
+          "description": "Identifies whether the document is Posted on or Withdrawn from Regulations.gov.",
+          "type": "string"
+        },
+        "documentType": {
+          "description": "A primary classification of a document.",
+          "type": "string"
+        },
+        "openForComment": {
+          "description": "The document is open for Comment. This value is recalculated daily based on the comment end date. If allowLateComment is true, then the comment remains open indefinitely.",
+          "type": "boolean"
+        },
+        "postedDate": {
+          "description": "The date a document was posted to Regulations.gov and made available for public view and comment.",
+          "type": "date-time"
+        },
+        "rin": {
+          "description": "The Regulation Identifier Number (RIN) assigned to each regulation which allows it to be cross-referenced with the Regulatory Agenda.",
+          "type": "string"
+        },
+        "title": {
+          "description": "The formal title of the document.",
+          "type": "string"
+        }
+      }
+    },
     "SearchResult": {
-      "id": "SearchResult",
+      "id": "Search Result",
       "properties": {
         "documents": {
           "items": {
-            "$ref": "Document"
+            "$ref": "DocumentSummary"
           },
           "type": "array"
         },
@@ -708,7 +764,16 @@
           "type": "integer"
         }
       }
-    }
-  },
-  "swaggerVersion": "1.2"
+    },
+    "TimeTableItem": {
+    	"id": "Time Table Item",
+		"description": "",
+		"properties" : {
+			"action": {"type" :"string"}, 
+			"date": {"type" :"date","description" :"Projected date for the next step for the regulatory action.  This date is not returned in ISO 8601 format."}, 
+			"frCitation": {"type" :"string","description" :"The volume and page number in the Federal Register."}
+		}
+	}
+  }
 }
+  
