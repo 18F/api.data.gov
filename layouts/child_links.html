@@ -1,4 +1,4 @@
-<% primary = @item.children.reject { |i| (i[:deprecated] == true) }.sort_by { |i| i[:title] } %>
+<% primary = @item.children.reject { |i| (i[:title].nil? || i[:deprecated] == true) }.sort_by { |i| i[:title] } %>
 <% deprecated = @item.children.find_all { |i| (i[:deprecated] == true) }.sort_by { |i| i[:title] } %>
 
 <%= render("children", :children => primary) %>
