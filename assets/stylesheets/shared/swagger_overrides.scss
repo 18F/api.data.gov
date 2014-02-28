@@ -43,3 +43,9 @@
     margin-left: 25px;
   }
 }
+
+.swagger-ui-hide-response-content-type {
+  .response-content-type {
+    display: none;
+  }
+}
