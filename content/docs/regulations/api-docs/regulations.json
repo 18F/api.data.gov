@@ -3,8 +3,7 @@
   "swaggerVersion": "1.2",
   "basePath": "http://api.data.gov/regulations/beta",
   "produces": [
-    "application/json; charset=UTF-8",
-    "application/xml; charset=UTF-8"
+    "*/*"
   ],
   "apis": [
     {
