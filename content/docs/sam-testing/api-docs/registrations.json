@@ -1,0 +1,235 @@
+{
+  "apiVersion": "0.0.3",
+  "swaggerVersion": "1.2",
+  "basePath": "http://api.data.gov/sam",
+  "resourcePath": "/registrations",
+  "produces": "application/json",
+  "apis": [
+    {
+      "path": "/registrations/{registrationId}",
+      "description": "Operations about entity registrations",
+      "operations": [
+        {
+          "method": "GET",
+          "nickname": "getData",
+          "type": "SamRegistraion",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "registrationId",
+              "description": "DUNS+4 number (no '-' sign) of the registration to be fetched",
+              "dataType": "string",
+              "required": "true"
+            }
+          ],
+          "summary": "Find a registration by its DUN+4 number",
+          "notes": "If the entity only has a 9-digit DUNS number, pad the end to include 4 zeros",
+          "responseMessages": [
+            {
+              "code": "200",
+              "message": "Ok",
+              "responseModel": "registrationType"
+            },
+            {
+              "code": "404",
+              "message": "The registration could not be found"
+            },
+            {
+              "code": "500",
+              "message": "Internal error"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": {
+    "SamRegistration": {
+      "id": "SAM Registration",
+      "description": "A partial representation of a SAM registration",
+      "type": "object",
+      "properties": {
+        "duns": {
+          "type": "string",
+          "required": true
+        },
+        "duns4": {
+          "type": "string"
+        },
+        "cage": {
+          "type": "string"
+        },
+        "purposeOfRegistration": {
+          "type": {
+            "enum": [
+              "IGT_ONLY",
+              "IGT_FEDERAL_ASSISTANCE",
+              "IGT_ALL_AWARDS",
+              "FEDERAL_ASSISTANCE",
+              "ALL_AWARDS"
+            ]
+          },
+          "required": true
+        },
+        "registrationDate": {
+          "type": "date",
+          "required": true
+        },
+        "expirationDate": {
+          "type": "date",
+          "required": true
+        },
+        "activationDate": {
+          "type": "date",
+          "required": true
+        },
+        "legalBusinessName": {
+          "type": "string",
+          "required": true
+        },
+        "samAddress": {
+          "$ref": "#/definitions/SamAddress"
+        },
+        "businessStartDate": {
+          "type": "string",
+          "required": true
+        },
+        "url": {
+          "type": "string",
+          "required": true
+        },
+        "mailingAddress": {
+          "$ref": "#/definitions/SamAddress"
+        },
+        "govtBusinessPoc": {
+          "$ref": "#/definitions/SamPointOfContact"
+        },
+        "altGovtBusinessPoc": {
+          "$ref": "#/definitions/SamPointOfContact"
+        },
+        "status": {
+          "type": {
+            "enum": [
+              "DRAFT",
+              "WIP_TIN_MATCH_NOT_SUBMITTED",
+              "WIP_TIN_MATCH_SUBMITTED",
+              "SUBMITTED_TO_TIN_MATCH",
+              "SUBMITTED_TO_CAGE_VALIDATION",
+              "ACTIVE",
+              "EXPIRED",
+              "DELETED",
+              "STATUS_ERROR"
+            ]
+          },
+          "required": true
+        },
+        "statusMessage": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "progressCode": {
+                "type": {
+                  "enum": [
+                    "NO_ERROR",
+                    "MANDATORY_FIELD_NOT_PROVIDED",
+                    "INVALID_FORMAT",
+                    "BUSINESS_RULE_VIOLATION",
+                    "DEPENDENT_INFORMATION_NOT_PROVIDED",
+                    "INVALID_ADDRESS",
+                    "TIN_MATCH_FAILURE",
+                    "TIN_MATCH_COMPLETE",
+                    "TIN_MATCH_UNNEEDED",
+                    "CAGE_VALIDATION_REJECTION",
+                    "INCOMPLETE_CORE_DATA",
+                    "COMPLETE_CORE_DATA",
+                    "COMPLETE_ASSERTIONS",
+                    "COMPLETE_REPS_AND_CERTS",
+                    "COMPLETE_POCS"
+                  ]
+                },
+                "required": true
+              },
+              "field": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string",
+                "required": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "SamPointOfContact": {
+      "description": "A representation of a point of contact in SAM",
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "required": true
+        },
+        "lastName": {
+          "type": "string",
+          "required": true
+        },
+        "middleInitial": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "SamAddress"
+        },
+        "usPhone": {
+          "type": "string"
+        },
+        "usPhoneExt": {
+          "type": "string"
+        },
+        "nonUsPhone": {
+          "type": "string"
+        },
+        "nonUsPhoneExt": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    "SamAddress": {
+      "description": "A representation of an address in SAM",
+      "type": "object",
+      "properties": {
+        "line1": {
+          "type": "string",
+          "required": true
+        },
+        "line2": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string",
+          "required": true
+        },
+        "stateOrProvince": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "zip4": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string",
+          "required": true
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 <% children.each do |child| %>
 <% next if(child[:hidden]) %>
-<% if(child[:kind] != "info") %>
+<% if(!child[:hidden] && child[:kind] != "info") %>
 <h3 class="doc">
 <%= link_to(child[:title], child) %>
 <% if(child[:url]) %>
