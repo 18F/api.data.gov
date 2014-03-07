@@ -125,6 +125,28 @@
               "type": "string"
             },
             {
+              "description": "Counts Only: <ul><li>1 (will return only the document count for a search query)</li><li>0 (will return documents as well)</li></ul>",
+              "enum": [
+                0,
+                1
+              ],
+              "name": "countsOnly",
+              "paramType": "query",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "description": "Encoded: <ul><li>1 (will accept Regulations.gov style encoded parameters)</li><li>0 (will not accept such encoded parameters)</li></ul>  * See Implementation Notes section for more information on how to use this parameter.",
+              "enum": [
+                0,
+                1
+              ],
+              "name": "encoded",
+              "paramType": "query",
+              "required": false,
+              "type": "integer"
+            },
+            {
               "description": "Keyword(s)",
               "name": "s",
               "paramType": "query",
@@ -216,7 +238,7 @@
               "type": "integer"
             },
             {
-              "description": "Newly Posted: <ul><li>0 (posted today)</li><li>3 (posted within last 3 days)</li><li>15 (posted within last 15 days)</li><li>30 (posted within last 30 days)</li><li>90 (posted within last 90 days)</li></ul>",
+              "description": "Newly Posted: <ul><li>0 (posted today)</li><li>3 (posted within last 3 days)</li><li>15 (posted within last 15 days)</li><li>30 (posted within last 30 days)</li><li>90 (posted within last 90 days)</li></ul>  For periods of time beyond 90-days, please use a date range with the Posted Date parameter.",
               "enum": [
                 0,
                 3,
@@ -230,35 +252,35 @@
               "type": "integer"
             },
             {
-              "description": "Comment Period Start Date: Enter a date in the form of MM%7CDD%7CYY. The date must be before the Comment Period End Date, if it is also provided.",
+              "description": "Comment Period Start Date: Enter a date in the form of MM/DD/YY. The date must be before the Comment Period End Date, if it is also provided.",
               "name": "cmsd",
               "paramType": "query",
               "required": false,
               "type": "date"
             },
             {
-              "description": "Comment Period End Date: Enter a date in the form of MM%7CDD%7CYY. The date must be after the Comment Period Start Date, if it is also provided. <br/>** Comment Period Start and End Dates are mutually exclusive with the 'closing soon' parameter. If both are provided, 'closing soon' will be ignored.",
+              "description": "Comment Period End Date: Enter a date in the form of MM/DD/YY. The date must be after the Comment Period Start Date, if it is also provided. <br/>** Comment Period Start and End Dates are mutually exclusive with the 'closing soon' parameter. If both are provided, 'closing soon' will be ignored.",
               "name": "cmd",
               "paramType": "query",
               "required": false,
               "type": "date"
             },
             {
-              "description": "Creation Date: Enter a date in the form of MM%7CDD%7CYY.",
+              "description": "Creation Date: Enter a date in the form of MM/DD/YY. Accepts a single date or a date range. Ex. <code>crd=11/06/13-03/06/14</code>",
               "name": "crd",
               "paramType": "query",
               "required": false,
               "type": "date"
             },
             {
-              "description": "Received Date: Enter a date in the form of MM%7CDD%7CYY.",
-              "name": "rd",
+              "description": "Received Date: Enter a date in the form of MM/DD/YY. Accepts a single date or a date range. Ex. <code>rd=11/06/13-03/06/14</code>",
+              "name": "rd", 
               "paramType": "query",
               "required": false,
               "type": "date"
             },
             {
-              "description": "Posted Date: Enter a date in the form of MM%7CDD%7CYY.",
+              "description": "Posted Date: Enter a date in the form of MM/DD/YY. Accepts a single date or a date range. Ex. <code>pd=11/06/13-03/06/14</code>",
               "name": "pd",
               "paramType": "query",
               "required": false,
@@ -284,7 +306,7 @@
               "type": "string"
             },
             {
-              "description": "Sort Order: <ul><li>docketId (Docket ID)</li><li>docId (Document ID)</li><li>title (Title)</li><li>postedDate (Posted Date)</li><li>agency (Agency)</li><li>documentType (Document Type)</li><li>submitterName (Submitter Name)</li><li>organization (Organization)</li></ul>",
+              "description": "Sort By: <ul><li>docketId (Docket ID)</li><li>docId (Document ID)</li><li>title (Title)</li><li>postedDate (Posted Date)</li><li>agency (Agency)</li><li>documentType (Document Type)</li><li>submitterName (Submitter Name)</li><li>organization (Organization)</li></ul> Sort Order is REQUIRED if this parameter is included.",
               "enum": [
                 "docketId",
                 "docId",
@@ -319,40 +341,18 @@
               "type": "string"
             },
             {
-              "description": "Docket Sub-subtype: Accepted values listed in Appendix C",
+              "description": "Docket Sub-subtype: List of valid <a href=\"/docs/regulations/docketsubsubtypes/\">Docket Sub-Subtypes</a>. Only one value at a time may be selected. One or more agency values must be part of the request. Only values valid for the selected agency will be returned.",
               "name": "dktst2",
               "paramType": "query",
               "required": false,
               "type": "string"
             },
             {
-              "description": "Document Subtype: Accepted values listed in Appendix D",
-              "name": "dktst",
+              "description": "Document Subtype: List of valid <a href=\"/docs/regulations/documentsubtypes/\">Document Subtypes</a>. Single or multiple values may be included.  Multiple values should be passed as follows: <code>docst=%20Certificate+of+Service%252BCorrespondence</code>",
+              "name": "docst",
               "paramType": "query",
               "required": false,
               "type": "string"
-            },
-            {
-              "description": "Counts Only: <ul><li>1 (will return only the document count for a search query)</li><li>0 (will return documents as well)</li></ul>",
-              "enum": [
-                0,
-                1
-              ],
-              "name": "countsOnly",
-              "paramType": "query",
-              "required": false,
-              "type": "integer"
-            },
-            {
-              "description": "Encoded: <ul><li>1 (will accept Regulations.gov style encoded parameters)</li><li>0 (will not accept such encoded parameters)</li></ul>  * See Implementation Notes section for more information on how to use this parameter.",
-              "enum": [
-                0,
-                1
-              ],
-              "name": "encoded",
-              "paramType": "query",
-              "required": false,
-              "type": "integer"
             }
           ],
           "summary": "Document Search",
