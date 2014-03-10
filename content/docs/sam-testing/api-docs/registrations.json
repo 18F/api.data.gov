@@ -3,7 +3,7 @@
   "swaggerVersion": "1.2",
   "basePath": "http://api.data.gov/sam",
   "resourcePath": "/registrations",
-  "produces": "application/json",
+  "produces": [ "application/json" ],
   "apis": [
     {
       "path": "/registrations/{registrationId}",
@@ -12,7 +12,7 @@
         {
           "method": "GET",
           "nickname": "getData",
-          "type": "SamRegistraion",
+          "type": "SamRegistration",
           "parameters": [
             {
               "paramType": "path",
