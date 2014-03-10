@@ -60,15 +60,14 @@
           "type": "string"
         },
         "purposeOfRegistration": {
-          "type": {
-            "enum": [
-              "IGT_ONLY",
-              "IGT_FEDERAL_ASSISTANCE",
-              "IGT_ALL_AWARDS",
-              "FEDERAL_ASSISTANCE",
-              "ALL_AWARDS"
-            ]
-          },
+          "type": "string",
+          "enum": [
+            "IGT_ONLY",
+            "IGT_FEDERAL_ASSISTANCE",
+            "IGT_ALL_AWARDS",
+            "FEDERAL_ASSISTANCE",
+            "ALL_AWARDS"
+          ],
           "required": true
         },
         "registrationDate": {
@@ -108,19 +107,18 @@
           "$ref": "#/definitions/SamPointOfContact"
         },
         "status": {
-          "type": {
-            "enum": [
-              "DRAFT",
-              "WIP_TIN_MATCH_NOT_SUBMITTED",
-              "WIP_TIN_MATCH_SUBMITTED",
-              "SUBMITTED_TO_TIN_MATCH",
-              "SUBMITTED_TO_CAGE_VALIDATION",
-              "ACTIVE",
-              "EXPIRED",
-              "DELETED",
-              "STATUS_ERROR"
-            ]
-          },
+          "type": "string",
+          "enum": [
+            "DRAFT",
+            "WIP_TIN_MATCH_NOT_SUBMITTED",
+            "WIP_TIN_MATCH_SUBMITTED",
+            "SUBMITTED_TO_TIN_MATCH",
+            "SUBMITTED_TO_CAGE_VALIDATION",
+            "ACTIVE",
+            "EXPIRED",
+            "DELETED",
+            "STATUS_ERROR"
+          ],
           "required": true
         },
         "statusMessage": {
@@ -132,25 +130,24 @@
             "type": "object",
             "properties": {
               "progressCode": {
-                "type": {
-                  "enum": [
-                    "NO_ERROR",
-                    "MANDATORY_FIELD_NOT_PROVIDED",
-                    "INVALID_FORMAT",
-                    "BUSINESS_RULE_VIOLATION",
-                    "DEPENDENT_INFORMATION_NOT_PROVIDED",
-                    "INVALID_ADDRESS",
-                    "TIN_MATCH_FAILURE",
-                    "TIN_MATCH_COMPLETE",
-                    "TIN_MATCH_UNNEEDED",
-                    "CAGE_VALIDATION_REJECTION",
-                    "INCOMPLETE_CORE_DATA",
-                    "COMPLETE_CORE_DATA",
-                    "COMPLETE_ASSERTIONS",
-                    "COMPLETE_REPS_AND_CERTS",
-                    "COMPLETE_POCS"
-                  ]
-                },
+                "type": "string",
+                "enum": [
+                  "NO_ERROR",
+                  "MANDATORY_FIELD_NOT_PROVIDED",
+                  "INVALID_FORMAT",
+                  "BUSINESS_RULE_VIOLATION",
+                  "DEPENDENT_INFORMATION_NOT_PROVIDED",
+                  "INVALID_ADDRESS",
+                  "TIN_MATCH_FAILURE",
+                  "TIN_MATCH_COMPLETE",
+                  "TIN_MATCH_UNNEEDED",
+                  "CAGE_VALIDATION_REJECTION",
+                  "INCOMPLETE_CORE_DATA",
+                  "COMPLETE_CORE_DATA",
+                  "COMPLETE_ASSERTIONS",
+                  "COMPLETE_REPS_AND_CERTS",
+                  "COMPLETE_POCS"
+                ],
                 "required": true
               },
               "field": {
