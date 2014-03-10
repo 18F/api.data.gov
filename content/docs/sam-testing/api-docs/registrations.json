@@ -20,6 +20,13 @@
               "description": "DUNS+4 number (no '-' sign) of the registration to be fetched",
               "dataType": "string",
               "required": "true"
+            },
+            {
+              "paramType": "query",
+              "name": "api_key",
+              "description": "An API Key from api.data.gov",
+              "dataType": "string",
+              "required": "true"
             }
           ],
           "summary": "Find a registration by its DUN+4 number",
