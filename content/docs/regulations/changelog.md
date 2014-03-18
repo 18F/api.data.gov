@@ -13,8 +13,12 @@ disqus: false
 - Each piece of information is now directly referrable via a key/element name
 - Many fields now include a human-readable label as well as a key. The label is included as an attribute on the XML element.  JSON response include the label as a key/value pair under an object.
 - Dates are formatted as ISO 8601 with the time zone
-- Values now represented in a display-friendly format:	- documentStatus:  "POSTED" to "Posted"	- documentType: "PROPOSED_RULES" to "Proposed Rule".	- dockeType: "NON_RULEMAKING" to "Nonrulemaking"
+- Values now represented in a display-friendly format:
+	- documentStatus:  "POSTED" to "Posted"
+	- documentType: "PROPOSED_RULES" to "Proposed Rule".
+	- dockeType: "NON_RULEMAKING" to "Nonrulemaking"
 - Charset is set to UTF-8 in all service responses
+- Response Content-Type is now limited to: 'application/json' and 'application/xml'
 - Renamed the field commentEndDate to commentDueDate
 
 ## Document
