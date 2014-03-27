@@ -9,7 +9,6 @@ kind: info
 Limits are placed on the number of Data.gov Web service requests you may make using your API key.
 
 - **Hourly Limit:** 1,000 requests per hour
-- **Daily Limit:** 10,000 requests per calendar day
 
 For each API key, these limits are applied across all Data.gov Web services requests. Exceeding these limits will lead to your API key being temporarily blocked from making further requests. Depending on the limit exceeded, the block will be lifted automatically by waiting until the next hour or calendar day.
 
@@ -17,15 +16,9 @@ For each API key, these limits are applied across all Data.gov Web services requ
 
 ### Hourly Limit
 
-The hourly counters for your API key reset at the beginning of every hour.
+The hourly counters for your API key reset on a rolling basis.
 
-*Example:* If you started making requests at 10:00AM and made your 1,000th request of the hour at 10:40AM, your API key would become temporarily blocked. This temporary block of your API key would be lifted at 11:00AM, at which point you could make more web service requests (assuming you hadn't also exceeded your daily limit).
-
-### Daily Limit
-
-The daily counters for your API key reset at midnight [UTC](http://en.wikipedia.org/wiki/Coordinated_Universal_Time).
-
-*Example:* If you started making requests at 00:00:00 UTC and made your 10,000th request of the day at 16:00:00 UTC, your API key would become temporarily blocked. This temporary block of your API key would be lifted at 00:00:00 UTC of the following day, at which point you could make more web service requests.
+*Example:* If you made 500 requests at 10:15AM and 500 requests at 10:25AM, your API key would become temporarily blocked. This temporary block of your API key would cease at 11:15AM, at which point you could make 500 requests. At 11:25AM, you could then make another 500 requests.
 
 ## Rate Limit Error Response
 
