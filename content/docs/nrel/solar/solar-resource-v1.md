@@ -369,7 +369,7 @@ The output fields contain the following solar data.
 
 ## Rate Limits
 
-[Standard rate limits](/docs/rate-limits) apply. No more than 1,000 requests may be made in any hour. No more than 10,000 requests may be made in any day.
+[Standard rate limits](/docs/rate-limits) apply. No more than 1,000 requests may be made in any hour
 
 ## Errors
 

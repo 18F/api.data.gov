@@ -1507,7 +1507,7 @@ E85,Pacific Pride - Boyett Petroleum,401 9th St,,Modesto,CA,95350,,209-577-6000,
 
 ## Rate Limits
 
-[Standard rate limits](/docs/rate-limits) apply. No more than 1,000 requests may be made in any hour. No more than 10,000 requests may be made in any day.
+[Standard rate limits](/docs/rate-limits) apply. No more than 1,000 requests may be made in any hour
 
 ## Errors
 

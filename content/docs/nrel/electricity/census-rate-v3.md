@@ -341,7 +341,7 @@ The response is composed of service-related informational fields and the results
 
 ## Rate Limits
 
-[Standard rate limits](/docs/rate-limits) apply. No more than 1,000 requests may be made in any hour. No more than 10,000 requests may be made in any day.
+[Standard rate limits](/docs/rate-limits) apply. No more than 1,000 requests may be made in any hour
 
 ## Errors
 
