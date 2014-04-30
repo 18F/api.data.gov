@@ -6,4 +6,9 @@ task :test do
   exec("middleman build  --verbose")
 end
 
+task :set_publish_swagger_host do
+  ENV["SWAGGER_HOST"] = "//api.data.gov"
+end
+task :publish => :set_publish_swagger_host
+
 task :default => [:test]
