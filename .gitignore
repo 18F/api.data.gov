@@ -1,10 +1,9 @@
-.bundle
-_site
-crash.log
-tmp
-/output
-/log
-/vendor/bundle
-/REVISION
-/config/deployed.yml
-/config/nginx/site.conf
+# Ignore bundler config
+/.bundle
+
+# Ignore the build directory
+/build
+
+# Ignore cache
+/.sass-cache
+/.cache

@@ -1,0 +1,19 @@
+<% unless current_page.url == "/" %>
+  <ul class="breadcrumb">
+    <% crumbs = breadcrumbs_trail %>
+    <% crumbs.each_with_index do |page, index| %>
+      <% if(page) %>
+        <% if(current_page.url == page.url) %>
+          <li class="active"><%= page.data.title %></li>
+        <% else %>
+          <li>
+            <%= link_to(page.data.title, page) %>
+            <% if(index != crumbs.length - 1) %>
+              <span class="divider">&raquo;</span>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
