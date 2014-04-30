@@ -1,49 +1,32 @@
 source "https://rubygems.org"
+source "https://rails-assets.org"
 
-gem "nanoc"
+gem "middleman", "~> 3.3.2"
+gem "rake", "~> 10.3.1"
 
-gem "rake"
+# Live-reloading plugin
+gem "middleman-livereload", "~> 3.3.3"
 
-# Sprockets for combining/minifying javascripts and stylesheets
-gem "nanoc-sprockets-filter"
-gem "sprockets-helpers"
-gem "sprockets-sass"
+# For faster file watcher updates on Windows:
+gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 
-# Cache busting for image tags
-gem "nanoc-cachebuster"
-
-# Javascript compression
-gem "uglifier"
-gem "therubyracer"
-
-# Sass stylesheets and compression
-gem "sass"
-gem "compass"
-
-# Twitter bootstrap
-gem "bootstrap-sass", "~> 2.3.2.2"
-
-# Markdown
-gem "kramdown", ">= 1.2.0"
+# Windows does not come with time zone data
+gem "tzinfo-data", platforms: [:mswin, :mingw]
 
 # Syntax highlighting
-gem "coderay"
+gem "middleman-syntax", "~> 2.0.0"
 
-# HTML parsing
-gem "nokogiri"
+# Deploy to GitHub Pages
+gem "middleman-gh-pages", "~> 0.0.3"
 
-# For simple variables in templates
-gem "mustache"
+# Markdown
+gem "kramdown", "~> 1.3.3"
+
+# Twitter bootstrap
+gem "bootstrap-sass", "~> 2.3.2.2", :require => false
+
+# Swagger UI - Patched version with IE console fixes.
+gem "rails-assets-GUI--swagger-ui", "2.0.3.patch1"
 
 # JSON validation
-gem "multi_json"
-
-group :development do
-  # Static file server for nanoc development
-  gem "adsf"
-
-  # Deployment
-  gem "capistrano", "~> 2.15.5"
-  gem "capistrano-ext"
-  gem "capistrano_nrel_ext", :git => "https://github.com/NREL/capistrano_nrel_ext.git"
-end
+gem "multi_json", "~> 1.9.3"
