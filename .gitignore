@@ -1,6 +1,9 @@
 # Ignore bundler config
 /.bundle
 
+# Ignore the bundler binstubs
+/bin
+
 # Ignore the build directory
 /build
 

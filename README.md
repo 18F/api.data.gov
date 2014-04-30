@@ -10,7 +10,7 @@ Ruby 1.9+ is required to build the site.
 
 ```sh
 $ gem install bundler
-$ bundle install
+$ bundle install --binstubs
 ```
 
 ## Development
@@ -18,7 +18,7 @@ $ bundle install
 The content files to edit are in `./source`. You can view your changes as you make them by running the Middleman preview server:
 
 ```sh
-$ middleman server
+$ ./bin/middleman server
 ```
 
 This will start a local web server running at [http://localhost:4567/](http://localhost:4567/)
@@ -30,5 +30,5 @@ After you're happy with your changes, commit and submit a pull request.
 To publish to production with GitHub Pages:
 
 ```sh
-$ rake publish
+$ ./bin/rake publish
 ```
