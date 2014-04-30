@@ -54,9 +54,9 @@ helpers do
   end
 end
 
-set :css_dir, 'stylesheets'
+set :css_dir, 'static/stylesheets'
 
-set :js_dir, 'javascripts'
+set :js_dir, 'static/javascripts'
 
 set :images_dir, 'images'
 
