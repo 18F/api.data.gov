@@ -1,0 +1,403 @@
+
+
+
+
+
+/*
+CSS FOR FEED TO POST IMAGE */
+
+div.ftpimagefix{
+/* margin:10px;	*/  /*  uncomment to put margin around the image */
+}
+
+
+
+/* End */
+
+
+
+/*
+    CSS FOR THE WIDGET */
+
+div.news a{
+	/*color:#cccccc;  */  /* change to any color you want for the feed item title */
+}
+
+.widgettitle a {
+	/*  color:#cccccc !important; */    /* change to any color you want for the wdiget title */
+	
+}
+
+
+   
+/* End */
+
+
+
+/*  DEFAULT AND DATE ABOVE TEMPLATES - START */
+div.rss-output {
+	
+	padding: 1.025em;
+/* float: left; */  /*  uncomment to float all posts to the left */
+	
+/*  border-bottom: 1px solid #DADADA; */  /*  uncomment to make a line in between each entry */
+}
+
+span.headline {  /* headline css */
+
+font-size:16px;	
+font-weight:400;
+	
+}
+
+span.categoryname{
+	
+	margin-left:20px;
+}
+
+/*  DEFAULT AND DATE ABOVE TEMPLATES  - END */
+
+
+
+/*  REGULAR TEMPLATES - START */
+div.reg_rss-output {	
+	padding: 1.025em;
+
+float: left;	
+}
+
+div.reg_rss-output .title {	
+	font-size:1.3em;
+	//text-indent:-9999px;
+		
+}
+
+/*  REGULAR TEMPLATES  - END */
+
+
+
+/*  SIMPLE BULLET TEMPLATE - START */
+
+.wprssmi_bullet_list .title{
+	font-size:1.1em;
+}
+
+.wprssmi_bullet_list .date{
+	font-size:.9em;
+}
+
+/*  SIMPLE BULLET TEMPLATE - END */
+
+
+
+/*  BOXES TEMPLATE - START */
+
+div#wprssmi_main_container {
+    float: left;
+    margin: 5px 0 0;
+    padding: 3px;
+    width: 666px;  /* change the width to match your themes width */
+
+    color: #1E1E1E;
+    font-family: "Lucida Grande",Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    line-height: 1.5em;
+}
+
+ul#wprssmi_rss_list {
+    float: left;
+}
+
+element.style {
+    background: none no-repeat scroll 3px center white;
+}
+
+ul#wprssmi_rss_list li.item {
+    float: left;
+    margin: 0 15px 15px 0;
+    overflow: hidden;
+    width: 211px;  /* change this width to the size of the boxes you want */
+}
+
+div.item_inner {
+    background: none repeat scroll 0 0 #FCFCFC;
+    border: 1px solid #DDDDDD;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+div.blog_container {
+    padding: 6px 12px;
+}
+
+p.blog_title {
+    margin: 8px 0 4px;
+    text-transform: uppercase;
+}
+
+ul#wprssmi_rss_list li.item p.date {
+    font-size: 9px;
+}
+
+a {
+      /*color: #1E1E1E;  // you can change the color of the hyperlinked title here */
+}
+
+ul#wprssmi_rss_list li.item p.site_info
+{
+    font-size: 10px;
+}
+
+div#wprssmi_center_box {
+    margin: 0 auto;
+    position: relative;
+    width: 980px;
+}
+
+/*  BOXES TEMPLATE - END */
+
+
+
+/*  CLEAN SEPARATED TEMPLATE - START */
+.wprssmi-cs-items {
+    border-bottom: 1px solid #DADADA;
+    margin: 5px 0 20px;
+}
+
+.wprssmi-cs-items .title{
+	
+	font-size:1.3em;
+}
+
+.wprssmi-cs-items .body{
+	
+	font-size:1em;
+}
+
+.wprssmi-cs-excerpt {
+    line-height: 1.5em;
+    padding: 5px 0 0;
+}
+
+.wprssmi-cs-source {
+    color: #777777;
+    font-size: 0.82em;
+    margin: 5px 0 10px;
+}
+
+/*  CLEAN SEPARATED TEMPLATE - END */
+
+
+
+/*  SMOOTH SCROLL TEMPLATE - START */
+
+	#wprssmi_RssParade
+	{
+		width: 600px;
+		height: 350px;
+		position: relative;
+	}
+
+	#wprssmi_RssParade div.scrollableArea .wprssmi_item_inner
+	{
+		display: block;
+		float: left;
+		padding-left: 10px;
+	}
+	
+	/* You can alter this CSS in order to give Smooth Div Scroll your own look'n'feel */
+
+	/* Invisible left hotspot */
+	div.scrollingHotSpotLeft
+	{
+		/* The hotspots have a minimum width of 100 pixels and if there is room the will grow
+	    and occupy 15% of the scrollable area (30% combined). Adjust it to your own taste. */
+		min-width: 75px;
+		width: 10%;
+		height: 100%;
+		/* There is a big background image and it's used to solve some problems I experienced
+	    in Internet Explorer 6. */
+	/*	background-image: url(http://www.smoothdivscroll.com/images/big_transparent.gif); */
+		background-repeat: repeat;
+		background-position: center center;
+		position: absolute;
+		z-index: 200;
+		left: 0;
+		/*  The first url is for Firefox and other browsers, the second is for Internet Explorer */
+		/*		cursor: url(http://www.smoothdivscroll.com/images/cursors/cursor_arrow_left.png), url(http://www.smoothdivscroll.com/images/cursors/cursor_arrow_left.cur),w-resize;	*/
+	}
+
+	/* Visible left hotspot */
+	div.scrollingHotSpotLeftVisible
+	{
+	/*		background-image: url(http://www.smoothdivscroll.com/images/arrow_left.gif);	  	*/			
+		background-color: #fff;
+		background-repeat: no-repeat;
+		opacity: 0.35; /* Standard CSS3 opacity setting */
+		-moz-opacity: 0.35; /* Opacity for really old versions of Mozilla Firefox (0.9 or older) */
+		filter: alpha(opacity = 35); /* Opacity for Internet Explorer. */
+		zoom: 1; /* Trigger "hasLayout" in Internet Explorer 6 or older versions */
+	}
+
+	/* Invisible right hotspot */
+	div.scrollingHotSpotRight
+	{
+		min-width: 75px;
+		width: 10%;
+		height: 100%;
+		/*		background-image: url(http://www.smoothdivscroll.com/images/big_transparent.gif);  	*/
+		background-repeat: repeat;
+		background-position: center center;
+		position: absolute;
+		z-index: 200;
+		right: 0;
+		/*		cursor: url(http://www.smoothdivscroll.com/images/cursors/cursor_arrow_right.png), url(http://www.smoothdivscroll.com/images/cursors/cursor_arrow_right.cur),e-resize;  	*/
+	}
+
+	/* Visible right hotspot */
+	div.scrollingHotSpotRightVisible
+	{
+		/*		background-image: url(http://www.smoothdivscroll.com/images/arrow_right.gif);  	*/
+		background-color: #fff;
+		background-repeat: no-repeat;
+		opacity: 0.35;
+		filter: alpha(opacity = 35);
+		-moz-opacity: 0.35;
+		zoom: 1;
+	}
+
+	/* The scroll wrapper is always the same width and height as the containing element (div).
+	   Overflow is hidden because you don't want to show all of the scrollable area.
+	*/
+	div.scrollWrapper
+	{
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+	}
+
+	div.scrollableArea
+	{
+		position: relative;
+		width: auto;
+		height: 100%;
+	}
+	
+	div.wprssmi_item_inner {
+	    background: none repeat scroll 0 0 #FCFCFC;
+	    border: 1px solid #DDDDDD;
+	    height: 245px;  /* 245px;  300px; */
+	    overflow: hidden;
+	    position: relative;
+		width:220px;  /* 220px;  250px; */
+		margin:5px;
+	}
+
+	div.wprssmi_container {
+	    padding: 6px 12px;
+
+	}
+
+	p.wprssmi_title {
+	    margin: 8px 0 4px;
+	    text-transform: uppercase;
+	font-size:12px;  /* change the title font size here */
+	}
+		
+		div#wprssmi_main_container {
+		    //float: left;
+		   margin: 5px 0 0;
+		    padding: 3px;
+		    width: 666px;
+		}
+		
+	div.wprssmi-excerpt{
+			font-size:12px;  /* change the text font size here */
+			/*	color:;    change the text color here */
+		 	/*	padding-left:;  put padding here */
+		
+	}
+	
+/*  SMOOTH SCROLL TEMPLATE - END */
+
+	/*  VERTICAL SCROLL TEMPLATE - START */
+
+	.wprssmi_rss_vs .title{
+		font-size:1.1em;
+		padding-top:10px;
+	}
+
+	.wprssmi_rss_vs .date{
+		font-size:.9em;
+	}
+	
+	div.wprssmi_teste3{
+		height: 165px;
+		overflow: hidden;
+		    position: relative;
+		}
+
+
+	/*  VERTICAL SCROLL  TEMPLATE - END */
+	
+	/* LOAD MORE CSS */	
+	
+	#pbd-alp-load-posts a:link, #pbd-alp-load-posts a:visited {
+		display: block;
+		text-align: center;
+		padding: 4px 0;
+		color: #444;
+		text-decoration: none;
+
+		/** Rounded Corners **/
+		-moz-border-radius: 8px;
+		border-radius: 8px;
+
+		/** Drop shadow **/
+		-moz-box-shadow: 1px 1px 1px #999;
+		-webkit-box-shadow: 1px 1px 1px #999;
+		box-shadow: 1px 1px 1px #999;
+
+		/** Gradients : http://css-tricks.com/css3-gradients/ */
+		/* fallback */
+		background-color: #f1f1f1;
+
+		/* Firefox 3.6+ */
+		background: -moz-linear-gradient(100% 100% 90deg, #e4e3e3, #f1f1f1);
+
+		/* Safari 4-5, Chrome 1-9 */
+		/* -webkit-gradient(<type>, <point> [, <radius>]?, <point> [, <radius>]? [, <stop>]*) */
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f1f1f1), to(#e4e3e3));
+
+		/* Safari 5.1+, Chrome 10+ */
+		background: -webkit-linear-gradient(#f1f1f1, #e4e3e3);
+
+		/* Opera 11.10+ */ background: -o-linear-gradient(#f1f1f1, #e4e3e3);
+	}
+
+	#pbd-alp-load-posts a:hover, #pbd-alp-load-posts a:active {
+		/** Drop shadow **/
+		-moz-box-shadow: 1px 1px 1px #bbb;
+		-webkit-box-shadow: 1px 1px 1px #bbb;
+		box-shadow: 1px 1px 1px #bbb;
+
+		/** Gradients : http://css-tricks.com/css3-gradients/ */
+		/* fallback */
+		background-color: #f5f5f5;
+
+		/* Firefox 3.6+ */
+		background: -moz-linear-gradient(100% 100% 90deg, #eaeaea, #f5f5f5);
+
+		/* Safari 4-5, Chrome 1-9 */
+		/* -webkit-gradient(<type>, <point> [, <radius>]?, <point> [, <radius>]? [, <stop>]*) */
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f5f5f5), to(#eaeaea));
+
+		/* Safari 5.1+, Chrome 10+ */
+		background: -webkit-linear-gradient(#f1f1f1, #eaeaea);
+
+		/* Opera 11.10+ */ background: -o-linear-gradient(#f5f5f5, #eaeaea);
+	}
+
+	

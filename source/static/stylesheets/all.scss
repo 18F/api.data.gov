@@ -1,18 +1,11 @@
-@import "variables";
-@import "bootstrap";
-@import "bootstrap-responsive";
+@import "_datagov";
 
-@import "gsa/datagov";
+@import "_shared/forms";
+@import "_shared/signup";
+@import "_shared/popup";
+@import "_shared/syntax";
+@import "_shared/docs";
+@import "_shared/swagger";
+//@import "_shared/swagger_overrides";
 
-@import "shared/grid";
-@import "shared/scalable_fonts";
-@import "shared/scaffolding";
-@import "shared/forms";
-@import "shared/signup";
-@import "shared/popup";
-@import "shared/syntax";
-@import "shared/docs";
-@import "shared/swagger";
-@import "shared/swagger_overrides";
-
-@import "gsa/api";
+//@import "_gsa/api";

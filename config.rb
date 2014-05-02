@@ -55,10 +55,9 @@ helpers do
 end
 
 set :css_dir, 'static/stylesheets'
-
 set :js_dir, 'static/javascripts'
-
-set :images_dir, 'images'
+set :fonts_dir, 'static/fonts'
+set :images_dir, 'static/img'
 
 # Build-specific configuration
 configure :build do
@@ -87,6 +86,22 @@ set :markdown, {
   :input => 'GFM',
   :smart_quotes => ['apos', 'apos', 'quot', 'quot'],
 }
+
+after_configuration do
+  sprockets.append_path(File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/css"))
+  sprockets.append_path(File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/fonts"))
+  sprockets.append_path(File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/img"))
+  sprockets.append_path(File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/js"))
+  sprockets.append_path(File.join(root, "vendor/data.gov/plugins/custom-post-view-generator/libs/flowplayer"))
+  sprockets.append_path(File.join(root, "vendor/data.gov/plugins/custom-post-view-generator/libs/smartpaginator"))
+  sprockets.append_path(File.join(root, "vendor/data.gov/plugins/custom-post-view-generator/libs/tablesorter"))
+end
+
+ready do
+  Dir.glob(File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/img/*")).each do |path|
+    sprockets.import_asset(File.basename(path))
+  end
+end
 
 after_build do |builder|
   Dir.glob("build/**/*.json").each do |path|

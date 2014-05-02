@@ -22,9 +22,6 @@ gem "middleman-gh-pages", "~> 0.0.3"
 # Markdown
 gem "kramdown", "~> 1.3.3"
 
-# Twitter bootstrap
-gem "bootstrap-sass", "~> 2.3.2.2", :require => false
-
 # Swagger UI - Patched version with IE console fixes.
 gem "rails-assets-GUI--swagger-ui", "2.0.3.patch1"
 
