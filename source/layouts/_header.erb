@@ -4,6 +4,11 @@
     browser</a> to improve your experience.
   </div>
 <![endif]-->
+<div class="corner-ribbon-wrapper right">
+  <div class="corner-ribbon">
+    <span>BETA</span>
+  </div>
+</div>
 <header>
   <div class="banner navbar navbar-default navbar-static-top yamm" role="banner">
     <div class="container">
@@ -98,10 +103,11 @@
         <div class="container">
           <nav class="topic-subnav" role="navigation">
           <ul class="nav navbar-nav">
-            <li><a href="/docs/" class="local-link">Documentation</a></li>
-            <li><a href="/signup" class="local-link">API Key Signup</a></li>
+            <li><a href="/docs/" class="local-link<%= " active" if(current_page.url =~ %r{^/docs/}) %>">API Docs</a></li>
+            <li><a href="/signup" class="local-link<%= " active" if(current_page.url =~ %r{^/signup/}) %>">API Key Signup</a></li>
           </ul>
           </nav>
         </div>
       </div>
-      <div class="container">
+      <%= partial("layouts/breadcrumbs") %>
+      <div class="wrap container content-page">
