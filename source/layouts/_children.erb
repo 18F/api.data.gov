@@ -3,7 +3,7 @@
 
 <h3 class="doc">
 
-<%= link_to(child.data.title, child) %>
+<%= link_to(child.data.title, child.data.redirect_url || child) %>
 <% if(child.data.url) %>
 
 <span class="url">(<%= child.data.url %>)</span>
