@@ -8,14 +8,19 @@ disqus: false
 # <%= current_page.data.title %>
 <%= current_page.data.summary %>
 
-# 2.1 - March 2014
+# 3.0 - May 2014
+- Records per page (rpp) is now limited to a maximum of 1,000 records
+- All changes listed from Beta release included
+
+# Beta - March 2014
 - Improvements to XML and JSON allow for easier processing
-- Each piece of information is now directly referrable via a key/element name
+- JSON now has descriptive keys for all metadata
+	- Ex. `{ "@name": "Comment Due Date", $: "February 01 2012, at 11:59 PM Eastern Standard Time" }` becomes `commentDueDate: "2014-04-24T23:59:59-04:00"`
 - Many fields now include a human-readable label as well as a key. The label is included as an attribute on the XML element.  JSON response include the label as a key/value pair under an object.
 - Dates are formatted as ISO 8601 with the time zone
 - Values now represented in a display-friendly format:
 	- documentStatus:  "POSTED" to "Posted"
-	- documentType: "PROPOSED_RULES" to "Proposed Rule".
+	- documentType: "PROPOSED_RULES" to "Proposed Rule"
 	- dockeType: "NON_RULEMAKING" to "Nonrulemaking"
 - Charset is set to UTF-8 in all service responses
 - Response Content-Type is now limited to: 'application/json' and 'application/xml'
@@ -41,7 +46,7 @@ disqus: false
 	- docStatus
 	- abstract
 	- CommentOnDoc
-		- Only documentId, documentType, and title are included (changed from v1).
+		- Only documentId, documentType, and title are included (changed from v1)
 - File Content download URL's now listed as api.data.gov links and a "Download" service
 - fileFormats are no longer available for Public Submissions; Instead the values are available as metadata
 - Metadata 'entry' fields are now at the root-level and include a label for data presentation.
@@ -69,16 +74,17 @@ disqus: false
 
 
 # 2.0 - July 31, 2013
+- Rate limits introduced
 - Changed URL to use api.data.gov/regulations/
+- New API Key's are required. Free registration for a new key at http://api.data.gov
 - Services renamed:
 	- search to documents
 	- getdocument to document
 	- getdocket to docket
-- New API Key's are required. Free registration for a new key at http://api.data.gov
-- JSON format updated to be easier to use
+- JSON format updated so it is easier to use
 - Unified Agenda metadata added to Dockets (where applicable)
 - Comment Count added to Docket
-- Rate limits introduced
+
 
 
 # 1.0 - February 18, 2012
