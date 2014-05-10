@@ -1,6 +1,10 @@
 .signup-key {
-  font-size: pxtoem(20px, 12px);
+  font-size: 26px;
   display: inline-block;
   font-weight: bold;
   margin-bottom: 32px;
+}
+
+pre.signup-example {
+  white-space: pre-wrap;
 }
