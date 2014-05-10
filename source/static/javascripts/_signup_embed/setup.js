@@ -87,7 +87,8 @@ $(apiUmbrellaSignupOptions.containerSelector).find('form').submit(function(event
 
     $(apiUmbrellaSignupOptions.containerSelector).html(confirmationTemplate);
     $(apiUmbrellaSignupOptions.containerSelector)[0].scrollIntoView();
-  }).fail(function() {
+  }).fail(function(xhr, message, error) {
+    Rollbar.error('Unexpected signup failure', { error: error, message: message, response: xhr.responseText  });
     bootbox.alert('API key signup unexpectedly failed.<br>Please try again or <a href="' + apiUmbrellaSignupOptions.contactUrl + '">contact us</a> for assistance.');
   }).always(function() {
     submit.button('reset');
