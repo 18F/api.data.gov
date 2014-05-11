@@ -37,3 +37,6 @@ gem 'middleman-sprockets', '3.3.2' # https://github.com/middleman/middleman/issu
 
 # Programmatic bootstrap modals
 gem "rails-assets-bootbox", "~> 4.2.0"
+
+# Form validation
+gem "rails-assets-parsleyjs", "~> 2.0.0"
