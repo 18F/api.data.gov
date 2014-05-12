@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-US" class="no-js">
   <head>
+    <% if(current_page.url == "/404.html") -%>
+      <base href="/" />
+    <% end -%>
     <title>
       <% unless(current_page.url == "/") %>
         <%= current_page.data.title %>
