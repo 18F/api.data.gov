@@ -15,10 +15,16 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
-    compass (0.12.6)
+    compass (1.0.0.alpha.19)
       chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.2.19)
+      compass-core (~> 1.0.0.alpha.19)
+      compass-import-once (~> 1.0.3)
+      json
+      listen (~> 1.1.0)
+      sass (>= 3.3.0, < 3.5)
+    compass-core (1.0.0.alpha.19)
+      multi_json (~> 1.0)
+      sass (>= 3.3.0, < 3.5)
     compass-import-once (1.0.4)
       sass (>= 3.2, < 3.5)
     em-websocket (0.5.1)
@@ -28,7 +34,6 @@ GEM
     eventmachine (1.0.3)
     execjs (2.0.2)
     ffi (1.9.3)
-    fssm (0.2.10)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -38,7 +43,7 @@ GEM
     i18n (0.6.9)
     json (1.8.1)
     kramdown (1.3.3)
-    listen (1.3.1)
+    listen (1.1.6)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
@@ -105,8 +110,8 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.2)
       ffi (>= 0.5.0)
-    rouge (1.3.3)
-    sass (3.2.19)
+    rouge (1.3.4)
+    sass (3.3.7)
     sprockets (2.12.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -131,6 +136,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.1.1.1)
+  compass (~> 1.0.0.alpha.19)
   kramdown (~> 1.3.3)
   middleman (~> 3.3.2)
   middleman-gh-pages (~> 0.0.3)

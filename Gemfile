@@ -4,6 +4,11 @@ source "https://rails-assets.org"
 gem "middleman", "~> 3.3.2"
 gem "rake", "~> 10.3.1"
 
+# Use a newer compass so we can use Sass 3.3. That seems to fix odd sass
+# compilation issues with our nesting of the @import bootstrap inside
+# embed.scss.
+gem "compass", "~> 1.0.0.alpha.19"
+
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.3.3"
 
