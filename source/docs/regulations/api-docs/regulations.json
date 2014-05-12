@@ -1,7 +1,7 @@
 {
-  "apiVersion": "2.0.0",
+  "apiVersion": "3.0.0",
   "swaggerVersion": "1.2",
-  "basePath": "http://api.data.gov/regulations/beta",
+  "basePath": "http://api.data.gov/regulations/v3",
   "produces": [
     "*/*"
   ],
@@ -176,7 +176,7 @@
               "type": "string"
             },
             {
-              "description": "Docket Type: <ul><li>R: Rulemaking</li><li>N: Nonrulemaking</li></ul>",
+              "description": "Docket Type: <ul><li>R: Rulemaking</li><li>N: Nonrulemaking</li></ul><p>A Docket Type is either Rulemaking or Non-Rulemaking. A Rulemaking docket includes the type of regulation that establishes a rule. While a Non-Rulemaking docket does not include a rule.</p>",
               "enum": [
                 "N",
                 "R"
@@ -205,11 +205,13 @@
               "type": "string"
             },
             {
-              "description": "Results Per Page 10, 25, 100",
+              "description": "Results Per Page 10, 25, 100, 500, 1,000.  Results per page may not exceed 1,000.",
               "enum": [
                 "10",
                 "25",
-                "100"
+                "100",
+                "500",
+                "1000"
               ],
               "name": "rpp",
               "paramType": "query",
@@ -625,7 +627,7 @@
           "type": "string"
         },
         "docketType": {
-          "description": "A docket is a collection or repository of one or more regulatory documents as they relate to a rulemaking or nonrulemaking action.",
+          "description": "A Docket Type is either Rulemaking or Non-Rulemaking. A Rulemaking docket includes the type of regulation that establishes a rule. While a Non-Rulemaking docket does not include a rule.",
           "type": "string"
         },
         "documentId": {
@@ -719,7 +721,7 @@
           "type": "string"
         },
         "docketType": {
-          "description": "Docket Type (Rulemaking or Non-Rulemaking)",
+          "description": "A Docket Type is either Rulemaking or Non-Rulemaking. A Rulemaking docket includes the type of regulation that establishes a rule. While a Non-Rulemaking docket does not include a rule.",
           "type": "string"
         },
         "documentId": {

@@ -72,7 +72,11 @@ configure :build do
   activate :minify_javascript
 
   # Enable cache buster
-  activate :asset_hash
+  activate :asset_hash, :ignore => [
+    # Don't cache-bust the Swagger throbber image, since it's hardcoded to
+    # throbber.gif.
+    %r{images/throbber.gif},
+  ]
 
   # Use relative URLs
   activate :relative_assets
