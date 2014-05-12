@@ -2,12 +2,16 @@ var style = document.createElement('link'); style.rel = 'stylesheet'; style.type
 style.href = '/static/stylesheets/embed.css';
 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(style);
 
-apiUmbrellaSignupOptions = apiUmbrellaSignupOptions || {};
-apiUmbrellaSignupOptions.containerSelector = '#apidatagov_signup';
-apiUmbrellaSignupOptions.contactUrl = 'http://www.data.gov/contact';
-apiUmbrellaSignupOptions.exampleApiUrl = 'https://api.data.gov/nrel/alt-fuel-stations/v1/nearest.json?api_key={{api_key}}&location=Denver+CO';
+var defaults = {
+  containerSelector: '#apidatagov_signup',
+  apiUrlRoot: 'https://api.vagrant/api-umbrella',
+  contactUrl: 'http://www.data.gov/contact',
+  exampleApiUrl: 'https://api.data.gov/nrel/alt-fuel-stations/v1/nearest.json?api_key={{api_key}}&location=Denver+CO',
+};
 
-if(!apiUmbrellaSignupOptions.apiKey) {
+var options = $.extend({}, defaults, apiUmbrellaSignupOptions || {});
+
+if(!options.apiKey) {
   alert('apiUmbrellaSignupOptions.apiKey must be set');
 }
 
@@ -52,7 +56,7 @@ var signupFormTemplate = '<p>Sign up for an application programming interface (A
     '</div>' +
   '</form>';
 
-var container = $(apiUmbrellaSignupOptions.containerSelector);
+var container = $(options.containerSelector);
 container.addClass('api-umbrella-embed');
 container.html(signupFormTemplate);
 
@@ -65,14 +69,15 @@ form.submit(function(event) {
   event.preventDefault();
 
   $.ajax({
-    url: 'https://api.vagrant/api-umbrella/v1/users.json?api_key=' + apiUmbrellaSignupOptions.apiKey,
+    url: options.apiUrlRoot + '/v1/users.json?api_key=' + options.apiKey,
     type: 'POST',
     data: $(this).serialize(),
+    dataType: 'json',
     crossDomain: true,
   }).done(function(response) {
     var user = response.user;
-    var exampleApiUrl = apiUmbrellaSignupOptions.exampleApiUrl.replace('{{api_key}}', user.api_key);
-    var formattedExampleApiUrl = apiUmbrellaSignupOptions.exampleApiUrl.replace('api_key={{api_key}}', '<strong>api_key=' + user.api_key + '</strong>');
+    var exampleApiUrl = options.exampleApiUrl.replace('{{api_key}}', user.api_key);
+    var formattedExampleApiUrl = options.exampleApiUrl.replace('api_key={{api_key}}', '<strong>api_key=' + user.api_key + '</strong>');
 
     var confirmationTemplate = '<p>Your API key for <strong>' + user.email + '</strong> is:</p>' +
       '<code class="signup-key">' + user.api_key + '</code>' +
@@ -81,22 +86,22 @@ form.submit(function(event) {
       '<h2>What Next?</h2>' +
       '<ul>' +
         '<li>Explore our <a href="/docs/">available Web services</a>.</li>' +
-        '<li>Need more help? <a href="' + apiUmbrellaSignupOptions.contactUrl + '">Contact us</a>.</li>' +
+        '<li>Need more help? <a href="' + options.contactUrl + '">Contact us</a>.</li>' +
       '</ul>' +
       '<div class="signup-footer">' +
-        '<p>For additional support, please <a href="' + apiUmbrellaSignupOptions.contactUrl + '">contact us</a>. When contacting us, please tell us what API you\'re accessing and provide the following account details so we can quickly find you:</p>' +
+        '<p>For additional support, please <a href="' + options.contactUrl + '">contact us</a>. When contacting us, please tell us what API you\'re accessing and provide the following account details so we can quickly find you:</p>' +
         'Account Email: ' + user.email + '<br>' +
         'Account ID: ' + user.id +
       '</div>';
 
-    $(apiUmbrellaSignupOptions.containerSelector).html(confirmationTemplate);
-    $(apiUmbrellaSignupOptions.containerSelector)[0].scrollIntoView();
+    $(options.containerSelector).html(confirmationTemplate);
+    $(options.containerSelector)[0].scrollIntoView();
   }).fail(function(xhr, message, error) {
     if(typeof(Rollbar) != 'undefined') {
       Rollbar.error('Unexpected signup failure', { error: error, message: message, response: xhr.responseText  });
     }
 
-    bootbox.alert('API key signup unexpectedly failed.<br>Please try again or <a href="' + apiUmbrellaSignupOptions.contactUrl + '">contact us</a> for assistance.');
+    bootbox.alert('API key signup unexpectedly failed.<br>Please try again or <a href="' + options.contactUrl + '">contact us</a> for assistance.');
   }).always(function() {
     submit.button('reset');
   });
