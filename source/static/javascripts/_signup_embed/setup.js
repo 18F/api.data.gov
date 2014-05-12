@@ -4,7 +4,7 @@ style.href = '/static/stylesheets/embed.css';
 
 var defaults = {
   containerSelector: '#apidatagov_signup',
-  apiUrlRoot: 'https://api.vagrant/api-umbrella',
+  apiUrlRoot: 'https://api.data.gov/api-umbrella',
   contactUrl: 'http://www.data.gov/contact',
   exampleApiUrl: 'https://api.data.gov/nrel/alt-fuel-stations/v1/nearest.json?api_key={{api_key}}&location=Denver+CO',
 };
@@ -51,6 +51,7 @@ var signupFormTemplate = '<p>Sign up for an application programming interface (A
     '</div>' +
     '<div class="form-group">' +
       '<div class="col-sm-offset-4 col-sm-8">' +
+        '<input type="hidden" name="user[send_welcome_email]" value="1" />' +
         '<button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">Signup</button>' +
       '</div>' +
     '</div>' +
