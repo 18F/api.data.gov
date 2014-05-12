@@ -1,0 +1,20 @@
+pre {
+  white-space: pre;
+  word-wrap: normal;
+  overflow: auto;
+}
+
+pre code {
+  white-space: pre;
+}
+
+h3.doc {
+  margin-bottom: 2px;
+}
+
+h1 span.url,
+h3.doc span.url {
+  color: #777;
+  font-weight: normal;
+  padding-left: 12px;
+}

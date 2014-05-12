@@ -1,0 +1,110 @@
+var style = document.createElement('link'); style.rel = 'stylesheet'; style.type = 'text/css';
+style.href = '/static/stylesheets/embed.css';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(style);
+
+var defaults = {
+  containerSelector: '#apidatagov_signup',
+  apiUrlRoot: 'https://api.data.gov/api-umbrella',
+  contactUrl: 'http://www.data.gov/contact',
+  exampleApiUrl: 'https://api.data.gov/nrel/alt-fuel-stations/v1/nearest.json?api_key={{api_key}}&location=Denver+CO',
+};
+
+var options = $.extend({}, defaults, apiUmbrellaSignupOptions || {});
+
+if(!options.apiKey) {
+  alert('apiUmbrellaSignupOptions.apiKey must be set');
+}
+
+var signupFormTemplate = '<p>Sign up for an application programming interface (API) key to access and use web services available on the Data.gov developer network.</p>' +
+'<p class="required-fields"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> Required fields</p>' +
+  '<form id="apidatagov_signup_form" class="form-horizontal" role="form">' +
+    '<div class="form-group">' +
+      '<label class="col-sm-4 control-label" for="user_first_name"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> First Name</label>' +
+      '<div class="col-sm-5">' +
+        '<input class="form-control" id="user_first_name" name="user[first_name]" size="50" type="text" required />' +
+      '</div>' +
+    '</div>' +
+    '<div class="form-group">' +
+      '<label class="col-sm-4 control-label" for="user_last_name"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> Last Name</label>' +
+      '<div class="col-sm-5">' +
+        '<input class="form-control" id="user_last_name" name="user[last_name]" size="50" type="text" required />' +
+      '</div>' +
+    '</div>' +
+    '<div class="form-group">' +
+      '<label class="col-sm-4 control-label" for="user_email"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> Email</label>' +
+      '<div class="col-sm-5">' +
+        '<input class="form-control" id="user_email" name="user[email]" size="50" type="email" required />' +
+      '</div>' +
+    '</div>' +
+    '<div class="form-group">' +
+      '<label class="col-sm-4 control-label" for="user_use_description">How will you use the APIs?<br />(optional)</label>' +
+      '<div class="col-sm-5">' +
+        '<textarea class="form-control" cols="40" id="user_use_description" name="user[use_description]" rows="3"></textarea>' +
+      '</div>' +
+    '</div>' +
+    '<div class="form-group">' +
+      '<div class="col-sm-offset-4 col-sm-8">' +
+        '<label class="checkbox">' +
+          '<input id="user_terms_and_conditions" name="user[terms_and_conditions]" type="checkbox" value="1" required data-parsley-error-message="You must agree to the terms and conditions to signup" />I have read and agree to the <a href="/account/terms" onclick="window.open(this.href, &#x27;api_download_popup&#x27;, &#x27;height=500,width=790,menubar=no,toolbar=no,location=no,personalbar=no,status=no,resizable=yes,scrollbars=yes&#x27;); return false;" title="Opens new window to terms and conditions">terms and conditions</a>.' +
+        '</label>' +
+      '</div>' +
+    '</div>' +
+    '<div class="form-group">' +
+      '<div class="col-sm-offset-4 col-sm-8">' +
+        '<input type="hidden" name="user[send_welcome_email]" value="1" />' +
+        '<button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">Signup</button>' +
+      '</div>' +
+    '</div>' +
+  '</form>';
+
+var container = $(options.containerSelector);
+container.addClass('api-umbrella-embed');
+container.html(signupFormTemplate);
+
+var form = container.find('form');
+form.parsley();
+form.submit(function(event) {
+  var submit = $(this).find('button');
+  submit.button('loading');
+
+  event.preventDefault();
+
+  $.ajax({
+    url: options.apiUrlRoot + '/v1/users.json?api_key=' + options.apiKey,
+    type: 'POST',
+    data: $(this).serialize(),
+    dataType: 'json',
+    crossDomain: true,
+  }).done(function(response) {
+    var user = response.user;
+    var exampleApiUrl = options.exampleApiUrl.replace('{{api_key}}', user.api_key);
+    var formattedExampleApiUrl = options.exampleApiUrl.replace('api_key={{api_key}}', '<strong>api_key=' + user.api_key + '</strong>');
+
+    var confirmationTemplate = '<p>Your API key for <strong>' + user.email + '</strong> is:</p>' +
+      '<code class="signup-key">' + user.api_key + '</code>' +
+      '<p>You can start using this key to make Web service requests. Simply pass your key in the URL when making a Web request. Here\'s an example:</p>' +
+      '<pre class="signup-example"><a href="' + exampleApiUrl + '">' + formattedExampleApiUrl + '</a></pre>' +
+      '<h2>What Next?</h2>' +
+      '<ul>' +
+        '<li>Explore our <a href="/docs/">available Web services</a>.</li>' +
+        '<li>Need more help? <a href="' + options.contactUrl + '">Contact us</a>.</li>' +
+      '</ul>' +
+      '<div class="signup-footer">' +
+        '<p>For additional support, please <a href="' + options.contactUrl + '">contact us</a>. When contacting us, please tell us what API you\'re accessing and provide the following account details so we can quickly find you:</p>' +
+        'Account Email: ' + user.email + '<br>' +
+        'Account ID: ' + user.id +
+      '</div>';
+
+    $(options.containerSelector).html(confirmationTemplate);
+    $(options.containerSelector)[0].scrollIntoView();
+  }).fail(function(xhr, message, error) {
+    if(typeof(Rollbar) != 'undefined') {
+      Rollbar.error('Unexpected signup failure', { error: error, message: message, response: xhr.responseText  });
+    }
+
+    bootbox.alert('API key signup unexpectedly failed.<br>Please try again or <a href="' + options.contactUrl + '">contact us</a> for assistance.');
+  }).always(function() {
+    submit.button('reset');
+  });
+});
+

@@ -1,4 +1,5 @@
-//= require vendor/jquery.tableofcontents.js
+//= require _datagov
+//= require _vendor/jquery.tableofcontents.js
 //= require swagger-ui/lib/shred.bundle.js
 //= require swagger-ui/lib/jquery.slideto.min.js
 //= require swagger-ui/lib/jquery.wiggle.min.js

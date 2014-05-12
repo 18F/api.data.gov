@@ -1,0 +1,32 @@
+@import "compass/css3/border-radius";
+@import "compass/css3/box-sizing";
+
+.home-callout {
+  text-align: center;
+  font-size: pxtoem(16px);
+  padding: 0px;
+  margin: 20px 0px 35px 0px;
+}
+
+.home-about {
+  text-align: center;
+  margin: 18px 0px;
+}
+
+.content-page h1 {
+  margin: 0 0 1em 0;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  background-color: transparent;
+}
+
+table.doc-parameters {
+  tbody th {
+    background-color: transparent;
+    color: inherit;
+  }
+}
+
+@import "_datagov/corner_ribbon";
