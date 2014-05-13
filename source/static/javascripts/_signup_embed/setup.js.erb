@@ -1,5 +1,5 @@
 var style = document.createElement('link'); style.rel = 'stylesheet'; style.type = 'text/css';
-style.href = '<%= ENV["WEB_SITE_ROOT"] %>/static/stylesheets/embed.css';
+style.href = '<%= ENV["WEB_SITE_ROOT"] %>/static/stylesheets/<%= File.basename(asset_path(:css, "embed.css")) %>';
 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(style);
 
 var defaults = {
