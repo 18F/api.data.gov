@@ -122,3 +122,7 @@ after_build do |builder|
     MultiJson.dump(json, :pretty => false)
   end
 end
+
+if(build?)
+  ENV["WEB_SITE_ROOT"] ||= "https://api.data.gov"
+end
