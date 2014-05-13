@@ -76,6 +76,10 @@ configure :build do
     # Don't cache-bust the Swagger throbber image, since it's hardcoded to
     # throbber.gif.
     %r{images/throbber.gif},
+
+    # Don't cache-bust the embed javascript file, since its references need to
+    # be hardcoded.
+    %r{signup_embed.js},
   ]
 
   # Use relative URLs
