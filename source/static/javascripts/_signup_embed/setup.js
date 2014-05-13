@@ -49,7 +49,7 @@ var signupFormTemplate = '<p>Sign up for an application programming interface (A
     '<div class="form-group">' +
       '<div class="col-sm-offset-4 col-sm-8">' +
         '<label class="checkbox">' +
-          '<input id="user_terms_and_conditions" name="user[terms_and_conditions]" type="checkbox" value="1" required data-parsley-error-message="You must agree to the terms and conditions to signup" />I have read and agree to the <a href="/account/terms" onclick="window.open(this.href, &#x27;api_download_popup&#x27;, &#x27;height=500,width=790,menubar=no,toolbar=no,location=no,personalbar=no,status=no,resizable=yes,scrollbars=yes&#x27;); return false;" title="Opens new window to terms and conditions">terms and conditions</a>.' +
+          '<input id="user_terms_and_conditions" name="user[terms_and_conditions]" type="checkbox" value="1" required data-parsley-error-message="You must agree to the terms and conditions to signup" />I have read and agree to the <a href="http://api.data.gov/terms/" onclick="window.open(this.href, &#x27;api_download_popup&#x27;, &#x27;height=500,width=790,menubar=no,toolbar=no,location=no,personalbar=no,status=no,resizable=yes,scrollbars=yes&#x27;); return false;" title="Opens new window to terms and conditions">terms and conditions</a>.' +
         '</label>' +
       '</div>' +
     '</div>' +
