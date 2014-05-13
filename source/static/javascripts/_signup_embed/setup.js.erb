@@ -19,6 +19,10 @@ if(!options.registrationSource) {
   alert('apiUmbrellaSignupOptions.registrationSource must be set');
 }
 
+bootbox.setDefaults({
+  container: options.containerSelector
+});
+
 var signupFormTemplate = '<p>Sign up for an application programming interface (API) key to access and use web services available on the Data.gov developer network.</p>' +
 '<p class="required-fields"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> Required fields</p>' +
   '<form id="apidatagov_signup_form" class="form-horizontal" role="form">' +
