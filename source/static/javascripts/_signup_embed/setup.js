@@ -15,6 +15,10 @@ if(!options.apiKey) {
   alert('apiUmbrellaSignupOptions.apiKey must be set');
 }
 
+if(!options.registrationSource) {
+  alert('apiUmbrellaSignupOptions.registrationSource must be set');
+}
+
 var signupFormTemplate = '<p>Sign up for an application programming interface (API) key to access and use web services available on the Data.gov developer network.</p>' +
 '<p class="required-fields"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> Required fields</p>' +
   '<form id="apidatagov_signup_form" class="form-horizontal" role="form">' +
@@ -52,6 +56,7 @@ var signupFormTemplate = '<p>Sign up for an application programming interface (A
     '<div class="form-group">' +
       '<div class="col-sm-offset-4 col-sm-8">' +
         '<input type="hidden" name="user[send_welcome_email]" value="1" />' +
+        '<input type="hidden" name="user[registration_source]" value="' + options.registrationSource + '" />' +
         '<button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">Signup</button>' +
       '</div>' +
     '</div>' +
