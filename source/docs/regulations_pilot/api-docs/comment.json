@@ -1,0 +1,285 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.0",
+  "resourcePath": "/comment",
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "multipart/form-data"
+  ],
+  "apis": [
+    {
+      "path": "/comment.{format}",
+      "description": "",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Gets a Comment Form Configuration which describes how the data should be sent to the POST API.",
+          "notes": "",
+          "type": "commentFormConfig",
+          "nickname": "commentForm",
+          "parameters": [
+            {
+              "defaultValue": "json",
+              "description": "Format",
+              "enum": [
+                "json",
+                "xml"
+              ],
+              "name": "response_format",
+              "paramType": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "defaultValue": "DEMO_KEY",
+              "description": "API Key",
+              "name": "api_key",
+              "paramType": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "defaultValue": "EPA-HQ-OAR-2011-0028-0108",
+              "description": "FDMS Document ID",
+              "name": "documentId",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Federal Register Document Number",
+              "name": "federalRegisterNumber",
+              "paramType": "query",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 400,
+              "message": "Bad Request - Request not properly formatted, or not including required parameters."
+            },
+            {
+              "code": 500,
+              "message": "May be returned if the requested document_id is not found.  This should be fixed in a future patch."
+            }
+          ]
+        },
+        {
+          "method": "POST",
+          "summary": "Send a formal comment into the Regulations.gov API.",
+          "notes": "Please be sure to read the Requirements and Best Practices pages.",
+          "type": "commentPostResponse",
+          "nickname": "postComment",
+          "parameters": [
+            {
+              "name": "body",
+              "description": "A multipart/form-data encoded request body.",
+              "required": true,
+              "type": "body",
+              "allowMultiple": false,
+              "paramType": "body"
+            },
+            {
+              "name": "File",
+              "description": "One or more files may be submitted as multipart/form-data encoded request.",
+              "required": false,
+			  "paramType": "body",
+			  "dataType": "file",
+              "allowMultiple": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 201,
+              "message": "Created - Sucessful creation of a comment.",
+              "responseModel": "commentPostResponse"
+            },
+            {
+              "code": 400,
+              "message": "Bad Request - Comment was not created due to one or more validation issues.",
+              "responseModel": "commentPostError400"
+            },
+            {
+              "code": 406,
+              "message": "Not Acceptable - Usually returned when a file containing a virus included in the request."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": {
+    "commentFormConfig": {
+    "id": "Comment Form Configuration",
+      "properties": {
+        "postingGuidelines": "",
+        "agencyId": {
+          "type": "string",
+          "description": "The ID for the agency"
+        },
+        "document": {
+          "$ref": "document",
+          "description": "The Document on which this comment is being made"
+        },
+        "fieldList": {
+          "type": "array",
+          "items": {
+            "$ref": "field"
+          },
+          "description": "Fields to be displayed on the Comment Form"
+        }
+      }
+    },
+    "document": {
+      "id": "Document",
+      "properties": {
+        "agencyAcronym": {
+          "type": "string",
+          "description": "Acronym for the Federal Agency that published the Document"
+        },
+        "alternateWaysToComment": {
+          "type": "string",
+          "description": "Describes ways that some agencies accept comments through other forms including email or postal service mail."
+        },
+        "commentEndDate": {
+          "type": "Date",
+          "description": "Date and time when the period for the public to comment ends."
+        },
+        "commentStartDate": {
+          "type": "Date",
+          "description": "Date and time when the period for the public to comment begins."
+        },
+        "documentId": {
+          "type": "string",
+          "description": "A unique identifier established for a document."
+        },
+        "documentType": {
+          "type": "string",
+          "description": "A primary classification of a document."
+        },
+        "docketType": {
+          "type": "string",
+          "description": "A Docket Type is either Rulemaking or Non-Rulemaking. A Rulemaking docket includes the type of regulation that establishes a rule. While a Non-Rulemaking docket does not include a rule."
+        },
+        "title": {
+          "type": "string",
+          "description": "The formal title of the Document."
+        },
+        "openForComment": {
+          "type": "boolean",
+          "description": "If this value is true, then comments are still being accepted. If the comment due date is past, the agency may allow comments past the original due date."
+        }
+      }
+    },
+    "field": {
+      "id": "Field",
+      "properties": {
+        "attributeName": {
+          "type": "string",
+          "description": "Name of the attribute. The field MUST be named so that it is exactly the same as specified by this attribute value.Label to display next to the attribute.string"
+        },
+        "attributeLabel": {
+          "type": "string",
+          "description": "A URL that can be used for calling the Lookup API. The data returned would be used to populate a picklist or combo control."
+        },
+        "lookupUrl": {
+          "type": "string",
+          "description": "Label to display next to the attribute."
+        },
+        "maxLength": {
+          "type": "number",
+          "description": "Maximum number of characters allowed."
+        },
+        "publicViewable": {
+          "type": "boolean",
+          "description": "Indicates if the data entered in this field, it will be posted back and viewable by the public on Regulations.gov."
+        },
+        "required": {
+          "type": "boolean",
+          "description": "Indicates if the field is required to be completed by the user."
+        },
+        "tooltip": {
+          "type": "string",
+          "description": "Optional description of the field. Could be used for a tooltip help on a field."
+        },
+        "uiControl": {
+          "type": "string",
+          "description": "Indicates the type of control used for HTML form input. Possible values: text, picklist, combo."
+        }
+      }
+    },
+    "commentPostResponse": {
+      "id": "Comment Response",
+      "properties": {
+        "status": {
+          "type": "number",
+          "required": true,
+          "description": "Status will mirror the HTTP Response Status Code."
+        },
+        "code": {
+          "type": "number",
+          "description": "Reserved for future use. Value will mirror the status."
+        },
+        "message": {
+          "type": "string",
+          "description": "A message suitable for display to the user."
+        },
+        "developerMessage": {
+          "type": "string",
+          "description": "Additional information intended only for the developer, not for display to an end-user."
+        },
+        "moreInfo": {
+          "type": "string",
+          "description": "Reserved for future use."
+        },
+        "trackingNumber": {
+          "type": "string",
+          "required": true,
+          "description": "The 'comment tracking number', which can be used by the user to lookup and track their comment."
+        }
+      },
+      "subTypes": ["commentPostError400"],
+      "discrimnator": "type"
+    },
+    "commentPostError400": {
+      "id": "Comment Error 400",
+      "properties": {
+        "status": {
+          "type": "number",
+          "required": true,
+          "description": "Status will mirror the HTTP Response Status Code."
+        },
+        "code": {
+          "type": "number",
+          "description": "Reserved for future use. Value will mirror the status."
+        },
+        "message": {
+          "type": "string",
+          "description": "A message suitable for display to the user."
+        },
+        "developerMessage": {
+          "type": "string",
+          "description": "Additional information intended only for the developer, not for display to an end-user."
+        },
+        "moreInfo": {
+          "type": "string",
+          "description": "Reserved for future use."
+        },
+        "missingFields": {
+          "type": "array",
+          "required": false,
+          "description": "An array of string values corresponding to REQUIRED fields that were not included in the form-data request."
+        },
+        "emptyFields": {
+          "type": "array",
+          "required": false,
+          "description": "An array of string values corresponding to REQUIRED fields that were included in the form-data request, but did not include any data value."
+        }
+      }
+    }
+  }
+}

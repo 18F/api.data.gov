@@ -1,0 +1,61 @@
+#General Comment API Requirements
+
+1. Getting Started
+	a. In order to use this service, you must have the ability to protect the API key from exposure.  This typically means you should only pass the API key directly from your server to our server.  The API key should not be included in any client-side JavaScript or HTML, or be exposed in any other way to a user's Web Browser.
+	
+	* Review our Terms of Service, available here: http://www.regulations.gov/#!developers;page=termsOfService
+	* You are responsible for providing users with a quality commenting experience, similar to what they would receive on Regulations.gov.  You must not defraud, mislead, or spam users. 
+
+* Comment Form
+	a. Display the Regulations.gov logo somewhere on the form.  For a high resolution image see:  http://regulations.gov/images/regs_logo.eps   This image may be resized to suit the user interface.
+	* Display the following text in a prominent location on the form or widget: You are submitting an official comment to Regulations.gov." 
+	* If the agency provides the following, then this information needs to be accessible to the commenter:
+		* Agency Posting Guidelines
+		* Alternate Ways to Comment
+	* Comments larger than 5,000 characters are not accepted through the free text comment form box.  If the comment is too large, then the form needs to handle the errors.
+	* Display the metadata fields specific to each agency"s comment form.
+	* Any additional metadata fields that are included on the form need to make clear that they are not provided to Regulations.gov since it is not part of our form.
+	* Indicate form fields that are required.
+	* Indicate form fields that will be publicly viewable on Regulations.gov.
+	* Display the following text: 
+>You are filing a document into an official docket.  Any personal information entered on this form may be publicly viewable on the web.
+>
+> I read and understand the statement above.
+	
+	* Next to the I read and understand the statement above" text, include a check box that enables the comment button.
+	* Include a Submit button.
+	* Display any validation or other failed messages to the end user.  Where appropriate, API developers can use their own language to describe any issues with the submission form data.
+	* With a successful submission, the API will return a tracking number.  If a user submitted any attachments than they need to receive validation that the attachments were received.  API developers must also display this tracking number to the end-user, along with the following text: 
+	> Your comment may be viewable on Regulations.gov once the agency has reviewed it. This process is dependent on agency public submission policies/procedures and processing times. Use your tracking number to find out the status of your comment."
+	<p>Note: You may not display your own version of a tracking number; you must display the Regulations.gov tracking number.</p>
+  * Links to both the User Notice and Privacy and Security Notice pages need to be included on the widget:
+		* User Notice: http://www.regulations.gov/#!userNotice
+		* Privacy and Security Notice: http://www.regulations.gov/#!privacyNotice
+* Data Collection
+	a. Use of any information obtained through Regulations.gov APIs must not violate any law or the rights of any individual or entity.
+	* You may not transfer any information that a user provides on a comment form.  This includes selling any data that is provided through the form. 
+
+### API Key Misuse
+If an API key is found to be abusing our services the key may be disabled. Violations that result in a disabled key include:
+
+- Sharing key with another person or organization
+- Exposing your key in client-side JavaScript or HTML  
+
+###Cross-origin resources sharing is not supported
+When building a widget with the Comment API service, please note that there is limited support in older browsers such as Internet Explorer 7 & 8 for Cross-origin resource sharing (CORS). Additionally, implementing a solution in this way will not allow you to sufficiently protect the API key. At this time the Comment API does not support CORS.
+Comment Form Configuration Caching
+
+
+###Caching
+You may cache the results of the comment form configuration for up to 24 hours.  The return value typically does not change during the comment period.
+ 
+##Best Practices / Recommendations
+1. Include the title of the Federal Register document.
+* Include the agency name.
+* Provide a link to the Commenter's Checklist PDF.
+* Provide users with the ability to Upload files.  The individual file size maximum is 10 MB.
+* If a user uploads an attachment without entering text in the comment box, we recommend populating the comment box with the text: "See attached file(s)".  We found this eliminates user frustration when their only intent is to submit the comment as an attachment.
+* You should disable the form after the comment end date.
+* Provide users with the comment due date and time.  This will reduce user confusion and complaints.
+* Our team offers assistance to ensure that the API implementation is working properly.  Please contact us prior to the launch by visiting  
+http://www.regulations.gov/#!contactUs or calling our help desk at 1-877-378-5457 (toll free) or 703-412-3083.
