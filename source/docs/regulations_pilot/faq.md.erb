@@ -1,0 +1,42 @@
+---
+title: Frequently Asked Questions
+summary: 
+disqus: false
+
+---
+
+# <%= current_page.data.title %>
+<%= current_page.data.summary %>
+
+##Technical Questions
+<dl>
+<dt>Does the Comment API support any validations?</dt>
+<dd>The form configuration API service will return each field available for a given agency document.  Each form field will include information on max characters, required status, and if the metadata will be posted publicly.
+<br/><br/>Any files attached to a comment submission will also be validated against a list of valid file types.  Also, file attachements are limited to 10 MB.</dd>
+
+<dt style="padding-top: 20px;">What are the error messages that will be returned via the API?</dt>
+<dd>See the "Responses and Errors" section.</dd>
+
+<dt style="padding-top: 20px;">Is there anything the API will return to indicate a successful post?</dt>
+<dd>See the "Responses and Errors" section.</dd>
+
+<dt style="padding-top: 20px;">Will the API allow comments to be submitted on regulations outside of the end date for comments?</dt>
+<dd>Requesting a form configuration outside of the open comment period will usually return an error indicating the document is not open for comment.  However, some agencies do allow late comments, which they will still accept after the comment period end date.  Agency documents accepting late comments will also be available for submission through the Comment API.
+<br/><br/>Please Note: That although a user may request a comment form prior to the 11:59 PM ET deadline, any submission after this time will not be accepted.  For example, if someone requests the form at 11:00 PM ET and then submitted the form at 12:05 AM, their submission will not be accepted.</dd>
+</dl>
+
+##Business Process / Workflow
+<dl>
+<dt>Is there going to be a comment moderation mechanism for the form? Do comments need to be approved prior to submission to Regulations.gov?</dt>
+<dd>Regulations.gov has many agencies available for comment.  Each agency has a different process for approving comments.  The Comment API is built upon the exact same process as the Regulations.gov site's own Comment Form.  No additional moderation or filtering for API comments is available.  However, some agencies may choose to disable commenting on documents through the Comment API.</dd>
+
+<dt style="padding-top: 20px;">Will I need to know whether or not the commenting period is open prior to displaying a comment form on my the page?</dt>
+<dd>Yes, you should verify that a document is still open for comment before displaying the form to the user.  This will help remove frustration from a user filling out a comment, only to get rejected upon submission.</dd>
+</dl>
+
+##Need More Help?
+<dl>
+<dt>Who is the point of contact to help us answer questions about API?</dt>
+<dd>The Regulations.gov Help Desk is available to help users obtain API KEYS and to answer API-related questions.  You can contact them directly through the Feedback and Questions page on Regulations.gov.  The Regulations.gov Help Desk is also available at 1-877-378-5457 (toll free) or 703-412-3083, Monday through Friday, from 9:00 AM until 5:00 PM, ET for assistance.</dd>
+</dl>
+ 
