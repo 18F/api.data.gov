@@ -17,7 +17,7 @@
         {
           "method": "GET",
           "summary": "Gets a Comment Form Configuration which describes how the data should be sent to the POST API.",
-          "notes": "",
+          "notes": "TBD",
           "type": "commentFormConfig",
           "nickname": "commentForm",
           "parameters": [
@@ -70,8 +70,8 @@
         },
         {
           "method": "POST",
-          "summary": "Send a formal comment into the Regulations.gov API.",
-          "notes": "Please be sure to read the Requirements and Best Practices pages.",
+          "summary": "Send a formal comment to the Regulations.gov API.",
+          "notes": "TBD",
           "type": "commentPostResponse",
           "nickname": "postComment",
           "parameters": [
@@ -180,15 +180,15 @@
       "properties": {
         "attributeName": {
           "type": "string",
-          "description": "Name of the attribute. The field MUST be named so that it is exactly the same as specified by this attribute value.Label to display next to the attribute.string"
+          "description": "Name of the attribute. The form field name must exactly match the provided value."
         },
         "attributeLabel": {
           "type": "string",
-          "description": "A URL that can be used for calling the Lookup API. The data returned would be used to populate a picklist or combo control."
+          "description": "Label to display next to the attribute."
         },
         "lookupUrl": {
           "type": "string",
-          "description": "Label to display next to the attribute."
+          "description": "A URL that can be used for calling the Lookup API. The data returned would be used to populate a picklist or combo control."
         },
         "maxLength": {
           "type": "number",
@@ -196,7 +196,7 @@
         },
         "publicViewable": {
           "type": "boolean",
-          "description": "Indicates if the data entered in this field, it will be posted back and viewable by the public on Regulations.gov."
+          "description": "Indicates if the data entered in this field will be posted back and viewable by the public on Regulations.gov."
         },
         "required": {
           "type": "boolean",
@@ -204,7 +204,7 @@
         },
         "tooltip": {
           "type": "string",
-          "description": "Optional description of the field. Could be used for a tooltip help on a field."
+          "description": "Could be used for tooltip help on a field"
         },
         "uiControl": {
           "type": "string",
