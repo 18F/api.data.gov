@@ -1,0 +1,109 @@
+---
+title: Samples
+summary: 
+disqus: false
+
+---
+
+# <%= current_page.data.title %>
+<%= current_page.data.summary %>
+
+##Responses and Errors
+
+###Standard Response Format
+All responses from the Comment API should come in our 'standard response' format.  This format includes a status, which will mirror the HTTP status code returned.  Additionally a message will be included.
+
+```
+Most responses will also include a code, developerMessage, and moreInfo attributes.  These 3 attributes are not yet populated for most responses, but are intended as a place-holder for future enhancements.
+```
+
+###Submit Comment Response
+For successful comments, a 'trackingNumber' attribute will be added to the standard response.
+If you are implementing a solution which requires end-users interaction, you are required to make the comment tracking number available to them upon successful return from the API.
+The comment tracking number will be wrapped in a standard response, available in either XML or JSON, depending on the format specified in the submission address.
+
+```json
+{
+  "response": {
+    "status": 201,
+    "code": 201,
+    "message": "Success",
+    "developerMessage": "n/a",
+    "moreInfo": "n/a",
+    "trackingNumber": "1jx-84zx-1bn2"
+  }
+}
+```
+
+```xml
+<response>
+<status>201</status>
+<code>201</code>
+<message>Success</message>
+<developerMessage>n/a</developerMessage>
+<moreInfo>n/a</moreInfo>
+<trackingNumber>1jx-84zx-qgkr</trackingNumber>
+</response>
+```
+
+###Invalid Comment Submissions
+If the comment submission is not validated, you can expect a detailed response, often with additional data to help support corrective actions.
+In the example below, there were problems with the data submitted for five of the fields.  General Comment and Last Name fields were passed to the API, however the value was empty.  The API did not receive data for the First Name, Middle Initial, and Address fields.
+
+###Missing Required Fields
+```json
+{
+  "error": {
+    "status": 400,
+    "code": 400,
+    "message": "Submission is missing required fields.  Please reload this page and try your submission again.",
+    "developerMessage": "Please ensure all required fields are included and contain data.",
+    "moreInfo": "See included list(s) of invalid fields",
+    "missingFields": [
+      "first_name",
+      "mid_initial",
+      "address1"
+    ],
+    "emptyFields": [
+      "last_name",
+      "general_comment"
+    ]
+  }
+}
+```
+
+###Example of File Attachment Issue Types
+
+```json
+{
+  "status": 406,
+  "code": 406,
+  "message": "There was an issue saving your comment due to invalid file attachments.  Please ensure the files are no large than 10 MB and are of an accepted format.",
+  "developerMessage": "Parse the fileList to get the fileName and issueType for each file that was found to be invalid.",
+  "fileList": [
+    {
+      "fileName": "virus test.txt",
+      "issue": "FILE_CONTAINS_VIRUS"
+    },
+    {
+      "fileName": "10MB.zip",
+      "issue": "INVALID_FILE_TYPE"
+    },
+    {
+      "fileName": "10270 KB.xls",
+      "issue": "FILE_TOO_LARGE"
+    }
+  ]
+}
+```
+ 
+###HTTP Status Codes Used
+```
+The following HTTP status codes can be expected:
+200 - OK
+201 - Created
+400 - Bad Request
+401 - Unauthorized
+404 - Not Found
+500 - Internal Server Error
+```
