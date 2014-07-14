@@ -1,5 +1,9 @@
 # api.data.gov
 
+* [Program Notes](https://github.com/GSA/api.data.gov/wiki/Program-Notes)
+
+## Notes 
+
 The website content for api.data.gov built with [Middleman](http://middlemanapp.com).
 
 All contributions are welcome. To submit a change, fork this repo, commit your changes, and send us a [pull request](https://help.github.com/articles/using-pull-requests).
