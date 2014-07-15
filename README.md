@@ -1,6 +1,6 @@
 # api.data.gov
 
-* [Program Notes](https://github.com/GSA/api.data.gov/wiki/Program-Notes)
+* [Program Notes](https://github.com/18F/api.data.gov/wiki/Program-Notes)
 
 ## Notes 
 
