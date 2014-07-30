@@ -1,0 +1,71 @@
+---
+title: Contact Us
+---
+
+<h1>api.data.gov Contact</h1>
+<p>Feel free to contact us with questions, comments, or to report any problems with api.data.gov.</p>
+
+<div class="row contact-nav">
+  <ul class="nav">
+    <li class="col-md-6">
+      <a href="https://github.com/18F/api.data.gov/issues">
+        <i class="fa fa-github"></i>
+        <span>File an issue on GitHub</span>
+      </a>
+    </li>
+    <li class="col-md-6">
+      <a href="#contact">
+        <i class="fa fa-comments-o"></i>
+        <span>Contact us directly</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<section class="row" style="margin-top: 3em;">
+  <div class="col-md-12">
+    <a name="contact" class="contact-heading">
+      <h4 class="icon-heading">
+        <i class="fa fa-comments-o"></i>
+        <span>
+          Contact us directly
+        </span>
+      </h4>
+    </a>
+  </div>
+</section>
+
+<p class="required-fields"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> Required fields</p>
+<form id="apidatagov_contact_form" class="form-horizontal" role="form">
+  <div class="form-group">
+    <label class="col-sm-4 control-label" for="contact_name"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> Name</label>
+    <div class="col-sm-5">
+      <input class="form-control" id="contact_name" name="contact[name]" size="50" type="text" required />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label" for="contact_email"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> Email</label>
+    <div class="col-sm-5">
+      <input class="form-control" id="contact_email" name="contact[email]" size="50" type="email" required />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label" for="contact_message"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> Message</label>
+    <div class="col-sm-5">
+      <textarea class="form-control" cols="40" id="contact_message" name="contact[message]" rows="6" required></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8">
+      <noscript><div class="alert alert-danger" role="alert">Please enable JavaScript to contact us.</div></noscript>
+      <button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">Send</button>
+    </div>
+  </div>
+</form>
+<script type="text/javascript">
+  var apiUmbrellaContactOptions = {
+    apiKey: '8Mndjk7k8ygsU4rM1lwBltMzet1FEAIuZeaqzEqV',
+    issuesUrl: 'https://github.com/18F/api.data.gov/issues'
+  };
+</script>
+<%= javascript_include_tag("contact") %>
