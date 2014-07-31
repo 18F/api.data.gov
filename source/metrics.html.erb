@@ -1,0 +1,136 @@
+---
+title: Usage Metrics
+---
+
+<h1>api.data.gov Usage Metrics</h1>
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="row">
+  <div class="col-sm-4 metrics-callout">
+    <i class="fa fa-users"></i>
+    <em>2,100</em>
+    API users
+  </div>
+  <div class="col-sm-4 metrics-callout">
+    <i class="fa fa-bar-chart-o"></i>
+    <em>42 million</em>
+    API requests served
+  </div>
+  <div class="col-sm-4 metrics-callout">
+    <i class="fa fa-institution"></i>
+    <em>7</em>
+    participating agencies
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 text-center">
+    <h3>Recent API Key Signups</h3>
+    <div id="chart_div2"></div>
+  </div>
+  <div class="col-md-6 text-center">
+    <h3>Recent API Traffic</h3>
+    <div id="chart_div"></div>
+  </div>
+</div>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1.0', {'packages':['corechart']});
+
+  google.setOnLoadCallback(drawHitsChart);
+  google.setOnLoadCallback(drawUserChart);
+
+  function drawHitsChart() {
+    var data = new google.visualization.DataTable({
+      cols: [
+        {id: 'date', label: 'Date', type: 'datetime'},
+        {id: 'hits', label: 'Hits', type: 'number'},
+        {type: 'string', role: 'tooltip'},
+      ],
+      rows: []
+    });
+
+    data.addRows([
+      [new Date(2014, 1, 1), 3622642, '3.6 million API hits'],
+      [new Date(2014, 2, 1), 3213687, '3.2 million API hits'],
+      [new Date(2014, 3, 1), 5931137, '5.9 million API hits'],
+      [new Date(2014, 4, 1), 7864971, '7.9 million API hits'],
+      [new Date(2014, 5, 1), 8114429, '8.1 million API hits'],
+      [new Date(2014, 6, 1), 10232838, '10.2 million API hits'],
+    ]);
+
+    var options = {
+      colors: ['#4679B2'],
+      hAxis: {
+        baselineColor: "transparent",
+        gridlines: {
+          color: "transparent",
+        },
+        format: 'MMM yyyy',
+      },
+      vAxis: {
+        viewWindowMode: 'maximized',
+        minValue: 0,
+        gridlines: {
+          count: 4
+        },
+        textStyle: {
+          fontSize: 11,
+        },
+      },
+      legend: {
+        position: 'none',
+      }
+    };
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+
+  function drawUserChart() {
+    var data = new google.visualization.DataTable({
+      cols: [
+        {id: 'date', label: 'Date', type: 'datetime'},
+        {id: 'signups', label: 'Signups', type: 'number'},
+        {type: 'string', role: 'tooltip'},
+      ],
+      rows: []
+    });
+
+    data.addRows([
+      [new Date(2014, 1, 1), 94, '94 API key signups'],
+      [new Date(2014, 2, 1), 85, '85 API key signups'],
+      [new Date(2014, 3, 1), 94, '94 API key signups'],
+      [new Date(2014, 4, 1), 188, '188 API key signups'],
+      [new Date(2014, 5, 1), 1030, '1030 API key signups'],
+      [new Date(2014, 6, 1), 350, '350 API key signups'],
+    ]);
+
+    var options = {
+      colors: ['#4679B2'],
+      hAxis: {
+        baselineColor: "transparent",
+        gridlines: {
+          color: "transparent",
+        },
+        format: 'MMM yyyy',
+      },
+      vAxis: {
+        viewWindowMode: 'maximized',
+        minValue: 0,
+        gridlines: {
+          count: 4
+        },
+        textStyle: {
+          fontSize: 11,
+        },
+      },
+      legend: {
+        position: 'none',
+      }
+    };
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
+    chart.draw(data, options);
+  }
+</script>

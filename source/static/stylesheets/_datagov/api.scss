@@ -34,3 +34,28 @@ table.doc-parameters {
 div.checkbox {
   padding-left: 0px;
 }
+
+.metrics-callout:first-child {
+  border-left: none;
+}
+
+.metrics-callout {
+  text-align: center;
+  border-left: 1px solid #ddd;
+  margin-top: 30px;
+  margin-bottom: 80px;
+
+  i.fa {
+    font-size: 36px;
+    color: #555;
+  }
+
+  em {
+    font-style: normal;
+    font-size: 48px;
+    font-weight: 300;
+    display: block;
+    line-height: 100%;
+    margin: 8px 0px 2px 0px;
+  }
+}
