@@ -129,3 +129,8 @@ end
 if(build?)
   ENV["WEB_SITE_ROOT"] ||= "https://api.data.gov"
 end
+
+# Prevent vim temp files from triggering file watching business.
+set :file_watcher_ignore, [
+  /.*\.swp$/
+]
