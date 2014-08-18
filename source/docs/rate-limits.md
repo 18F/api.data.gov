@@ -22,17 +22,7 @@ The hourly counters for your API key reset on a rolling basis.
 
 ## Rate Limit Error Response
 
-If your API key exceeds the rate limits, you will receive a response with an HTTP status code of 503, Service Unavailable. The response body will contain an error message reading "503 Service Unavailable (Rate Limit Exceeded)." For example, a JSON request that has exceed the rate limits would respond with:
-
-```json
-{
-  "errors":[
-    "503 Service Unavailable (Rate Limit Exceeded)"
-  ]
-}
-```
-
-For more details on how errors are returned, see the [general Web service errors](/docs/errors).
+If your API key exceeds the rate limits, you will receive a response with an HTTP status code of 429 (Too Many Requests).
 
 ## Need Higher Limits?
 
