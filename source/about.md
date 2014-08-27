@@ -8,6 +8,10 @@ body_class: about-page
 
 [api.data.gov](http://api.data.gov/) is a free API management service for federal agencies. Our aim is to make it easier for you to release and manage your APIs.
 
+* [How It Works](#how-it-works)
+* [Features](#features)
+* [How To Participate](#how-to-participate)
+
 ## How It Works
 
 api.data.gov acts as a layer above your existing APIs. It transparently adds  extra functionality to your APIs and helps deal with some of the repetitive parts of managing APIs.
@@ -62,21 +66,8 @@ api.data.gov is powered by the open source project [API Umbrella](https://github
 
 ## How To Participate
 
-If you're interested in exploring any of this for your APIs please [contact us](http://api.data.gov/contact). In general, it's easy to take an existing API and put it behind api.data.gov, so you can see how things work.
+If you're interested in exploring any of this for your APIs, please [contact us](/contact/#contact). In general, it's easy to take any existing API your agency has (or is in the process of building) and put api.data.gov in front of it. This can be an easy way to get started and see what type of functionality api.data.gov might provide for your API.
 
-## Roadmap
+### Administration Guide
 
-This is our loose plan, but [let us know](http://api.data.gov/contact) if you think other things should be prioritized:
-
-- **Self service web admin for managing APIs (August 2013):** Allow agencies to add and edit API routing rules to the proxy via the web admin (currently this is handled through config file changes).
-- **Improved documentation management / interactive docs (August 2013):** Explore the possibility of using Swagger or I/O Docs for managing the documentation and providing interactive docs.
-- **Better user management in the web admin (August 2013):** Make it easier for admin users to manage user accounts via the web admin (assigning per-user rate limits, creating keys, etc).
-- **More granular admin permissions (September 2013):** Introduce more granular admin accounts, so agencies only have access to manage and view their own APIs (currently admins can see and do everything).
-- **More granular rate limits (September 2013):** Allow rate limits to be set on a per-agency or per-API basis (currently the rate limits are global across all api.data.gov APIs).
-- **Saved analytics reports (November 2013):** Make it easier for admins to pull common stats by allowing them to save pre-filled analytics queries.
-
-Other ideas/possibilities:
-
-- **Caching:** Help agencies scale their APIs by providing an optional caching layer.
-- **User accounts:** Allow users to have an optional account where they can manage their API keys and view analytics of their own usage (currently users get API keys, but there's no account management beyond that).
-- **Authentication mechanisms / OAuth2:** Our focus is on very simple API keys, but other things like OAuth2 are always a possibility.
+Are you an agency that's already signed up with api.data.gov but looking for additional help? Some answers to common administration questions are documented in the [manual](https://github.com/18F/api.data.gov/wiki/User-Manual:-Agencies), or you can always [contact us](/contact/) with additional questions or feedback.
