@@ -2,6 +2,12 @@
   @import "bootstrap";
   @import "_api_umbrella";
 
+  .modal {
+    // Increase the z-index for modals so they float over the headers on the
+    // template some of the GSA sites are using.
+    z-index: 100050;
+  }
+
   pre, code {
     font-family: monospace;
   }
