@@ -5,8 +5,9 @@ style.href = '<%= ENV["WEB_SITE_ROOT"] %>/static/stylesheets/<%= File.basename(a
 var defaults = {
   containerSelector: '#apidatagov_signup',
   apiUrlRoot: 'https://api.data.gov/api-umbrella',
-  contactUrl: 'http://www.data.gov/contact',
+  contactUrl: 'https://api.data.gov/contact/',
   exampleApiUrl: 'https://api.data.gov/nrel/alt-fuel-stations/v1/nearest.json?api_key={{api_key}}&location=Denver+CO',
+  signupConfirmationMessage: ''
 };
 
 var options = $.extend({}, defaults, apiUmbrellaSignupOptions || {});
@@ -87,11 +88,7 @@ form.submit(function(event) {
       '<code class="signup-key">' + user.api_key + '</code>' +
       '<p>You can start using this key to make Web service requests. Simply pass your key in the URL when making a Web request. Here\'s an example:</p>' +
       '<pre class="signup-example"><a href="' + exampleApiUrl + '">' + formattedExampleApiUrl + '</a></pre>' +
-      '<h2>What Next?</h2>' +
-      '<ul>' +
-        '<li>Explore our <a href="/docs/">available Web services</a>.</li>' +
-        '<li>Need more help? <a href="' + options.contactUrl + '">Contact us</a>.</li>' +
-      '</ul>' +
+      options.signupConfirmationMessage +
       '<div class="signup-footer">' +
         '<p>For additional support, please <a href="' + options.contactUrl + '">contact us</a>. When contacting us, please tell us what API you\'re accessing and provide the following account details so we can quickly find you:</p>' +
         'Account Email: ' + user.email + '<br>' +
