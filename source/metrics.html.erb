@@ -8,19 +8,23 @@ title: Usage Metrics
 <div class="row">
   <div class="col-sm-4 metrics-callout">
     <i class="fa fa-users"></i>
-    <em>2,100</em>
+    <em>2,800</em>
     API users
   </div>
   <div class="col-sm-4 metrics-callout">
     <i class="fa fa-bar-chart-o"></i>
-    <em>42 million</em>
+    <em>66 million</em>
     API requests served
+    <br>
   </div>
   <div class="col-sm-4 metrics-callout">
     <i class="fa fa-institution"></i>
     <em>7</em>
     participating agencies
   </div>
+</div>
+<div class="row metrics-since">
+  since July 2013
 </div>
 
 <div class="row">
@@ -51,12 +55,12 @@ title: Usage Metrics
     });
 
     data.addRows([
-      [new Date(2014, 1, 1), 3622642, '3.6 million API hits'],
-      [new Date(2014, 2, 1), 3213687, '3.2 million API hits'],
-      [new Date(2014, 3, 1), 5931137, '5.9 million API hits'],
-      [new Date(2014, 4, 1), 7864971, '7.9 million API hits'],
-      [new Date(2014, 5, 1), 8114429, '8.1 million API hits'],
-      [new Date(2014, 6, 1), 10232838, '10.2 million API hits'],
+      [new Date(2014, 4, 1), 7547940, '7.6 million API hits'],
+      [new Date(2014, 5, 1), 7758807, '7.8 million API hits'],
+      [new Date(2014, 6, 1), 10371960, '10.4 million API hits'],
+      [new Date(2014, 7, 1), 11670758, '11.7 million API hits'],
+      [new Date(2014, 8, 1), 9362994, '9.4 million API hits'],
+      [new Date(2014, 9, 1), 4643455, '4.6 million API hits'],
     ]);
 
     var options = {
@@ -66,7 +70,7 @@ title: Usage Metrics
         gridlines: {
           color: "transparent",
         },
-        format: 'MMM yyyy',
+        format: 'MMM\nyyyy',
       },
       vAxis: {
         viewWindowMode: 'maximized',
@@ -98,12 +102,12 @@ title: Usage Metrics
     });
 
     data.addRows([
-      [new Date(2014, 1, 1), 94, '94 API key signups'],
-      [new Date(2014, 2, 1), 85, '85 API key signups'],
-      [new Date(2014, 3, 1), 94, '94 API key signups'],
       [new Date(2014, 4, 1), 188, '188 API key signups'],
       [new Date(2014, 5, 1), 1030, '1030 API key signups'],
-      [new Date(2014, 6, 1), 350, '350 API key signups'],
+      [new Date(2014, 6, 1), 363, '363 API key signups'],
+      [new Date(2014, 7, 1), 280, '280 API key signups'],
+      [new Date(2014, 8, 1), 264, '264 API key signups'],
+      [new Date(2014, 9, 1), 118, '118 API key signups'],
     ]);
 
     var options = {
@@ -113,7 +117,7 @@ title: Usage Metrics
         gridlines: {
           color: "transparent",
         },
-        format: 'MMM yyyy',
+        format: 'MMM\nyyyy',
       },
       vAxis: {
         viewWindowMode: 'maximized',
@@ -134,3 +138,7 @@ title: Usage Metrics
     chart.draw(data, options);
   }
 </script>
+
+<div class="row metrics-last-updated">
+  last updated October 14 2014
+</div>

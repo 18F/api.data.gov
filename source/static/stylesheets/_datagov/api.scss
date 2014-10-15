@@ -43,7 +43,6 @@ div.checkbox {
   text-align: center;
   border-left: 1px solid #ddd;
   margin-top: 30px;
-  margin-bottom: 80px;
 
   i.fa {
     font-size: 36px;
@@ -58,4 +57,19 @@ div.checkbox {
     line-height: 100%;
     margin: 8px 0px 2px 0px;
   }
+}
+
+.metrics-since {
+  text-align: center;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 8px;
+  margin-bottom: 80px;
+}
+
+.metrics-last-updated {
+  text-align: center;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 40px;
 }
