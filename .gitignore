@@ -10,3 +10,6 @@
 # Ignore cache
 /.sass-cache
 /.cache
+
+# Log files
+*.log
