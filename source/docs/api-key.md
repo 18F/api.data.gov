@@ -14,12 +14,36 @@ After [signing up](/signup), you'll be given your own, unique API key. This 40 c
 
 To use your key, simply pass the key as a URL query parameter when making Web service requests. For example:
 
-`GET http://api.data.gov/nrel/alt-fuel-stations/v1.json?api_key=YOUR_KEY_HERE`
+```
+GET https://api.data.gov/nrel/alt-fuel-stations/v1.json?limit=1&api_key=YOUR_KEY_HERE
+```
 
-Regardless of the HTTP method being called, the API key should always be passed as a GET parameter in the URL query. So even if you will be POSTing or PUTing to an specific service, the *api_key* query parameter should always be supplied in the URL query parameters.
+## Ways to Pass Your API Key
 
-## Alternative Method
+Your API key may be passed to the service in a few different ways. Pick which ever method is easiest for you.
 
-Depending on your usage, it can sometimes be easier to pass the API key along as HTTP Basic authentication. If you want to use this method, pass your API key in as the username, while leaving the password blank. For example:
+### HTTP Header
 
-`GET http://YOUR_KEY_HERE@api.data.gov/nrel/alt-fuel-stations/v1.json`
+Pass the API key into the `X-Api-Key` header:
+
+```sh
+curl -H 'X-Api-Key: DEMO_KEY' 'https://api.data.gov/nrel/alt-fuel-stations/v1.json?limit=1'
+```
+
+### GET Query Parameter
+
+Pass the API key into the `api_key` GET query string parameter:
+
+```sh
+curl 'https://api.data.gov/nrel/alt-fuel-stations/v1.json?limit=1&api_key=YOUR_KEY_HERE'
+```
+
+*Note:* The GET query parameter may be used for non-GET requests (such as POST and PUT).
+
+### HTTP Basic Auth Username
+
+As an alternative, pass the API key as the username (with an empty password) using HTTP basic authentication:
+
+```sh
+curl 'https://YOUR_KEY_HERE@api.data.gov/nrel/alt-fuel-stations/v1.json?limit=1'
+```
