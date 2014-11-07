@@ -4,6 +4,3 @@ summary: The System for Award Management manages all the registrations of entiti
 layout: redirect
 redirect_url: http://gsa.github.io/sam_api/sam/index.html
 ---
-
-# <%= current_page.data.title %>
-<%= current_page.data.summary %>

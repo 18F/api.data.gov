@@ -4,6 +4,3 @@ summary: The National Nutrient Database API allows developers to incorporate sel
 layout: redirect
 redirect_url: http://ndb.nal.usda.gov/ndb/doc/
 ---
-
-# <%= current_page.data.title %>
-<%= current_page.data.summary %>

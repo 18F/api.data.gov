@@ -4,6 +4,3 @@ summary: openFDA provides open APIs, raw data downloads, documentation and examp
 layout: redirect
 redirect_url: https://open.fda.gov/
 ---
-
-# <%= current_page.data.title %>
-<%= current_page.data.summary %>

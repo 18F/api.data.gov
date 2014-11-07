@@ -4,6 +4,3 @@ summary: GSA Auctions API is a public GET API. The Auction listings will be deli
 layout: redirect
 redirect_url: http://gsa.github.io/auctions_api/
 ---
-
-# <%= current_page.data.title %>
-<%= current_page.data.summary %>

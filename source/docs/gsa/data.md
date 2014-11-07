@@ -6,6 +6,3 @@ redirect_url: https://www.data.gov/developers/apis
 alias: docs/data/
 
 ---
-
-# <%= current_page.data.title %>
-<%= current_page.data.summary %>

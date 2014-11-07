@@ -4,6 +4,3 @@ summary: Pull the most up to date information about green products, services, an
 layout: redirect
 redirect_url: https://sftool.gov/Developers
 ---
-
-# <%= current_page.data.title %>
-<%= current_page.data.summary %>

@@ -4,6 +4,3 @@ summary: The ERS mission is to inform and enhance public and private decision ma
 layout: redirect
 redirect_url: http://www.ers.usda.gov/developer/
 ---
-
-# <%= current_page.data.title %>
-<%= current_page.data.summary %>

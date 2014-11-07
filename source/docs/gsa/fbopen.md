@@ -4,6 +4,3 @@ summary: FBOpen is an API to a search index containing opportunities to do busin
 layout: redirect
 redirect_url: http://18f.github.io/fbopen/
 ---
-
-# <%= current_page.data.title %>
-<%= current_page.data.summary %>
