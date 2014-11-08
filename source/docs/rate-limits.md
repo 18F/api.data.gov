@@ -6,11 +6,18 @@ hidden_child: true
 
 # Web Service Rate Limits
 
-Limits are placed on the number of Data.gov Web service requests you may make using your API key.
+Limits are placed on the number of API requests you may make using your API key. Rate limits may vary by service, but the defaults are:
 
 - **Hourly Limit:** 1,000 requests per hour
 
-For each API key, these limits are applied across all Data.gov Web services requests. Exceeding these limits will lead to your API key being temporarily blocked from making further requests. Depending on the limit exceeded, the block will be lifted automatically by waiting until the next hour or calendar day.
+For each API key, these limits are applied across all api.data.gov API requests. Exceeding these limits will lead to your API key being temporarily blocked from making further requests. The block will automatically be lifted by waiting an hour. If you need higher rate limits, [contact us](/contact).
+
+## DEMO_KEY Rate Limits
+
+In documentation examples, the special `DEMO_KEY` api key is used. This API key can be used for initially exploring APIs prior to signing up, but it has much lower rate limits, so you're encouraged to [signup](/signup/) for your own API key if you plan to use the API (signup is quick and easy). The rate limits for the DEMO_KEY are:
+
+- **Hourly Limit:** 30 requests per IP address per hour
+- **Daily Limit:** 50 requests per IP address per day
 
 ## Understanding Rate Limit Time Periods
 
