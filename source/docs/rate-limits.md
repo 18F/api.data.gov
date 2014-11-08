@@ -19,6 +19,15 @@ In documentation examples, the special `DEMO_KEY` api key is used. This API key 
 - **Hourly Limit:** 30 requests per IP address per hour
 - **Daily Limit:** 50 requests per IP address per day
 
+## How Do I See My Current Usage?
+
+Your can check your current rate limit and usage details by inspecting the `X-RateLimit-Limit` and `X-RateLimit-Remaining` HTTP headers that are returned on every API response. For example, if an API has the default hourly limit of 1,000 request, after making 2 requests, you will receive these HTTP headers in the response of the second request:
+
+```
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 998
+```
+
 ## Understanding Rate Limit Time Periods
 
 ### Hourly Limit
