@@ -5,6 +5,8 @@
 
 ## Notes 
 
+To edit this site, edit the `Master` branch.  Changes should take effect within minutes.  
+
 The website content for api.data.gov built with [Middleman](http://middlemanapp.com).
 
 All contributions are welcome. To submit a change, fork this repo, commit your changes, and send us a [pull request](https://help.github.com/articles/using-pull-requests).
