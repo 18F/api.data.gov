@@ -9,7 +9,7 @@ The api.data.gov Admin API implements the [API Umbrella Admin API](http://nrel.g
 
 # Endpoint
 
-https://api.data.gov/api-umbrella/
+* [https://api.data.gov/api-umbrella/](https://api.data.gov/api-umbrella/)
 
 # Upcoming Features
 * API to Request an API Key 
