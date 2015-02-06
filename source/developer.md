@@ -4,8 +4,15 @@ disable_breadcrumbs: true
 disable_in_breadcrumbs_trail: true
 ---
 
-# Admin API
+# Admin API Documentation
 The api.data.gov Admin API implements the [API Umbrella Admin API](http://nrel.github.io/api-umbrella/docs/admin-api/).
 
-# Request an API Key API
-...Coming Soon
+# Endpoint
+
+https://api.data.gov/api-umbrella/
+
+# Upcoming Features
+* API to Request an API Key 
+
+
+
