@@ -8,12 +8,12 @@ title: Usage Metrics
 <div class="row">
   <div class="col-sm-4 metrics-callout">
     <i class="fa fa-users"></i>
-    <em>2,800</em>
+    <em id="total_users"></em>
     API users
   </div>
   <div class="col-sm-4 metrics-callout">
     <i class="fa fa-bar-chart-o"></i>
-    <em>66 million</em>
+    <em id="total_hits"></em>
     API requests served
     <br>
   </div>
@@ -41,8 +41,41 @@ title: Usage Metrics
 <script type="text/javascript">
   google.load('visualization', '1.0', {'packages':['corechart']});
 
-  google.setOnLoadCallback(drawHitsChart);
-  google.setOnLoadCallback(drawUserChart);
+  var googleLoaded = false;
+  var summaryData;
+  google.setOnLoadCallback(function() {
+    googleLoaded = true;
+    loadIfReady();
+  });
+
+  $.ajax({
+    url: 'https://api.data.gov/api-umbrella/v0/analytics/summary.json?api_key=biBHFQWowEsEGZAkH9DTUu6khOW1oPQHqGQAxzoO',
+    success: function(data) {
+      summaryData = data;
+      loadIfReady();
+    },
+    error: function() {
+      alert('An unexpected error occurred while fetching data');
+    },
+  });
+
+  function loadIfReady() {
+    if(googleLoaded && summaryData) {
+      var totalUsers = Math.floor(summaryData.total_users / 100) * 100;
+      totalUsers = numeral(totalUsers).format('0,0');
+      $('#total_users').text(totalUsers);
+
+      var totalHits = Math.floor(summaryData.total_hits / 1000000);
+      totalHits = numeral(totalHits).format('0,0');
+      $('#total_hits').text(totalHits + ' million');
+
+      var lastUpdated = moment(summaryData.cached_at);
+      $('#last_updated').text('last updated ' + lastUpdated.format('MMMM D, YYYY'));
+
+      drawHitsChart();
+      drawUserChart();
+    }
+  }
 
   function drawHitsChart() {
     var data = new google.visualization.DataTable({
@@ -54,14 +87,18 @@ title: Usage Metrics
       rows: []
     });
 
-    data.addRows([
-      [new Date(2014, 4, 1), 7547940, '7.6 million API hits'],
-      [new Date(2014, 5, 1), 7758807, '7.8 million API hits'],
-      [new Date(2014, 6, 1), 10371960, '10.4 million API hits'],
-      [new Date(2014, 7, 1), 11670758, '11.7 million API hits'],
-      [new Date(2014, 8, 1), 9362994, '9.4 million API hits'],
-      [new Date(2014, 9, 1), 4643455, '4.6 million API hits'],
-    ]);
+    var recentHits = summaryData.hits_by_month.slice(-6);
+    var rows = [];
+    for(var i = 0; i < recentHits.length; i++) {
+      var recent = recentHits[i];
+      rows.push([
+        new Date(recent.year, recent.month - 1, 1),
+        recent.count,
+        numeral(recent.count / 1000000).format('0.0') + ' million API hits'
+      ]);
+    }
+
+    data.addRows(rows);
 
     var options = {
       colors: ['#4679B2'],
@@ -101,14 +138,18 @@ title: Usage Metrics
       rows: []
     });
 
-    data.addRows([
-      [new Date(2014, 4, 1), 188, '188 API key signups'],
-      [new Date(2014, 5, 1), 1030, '1030 API key signups'],
-      [new Date(2014, 6, 1), 363, '363 API key signups'],
-      [new Date(2014, 7, 1), 280, '280 API key signups'],
-      [new Date(2014, 8, 1), 264, '264 API key signups'],
-      [new Date(2014, 9, 1), 118, '118 API key signups'],
-    ]);
+    var recentUsers = summaryData.users_by_month.slice(-6);
+    var rows = [];
+    for(var i = 0; i < recentUsers.length; i++) {
+      var recent = recentUsers[i];
+      rows.push([
+        new Date(recent.year, recent.month - 1, 1),
+        recent.count,
+        recent.count + ' API key signups'
+      ]);
+    }
+
+    data.addRows(rows);
 
     var options = {
       colors: ['#4679B2'],
@@ -139,6 +180,4 @@ title: Usage Metrics
   }
 </script>
 
-<div class="row metrics-last-updated">
-  last updated October 14, 2014
-</div>
+<div id="last_updated" class="row metrics-last-updated"></div>

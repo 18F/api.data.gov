@@ -48,3 +48,9 @@ gem "rails-assets-bootbox", "~> 4.2.0"
 
 # Form validation
 gem "rails-assets-parsleyjs", "~> 2.0.0"
+
+# Number formatting
+gem "rails-assets-numeral", "~> 1.5.3"
+
+# Date formatting
+gem "rails-assets-moment", "~> 2.9.0"

@@ -105,6 +105,8 @@ GEM
     rails-assets-bootstrap (3.1.1)
       rails-assets-jquery (>= 1.9.0)
     rails-assets-jquery (1.11.1)
+    rails-assets-moment (2.9.0)
+    rails-assets-numeral (1.5.3)
     rails-assets-parsleyjs (2.0.0)
     rake (10.3.1)
     rb-fsevent (0.9.4)
@@ -150,6 +152,8 @@ DEPENDENCIES
   rails-assets-GUI--swagger-ui (= 2.0.3.patch1)
   rails-assets-bootbox (~> 4.2.0)
   rails-assets-jquery (~> 1.11.1)
+  rails-assets-moment (~> 2.9.0)
+  rails-assets-numeral (~> 1.5.3)
   rails-assets-parsleyjs (~> 2.0.0)
   rake (~> 10.3.1)
   tzinfo-data
