@@ -54,3 +54,7 @@ gem "rails-assets-numeral", "~> 1.5.3"
 
 # Date formatting
 gem "rails-assets-moment", "~> 2.9.0"
+
+# Some dependencies for miscellaneous system management stuff inside ops_scripts/*
+gem "aws-sdk", "~> 2.0.30"
+gem "trollop", "~> 2.1.2"

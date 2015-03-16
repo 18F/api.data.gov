@@ -8,8 +8,18 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    aws-sdk (2.0.30)
+      aws-sdk-resources (= 2.0.30)
+    aws-sdk-core (2.0.30)
+      builder (~> 3.0)
+      jmespath (~> 1.0)
+      multi_json (~> 1.0)
+      multi_xml (~> 0.5)
+    aws-sdk-resources (2.0.30)
+      aws-sdk-core (= 2.0.30)
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
+    builder (3.2.2)
     chunky_png (1.3.1)
     coffee-script (2.2.0)
       coffee-script-source
@@ -41,6 +51,8 @@ GEM
       uber (~> 0.0.4)
     http_parser.rb (0.6.0)
     i18n (0.6.9)
+    jmespath (1.0.2)
+      multi_json (~> 1.0)
     json (1.8.1)
     kramdown (1.3.3)
     listen (1.1.6)
@@ -88,6 +100,7 @@ GEM
       rouge (~> 1.0)
     minitest (4.7.5)
     multi_json (1.9.3)
+    multi_xml (0.5.5)
     padrino-helpers (0.12.1)
       i18n (~> 0.6, >= 0.6.7)
       padrino-support (= 0.12.1)
@@ -129,6 +142,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.3)
     tilt (1.4.1)
+    trollop (2.1.2)
     tzinfo (0.3.39)
     uber (0.0.6)
     uglifier (2.5.0)
@@ -139,6 +153,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk (~> 2.0.30)
   bootstrap-sass (~> 3.1.1.1)
   compass (~> 1.0.0.alpha.19)
   kramdown (~> 1.3.3)
@@ -156,5 +171,6 @@ DEPENDENCIES
   rails-assets-numeral (~> 1.5.3)
   rails-assets-parsleyjs (~> 2.0.0)
   rake (~> 10.3.1)
+  trollop (~> 2.1.2)
   tzinfo-data
   wdm (~> 0.1.0)
