@@ -73,10 +73,16 @@ form.submit(function(event) {
 
   event.preventDefault();
 
+  var data = $(this).serializeArray();
+  data.push({ name: 'options[example_api_url]', value: options.exampleApiUrl });
+  data.push({ name: 'options[contact_url]', value: options.contactUrl });
+  data.push({ name: 'options[site_name]', value: options.siteName });
+  data.push({ name: 'options[email_from]', value: options.emailFrom });
+
   $.ajax({
     url: options.apiUrlRoot + '/v1/users.json?api_key=' + options.apiKey,
     type: 'POST',
-    data: $(this).serialize(),
+    data: data,
     dataType: 'json',
     crossDomain: true,
   }).done(function(response) {
@@ -86,7 +92,7 @@ form.submit(function(event) {
 
     var confirmationTemplate = '<p>Your API key for <strong>' + user.email + '</strong> is:</p>' +
       '<code class="signup-key">' + user.api_key + '</code>' +
-      '<p>You can start using this key to make Web service requests. Simply pass your key in the URL when making a Web request. Here\'s an example:</p>' +
+      '<p>You can start using this key to make web service requests. Simply pass your key in the URL when making a web request. Here\'s an example:</p>' +
       '<pre class="signup-example"><a href="' + exampleApiUrl + '">' + formattedExampleApiUrl + '</a></pre>' +
       options.signupConfirmationMessage +
       '<div class="signup-footer">' +
