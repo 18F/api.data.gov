@@ -54,7 +54,6 @@ var signupFormTemplate = '<p>Sign up for an application programming interface (A
     '<div class="form-group">' +
       '<div class="col-sm-offset-4 col-sm-8">' +
         '<input type="hidden" name="user[terms_and_conditions]" value="1" />' +
-        '<input type="hidden" name="user[send_welcome_email]" value="1" />' +
         '<input type="hidden" name="user[registration_source]" value="' + options.registrationSource + '" />' +
         '<button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">Signup</button>' +
       '</div>' +
@@ -77,7 +76,9 @@ form.submit(function(event) {
   data.push({ name: 'options[example_api_url]', value: options.exampleApiUrl });
   data.push({ name: 'options[contact_url]', value: options.contactUrl });
   data.push({ name: 'options[site_name]', value: options.siteName });
-  data.push({ name: 'options[email_from]', value: options.emailFrom });
+  data.push({ name: 'options[send_welcome_email]', value: options.sendWelcomeEmail });
+  data.push({ name: 'options[email_from_name]', value: options.emailFromName });
+  data.push({ name: 'options[email_from_address]', value: options.emailFromAddress });
 
   $.ajax({
     url: options.apiUrlRoot + '/v1/users.json?api_key=' + options.apiKey,
