@@ -8,7 +8,10 @@ var defaults = {
   contactUrl: 'https://api.data.gov/contact/',
   exampleApiUrl: 'https://api.data.gov/nrel/alt-fuel-stations/v1/nearest.json?api_key={{api_key}}&location=Denver+CO',
   signupConfirmationMessage: '',
-  sendWelcomeEmail: true
+  sendWelcomeEmail: true,
+  websiteInput: false,
+  termsCheckbox: false,
+  termsUrl: '/terms/'
 };
 
 var options = $.extend({}, defaults, apiUmbrellaSignupOptions || {});
@@ -45,16 +48,38 @@ var signupFormTemplate = '<p>Sign up for an application programming interface (A
       '<div class="col-sm-5">' +
         '<input class="form-control" id="user_email" name="user[email]" size="50" type="email" required />' +
       '</div>' +
-    '</div>' +
-    '<div class="form-group">' +
+    '</div>';
+
+if(options.websiteInput) {
+  signupFormTemplate += '<div class="form-group">' +
+      '<label class="col-sm-4 control-label" for="user_website">Website<br />(optional)</label>' +
+      '<div class="col-sm-5">' +
+        '<input class="form-control" id="user_website" name="user[website]" size="50" type="text" placeholder="http://" />' +
+      '</div>' +
+    '</div>';
+}
+
+signupFormTemplate += '<div class="form-group">' +
       '<label class="col-sm-4 control-label" for="user_use_description">How will you use the APIs?<br />(optional)</label>' +
       '<div class="col-sm-5">' +
         '<textarea class="form-control" cols="40" id="user_use_description" name="user[use_description]" rows="3"></textarea>' +
       '</div>' +
-    '</div>' +
-    '<div class="form-group">' +
+    '</div>';
+
+if(options.termsCheckbox) {
+  signupFormTemplate += '<div class="form-group">' +
       '<div class="col-sm-offset-4 col-sm-8">' +
-        '<input type="hidden" name="user[terms_and_conditions]" value="1" />' +
+        '<div class="checkbox">' +
+          '<label><input id="user_terms_and_conditions" name="user[terms_and_conditions]" type="checkbox" value="1" required data-parsley-error-message="You must agree to the terms and conditions to signup" />I have read and agree to the <a href="' + options.termsUrl + '" onclick="window.open(this.href, &#x27;api_umbrella_terms&#x27;, &#x27;height=500,width=790,menubar=no,toolbar=no,location=no,personalbar=no,status=no,resizable=yes,scrollbars=yes&#x27;); return false;" title="Opens new window to terms and conditions">terms and conditions</a>.</label>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+} else {
+  signupFormTemplate += '<input type="hidden" name="user[terms_and_conditions]" value="1" />';
+}
+
+signupFormTemplate += '<div class="form-group">' +
+      '<div class="col-sm-offset-4 col-sm-8">' +
         '<input type="hidden" name="user[registration_source]" value="' + options.registrationSource + '" />' +
         '<button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">Signup</button>' +
       '</div>' +
