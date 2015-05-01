@@ -11,7 +11,8 @@ var defaults = {
   sendWelcomeEmail: true,
   websiteInput: false,
   termsCheckbox: false,
-  termsUrl: ''
+  termsUrl: '',
+  verifyEmail: false
 };
 
 var options = $.extend({}, defaults, apiUmbrellaSignupOptions || {});
@@ -105,6 +106,7 @@ form.submit(function(event) {
   data.push({ name: 'options[send_welcome_email]', value: options.sendWelcomeEmail });
   data.push({ name: 'options[email_from_name]', value: options.emailFromName });
   data.push({ name: 'options[email_from_address]', value: options.emailFromAddress });
+  data.push({ name: 'options[verify_email]', value: options.verifyEmail });
 
   $.ajax({
     url: options.apiUrlRoot + '/v1/users.json?api_key=' + options.apiKey,
@@ -117,11 +119,18 @@ form.submit(function(event) {
     var exampleApiUrl = options.exampleApiUrl.replace('{{api_key}}', user.api_key);
     var formattedExampleApiUrl = options.exampleApiUrl.replace('api_key={{api_key}}', '<strong>api_key=' + user.api_key + '</strong>');
 
-    var confirmationTemplate = '<p>Your API key for <strong>' + user.email + '</strong> is:</p>' +
-      '<code class="signup-key">' + user.api_key + '</code>' +
-      '<p>You can start using this key to make web service requests. Simply pass your key in the URL when making a web request. Here\'s an example:</p>' +
-      '<pre class="signup-example"><a href="' + exampleApiUrl + '">' + formattedExampleApiUrl + '</a></pre>' +
-      options.signupConfirmationMessage +
+    var confirmationTemplate = '';
+    if(options.verifyEmail) {
+      confirmationTemplate += '<p>Your API key for <strong>' + user.email + '</strong> has been e-mailed to you. You can use your API key to begin making web service requests immediately.</p>';
+      confirmationTemplate += '<p>If you don\'t receive your API Key via e-mail within a few minutes, please <a href="' + options.contactUrl + '">contact us</a>.</p>';
+    } else {
+      confirmationTemplate += '<p>Your API key for <strong>' + user.email + '</strong> is:</p>' +
+        '<code class="signup-key">' + user.api_key + '</code>' +
+        '<p>You can start using this key to make web service requests. Simply pass your key in the URL when making a web request. Here\'s an example:</p>' +
+        '<pre class="signup-example"><a href="' + exampleApiUrl + '">' + formattedExampleApiUrl + '</a></pre>';
+    }
+
+    confirmationTemplate += options.signupConfirmationMessage +
       '<div class="signup-footer">' +
         '<p>For additional support, please <a href="' + options.contactUrl + '">contact us</a>. When contacting us, please tell us what API you\'re accessing and provide the following account details so we can quickly find you:</p>' +
         'Account Email: ' + user.email + '<br>' +
