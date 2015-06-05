@@ -140,11 +140,24 @@ form.submit(function(event) {
     $(options.containerSelector).html(confirmationTemplate);
     $(options.containerSelector)[0].scrollIntoView();
   }).fail(function(xhr, message, error) {
+    var messages = [],
+        messageStr = '';
     if(typeof(Rollbar) != 'undefined') {
       Rollbar.error('Unexpected signup failure', { error: error, message: message, response: xhr.responseText  });
     }
 
-    bootbox.alert('API key signup unexpectedly failed.<br>Please try again or <a href="' + options.contactUrl + '">contact us</a> for assistance.');
+    if (xhr.responseJSON && xhr.responseJSON.errors) {
+      $.each(xhr.responseJSON.errors, function(idx, error) {
+        if (error.message) {
+          messages.push(error.message);
+        }
+      });
+    }
+    if (messages) {
+      messageStr = '<br><ul><li>' + messages.join('</li><li>') + '</li></ul>';
+    }
+
+    bootbox.alert('API key signup unexpectedly failed.' + messageStr + '<br>Please try again or <a href="' + options.contactUrl + '">contact us</a> for assistance.');
   }).always(function() {
     submit.button('reset');
   });
