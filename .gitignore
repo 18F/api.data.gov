@@ -1,6 +1,9 @@
 # Ignore bundler config
 /.bundle
 
+# Ignore local bundle
+/vendor/bundle
+
 # Ignore the bundler binstubs
 /bin
 
