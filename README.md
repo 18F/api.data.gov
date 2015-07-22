@@ -1,6 +1,10 @@
 # api.data.gov
 
-* [Program Notes](https://github.com/18F/api.data.gov/wiki/Program-Notes)
+[https://api.data.gov](https://api.data.gov/) is a free API management service for federal agencies. Our aim is to make it easier for agencies to release and manage APIs. You can sign up for a single API key and use it across participating government services [here](https://api.data.gov/signup/). You can also find our documentation [here](http://api.data.gov/docs/).
+
+
+
+* [Program Notes for api.data.gov](https://github.com/18F/api.data.gov/wiki/Program-Notes)
 * [GitHub Repository for API Umbrella](https://github.com/NREL/api-umbrella), the underlying technology of `api.data.gov`
 
 ## Notes 
@@ -40,3 +44,12 @@ To publish to production with GitHub Pages:
 ```sh
 $ ./bin/rake publish
 ```
+
+
+### Public domain
+
+This project is in the worldwide [public domain](LICENSE.md). As stated in [CONTRIBUTING](CONTRIBUTING.md):
+
+> This project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
+>
+> All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
