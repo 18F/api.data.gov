@@ -50,6 +50,23 @@ title: Contact Us
     </div>
   </div>
   <div class="form-group">
+    <label class="col-sm-4 control-label" for="contact_api"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> Which API are you inquiring about?</label>
+    <div class="col-sm-5">
+      <input class="form-control" id="contact_api" name="contact[api]" size="50" type="text" required placeholder="NASA, Regulations.gov API, etc." />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label" for="contact_subject"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> What can we help you with?</label>
+    <div class="col-sm-5">
+      <select id="contact_subject" name="contact[subject]" class="form-control" required>
+        <option value="">Please select one...</option>
+        <option>API key support</option>
+        <option>Requesting higher rate limits</option>
+        <option>Other</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
     <label class="col-sm-4 control-label" for="contact_message"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> Message</label>
     <div class="col-sm-5">
       <textarea class="form-control" cols="40" id="contact_message" name="contact[message]" rows="6" required></textarea>
