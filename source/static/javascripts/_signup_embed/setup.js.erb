@@ -99,6 +99,10 @@ form.submit(function(event) {
 
   event.preventDefault();
 
+  if(options.contactUrl && options.contactUrl.indexOf('@') !== -1 && options.contactUrl.indexOf('mailto:') === -1) {
+    options.contactUrl = 'mailto:' + options.contactUrl;
+  }
+
   var data = $(this).serializeArray();
   data.push({ name: 'options[example_api_url]', value: options.exampleApiUrl });
   data.push({ name: 'options[contact_url]', value: options.contactUrl });
