@@ -1,6 +1,0 @@
----
-title: SAM
-summary: The System for Award Management manages all the registrations of entities wishing to do business with the federal government. The SAM API provides easy access to public information about those entities.
-layout: redirect
-redirect_url: http://gsa.github.io/sam_api/sam/index.html
----
