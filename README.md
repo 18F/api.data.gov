@@ -15,6 +15,9 @@ The website content for api.data.gov built with [Middleman](http://middlemanapp.
 
 All contributions are welcome. To submit a change, fork this repo, commit your changes, and send us a [pull request](https://help.github.com/articles/using-pull-requests).
 
+To edit the agency list on the homepage, just [edit this file](https://github.com/18F/api.data.gov/blob/master/source/docs/index.md).  To add an agency page, create or edit [a page like this](https://github.com/18F/api.data.gov/blob/master/source/docs/fda.md) for each agency.  
+
+
 ## Setup
 
 Ruby 1.9+ is required to build the site.
