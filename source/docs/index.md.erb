@@ -8,19 +8,10 @@ disable_in_breadcrumbs_trail: true
 
 Use this Web service documentation to access and use energy data via application programming interfaces (APIs) in these renewable energy categories. You'll need a key to use these APIs. [Sign up for an API key](/signup).
 
-### [Federal Communications Commission](/docs/fcc/)
-
-### [Food and Drug Administration](/docs/fda/)
-
-### [General Services Administration](/docs/gsa/)
-
-### [National Institutes of Health](/docs/nih/)
-
-### [National Renewable Energy Laboratory](/docs/nrel/)
-
-### [Regulations.gov API](/docs/regulations/)
-
-### [U.S. Department of Agriculture](/docs/usda/)
+<% sitemap.find_resource_by_destination_path("/docs/index.html").children.sort_by { |p| p.data.title.to_s }.each do |child| %>
+  <% next if(child.data.hidden_child || child.data.title.to_s.blank?) %>
+  <h3><%= link_to(child.data.title, child) %></h3>
+<% end %>
 
 ### General Information
 
