@@ -8,13 +8,19 @@ description: 'A hosted, shared-service that provides an API key, analytics, and 
   solution for government web services. We are currently accepting clients for this
   free service: contact us to learn more.'
 partners:
-- Census
+- Broadcasting Board of Governors
+- BusinessUSA.gov
+- Department of Agriculture
+- Department of Commerce
+- Department of Education
+- Federal Election Commission
 - Federal Communications Commission
-- U.S. Food and Drug Administration
+- Food and Drug Administration
 - General Services Administration
+- National Aeronautics and Space Administration
+- National Institutes of Health
 - National Renewable Energy Laboratory
 - Regulations.gov
-- Department of Agriculture
 stage: beta
 impact: 2,800 API users and 66 million API requests served since July 2013
 milestones: 
@@ -29,7 +35,6 @@ links:
 - https://api.data.gov
 - https://api.data.gov/metrics
 - https://api.data.gov/about
-- https://nrel.github.io/api-umbrella/
 blog:
 - API
 status: 
