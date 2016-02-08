@@ -1,8 +1,8 @@
 ---
-title: U.S. Department of Agriculture
+title: Department of Agriculture
 ---
 
-# U.S. Department of Agriculture
+# Department of Agriculture
 
 ### [Economic Research Service](http://www.ers.usda.gov/developer/)
 The ERS mission is to inform and enhance public and private decision making on economic and policy issues related to agriculture, food, the environment, and rural development.
