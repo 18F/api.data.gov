@@ -14,17 +14,23 @@ If you're using a JVM based client for accessing our APIs, you may experience is
 
 This should be resolved by future [JVM updates](https://bugs.openjdk.java.net/browse/JDK-8154757), but if you're running into the issue, you can resolve it by manually adding the root certificate to the JVM keystore. To manually add the root certificate to the JVM keystore:
 
-1. Verify that our certificate is actually trusted by your browser: <https://api.data.gov>.
-2. Download the "DST Root CA X3" certificate to a file named `dst-root-ca-x3.pem`:
+1. Download the "DST Root CA X3" certificate to a file named `dst-root-ca-x3.pem`:
 
    ```sh
    $ curl "https://ssl-tools.net/certificates/dac9024f54d8f6df94935fb1732638ca6ad77c13.pem" \
        > dst-root-ca-x3.pem
    ```
 
-3. You should be careful when adding certificates to your keystore. To double check the contents of this file, ensure it's contents match what's listed in <https://curl.haxx.se/ca/cacert.pem> under "DST Root CA X3" (this file is extracted from Mozilla Firefox's trusted certificates) and on <https://www.identrust.com/certificates/trustid/root-download-x3.html> (this is the vendor's page to provide their root).
-4. Find the `JAVA_HOME` environment variable on your system. This may already be set, or you may need to [find it](http://stackoverflow.com/a/20653441) and set it.
-5. Add the `dst-root-ca-x3.pem` root certificate to the JVM keystore:
+2. You should be careful when adding certificates to your keystore. The `dst-root-ca-x3.pem` file should have a SHA256 checksum of `139a5e4a4e0fa505378c72c5f700934ce8333f4e6b1b508886c4b0eb14f4be99`:
+
+   ```sh
+   $ openssl dgst -sha256 dst-root-ca-x3.pem
+   SHA256(dst-root-ca-x3.pem)= 139a5e4a4e0fa505378c72c5f700934ce8333f4e6b1b508886c4b0eb14f4be99
+   ```
+
+     - If you'd like further verification that this "DST Root CA X3" certificate is part of most trusted root stores, you can find the "DST Root CA X3" certificate, with the same contents, at <https://curl.haxx.se/ca/cacert.pem> (this file is extracted from Mozilla Firefox's trusted certificates).
+3. Find the `JAVA_HOME` environment variable on your system. This may already be set, or you may need to [find it](http://stackoverflow.com/a/20653441) and set it.
+4. Add the `dst-root-ca-x3.pem` root certificate to the JVM keystore:
 
    ```sh
    $ sudo keytool -trustcacerts -keystore $JAVA_HOME/jre/lib/security/cacerts \
