@@ -20,10 +20,12 @@ page "/404.html", :directory_index => false
 
 # General configuration
 
-activate :sprockets
+activate :sprockets do |c|
+  c.imported_asset_path = "static/assets"
+  c.expose_middleman_helpers = true
+end
 activate :directory_indexes
 activate :syntax
-activate :relative_assets
 
 set :css_dir, "static/stylesheets"
 set :js_dir, "static/javascripts"
@@ -75,15 +77,13 @@ configure :build do
 
   # Enable cache buster
   activate :asset_hash, :ignore => [
-    # Don't cache-bust the Swagger throbber image, since it's hardcoded to
-    # throbber.gif.
-    %r{images/throbber.gif},
-
     # Don't cache-bust the embed javascript file, since its references need to
     # be hardcoded.
     %r{signup_embed.js},
   ]
 end
+
+activate :relative_assets
 
 after_configuration do
   sprockets.append_path(File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/css"))
@@ -95,18 +95,12 @@ after_configuration do
   sprockets.append_path(File.join(root, "vendor/data.gov/plugins/custom-post-view-generator/libs/tablesorter"))
 end
 
-ready do
-  Dir.glob(File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/img/*")).each do |path|
-    sprockets.import_asset(File.basename(path))
-  end
+import_path File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/img") do |target_path, original_path|
+  target_path.gsub(%r{\Aimg/}, "static/img/")
 end
 
-after_build do |builder|
-  Dir.glob("build/**/*.json").each do |path|
-    puts "Validating JSON for #{path}"
-    json = MultiJson.load(File.read(path))
-    MultiJson.dump(json, :pretty => false)
-  end
+import_path File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/fonts") do |target_path, original_path|
+  target_path.gsub(%r{\Afonts/}, "static/fonts/")
 end
 
 if(build?)

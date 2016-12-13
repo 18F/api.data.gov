@@ -11,7 +11,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     airbrussh (1.1.1)
       sshkit (>= 1.6.1, != 1.7.0)
-    autoprefixer-rails (6.5.3.1)
+    autoprefixer-rails (6.5.4)
       execjs
     backports (3.6.8)
     bootstrap-sass (3.3.7)

@@ -1,4 +1,5 @@
 .api-umbrella-embed {
+  @import "bootstrap-sprockets";
   @import "bootstrap";
   @import "_api_umbrella";
 
