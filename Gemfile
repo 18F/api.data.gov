@@ -1,56 +1,52 @@
 source "https://rubygems.org"
-source "https://rails-assets.org"
-
-gem "middleman", "~> 3.3.2"
-gem "rake", "~> 10.3.1"
-
-# Use a newer compass so we can use Sass 3.3. That seems to fix odd sass
-# compilation issues with our nesting of the @import bootstrap inside
-# embed.scss.
-gem "compass", "~> 1.0.0.alpha.19"
-
-# Live-reloading plugin
-gem "middleman-livereload", "~> 3.3.3"
 
 # For faster file watcher updates on Windows:
-gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
+gem "wdm", "~> 0.1.0", platforms: [:mswin, :mingw]
 
 # Windows does not come with time zone data
-gem "tzinfo-data", platforms: [:mswin, :mingw]
+gem "tzinfo-data", platforms: [:mswin, :mingw, :jruby]
 
-# Redirects
-gem "middleman-alias", "~> 0.0.9"
+# Middleman Gems
+gem "middleman", "~> 4.1.14"
+gem "middleman-livereload", "~> 3.4.6"
+
+# Environment specific config with environment variables
+gem "dotenv", "~> 2.1.1"
 
 # Syntax highlighting
-gem "middleman-syntax", "~> 2.0.0"
+gem "middleman-syntax", "~> 3.0.0"
 
 # Deploy to GitHub Pages
-gem "middleman-gh-pages", "~> 0.0.3"
+gem "middleman-gh-pages", "~> 0.3.1"
 
-# Markdown
-gem "kramdown", "~> 1.3.3"
-
-# Swagger UI - Patched version with IE console fixes.
-gem "rails-assets-GUI--swagger-ui", "2.0.3.patch1"
-
-# JSON validation
-gem "multi_json", "~> 1.9.3"
-
-# jQuery
-gem "rails-assets-jquery", "~> 1.11.1"
+# Assets
+gem "middleman-sprockets", "~> 4.1.0"
 
 # Bootstrap
-gem "bootstrap-sass", "~> 3.1.1.1"
-gem 'middleman-sprockets', '3.3.2' # https://github.com/middleman/middleman/issues/1265
+gem "bootstrap-sass", "~> 3.3.7"
 
-# Programmatic bootstrap modals
-gem "rails-assets-bootbox", "~> 4.2.0"
+source "https://rails-assets.org" do
+  # jQuery
+  gem "rails-assets-jquery", "~> 1.12.4"
 
-# Form validation
-gem "rails-assets-parsleyjs", "~> 2.0.0"
+  # Programmatic bootstrap modals
+  gem "rails-assets-bootbox", "~> 4.4.0"
 
-# Number formatting
-gem "rails-assets-numeral", "~> 1.5.3"
+  # Form validation
+  gem "rails-assets-parsleyjs", "~> 2.6.0"
 
-# Date formatting
-gem "rails-assets-moment", "~> 2.9.0"
+  # Icons
+  gem "rails-assets-font-awesome", "~> 4.7.0"
+
+  # Number formatting
+  gem "rails-assets-numeral", "~> 2.0.0"
+
+  # Date formatting
+  gem "rails-assets-moment", "~> 2.17.1"
+end
+
+group :development do
+  # Deployment
+  gem "capistrano", "~> 3.6.1"
+  gem "capistrano-rsync-bladrak", "~> 1.3.8"
+end

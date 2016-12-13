@@ -15,10 +15,10 @@ h2, h3 {
   margin: 0px 0px 1em 0px;
   padding: 0.6em 2em;
   display: inline-block;
+}
 
-  a:visited {
-    color:#004f99;
-  }
+#toc a:visited {
+  color:#004f99;
 }
 
 .doc-service-url {

@@ -1,9 +1,6 @@
-@import "compass/css3/border-radius";
-@import "compass/css3/box-sizing";
-
 .home-callout {
   text-align: center;
-  font-size: pxtoem(16px);
+  font-size: 16px;
   padding: 0px;
   margin: 20px 0px 35px 0px;
 }
@@ -22,11 +19,9 @@
   background-color: transparent;
 }
 
-table.doc-parameters {
-  tbody th {
-    background-color: transparent;
-    color: inherit;
-  }
+table.doc-parameters tbody th {
+  background-color: transparent;
+  color: inherit;
 }
 
 // Fix data.gov styles not working with how bootstrap structures checkboxes by
@@ -43,20 +38,20 @@ div.checkbox {
   text-align: center;
   border-left: 1px solid #ddd;
   margin-top: 30px;
+}
 
-  i.fa {
-    font-size: 36px;
-    color: #555;
-  }
+.metrics-callout i.fa {
+  font-size: 36px;
+  color: #555;
+}
 
-  em {
-    font-style: normal;
-    font-size: 48px;
-    font-weight: 300;
-    display: block;
-    line-height: 100%;
-    margin: 8px 0px 2px 0px;
-  }
+.metrics-callout em {
+  font-style: normal;
+  font-size: 48px;
+  font-weight: 300;
+  display: block;
+  line-height: 100%;
+  margin: 8px 0px 2px 0px;
 }
 
 .metrics-since {
