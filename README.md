@@ -1,3 +1,5 @@
+[![Dependency Status](https://gemnasium.com/badges/github.com/18F/api.data.gov.svg)](https://gemnasium.com/github.com/18F/api.data.gov)
+
 # api.data.gov
 
 [https://api.data.gov](https://api.data.gov/) is a free API management service for federal agencies. Our aim is to make it easier for agencies to release and manage APIs. You can sign up for a single API key and use it across participating government services [here](https://api.data.gov/signup/). You can also find our documentation [here](http://api.data.gov/docs/).
