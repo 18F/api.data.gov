@@ -1,12 +1,13 @@
 ---
-project: api.data.gov
+project: "api.data.gov"
+full_name: api.data.gov
 name: api-data-gov
 github:
 - 18F/api.data.gov
 - NREL/api-umbrella
-description: 'A hosted, shared-service that provides an API key, analytics, and proxy
-  solution for government web services. We are currently accepting clients for this
-  free service: contact us to learn more.'
+description: 'A hosted, shared-service that provides an API key, analytics, and proxy solution for government web services. We are currently accepting clients for this free service: contact us to learn more.'
+owner_type: project
+testable: true 
 partners:
 - Broadcasting Board of Governors
 - BusinessUSA.gov
@@ -24,13 +25,38 @@ partners:
 stage: beta
 impact: 2,800 API users and 66 million API requests served since July 2013
 milestones: 
+- 'August 2012: Prototype launched on data.gov'
+- 'July 2013: Project begins soliciting agency users'
+- 'September 2013: White House begins using service'
+- 'July 2014: Metrics hub launched'
+type: app
 contact:
 - api.data.gov@gsa.gov
-stack: JavaScript (Node and Ember), Rails, nginx, elasticsearch, Varnish, redis, and
-  MongoDB
-team: gray
+stack: 
+- JavaScript (Node and Ember)
+- Rails
+- nginx
+- elasticsearch
+- Varnish
+- redis
+- MongoDB
+team: 
+- github: gbinal
+  role: lead
+  id: gray
+- github: sashax
+  role: developer
+  id: sasha
+- github: gui
+  role: developer
+  id: nickm
 licenses:
-  fbopen: Public Domain (CC0)
+  api.data.gov:
+    name: Public Domain (CC0)
+    url: https://github.com/18F/api.data.gov/blob/master/LICENSE.md
+  api-umbrella:
+    name: MIT
+    url: https://github.com/NREL/api-umbrella/blob/master/LICENSE.txt
 links:
 - https://api.data.gov
 - https://api.data.gov/metrics
