@@ -1,0 +1,72 @@
+---
+name: api.data.gov
+uniqueID: <MB number – see https://docs.google.com/spreadsheets/d/1v4QfXGaJVy9-CZ0n6cFLHGGs_5TL1l8uCh6ZyNYjMDk/edit#gid=2047916505>
+version: <application version>
+# descriptions:
+# https://18f.gsa.gov/dashboard/
+phase: beta
+# `D26 Civilian Operations` is most common for 18F projects.
+# http://csrc.nist.gov/publications/nistpubs/800-60-rev1/SP800-60_Vol1-Rev1.pdf#page=23
+information-types:
+- <Dxx + name>
+
+# https://pages.18f.gov/before-you-ship/ato/levels/
+confidentiality: <none|low|moderate|high>
+integrity: <low|moderate|high>
+availability: <low|moderate|high>
+security-baseline: <open data|low|moderate|high>
+
+system-type: <major|minor|general support>
+level-of-identity-assurance: <0 if no authentication, or a link to SSP of the forthcoming identity system>
+staff:
+  authorizing-official:
+    name: 
+    title: 
+    org: General Services Administration
+    unit: TTS
+    email: devops@gsa.gov
+  system-owner:
+    name: Gray Brooks
+    title: System Owner
+    org: General Services Administration
+    unit: 18F
+    email: gray.brooks@gsa.gov
+  system-management:
+    name: Noah Kunin
+    title: TTS Infrastructure Director
+    org: General Services Administration
+    unit: TTS
+    email: devops@gsa.gov
+  system-security-officer:
+    name: Noah Kunin
+    title: TTS Infrastructure Director
+    org: General Services Administration
+    unit: TTS
+    email: devops@gsa.gov
+  technical-lead:
+    name: Sasha Magee
+    title: Technical Lead
+    org: General Services Administration
+    unit: 18F
+    email: sasha.magee@gsa.gov
+leveraged-authorizations:
+- https://www.fedramp.gov/marketplace/compliant-systems/amazon-web-services-aws-eastwest-us-public-cloud/
+purpose: <link to README>
+components:
+- https://github.com/18F/api.data.gov
+- https://github.com/nrel/api-umbrella
+
+# these will be the same unless your architecture is especially complex
+system-diagram: <link>
+network-diagram: <link>
+
+environments:
+- Cloud Foundry
+- Amazon Web Services East
+user-types:
+  developer:
+    functions:
+    - deployment
+    - engineering
+controls:
+- <links to your security documentation>
