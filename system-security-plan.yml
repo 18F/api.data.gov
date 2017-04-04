@@ -1,7 +1,7 @@
 ---
 name: api.data.gov
-uniqueID: <MB number – see https://docs.google.com/spreadsheets/d/1v4QfXGaJVy9-CZ0n6cFLHGGs_5TL1l8uCh6ZyNYjMDk/edit#gid=2047916505>
-version: <application version>
+uniqueID: MB18FIX020643
+version: 2.0
 # descriptions:
 # https://18f.gsa.gov/dashboard/
 phase: beta
