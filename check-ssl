@@ -23,12 +23,20 @@ domains=(
   publicapi.fcc.gov
 )
 
-echo "Checking out check_ssl_cert $check_ssl_cert_version"
-if [ ! -d ./check_ssl_cert/.git ]; then
-  rm -rf ./check_ssl_cert
-  git clone https://github.com/matteocorti/check_ssl_cert.git
+mkdir -p ./build
+
+cacert_file=./build/cacert.pem
+if [ ! -f $cacert_file ] || [[ $(find "$cacert_file" -mtime +1 -print) ]]; then
+  echo "Downloading cacert.pem"
+  curl --output "$cacert_file" --silent "https://curl.haxx.se/ca/cacert.pem"
 fi
-(cd ./check_ssl_cert && git checkout -q "$check_ssl_cert_version")
+
+echo "Checking out check_ssl_cert $check_ssl_cert_version"
+if [ ! -d ./build/check_ssl_cert/.git ]; then
+  rm -rf ./build/check_ssl_cert
+  (cd ./build && git clone https://github.com/matteocorti/check_ssl_cert.git)
+fi
+(cd ./build/check_ssl_cert && git checkout -q "$check_ssl_cert_version")
 echo ""
 
 ok_output=()
@@ -37,7 +45,7 @@ critical_output=()
 
 for domain in "${domains[@]}"; do
   echo "$(date) Checking $domain"
-  output=$(./check_ssl_cert/check_ssl_cert --host "$domain" --ignore-ocsp --check-ssl-labs A- --warning 30 --critical 3)
+  output=$(./build/check_ssl_cert/check_ssl_cert --rootcert "$cacert_file" --host "$domain" --ignore-ocsp --check-ssl-labs A- --warning 30 --critical 3)
   status=$?
   echo "$output"
   echo ""
