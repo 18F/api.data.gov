@@ -3,3 +3,7 @@ sudo: false
 language: bash
 script:
   - ./check-ssl
+notifications:
+  email:
+    recipients:
+      - api.data.gov@gsa.gov
