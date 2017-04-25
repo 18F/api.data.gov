@@ -1,0 +1,4 @@
+sudo: false
+language: bash
+script:
+  - ./check_ssl

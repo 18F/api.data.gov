@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+set -u
+
+check_ssl_cert_version="v1.43.0"
+domains=(
+  api-business.usa.gov
+  api-stage.open.fec.gov
+  api.18f.gov
+  api.commerce.gov
+  api.cpsc.gov
+  api.data.gov
+  api.ed.gov
+  api.fda.gov
+  api.gsa.gov
+  api.nal.usda.gov
+  api.nasa.gov
+  api.open.fec.gov
+  api.whitehouse.gov
+  cxp.bbg.gov
+  developer.nrel.gov
+  devstage.nrel.gov
+  publicapi.fcc.gov
+)
+
+echo "Checking out check_ssl_cert $check_ssl_cert_version"
+if [ ! -d ./check_ssl_cert/.git ]; then
+  rm -rf ./check_ssl_cert
+  git clone https://github.com/matteocorti/check_ssl_cert.git
+fi
+(cd ./check_ssl_cert && git checkout -q "$check_ssl_cert_version")
+echo ""
+
+ok_output=()
+warning_output=()
+critical_output=()
+
+for domain in "${domains[@]}"; do
+  echo "$(date) Checking $domain"
+  output=$(./check_ssl_cert/check_ssl_cert --host "$domain" --ignore-ocsp --check-ssl-labs A- --warning 30 --critical 3)
+  status=$?
+  echo "$output"
+  echo ""
+  if [ $status -eq 0 ]; then
+    ok_output+=("$output")
+  elif [ $status -eq 1 ]; then
+    warning_output+=("$output")
+  else
+    critical_output+=("$output")
+  fi
+done
+
+exit_code=0
+
+if [ -n "${ok_output:-}" ]; then
+  echo ""
+  echo "=== OK ==="
+  printf '%s\n' "${ok_output[@]}"
+fi
+
+if [ -n "${warning_output:-}" ]; then
+  echo ""
+  echo "=== WARNING ==="
+  printf '%s\n' "${warning_output[@]}"
+  exit_code=1
+fi
+
+if [ -n "${critical_output:-}" ]; then
+  echo ""
+  echo "=== CRITICAL ==="
+  printf '%s\n' "${critical_output[@]}"
+  exit_code=2
+fi
+
+exit $exit_code
