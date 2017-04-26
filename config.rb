@@ -86,20 +86,20 @@ end
 activate :relative_assets
 
 after_configuration do
-  sprockets.append_path(File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/css"))
-  sprockets.append_path(File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/fonts"))
-  sprockets.append_path(File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/img"))
-  sprockets.append_path(File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/js"))
+  sprockets.append_path(File.join(root, "vendor/data.gov/roots-nextdatagov/assets/css"))
+  sprockets.append_path(File.join(root, "vendor/data.gov/roots-nextdatagov/assets/fonts"))
+  sprockets.append_path(File.join(root, "vendor/data.gov/roots-nextdatagov/assets/img"))
+  sprockets.append_path(File.join(root, "vendor/data.gov/roots-nextdatagov/assets/js"))
   sprockets.append_path(File.join(root, "vendor/data.gov/plugins/custom-post-view-generator/libs/flowplayer"))
   sprockets.append_path(File.join(root, "vendor/data.gov/plugins/custom-post-view-generator/libs/smartpaginator"))
   sprockets.append_path(File.join(root, "vendor/data.gov/plugins/custom-post-view-generator/libs/tablesorter"))
 end
 
-import_path File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/img") do |target_path, original_path|
+import_path File.join(root, "vendor/data.gov/roots-nextdatagov/assets/img") do |target_path, original_path|
   target_path.gsub(%r{\Aimg/}, "static/img/")
 end
 
-import_path File.join(root, "vendor/data.gov/themes/roots-nextdatagov/assets/fonts") do |target_path, original_path|
+import_path File.join(root, "vendor/data.gov/roots-nextdatagov/assets/fonts") do |target_path, original_path|
   target_path.gsub(%r{\Afonts/}, "static/fonts/")
 end
 
