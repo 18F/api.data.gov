@@ -45,7 +45,7 @@ critical_output=()
 
 for domain in "${domains[@]}"; do
   echo "$(date) Checking $domain"
-  output=$(./build/check_ssl_cert/check_ssl_cert --rootcert "$cacert_file" --host "$domain" --ignore-ocsp --check-ssl-labs A- --warning 30 --critical 3)
+  output=$(./build/check_ssl_cert/check_ssl_cert --rootcert "$cacert_file" --host "$domain" --ignore-ocsp --warning 30 --critical 3)
   status=$?
   echo "$output"
   echo ""
