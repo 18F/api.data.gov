@@ -66,8 +66,8 @@ api.data.gov is powered by the open source project [API Umbrella](https://github
 
 ## How To Participate
 
-If you're interested in exploring any of this for your APIs, please [contact us](/contact/#contact). In general, it's easy to take any existing API your agency has (or is in the process of building) and put api.data.gov in front of it. This can be an easy way to get started and see what type of functionality api.data.gov might provide for your API.
+If you're interested in exploring any of this for your APIs, please [contact us](/contact/#apidatagov-service-contact). In general, it's easy to take any existing API your agency has (or is in the process of building) and put api.data.gov in front of it. This can be an easy way to get started and see what type of functionality api.data.gov might provide for your API.
 
 ### Administration Guide
 
-Are you an agency that's already signed up with api.data.gov but looking for additional help? Some answers to common administration questions are documented in the [manual](https://github.com/18F/api.data.gov/wiki/User-Manual:-Agencies), or you can always [contact us](/contact/) with additional questions or feedback.
+Are you an agency that's already signed up with api.data.gov but looking for additional help? Some answers to common administration questions are documented in the [manual](https://github.com/18F/api.data.gov/wiki/User-Manual:-Agencies), or you can always [contact us](/contact/#apidatagov-service-contact) with additional questions or feedback.

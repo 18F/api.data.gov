@@ -42,4 +42,4 @@ If your API key exceeds the rate limits, you will receive a response with an HTT
 
 ## Need Higher Limits?
 
-If you're building an application that needs higher rate limits, we'd be happy to work with you. [Contact us](/contact) for more details.
+If you're building an application that needs higher rate limits, please reach out to the agency responsible for the API you would like higher rate limits for.
