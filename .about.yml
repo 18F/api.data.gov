@@ -9,7 +9,6 @@ description: 'A hosted, shared-service that provides an API key, analytics, and 
 owner_type: project
 testable: true 
 partners:
-- Broadcasting Board of Governors
 - BusinessUSA.gov
 - Department of Agriculture
 - Department of Commerce
