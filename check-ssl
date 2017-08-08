@@ -11,13 +11,14 @@ domains=(
   api.cpsc.gov
   api.data.gov
   api.ed.gov
+  api.ers.usda.gov
   api.fda.gov
   api.gsa.gov
   api.nal.usda.gov
   api.nasa.gov
   api.open.fec.gov
+  api.usa.gov
   api.whitehouse.gov
-  cxp.bbg.gov
   developer.nrel.gov
   devstage.nrel.gov
   publicapi.fcc.gov
