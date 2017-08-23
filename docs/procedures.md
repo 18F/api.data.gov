@@ -1,12 +1,10 @@
 
 This document is to memorialize internal project procedures.  Other agencies or teams not at GSA are free to adopt them as well, but don't have to in order to use the software.  
 
-### AWS Access 
-
-* Org 
-* Project 
-
 ### GitHub Access 
+
+
+##### api.data.gov 
 
 The System owner and current project developers need commit rights to api.data.gov project repositories ([here](https://github.com/18F/api.data.gov) and [here](https://github.com/18F/api.data.gov-ops).  The system owner (currently Gray Brooks) manages this access, granting access to new project developers when they come onboard and removing access when they leave.  
 
@@ -22,9 +20,26 @@ These accounts are created for developers that need access to contribute code an
 4. The system owner will confirm the GSA identity of the applicant, and signal approval in the ticket. 
 5. The system owner will then add the GitHub handle for the new member to the api.data.gov 18F GitHub team and close the ticket.
 
-### Api.data.gov Access 
+##### API Umbrella 
+
+....
+
+### Api.data.gov Access - System Admins 
+
 
 ...
+
+### Api.data.gov Access - Agencies 
+
+##### Initial Accounts  
+
+Agency contacts need api.data.gov accounts in order to view the api key users and api analytics data for their APIs.  
+
+##### Further Accounts
+
+...
+ 
+
 
 ### Cloud.gov Access 
 
