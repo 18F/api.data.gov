@@ -22,24 +22,40 @@ These accounts are created for developers that need access to contribute code an
 
 ##### API Umbrella 
 
-....
+For the api.data.gov service, we utilize [a public, opensource project](https://github.com/nrel/api-umbrella) that is managed by the National Renewable Energy Laboratory (NREL), a component of the Department of Energy.  It has been developed in partnership with GSA over several years, though we access its code and update our service with it using the same public access that anyone else would have.  NREL's IT department manages GitHub access to the project.  GSA does not manage access, nor does it need to.  
 
 ### Api.data.gov Access - System Admins 
 
 
-...
+The System owner and current project developers need system admin rights within the [api.data.gov system](https://api.data.gov/admin).  The system owner (currently Gray Brooks) manages this access, granting access to new project developers when they come onboard and removing access when they leave.  
+
+Both of the adding and removing processes should be initiated by creating an issue in the project's [issue tracker](https://github.com/18F/api.data.gov/issues).  Any one can create the issue, but the system owner should be the one who addresses and closes it.  
+
+These accounts are created for developers that need access to view system data across all participating APIs and to help set up and manage agency access to the system.
+
+1. Create an issue in the project's [issue tracker](https://github.com/18F/api.data.gov/issues) to track the request.  
+3. The system owner, currently Gray Brooks, should see and respond to it.  If there's any urgency, contact him via Slack or Email.  
+4. The system owner will confirm the GSA identity of the applicant, and signal approval in the ticket. 
+5. The system owner will then create the api.data.gov admin account for the new member, grant them the appropriate permissions,  and close the ticket.
 
 ### Api.data.gov Access - Agencies 
 
 ##### Initial Accounts  
 
-Agency contacts need api.data.gov accounts in order to view the api key users and api analytics data for their APIs.  
+Agency contacts need api.data.gov accounts in order to view the api key users and api analytics data for their APIs.  The system owner (currently Gray Brooks) manages this access, granting access to new agency admins when they come onboard.  
+
+The adding process should be initiated by creating an issue in the project's [issue tracker](https://github.com/18F/api.data.gov/issues).  Any one can create the issue, but the system owner should be the one who addresses and closes it.  
+
+1. Create an issue in the project's [issue tracker](https://github.com/18F/api.data.gov/issues) to track the request.  
+3. The system owner, currently Gray Brooks, should see and respond to it.  If there's any urgency, contact him via Slack or Email.  
+4. The system owner will confirm the agency identity of the applicant, and signal approval in the ticket. 
+5. The system owner will then create the api.data.gov admin account for the new members, grant them the appropriate permissions, and close the ticket.
+
 
 ##### Further Accounts
 
-...
+Agency contacts can use their api.data.gov accounts to grant further teammates administrative access to their individual APIs.  Their ability to do this is federated to just allow them to grant and manage access to their own APIs.  During the period in which the agency uses the api.data.gov service, the initial agency points of contact are empowered to manage the further creation of accounts for their team using their own appropriate controls.  
  
-
 
 ### Cloud.gov Access 
 
