@@ -65,9 +65,9 @@ title: Usage Metrics
       totalUsers = numeral(totalUsers).format('0,0');
       $('#total_users').text(totalUsers);
 
-      var totalHits = Math.floor(summaryData.total_hits / 1000000);
-      totalHits = numeral(totalHits).format('0,0');
-      $('#total_hits').text(totalHits + ' million');
+      var totalHits = summaryData.total_hits / 1000000000;
+      totalHits = numeral(totalHits).format('0,0.00');
+      $('#total_hits').text(totalHits + ' billion');
 
       var lastUpdated = moment(summaryData.cached_at);
       $('#last_updated').text('last updated ' + lastUpdated.format('MMMM D, YYYY'));
