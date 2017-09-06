@@ -80,6 +80,10 @@ These accounts are created for developers that need access to contribute code an
  
 6. Documenting what role was assigned.
 
+### Public API Users 
+
+...
+
 
 ### Weekly Monitoring Checklist
 
