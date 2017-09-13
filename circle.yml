@@ -18,10 +18,10 @@ test:
     # Only run the build task for branches. Master will both build and deploy
     # as part of the publish deployment task below (no need to build twice for
     # master).
-    - if [[ "$CIRCLE_BRANCH" -ne "master" ]]; then bundle exec rake test; fi
+    - if [[ "$CIRCLE_BRANCH" -ne "master" ]]; then bundle exec rake test --trace; fi
 deployment:
   production:
     branch: master
     commands:
       - git config --global user.email "no-reply@circleci.com" && git config --global user.name "Circle CI Build Bot"
-      - bundle exec rake publish
+      - bundle exec rake publish --trace

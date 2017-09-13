@@ -1,6 +1,14 @@
 var style = document.createElement('link'); style.rel = 'stylesheet'; style.type = 'text/css';
+// Build the URL to the cache-busted embed.css.
+//
+// Note that the weird joining using the array is to prevent UglifyJS from
+// joining the variables during minification. Doing so prevents Middleman's
+// asset_hash functionality from correctly rewriting the URL to be the cache
+// busted version (which seems like it should be happening before minification
+// or as part of the ERB output, but it doesn't appear to behave that way).
 var webSiteRoot = '<%= ENV["WEB_SITE_ROOT"] %>';
-style.href = webSiteRoot + '<%= File.join("/", app.config.css_dir, File.basename(asset_path(:css, "embed.css"))) %>';
+var stylesheetPath = '<%= asset_url("embed.css", app.config[:css_dir]) %>';
+style.href = [webSiteRoot, stylesheetPath].join('');
 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(style);
 
 var defaults = {

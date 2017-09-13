@@ -67,23 +67,23 @@ helpers do
   end
 end
 
+activate :relative_assets
+
 # Build-specific configuration
 configure :build do
-  # Minify CSS on build
-  activate :minify_css
-
-  # Minify Javascript on build
-  activate :minify_javascript
-
   # Enable cache buster
   activate :asset_hash, :ignore => [
     # Don't cache-bust the embed javascript file, since its references need to
     # be hardcoded.
     %r{signup_embed.js},
   ]
-end
 
-activate :relative_assets
+  # Minify CSS on build
+  activate :minify_css
+
+  # Minify Javascript on build
+  activate :minify_javascript
+end
 
 after_configuration do
   sprockets.append_path(File.join(root, "vendor/data.gov/roots-nextdatagov/assets/css"))
