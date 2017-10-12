@@ -10,6 +10,9 @@ GSA Auctions API is a public GET API. The Auction listings will be delivered to 
 ### [Data.gov](https://www.data.gov/developers/apis)
 Data.gov's own API can be accessed using the [Data.gov CKAN API](https://www.data.gov/developers/apis).
 
+### [Digital Signature Solution (DSS)](https://gsa.github.io/DSSAPIDocumentation/api-docs/)  
+DSS APIs provide capability for the GSA applications and business processes to transition from paper-based signing to digital signing by embedding digital signing as a step within the business process workflow. 
+
 ### [SAM](https://gsa.github.io/sam_api/sam/)
 summary: The System for Award Management manages all the registrations of entities wishing to do business with the federal government. The SAM API provides easy access to public information about those entities.
 
