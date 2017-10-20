@@ -16,14 +16,14 @@ body_class: about-page
 
 api.data.gov acts as a layer above your existing APIs. It transparently adds  extra functionality to your APIs and helps deal with some of the repetitive parts of managing APIs.
 
-![features of api.data.gov](http://farm4.staticflickr.com/3680/9302707420_dbc7c2c437_o.png)
+![features of api.data.gov](/static/img/about_features.png)
 
 - **You're in control:** You still have complete control of building and hosting your APIs however you like.
 - **No changes required:** No changes are required to your API, but when it's accessed through api.data.gov, we'll transparently add features and handle the boring stuff.
 - **Focus on the APIs:** You're freed from worrying about things like API keys, rate limiting, and gathering usage stats, so you can focus on building the next great API.
 - **Make it easy for your users:** By providing a standard entry point to participating APIs, it's easier for developers to explore and use APIs across the federal government.
 
-![join the api.data.gov federated api network!](http://farm6.staticflickr.com/5515/9299911959_bdc195fb56_o.png)
+![join the api.data.gov federated api network!](/static/img/about_federated.png)
 
 ## Features
 
