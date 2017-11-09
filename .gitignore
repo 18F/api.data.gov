@@ -4,6 +4,9 @@
 # Ignore local bundle
 /vendor/bundle
 
+# Ignore local virtualenv (for awscli)
+/vendor/venv
+
 # Ignore the bundler binstubs
 /bin
 

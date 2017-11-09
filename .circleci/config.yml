@@ -1,0 +1,49 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/app
+    docker:
+      - image: circleci/ruby:2.4
+    steps:
+      - checkout
+      - restore_cache:
+          key: build-deps-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: build-deps-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run: bundle exec rake
+      - persist_to_workspace:
+          root: build
+  deploy:
+    docker:
+      - image: circleci/python:3.6
+    working_directory: ~/app
+    steps:
+      - checkout
+      - attach_workspace:
+          at: build
+      - restore_cache:
+          key: deploy-deps-{{ checksum "requirements.txt" }}
+      - run:
+          command: |
+            python3 -m venv vendor/venv
+            . vendor/venv/bin/activate
+            pip install -r requirements.txt
+      - save_cache:
+          key: build-deps-{{ checksum "requirements.txt" }}
+          paths:
+            - vendor/venv
+      - run: aws s3 sync ./build/ s3://${BUCKET_NAME}/ --delete
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: s3
