@@ -15,8 +15,11 @@ jobs:
             - vendor/bundle
       - run: git submodule update --init --recursive
       - run: bundle exec rake
+      - run: pwd && find .
       - persist_to_workspace:
-          root: build
+          root: .
+          paths:
+            - build
   deploy:
     docker:
       - image: circleci/python:3.6
@@ -25,6 +28,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: build
+      - run: pwd && find .
       - restore_cache:
           key: deploy-deps-{{ checksum "requirements.txt" }}
       - run:
