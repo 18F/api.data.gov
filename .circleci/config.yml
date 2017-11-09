@@ -15,7 +15,6 @@ jobs:
             - vendor/bundle
       - run: git submodule update --init --recursive
       - run: bundle exec rake
-      - run: pwd && find .
       - persist_to_workspace:
           root: .
           paths:
@@ -27,8 +26,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: build
-      - run: pwd && find .
+          at: workspace
       - restore_cache:
           key: deploy-deps-{{ checksum "requirements.txt" }}
       - run:
@@ -40,7 +38,10 @@ jobs:
           key: build-deps-{{ checksum "requirements.txt" }}
           paths:
             - vendor/venv
-      - run: aws s3 sync ./build/ s3://${BUCKET_NAME}/ --delete
+      - run:
+          command: |
+            . vendor/venv/bin/activate
+            aws s3 sync ./workspace/build/ s3://${BUCKET_NAME}/ --delete
 workflows:
   version: 2
   build-deploy:
