@@ -52,4 +52,4 @@ workflows:
             - build
           filters:
             branches:
-              only: s3
+              only: master
