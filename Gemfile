@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gem "rake", "~> 12.2.1"
+
 # For faster file watcher updates on Windows:
 gem "wdm", "~> 0.1.0", platforms: [:mswin, :mingw]
 
@@ -13,14 +15,14 @@ gem "middleman-livereload", "~> 3.4.6"
 # Syntax highlighting
 gem "middleman-syntax", "~> 3.0.0"
 
-# Deploy to GitHub Pages
-gem "middleman-gh-pages", "~> 0.3.1"
-
 # Assets
 gem "middleman-sprockets", "~> 4.1.0"
 
 # Bootstrap
 gem "bootstrap-sass", "~> 3.3.7"
+
+# Asset minification
+gem "mini_racer", "~> 0.1.14"
 
 source "https://rails-assets.org" do
   # jQuery
