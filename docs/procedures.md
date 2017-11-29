@@ -68,9 +68,7 @@ Both of the adding and removing processes should be initiated by creating an iss
 
 These accounts are created for developers that need access to contribute code and debug apps.
 
-1. [Create an account](https://github.com/) with cloud.gov and this will include multi factor authentication with [Google authenticator](https://support.google.com/accounts/answer/1066447?hl=en) or [authy](https://www.authy.com/).
-
-2. Make sure you have [gitseekrets](https://github.com/18F/laptop/tree/master/seekret-rules) installed on your Mac or in your virtualbox, if that is where you do your development. 
+1. [Create an account]() with cloud.gov and this will include multi factor authentication with [Google authenticator](https://support.google.com/accounts/answer/1066447?hl=en) or [authy](https://www.authy.com/).
 
 3. Then, you will want to contact the system owner, currently Gray Brooks.  In that message, include your name, the name of your supervisor, confirm you have two factor authentication on and have installed gitseekrets. 
 
@@ -79,6 +77,25 @@ These accounts are created for developers that need access to contribute code an
 5. The system owner will add a person to the api.data.gov organization in cloud.gov. 
  
 6. Documenting what role was assigned.
+
+
+
+### AWS Access 
+
+The System owner and current project developers need cloud.gov access to api.data.gov.  The system owner (currently Gray Brooks) manages this access, granting access to new project developers when they come onboard and removing access when they leave.  
+
+These accounts are created for developers that need access to contribute code and debug apps.
+
+1. [Create an account]() with cloud.gov and this will include multi factor authentication with [Google authenticator](https://support.google.com/accounts/answer/1066447?hl=en) or [authy](https://www.authy.com/).
+
+3. Then, you will want to contact the system owner, currently Gray Brooks.  In that message, include your name, the name of your supervisor, confirm you have two factor authentication on. 
+
+4. The system owner will confirm the GSA identity of the applicant and comment on the ticket to show approval. 
+
+5. The system owner will add a person to the api.data.gov organization in cloud.gov. 
+ 
+6. Documenting what role was assigned.
+
 
 ### Public API Users 
 
