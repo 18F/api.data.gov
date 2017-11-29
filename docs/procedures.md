@@ -26,7 +26,6 @@ For the api.data.gov service, we utilize [a public, opensource project](https://
 
 ### Api.data.gov Access - Application Administrators
 
-
 The System owner and current project developers need application admin rights within the [api.data.gov system](https://api.data.gov/admin).  The system owner (currently Gray Brooks) manages this access, granting access to new project developers when they come onboard and removing access when they leave.  
 
 Both of the adding and removing processes should be initiated by creating an issue in the project's [issue tracker](https://github.com/18F/api.data.gov/issues).  Any one can create the issue, but the system owner should be the one who addresses and closes it.  
@@ -40,43 +39,36 @@ These accounts are created for developers that need access to view system data a
 
 ### Api.data.gov Access - Agencies 
 
-##### Initial Accounts  
 
 Agency contacts need api.data.gov accounts in order to view the api key users and api analytics data for their APIs.  The system owner (currently Gray Brooks) manages this access, granting access to new agency admins when they come onboard.  
 
-The adding process should be initiated by creating an issue in the project's [issue tracker](https://github.com/18F/api.data.gov/issues).  Any one can create the issue, but the system owner should be the one who addresses and closes it.  
+The adding process should be initiated by creating an issue in the project's [ops issue tracker](https://github.com/18f/api.data.gov-ops/issues).  Any one can create the issue, but the system owner should be the one who addresses and closes it.  
 
 1. Create an issue in the project's [issue tracker](https://github.com/18F/api.data.gov/issues) to track the request.  
 3. The system owner, currently Gray Brooks, should see and respond to it.  If there's any urgency, contact him via Slack or Email.  
 4. The system owner will confirm the agency identity of the applicant, and signal approval in the ticket. 
 5. The system owner will then create the api.data.gov admin account for the new members, grant them the appropriate permissions, and close the ticket.
 
-
-##### Further Accounts
-
-Agency contacts can use their api.data.gov accounts to grant further teammates administrative access to their individual APIs.  Their ability to do this is federated to just allow them to grant and manage access to their own APIs.  During the period in which the agency uses the api.data.gov service, the initial agency points of contact are empowered to manage the further creation of accounts for their team using their own appropriate controls.  
  
-
 ### Cloud.gov Access 
-
 
 The System owner and current project developers need cloud.gov access to api.data.gov.  The system owner (currently Gray Brooks) manages this access, granting access to new project developers when they come onboard and removing access when they leave.  
 
-Specifically, current developers are [granted](https://cloud.gov/docs/apps/managing-teammates/) OrgManager rights to `gsa-tts-api-data-gov` and SpaceDeveloper rights to each of the projects spaces.  
+Specifically, current developers are [granted](https://cloud.gov/docs/apps/managing-teammates/) OrgManager rights to `gsa-tts-api-data-gov`.  
 
 Both of the adding and removing processes should be initiated by creating an issue in the project's [issue tracker](https://github.com/18F/api.data.gov/issues).  Any one can create the issue, but the system owner should be the one who addresses and closes it.    
 
 These accounts are created for developers that need access to contribute code and debug apps.
 
-1. [Create an account]() with cloud.gov and this will include multi factor authentication with [Google authenticator](https://support.google.com/accounts/answer/1066447?hl=en) or [authy](https://www.authy.com/).
+1. Create an issue in the project's [issue tracker](https://github.com/18F/api.data.gov/issues) to track the request.  
 
-3. Then, you will want to contact the system owner, currently Gray Brooks.  In that message, include your name, the name of your supervisor, confirm you have two factor authentication on and have installed gitseekrets. 
+1. [Create an account]() with cloud.gov and this will include multi factor authentication with [Google authenticator](https://support.google.com/accounts/answer/1066447?hl=en) or [authy](https://www.authy.com/).
 
 4. The system owner will confirm the GSA identity of the applicant and comment on the ticket to show approval. 
 
 5. The system owner will add a person to the api.data.gov organization in cloud.gov. 
  
-6. Documenting what role was assigned.
+6. The system owner will document the permissions that were assigned in the issue and close the issue when completed.  
 
 
 
@@ -84,22 +76,28 @@ These accounts are created for developers that need access to contribute code an
 
 The System owner and current project developers need cloud.gov access to api.data.gov.  The system owner (currently Gray Brooks) manages this access, granting access to new project developers when they come onboard and removing access when they leave.  
 
+Specifically, current developers are [granted](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html) `Developer` rights to the `apidatagov` AWS account.  
+
+Both of the adding and removing processes should be initiated by creating an issue in the project's [issue tracker](https://github.com/18F/api.data.gov/issues).  Any one can create the issue, but the system owner should be the one who addresses and closes it.    
+
 These accounts are created for developers that need access to contribute code and debug apps.
 
-1. [Create an account]() with cloud.gov and this will include multi factor authentication with [Google authenticator](https://support.google.com/accounts/answer/1066447?hl=en) or [authy](https://www.authy.com/).
+1. Create an issue in the project's [issue tracker](https://github.com/18F/api.data.gov/issues) to track the request.  
 
-3. Then, you will want to contact the system owner, currently Gray Brooks.  In that message, include your name, the name of your supervisor, confirm you have two factor authentication on. 
+2. The system owner will confirm the GSA identity of the applicant and comment on the ticket to show approval.
 
-4. The system owner will confirm the GSA identity of the applicant and comment on the ticket to show approval. 
+3. The system owner will add a person to the `apidatagov` AWS account and grant them Developer rights. 
 
-5. The system owner will add a person to the api.data.gov organization in cloud.gov. 
- 
-6. Documenting what role was assigned.
+4. The new developer will be prompted to change their password and set up MFA on first login.  
+
+5. The system owner will document the permissions that were assigned in the issue and close the issue when completed.  
 
 
 ### Public API Users 
 
-...
+Pulic API users may self-provision API keys at any of a number of public signup forms ([example](https://developer.nrel.gov/signup/)).  These keys then allow them general, public access to participating API programs.  Several programs change their settings to block all access except api keys that are manually whitelisted by the API program.  
+
+These keys are then used to identify the developer when making API calls, but do not provide any site authentication.  There is no login or admin experienceb by which a public API user interacts with or manages their API key(s).  
 
 
 ### Weekly Monitoring Checklist
