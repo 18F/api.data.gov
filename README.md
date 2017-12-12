@@ -1,4 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/18F/api.data.gov/badges/gpa.svg)](https://codeclimate.com/github/18F/api.data.gov)  [![Dependency Status](https://gemnasium.com/badges/github.com/18F/api.data.gov.svg)](https://gemnasium.com/github.com/18F/api.data.gov)
+[![CircleCI](https://circleci.com/gh/18F/api.data.gov.svg?style=svg)](https://circleci.com/gh/18F/api.data.gov) [![Code Climate](https://codeclimate.com/github/18F/api.data.gov/badges/gpa.svg)](https://codeclimate.com/github/18F/api.data.gov)  [![Dependency Status](https://gemnasium.com/badges/github.com/18F/api.data.gov.svg)](https://gemnasium.com/github.com/18F/api.data.gov)
 
 # api.data.gov
 
