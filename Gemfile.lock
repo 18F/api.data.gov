@@ -109,7 +109,7 @@ GEM
     rails-assets-bootstrap (3.3.7)
       rails-assets-jquery (>= 1.9.1, < 4)
     rails-assets-font-awesome (4.7.0)
-    rails-assets-jquery (1.12.4)
+    rails-assets-jquery (3.2.1)
     rails-assets-moment (2.18.1)
     rails-assets-numeral (2.0.6)
     rails-assets-parsleyjs (2.7.2)
@@ -145,7 +145,7 @@ DEPENDENCIES
   mini_racer (~> 0.1.14)
   rails-assets-bootbox (~> 4.4.0)!
   rails-assets-font-awesome (~> 4.7.0)!
-  rails-assets-jquery (~> 1.12.4)!
+  rails-assets-jquery (~> 3.2.1)!
   rails-assets-moment (~> 2.18.1)!
   rails-assets-numeral (~> 2.0.0)!
   rails-assets-parsleyjs (~> 2.7.0)!

@@ -26,7 +26,7 @@ gem "mini_racer", "~> 0.1.14"
 
 source "https://rails-assets.org" do
   # jQuery
-  gem "rails-assets-jquery", "~> 1.12.4"
+  gem "rails-assets-jquery", "~> 3.2.1"
 
   # Programmatic bootstrap modals
   gem "rails-assets-bootbox", "~> 4.4.0"
