@@ -7,7 +7,6 @@ title: General Services Administration
 ### [Analytics.USA.gov](https://analytics.usa.gov/developer)
 Analytics.USA.gov shows web traffic from across the federal web presence.  The API can query a large number of metrics government-wide or by agency.  
 
-
 ### [Auctions](https://gsa.github.io/auctions_api/)
 GSA Auctions API is a public GET API. The Auction listings will be delivered to the user in two formats. One is JSON and the other one is XML. The auction listings delivered thru the API contains the auction listings from all the participating agencies.
 
@@ -23,5 +22,5 @@ summary: The System for Award Management manages all the registrations of entiti
 ### [Sustainable Facilities Tool](https://sftool.gov/Developers)
 Pull the most up to date information about green products, services, and materials. Put sustainable strategies in the hands of your audience today.
 
-### [US Digital Reigstry](https://usdigitalregistry.digitalgov.gov)
+### [US Digital Registry](https://usdigitalregistry.digitalgov.gov)
 A governmentwide index of Federal social media accounts and mobile apps.  
