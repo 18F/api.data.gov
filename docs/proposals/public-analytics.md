@@ -24,3 +24,13 @@ For each of the above, we would want to show last 7 days, last 30 days, last mon
 * Create one or two mockups of the information.  
 * Set up feedback sessions to ask outside developers what would be interest.  
 * Create an MVP.  
+
+### Ideas for presentation layers 
+
+* pulse 
+* https://api.data.gov/admin/#/stats/logs
+
+### Ideas for other things to represent
+
+* GET v. Post
+* Response Time
