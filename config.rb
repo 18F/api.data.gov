@@ -1,3 +1,5 @@
+require "active_support/core_ext/array/grouping"
+
 ###
 # Page options, layouts, aliases and proxies
 ###
