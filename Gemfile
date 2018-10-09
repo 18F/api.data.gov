@@ -22,7 +22,7 @@ gem "middleman-sprockets", "~> 4.1.0"
 gem "bootstrap-sass", "~> 3.3.7"
 
 # Asset minification
-gem "mini_racer", "~> 0.1.14"
+gem "mini_racer", "~> 0.2.3"
 
 source "https://rails-assets.org" do
   # jQuery
