@@ -19,6 +19,3 @@
 
 # Log files
 *.log
-
-# Ignore .ruby-version file CircleCI uses.
-/.ruby-version

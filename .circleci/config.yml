@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/app
     docker:
-      - image: circleci/ruby:2.4
+      - image: circleci/ruby:2.6
     steps:
       - checkout
       - restore_cache:
