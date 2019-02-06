@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/18F/api.data.gov.svg?style=svg)](https://circleci.com/gh/18F/api.data.gov) [![Code Climate](https://codeclimate.com/github/18F/api.data.gov/badges/gpa.svg)](https://codeclimate.com/github/18F/api.data.gov) [![Known Vulnerabilities](https://snyk.io/test/github/18F/api.data.gov/badge.svg?targetFile=Gemfile.lock)](https://snyk.io/test/github/18F/api.data.gov) [![Known Vulnerabilities](https://snyk.io/test/github/18F/api.data.gov/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/18F/api.data.gov)
+[![CircleCI](https://circleci.com/gh/18F/api.data.gov.svg?style=svg)](https://circleci.com/gh/18F/api.data.gov) [![Code Climate](https://codeclimate.com/github/18F/api.data.gov/badges/gpa.svg)](https://codeclimate.com/github/18F/api.data.gov) [![Known Vulnerabilities](https://snyk.io/test/github/18F/api.data.gov/badge.svg?targetFile=Gemfile.lock)](https://snyk.io/test/github/18F/api.data.gov?targetFile=Gemfile.lock) [![Known Vulnerabilities](https://snyk.io/test/github/18F/api.data.gov/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/18F/api.data.gov?targetFile=requirements.txt)
 
 # api.data.gov
 
