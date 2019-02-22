@@ -13,8 +13,8 @@ title: API Key Signup
     verifyEmail: true,
     signupConfirmationMessage: '<h2>What Next?</h2>' +
       '<ul>' +
-        '<li>Explore our <a href="http://api.data.gov/docs/">available Web services</a>.</li>' +
-        '<li>Need more help? <a href="https://api.data.gov/contact/">Contact us</a>.</li>' +
+        '<li>Explore our <a href="<%= ENV["WEB_SITE_ROOT"] %>/docs/">available Web services</a>.</li>' +
+        '<li>Need more help? <a href="<%= ENV["WEB_SITE_ROOT"] %>/contact/">Contact us</a>.</li>' +
       '</ul>'
   };
 
@@ -25,4 +25,4 @@ title: API Key Signup
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(apiUmbrella);
   })();
 </script>
-<noscript><div class="alert alert-danger" role="alert">Please enable JavaScript to signup for an <a href="http://api.data.gov/">api.data.gov</a> API key.</div></noscript>
+<noscript><div class="alert alert-danger" role="alert">Please enable JavaScript to signup for an <a href="<%= ENV["WEB_SITE_ROOT"] %>/">api.data.gov</a> API key.</div></noscript>

@@ -13,8 +13,8 @@ style.href = [webSiteRoot, stylesheetPath].join('');
 
 var defaults = {
   containerSelector: '#apidatagov_signup',
-  apiUrlRoot: 'https://api.data.gov/api-umbrella',
-  contactUrl: 'https://api.data.gov/contact/',
+  apiUrlRoot: webSiteRoot + '/api-umbrella',
+  contactUrl: webSiteRoot + '/contact/',
   exampleApiUrl: 'https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key={{api_key}}&location=Denver+CO',
   signupConfirmationMessage: '',
   sendWelcomeEmail: true,
