@@ -17,6 +17,6 @@ class TestBuild < Minitest::Test
     # Make sure the full path to the embed stylesheet is absolute and looks
     # right (note the array in the output is a weird artifact of getting
     # Middleman to properly cache bust the path).
-    assert_match(%r{href=\["https://api.data.gov","/static/stylesheets/embed-\w+.css"\].join\(""\)}, content)
+    assert_match(%r{var (\w+)="https://api.data.gov";\w+\.href=\[\1,"/static/stylesheets/embed-\w+.css"\].join\(""\)}, content)
   end
 end
