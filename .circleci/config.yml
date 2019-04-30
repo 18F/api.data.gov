@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/app
     docker:
-      - image: circleci/ruby:2.6
+      - image: circleci/ruby:2.6-stretch
     steps:
       - checkout
       - restore_cache:
@@ -21,7 +21,7 @@ jobs:
             - build
   deploy:
     docker:
-      - image: circleci/python:3.6
+      - image: circleci/python:3.6-stretch
     working_directory: ~/app
     steps:
       - checkout
