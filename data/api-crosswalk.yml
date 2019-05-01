@@ -1,0 +1,19 @@
+- Agricultural Research Service (USDA):
+  - name: National Nutrient Database API
+    url: api.nal.usda.gov/ndb
+    url: api.nal.usda.gov/usda/ndb
+  - name: PubAg API
+    url: api.nal.usda.gov/pubag
+    url: api.nal.usda.gov/usda/pubag
+  - name: FoodData Central API
+    url: api.nal.usda.gov/fdc
+- Government Publishing Office:
+  - name: GovInfo API
+    url: api.govinfo.gov/docs
+    url: api.govinfo.gov/collections
+    url: api.govinfo.gov/packages
+- Federal Election Commission:
+  - name: OpenFEC API
+    url: api.open.fec.gov	
+    
+    
