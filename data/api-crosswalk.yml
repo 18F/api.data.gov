@@ -7,13 +7,62 @@
     url: api.nal.usda.gov/usda/pubag
   - name: FoodData Central API
     url: api.nal.usda.gov/fdc
+- Consumer Product Safety Commission:
+  - name: 
+    url: 
+- Department of Commerce:
+  - name: 
+    url: 
+- Department of Education:
+  - name: 
+    url: 
+- Department of Justice:
+  - name: 
+    url: 
+- Economic Research Service (USDA):
+  - name: 
+    url: 
+- Environmental Protection Agency:
+  - name: 
+    url: 
+- Executive Office of the President:
+  - name: 
+    url: 
+- Federal Bureau of Investigation:
+  - name: 
+    url: 
+- Federal Communications Commission:
+  - name: 
+    url: 
+- Federal Election Commission:
+  - name: OpenFEC API
+    url: api.open.fec.gov
+- Federal Trade Commission:
+  - name: 
+    url: 
+- Food and Drug Administration (HHS):
+  - name: 
+    url: 
+- General Services Administration:
+  - name: 
+    url: 
 - Government Publishing Office:
   - name: GovInfo API
     url: api.govinfo.gov/docs
     url: api.govinfo.gov/collections
     url: api.govinfo.gov/packages
-- Federal Election Commission:
-  - name: OpenFEC API
-    url: api.open.fec.gov	
-    
-    
+- Library of Congress:
+  - name: 
+    url: 
+- National Aeronautics and Space Administration:
+  - name: 
+    url: 
+- National Park Service (DOI):
+  - name: 
+    url: 
+- National Renewable Energy Laboratory (DOE):
+  - name: 
+    url: 
+- Smithsonian Institute:
+  - name: 
+    url: 
