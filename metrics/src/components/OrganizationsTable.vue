@@ -21,7 +21,6 @@ export default class OrganizationsTable extends Vue {
       hits_recent: number,
       active_api_keys: number,
       active_api_keys_recent: number,
-      average_response_times: number,
       average_response_times_recent: number,
     }> = [];
 
@@ -32,7 +31,6 @@ export default class OrganizationsTable extends Vue {
         hits_recent: organization.hits.recent.total,
         active_api_keys: organization.active_api_keys.total,
         active_api_keys_recent: organization.active_api_keys.recent.total,
-        average_response_times: organization.average_response_times.average,
         average_response_times_recent: organization.average_response_times.recent.average,
       });
     });
@@ -92,11 +90,6 @@ export default class OrganizationsTable extends Vue {
           title: 'Unique API Keys<br>(All Time)',
           data: 'active_api_keys',
           render: numberRender,
-        },
-        {
-          title: 'Average Response Time<br>(All Time)',
-          data: 'average_response_times',
-          render: msRender,
         },
       ],
       order: [[1, 'desc']],
