@@ -22,6 +22,11 @@ page "/404.html", :directory_index => false
 
 # General configuration
 
+# activate :external_pipeline,
+#   :name => :metrics,
+#   :command => "cd metrics && yarn && yarn run build",
+#   :source => "metrics/dist"
+
 activate :sprockets do |c|
   c.imported_asset_path = "static/assets"
   c.expose_middleman_helpers = true
@@ -107,4 +112,9 @@ end
 
 if(build?)
   ENV["WEB_SITE_ROOT"] ||= "https://api.data.gov"
+end
+
+after_build do |builder|
+  builder.thor.run "cd metrics && yarn && yarn run build"
+  builder.thor.run "rsync -av --delete #{File.join(root, "metrics/dist/metrics-prototype/")} #{File.join(root, "build/metrics-prototype/")}"
 end

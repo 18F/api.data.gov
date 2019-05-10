@@ -3,16 +3,36 @@ jobs:
   build:
     working_directory: ~/app
     docker:
-      - image: circleci/ruby:2.6-stretch
+      - image: circleci/ruby:2.6-stretch-node
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
     steps:
       - checkout
+
+      # Bundle dependencies
       - restore_cache:
-          key: build-deps-{{ checksum "Gemfile.lock" }}
-      - run: bundle install --path vendor/bundle
+          keys:
+            - bundle-{{ checksum "Gemfile.lock" }}
+            - bundle-
+      - run: bundle check || bundle install
       - save_cache:
-          key: build-deps-{{ checksum "Gemfile.lock" }}
+          key: bundle-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
+
+      # Yarn dependencies
+      - restore_cache:
+          keys:
+            - yarn-{{ checksum "metrics/yarn.lock" }}
+            - yarn-
+      - run: cd metrics && yarn install --cache-folder ~/.cache/yarn
+      - save_cache:
+          key: yarn-{{ checksum "metrics/yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
       - run: git submodule update --init --recursive
       - run: bundle exec rake
       - persist_to_workspace:
