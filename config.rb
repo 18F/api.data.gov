@@ -115,6 +115,8 @@ if(build?)
 end
 
 after_build do |builder|
+  require "shellwords"
+
   builder.thor.run "cd metrics && yarn && yarn run build"
-  builder.thor.run "rsync -av --delete #{File.join(root, "metrics/dist/metrics-prototype/")} #{File.join(root, "build/metrics-prototype/")}"
+  builder.thor.run "rm -rf #{Shellwords.escape(File.join(root, "build/metrics-prototype/"))} && cp -r #{Shellwords.escape(File.join(root, "metrics/dist/metrics-prototype/"))} #{Shellwords.escape(File.join(root, "build/metrics-prototype/"))}"
 end
