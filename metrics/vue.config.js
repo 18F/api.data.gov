@@ -1,4 +1,4 @@
 module.exports = {
-  publicPath: '/metrics-prototype/',
-  outputDir: 'dist/metrics-prototype',
+  publicPath: '/ld3gbhlP-metrics-prototype/',
+  outputDir: 'dist/ld3gbhlP-metrics-prototype',
 };
