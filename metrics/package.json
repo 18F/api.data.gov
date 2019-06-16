@@ -18,7 +18,7 @@
     "datatables.net-bs4": "^1.10.19",
     "echarts": "^4.2.1",
     "jquery": "^3.4.1",
-    "ky": "^0.10.0",
+    "ky": "^0.11.1",
     "lodash-es": "^4.17.11",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
