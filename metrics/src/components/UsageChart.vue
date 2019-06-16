@@ -109,9 +109,6 @@ export default class UsageChart extends Vue {
               width: 2,
             },
           },
-          axisLabel: {
-            width: 100,
-          },
         },
         {
           type: 'value',
@@ -121,11 +118,11 @@ export default class UsageChart extends Vue {
               width: 2,
             },
           },
-          axisLabel: {
-            width: '100%',
-          },
         },
       ],
+      grid: {
+        left: '18%',
+      },
       series: [
         {
           name: 'Hits',

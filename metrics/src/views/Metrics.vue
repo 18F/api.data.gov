@@ -10,7 +10,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-lg-6">
         <UsageChart
           title="Last 30 Days"
           v-bind:hits="$store.getters.hitsRecentDaily(selectedOrganization)"
@@ -19,7 +19,7 @@
           v-bind:active-api-keys-total="$store.getters.activeApiKeysRecentTotal(selectedOrganization)"
           />
       </div>
-      <div class="col-md-6">
+      <div class="col-lg-6">
         <UsageChart
           title="All Time"
           v-bind:hits="$store.getters.hitsMonthly(selectedOrganization)"
