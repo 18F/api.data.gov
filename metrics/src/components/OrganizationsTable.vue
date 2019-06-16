@@ -43,7 +43,7 @@ export default class OrganizationsTable extends Vue {
     if (this.dataTable) {
       this.dataTable.clear();
       this.dataTable.rows.add(this.organizations);
-      this.dataTable.draw();
+      this.dataTable.columns.adjust().draw();
     }
   }
 
