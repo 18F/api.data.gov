@@ -55,7 +55,7 @@ export default class OrganizationsTable extends Vue {
     };
     const msRender = {
       display(data: any) {
-        return Number(data).toLocaleString() + ' ms';
+        return Math.round(Number(data)).toLocaleString() + ' ms';
       },
     };
 
