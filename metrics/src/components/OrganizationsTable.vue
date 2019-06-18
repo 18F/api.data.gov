@@ -67,6 +67,11 @@ export default class OrganizationsTable extends Vue {
           data: 'name',
         },
         {
+          title: 'APIs',
+          data: 'api_backend_url_match_count',
+          render: numberRender,
+        },
+        {
           title: 'Hits<br>(Last 30 Days)',
           data: 'hits_recent',
           render: numberRender,
@@ -92,7 +97,7 @@ export default class OrganizationsTable extends Vue {
           render: numberRender,
         },
       ],
-      order: [[1, 'desc']],
+      order: [[2, 'desc']],
       paging: false,
       searching: false,
       info: false,
