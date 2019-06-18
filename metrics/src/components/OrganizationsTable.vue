@@ -17,6 +17,7 @@ export default class OrganizationsTable extends Vue {
   get organizations() {
     const organizations: Array<{
       name: string,
+      api_backend_url_match_count: number,
       hits: number,
       hits_recent: number,
       active_api_keys: number,
@@ -27,6 +28,7 @@ export default class OrganizationsTable extends Vue {
     this.$store.getters.organizations.forEach((organization: any) => {
       organizations.push({
         name: organization.name,
+        api_backend_url_match_count: organization.api_backend_url_match_count,
         hits: organization.hits.total,
         hits_recent: organization.hits.recent.total,
         active_api_keys: organization.active_api_keys.total,
