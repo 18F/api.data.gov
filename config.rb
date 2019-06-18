@@ -22,11 +22,6 @@ page "/404.html", :directory_index => false
 
 # General configuration
 
-# activate :external_pipeline,
-#   :name => :metrics,
-#   :command => "cd metrics && yarn && yarn run build",
-#   :source => "metrics/dist"
-
 activate :sprockets do |c|
   c.imported_asset_path = "static/assets"
   c.expose_middleman_helpers = true
@@ -76,6 +71,29 @@ end
 
 activate :relative_assets
 
+# Build the metrics page from the Vue sub-project. This requires a bit of
+# templating gymnastics that would probably be good to revisit at some point
+# (we have to fake the Vue app spitting out an ERB template, so that it will
+# render the app's template from Middleman).
+activate :external_pipeline,
+  :name => :webpack,
+  :command => build? ? "cd metrics && yarn run build" : "cd metrics && yarn run watch",
+  :source => "metrics/dist",
+  :latency => 1
+page "/ld3gbhlP-metrics-prototype/*.html", :layout => false
+
+module SprocketsExclude
+  def processible?(filename)
+    # Don't try to process Vue js/css files with sprockets.
+    if filename.include?("metrics/dist")
+      return false
+    end
+
+    super
+  end
+end
+Middleman::Sprockets::Interface.send(:prepend, SprocketsExclude)
+
 # Build-specific configuration
 configure :build do
   # Enable cache buster
@@ -83,13 +101,19 @@ configure :build do
     # Don't cache-bust the embed javascript file, since its references need to
     # be hardcoded.
     %r{signup_embed.js},
+
+    %r{metrics},
   ]
 
   # Minify CSS on build
-  activate :minify_css
+  activate :minify_css, :ignore => [
+    %r{metrics},
+  ]
 
   # Minify Javascript on build
-  activate :minify_javascript
+  activate :minify_javascript, :ignore => [
+    %r{metrics},
+  ]
 end
 
 after_configuration do
@@ -112,11 +136,4 @@ end
 
 if(build?)
   ENV["WEB_SITE_ROOT"] ||= "https://api.data.gov"
-end
-
-after_build do |builder|
-  require "shellwords"
-
-  builder.thor.run "cd metrics && yarn && yarn run build"
-  builder.thor.run "rm -rf #{Shellwords.escape(File.join(root, "build/ld3gbhlP-metrics-prototype/"))} && cp -r #{Shellwords.escape(File.join(root, "metrics/dist/ld3gbhlP-metrics-prototype/"))} #{Shellwords.escape(File.join(root, "build/ld3gbhlP-metrics-prototype/"))}"
 end

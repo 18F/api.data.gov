@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <h1 class="text-center mt-1 font-weight-light">api.data.gov Metrics</h1>
+    <h1>api.data.gov Metrics</h1>
 
-    <div class="container form-group">
+    <div class="container form-group custom-select-lg-container">
       <select v-model="selectedOrganization" class="custom-select custom-select-lg">
         <option value="all">All Agencies</option>
         <option v-for="name in organizationNames" v-bind:value="name">{{ name }}</option>
@@ -10,7 +10,7 @@
     </div>
 
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-md-6">
         <UsageChart
           title="Last 30 Days"
           v-bind:hits="$store.getters.hitsRecentDaily(selectedOrganization)"
@@ -19,7 +19,7 @@
           v-bind:active-api-keys-total="$store.getters.activeApiKeysRecentTotal(selectedOrganization)"
           />
       </div>
-      <div class="col-lg-6">
+      <div class="col-md-6">
         <UsageChart
           title="All Time"
           v-bind:hits="$store.getters.hitsMonthly(selectedOrganization)"
