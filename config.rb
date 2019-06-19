@@ -80,7 +80,7 @@ activate :external_pipeline,
   :command => build? ? "cd metrics && yarn run build" : "cd metrics && yarn run watch",
   :source => "metrics/dist",
   :latency => 1
-page "/ld3gbhlP-metrics-prototype/*.html", :layout => false
+page "/ld3gbhlP-metrics-prototype/*.html", :layout => false, :data => { :title => "Metrics" }
 
 module SprocketsExclude
   def processible?(filename)
