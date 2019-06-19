@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: '/ld3gbhlP-metrics-prototype/',
-  outputDir: 'dist/ld3gbhlP-metrics-prototype',
+  publicPath: '/metrics/',
+  outputDir: 'dist/metrics',
   indexPath: 'index.html.erb',
 };
