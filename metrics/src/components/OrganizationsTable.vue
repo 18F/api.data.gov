@@ -69,7 +69,7 @@ export default class OrganizationsTable extends Vue {
           data: 'name',
         },
         {
-          title: 'APIs',
+          title: 'Number of APIs',
           data: 'api_backend_url_match_count',
           render: numberRender,
         },
