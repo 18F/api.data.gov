@@ -87,5 +87,9 @@ body.api-metrics {
     font-size: 14px;
     margin-bottom: 16px;
   }
+
+  .metrics-footer {
+    margin-top: 2em;
+  }
 }
 </style>

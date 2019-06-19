@@ -36,8 +36,12 @@
       {{ organizationNames.length }} participating agencies
     </div>
 
-    <div class="mb-3">
+    <div>
       <OrganizationsTable/>
+    </div>
+
+    <div class="metrics-footer">
+      <p>YO! I'm some fabulously descriptive text.</p>
     </div>
   </div>
 </template>
