@@ -41,7 +41,7 @@
     </div>
 
     <div class="metrics-footer">
-      <p>YO! I'm some fabulously descriptive text.</p>
+      <p>Legend</p>
     </div>
   </div>
 </template>
