@@ -1,7 +1,7 @@
-//= require bootstrap/button.js
-//= require bootstrap/modal.js
-//= require parsleyjs.js
-//= require bootbox.js
+//= require bootstrap-sass/assets/javascripts/bootstrap/button.js
+//= require bootstrap-sass/assets/javascripts/bootstrap/modal.js
+//= require parsleyjs/dist/parsley.js
+//= require bootbox/dist/bootbox.min.js
 
 var defaults = {};
 var options = $.extend({}, defaults, apiUmbrellaContactOptions || {});

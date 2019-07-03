@@ -71,6 +71,15 @@ end
 
 activate :relative_assets
 
+# Shift the ".woff2" file extension to come before ".woff" to fix asset_hash
+# getting confused.
+#
+# Note that this is an older issue, but it seems to still crop up when the
+# "relative_assets" plugin is enabled:
+# https://github.com/middleman/middleman/issues/1496
+# https://github.com/middleman/middleman/pull/1533
+config[:asset_extensions] = [".woff2"] + (config[:asset_extensions] - [".woff2"])
+
 # Build the metrics page from the Vue sub-project. This requires a bit of
 # templating gymnastics that would probably be good to revisit at some point
 # (we have to fake the Vue app spitting out an ERB template, so that it will
@@ -117,6 +126,7 @@ configure :build do
 end
 
 after_configuration do
+  sprockets.append_path(File.join(root, "node_modules"))
   sprockets.append_path(File.join(root, "vendor/data.gov/roots-nextdatagov/assets/css"))
   sprockets.append_path(File.join(root, "vendor/data.gov/roots-nextdatagov/assets/fonts"))
   sprockets.append_path(File.join(root, "vendor/data.gov/roots-nextdatagov/assets/img"))

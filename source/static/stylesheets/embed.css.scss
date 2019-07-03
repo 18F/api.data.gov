@@ -1,6 +1,5 @@
 .api-umbrella-embed {
-  @import "bootstrap-sprockets";
-  @import "bootstrap";
+  @import "bootstrap-sass/assets/stylesheets/bootstrap";
   @import "_api_umbrella";
 
   .modal {
