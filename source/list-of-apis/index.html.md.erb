@@ -4,7 +4,7 @@ disable_breadcrumbs: true
 disable_in_breadcrumbs_trail: true
 ---
 
-<% data.apis.sort_by { |agency| agency.name }.each do |agency| %>
+<% data.apis.each do |agency| %>
   <h2><%= agency.name %></h2>
 
   <table class="table">
