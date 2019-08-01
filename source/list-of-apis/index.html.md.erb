@@ -4,21 +4,28 @@ disable_breadcrumbs: true
 disable_in_breadcrumbs_trail: true
 ---
 
+<% data.apis.sort_by { |agency| agency.name }.each do |agency| %>
+  <h2><%= agency.name %></h2>
 
-
-## Department of Agriculture
-
-  
-<table>
-  <tr>
-    <td>Data.gov</td>
-    <td>Gray</td> 
-  </tr>
-  <tr>
-    <td><%= partial "data_gov_agency", :locals => { :agency_id => "usda-gov" } %></td>
-    <td>...</td> 
-  </tr>
-</table>
+  <table class="table">
+    <tr>
+      <td style="width: 50%;">Data.gov</td>
+      <td style="width: 50%;">Gray</td>
+    </tr>
+    <tr>
+      <td>
+        <% if agency.data_gov_agency_id %>
+          <%= partial "data_gov_agency", :locals => { :agency_id => agency.data_gov_agency_id } %>
+        <% end %>
+      </td>
+      <td>
+        <% if agency.apis %>
+          <%= partial "local_data_agency", :locals => { :apis => agency.apis } %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+<% end %>
 
 
 _Notes_

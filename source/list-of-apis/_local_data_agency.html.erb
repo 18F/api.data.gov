@@ -1,0 +1,5 @@
+<ul>
+  <% apis.sort_by { |api| api.name }.each do |api| %>
+    <li><a href="<%= api.url %>"><%= api.name %></a></li>
+  <% end %>
+</ul>

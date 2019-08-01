@@ -7,7 +7,7 @@
   ])
 })).fetch("result").fetch("results").sort_by { |result| result.fetch("title") } %>
 <ul>
-<% results.each do |result| %>
-  <li><a href="https://catalog.data.gov/dataset/<%= result.fetch("name") %>"><%= result.fetch("title") %></a></li>
-<% end %>
+  <% results.each do |result| %>
+    <li><a href="https://catalog.data.gov/dataset/<%= result.fetch("name") %>"><%= result.fetch("title") %></a></li>
+  <% end %>
 </ul>
