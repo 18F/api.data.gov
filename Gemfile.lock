@@ -15,6 +15,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     contracts (0.13.0)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.4)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
@@ -31,6 +33,8 @@ GEM
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
     hashie (3.6.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     http_parser.rb (0.6.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
@@ -81,9 +85,14 @@ GEM
     middleman-syntax (3.0.0)
       middleman-core (>= 3.2)
       rouge (~> 2.0)
+    mime-types (3.2.2)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2019.0331)
     mini_racer (0.2.6)
       libv8 (>= 6.9.411)
     minitest (5.11.3)
+    multi_json (1.13.1)
+    netrc (0.11.0)
     padrino-helpers (0.13.3.4)
       i18n (~> 0.6, >= 0.6.7)
       padrino-support (= 0.13.3.4)
@@ -99,6 +108,10 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    rest-client (2.0.2)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     rouge (2.2.1)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -120,6 +133,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.6)
 
 PLATFORMS
   ruby
@@ -130,7 +146,9 @@ DEPENDENCIES
   middleman-sprockets (~> 4.1.0)
   middleman-syntax (~> 3.0.0)
   mini_racer (~> 0.2.3)
+  multi_json (~> 1.13.1)
   rake (~> 12.3)
+  rest-client (~> 2.0.2)
   sass (~> 3.7.3)
 
 RUBY VERSION

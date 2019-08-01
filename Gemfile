@@ -17,3 +17,7 @@ gem "sass", "~> 3.7.3"
 
 # Asset minification
 gem "mini_racer", "~> 0.2.3"
+
+# For making API calls within generated pages
+gem "rest-client", "~> 2.0.2"
+gem "multi_json", "~> 1.13.1"
