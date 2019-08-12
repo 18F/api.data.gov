@@ -1,23 +1,14 @@
-- name: Department of Agriculture - Agricultural Marketing Service
+- name: Department of Agriculture
   data_gov_agency_id: usda-gov
   apis:
   - name: "Farmers Market Directory API"
     url: "http://search.ams.usda.gov/farmersmarkets/v1/svcdesc.html"
   - name: "Organic INTEGRITY Database API"
     url: "https://organic.ams.usda.gov/integrity/Developer/APIHelp.aspx"
-
-- name: Department of Agriculture - Agricultural Research Service
-  apis:
   - name: "Nutrient Database"
     url: "https://ndb.nal.usda.gov/ndb/doc/index"
-
-- name: Department of Agriculture - Animal and Plant Health Inspection Service
-  apis:
   - name: "Animal Identification Management System"
     url: "https://nais.aphis.usda.gov/ainmngt/HelpGetAnonymous.do"
-
-- name: Department of Agriculture - Economic Research Service
-  apis:
   - name: "Content API"
     url: "http://ers.usda.gov/developer/website-content-api.aspx"
   - name: "Charts of Note API"
@@ -28,62 +19,36 @@
     url: "http://www.ers.usda.gov/developer/data-apis.aspx#.U7Q-No1dVGU"
   - name: "GeoSpatial APIs"
     url: "http://www.ers.usda.gov/developer/geospatial-apis.aspx#.U7Q-No1dVGU"
-
-- name: Department of Agriculture - Farm Service Agency
-  apis:
   - name: "National Agriculture Imagery Program Status Web Service"
     url: "http://www.fsa.usda.gov/Internet/FSA_File/usage_guide_naipstatus_final.pdf"
-
-- name: Department of Agriculture - Forest Service
-  apis:
   - name: "Recreation Information Database"
     url: "http://usda.github.io/RIDB/"
-
-- name: Department of Agriculture - Food and Nutrition Service
-  apis:
   - name: "Summer Meal Site Finder API"
     url: "https://www.fns.usda.gov/sfsp/developer-tools"
-
-- name: Department of Agriculture - National Agricultural Library
-  apis:
   - name: "Data Catalog (DKAN) API"
     url: "https://data.nal.usda.gov/node/5183/api"
   - name: "PubAg API"
     url: "https://pubag.nal.usda.gov/apidocs/"
-
-- name: Department of Agriculture - National Agricultural Statistics Service
-  apis:
   - name: "Cropland Data Layer"
     url: "http://www.nass.usda.gov/research/Cropland/sarsfaqs2.html#_Cropscape1.2"
   - name: "Quick Stats API"
     url: "http://quickstats.nass.usda.gov/api"
-
-- name: Department of Agriculture - National Resources Conservation Service
-  apis:
   - name: "National Water and Climate Center AWDB database"
     url: "http://www.wcc.nrcs.usda.gov/web_service/AWDB_Web_Service_Tutorial.htm"
   - name: "Soil Data Mart"
     url: "http://sdmdataaccess.nrcs.usda.gov/"
 
 - name: Department of Commerce
+  data_gov_agency_id: doc-gov
   apis:
   - name: "Content API"
     url: "https://www.commerce.gov/page/api-documentation-commercegov"
-
-- name: Department of Commerce - Bureau of Economic Analysis
-  apis:
   - name: "Data API"
     url: "http://www.bea.gov/API/"
-
-- name: Department of Commerce - Census Bureau
-  apis:
   - name: "Data API"
     url: "http://www.census.gov/data/developers/data-sets.html"
   - name: "MIDAAS API"
     url: "https://midaas.commerce.gov/developers/"
-    
-- name: Department of Commerce - International Trade Administration
-  apis: 
   - name: "Market Research Library API"
     url: "http://developer.trade.gov/market-research-library.html"
   - name: "ITA Offices and Centers API"
@@ -92,17 +57,10 @@
     url: "http://developer.trade.gov/trade-events.html"
   - name: "Trade News and Articles API"
     url: "http://developer.trade.gov/trade-news-articles.html"
-    
-
-- name: Department of Commerce - National Institute of Standards and Technology
-  apis:
   - name: "CDA Guideline Validation Tool"
     url: "http://xreg2.nist.gov/cda-validation/webservice.html"
   - name: "Randomness Beacon REST API"
     url: "https://beacon.nist.gov/home"
-
-- name: Department of Commerce - National Oceanic and Atmospheric Administration
-  apis:
   - name: "Meteorological Assimilation Data Ingest System"
     url: "http://madis.noaa.gov/madis_api.html"
   - name: "National Climatic Data Center Web Services"
@@ -133,14 +91,8 @@
     url: "http://spidr.ngdc.noaa.gov/spidr/docs/SPIDR.REST.WSGuide.en.pdf"
   - name: "Center for Operational Oceanographic Products and Services"
     url: "http://tidesandcurrents.noaa.gov/api"
-
-- name: Department of Commerce - National Telecommunications and Information Administration
-  apis:
   - name: "Broadband Technology Opportunities Program API"
     url: "http://www2.ntia.doc.gov/BTOPmap/api"
-
-- name: Department of Commerce - Patent and Trademark Office
-  apis:
   - name: "Bulk Data Storage System (BDSS) API "
     url: "https://developer.uspto.gov/api-catalog/bdss"
   - name: "Bulk search and download API"
@@ -169,6 +121,7 @@
     url: "https://developer.uspto.gov/api-catalog/unified-event-api"
 
 - name: Department of Defense
+  data_gov_agency_id: dod-gov
   apis:
   - name: "Joint Tactical Networking Center APIs"
     url: "http://jtnc.mil/sca/Pages/api1.aspx"
@@ -184,9 +137,6 @@
     url: "https://psctool.us/apidocs"
   - name: "Federal Voting Assistance Program API"
     url: "https://www.fvap.gov/xml-api"
-
-- name: Department of Defense - US Army Corps of Engineers
-  apis:
   - name: "ARCGIS Services"
     url: "http://maps.usace.army.mil:8399/arcgis/rest/services"
   - name: "Coastal Inlets Research Program (CIRP) Wiki API"
@@ -201,26 +151,20 @@
     url: "https://adh.usace.army.mil/proteus/api/index.html#"
   - name: "PyADH API"
     url: "https://adh.usace.army.mil/pyadh/api/index.html"
-
-- name: Department of Defense - US Navy
-  apis: 
   - name: "Common Open Research Emulator IPC API"
     url: "http://downloads.pf.itd.nrl.navy.mil/docs/core/core_api.pdf"
-
-- name: Department of Defense - Arlington National Cemetary
-  apis:
   - name: "Burial Record Web Services"
     url: "http://www.arlingtoncemetery.mil/Developer/BRPSM.aspx"
   - name: "Public Mapping Web Services"
     url: "http://www.arlingtoncemetery.mil/Developer/Default.aspx"
 
 - name: Department of Education
+  data_gov_agency_id: ed-gov
   apis:
   - name: "Integrated Postsecondary Education Data System (IPEDS): Institutional Characteristics - Directory Information (2011)"
     url: "https://explore.data.gov/developers/docs/nces-ipeds-hd2011"
   - name: "Integrated Postsecondary Education Data System (IPEDS): Awards/degrees Conferred by Program (2011)"
     url: "https://explore.data.gov/developers/docs/nces-ipeds-c2011_a"
-
 
 - name: Argonne National Laboratory (Energy)
   apis:
