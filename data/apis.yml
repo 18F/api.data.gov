@@ -276,6 +276,7 @@
 
 - name: Department of Health and Human Services
   data_gov_agency_id: hhs-gov
+  apis:
   - name: "HIV/AIDS Service Provider Locator API"
     url: "http://locator.aids.gov/data-how-to.html"
   - name: "Content Syndication API"
