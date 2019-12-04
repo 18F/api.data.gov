@@ -106,7 +106,7 @@ The development team checks for security events weekly. Any unusual or suspiciou
 
 Checklist:
 1. Create an issue in the project's [issue tracker](https://github.com/18F/api.data.gov/issues) to track this Security Event Review.
-2. Review Gemnasium for all repositories and open a ticket for all "red" alerts.
+2. Review tool for all repositories and open a ticket for all "red" alerts.
 3. Review [production logs](https://logs.fr.cloud.gov) for unapproved and unusual activities. 
 4. Review actionable security events on production logs for successful and unsuccessful account logon events, account management events, object access, policy change, privilege functions, process tracking, system events, all administrator activity, authentication checks, authorization checks, data deletions, data access, data changes, and permission changes.
 5. Deactivate any cloud.gov and github access for people who have left the team.
