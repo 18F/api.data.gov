@@ -97,7 +97,7 @@ These accounts are created for developers that need access to contribute code an
 
 Pulic API users may self-provision API keys at any of a number of public signup forms ([example](https://developer.nrel.gov/signup/)).  These keys then allow them general, public access to participating API programs.  Several programs change their settings to block all access except api keys that are manually whitelisted by the API program.  
 
-These keys are then used to identify the developer when making API calls, but do not provide any site authentication.  There is no login or admin experienceb by which a public API user interacts with or manages their API key(s).  
+These keys are then used to identify the developer when making API calls, but do not provide any site authentication.  There is no login or admin experience by which a public API user interacts with or manages their API key(s).  
 
 
 ### Weekly Monitoring Checklist
