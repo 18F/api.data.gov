@@ -68,3 +68,8 @@ div.checkbox {
   font-style: italic;
   margin-top: 40px;
 }
+
+.docs_agency-manual img {
+  max-width: 100%;
+  box-sizing: initial;
+}

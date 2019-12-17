@@ -210,7 +210,7 @@ You may want to assign different rate limits, permission requirements, or other 
 
 Inside the API Backend configuration, this is under the "Sub-URL Request Settings" section. This allows you to override your default backend configuration settings for certain types of URLs. So you might define different API key requirements for POST requests, different rate limits for all your apis under a certain path (eg, `/whatever/*` get rate limited differently), and so on. Here's an example of how you might setup a role requirement for any POST requests under `/whatever*`:
 
-![screen shot 2014-07-16 at 1 13 39 pm](https://cloud.githubusercontent.com/assets/12112/3604148/55bfcf6a-0d1d-11e4-9952-ad5e9d8bf19e.png)
+![Sub-URL Request Settings form](images/sub_url_request_settings.png)
 
 ## Embedding the API key signup form on your own documentation site
 
