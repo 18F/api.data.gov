@@ -4,10 +4,6 @@ title: Smithsonian Institution
 
 # Smithsonian Institution
 
-### [Artwork Collections API](https://smithsonian.github.io/api-docs/)
-The American Art API exposes art & artists from the Smithsonian American Art Museum's collection. 
-
-
 ### [Open Access API](https://edan.si.edu/openaccess/apidocs/)
 <p>On February 25, 2020, the Smithsonian launched Open Access, releasing 2.8 million 2D and 3D images and 173-years of staff-created data into the public domain as Creative Commons Zero. Open Access furthers the Smithsonian’s mission which has been the same since its founding in 1846: for the "increase and diffusion of knowledge." </p>
 
