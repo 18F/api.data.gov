@@ -50,13 +50,13 @@ form.submit(function(event) {
 
     if (xhr.responseJSON && xhr.responseJSON.errors) {
       $.each(xhr.responseJSON.errors, function(idx, error) {
-        if (error.message) {
-          messages.push(escapeHtml(error.message));
+        if (error.full_message || error.message) {
+          messages.push(escapeHtml(error.full_message || error.message));
         }
       });
     }
-    if (xhr.responseJSON && xhr.responseJSON.error && (xhr.responseJSON.error.full_message || xhr.responseJSON.error.message)) {
-      messages.push(escapeHtml(xhr.responseJSON.error.full_message || xhr.responseJSON.error.message));
+    if (xhr.responseJSON && xhr.responseJSON.error && xhr.responseJSON.error.message) {
+      messages.push(escapeHtml(xhr.responseJSON.error.message));
     }
     if (messages && messages.length > 0) {
       messageStr = '<br><ul><li>' + messages.join('</li><li>') + '</li></ul>';
