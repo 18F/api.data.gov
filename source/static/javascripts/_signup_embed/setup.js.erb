@@ -174,7 +174,10 @@ form.submit(function(event) {
         }
       });
     }
-    if (messages) {
+    if (xhr.responseJSON && xhr.responseJSON.error && xhr.responseJSON.error.message) {
+      messages.push(escapeHtml(xhr.responseJSON.error.message));
+    }
+    if (messages && messages.length > 0) {
       messageStr = '<br><ul><li>' + messages.join('</li><li>') + '</li></ul>';
     }
 
