@@ -28,11 +28,27 @@ form.submit(function(event) {
       form.trigger('reset');
     });
   }).fail(function(xhr, message, error) {
+    var messages = [],
+        messageStr = '';
     if(typeof(Rollbar) != 'undefined') {
       Rollbar.error('Unexpected contact sending failure', { error: error, message: message, response: xhr.responseText  });
     }
 
-    bootbox.alert('Sending your message unexpectedly failed.<br>Please try again or <a href="' + options.issuesUrl + '">file an issue</a> for assistance.');
+    if (xhr.responseJSON && xhr.responseJSON.errors) {
+      $.each(xhr.responseJSON.errors, function(idx, error) {
+        if (error.message) {
+          messages.push(escapeHtml(error.message));
+        }
+      });
+    }
+    if (xhr.responseJSON && xhr.responseJSON.error && xhr.responseJSON.error.message) {
+      messages.push(escapeHtml(xhr.responseJSON.error.message));
+    }
+    if (messages && messages.length > 0) {
+      messageStr = '<br><ul><li>' + messages.join('</li><li>') + '</li></ul>';
+    }
+
+    bootbox.alert('Sending your message unexpectedly failed.' + messageStr + '<br>Please try again or <a href="' + options.issuesUrl + '">file an issue</a> for assistance.');
   }).always(function() {
     submit.button('reset');
   });
