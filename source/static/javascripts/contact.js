@@ -3,6 +3,20 @@
 //= require parsleyjs/dist/parsley.js
 //= require bootbox/dist/bootbox.min.js
 
+var htmlEscapes = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;',
+};
+
+function escapeHtml(string) {
+  return String(string).replace(/[&<>"']/g, function(s) {
+    return htmlEscapes[s];
+  });
+}
+
 var defaults = {};
 var options = $.extend({}, defaults, apiUmbrellaContactOptions || {});
 
