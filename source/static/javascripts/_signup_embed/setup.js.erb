@@ -122,10 +122,6 @@ form.submit(function(event) {
 
   event.preventDefault();
 
-  if(options.contactUrl && options.contactUrl.indexOf('@') !== -1 && options.contactUrl.indexOf('mailto:') === -1) {
-    options.contactUrl = 'mailto:' + options.contactUrl;
-  }
-
   var data = $(this).serializeArray();
   data.push({ name: 'options[example_api_url]', value: options.exampleApiUrl });
   data.push({ name: 'options[contact_url]', value: options.contactUrl });
@@ -143,23 +139,21 @@ form.submit(function(event) {
     crossDomain: true,
   }).done(function(response) {
     var user = response.user;
-    var exampleApiUrl = escapeHtml(options.exampleApiUrl).replace('{{api_key}}', user.api_key);
-    var formattedExampleApiUrl = escapeHtml(options.exampleApiUrl).replace('api_key={{api_key}}', '<strong>api_key=' + escapeHtml(user.api_key) + '</strong>');
 
     var confirmationTemplate = '';
-    if(options.verifyEmail) {
+    if(response.options.verify_email) {
       confirmationTemplate += '<p>Your API key for <strong>' + escapeHtml(user.email) + '</strong> has been e-mailed to you. You can use your API key to begin making web service requests immediately.</p>';
-      confirmationTemplate += '<p>If you don\'t receive your API Key via e-mail within a few minutes, please <a href="' + escapeHtml(options.contactUrl) + '">contact us</a>.</p>';
+      confirmationTemplate += '<p>If you don\'t receive your API Key via e-mail within a few minutes, please <a href="' + escapeHtml(response.options.contact_url) + '">contact us</a>.</p>';
     } else {
       confirmationTemplate += '<p>Your API key for <strong>' + escapeHtml(user.email) + '</strong> is:</p>' +
         '<code class="signup-key">' + escapeHtml(user.api_key) + '</code>' +
         '<p>You can start using this key to make web service requests. Simply pass your key in the URL when making a web request. Here\'s an example:</p>' +
-        '<pre class="signup-example"><a href="' + exampleApiUrl + '">' + formattedExampleApiUrl + '</a></pre>';
+        '<pre class="signup-example"><a href="' + escapeHtml(response.options.example_api_url) + '">' + response.options.example_api_url_formatted_html + '</a></pre>';
     }
 
     confirmationTemplate += options.signupConfirmationMessage +
       '<div class="signup-footer">' +
-        '<p>For additional support, please <a href="' + escapeHtml(options.contactUrl) + '">contact us</a>. When contacting us, please tell us what API you\'re accessing and provide the following account details so we can quickly find you:</p>' +
+        '<p>For additional support, please <a href="' + escapeHtml(response.options.contact_url) + '">contact us</a>. When contacting us, please tell us what API you\'re accessing and provide the following account details so we can quickly find you:</p>' +
         'Account Email: ' + escapeHtml(user.email) + '<br>' +
         'Account ID: ' + escapeHtml(user.id) +
       '</div>';
