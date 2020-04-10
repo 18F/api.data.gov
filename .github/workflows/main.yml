@@ -1,0 +1,109 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_JOBS: 4
+      BUNDLE_RETRY: 3
+      BUNDLE_PATH: vendor/bundle
+      BUNDLE_CLEAN: "true"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: "2.6"
+
+      # Ruby dependencies
+      - name: Bundle Cache
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - name: Bundle Install
+        run: bundle install
+
+      # Yarn dependencies
+      - name: Yarn Cache Path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Yarn Cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Yarn Install
+        run: yarn install
+      - name: Metrics Yarn Install
+        working-directory: metrics
+        run: yarn install
+
+      # Build
+      - name: Build
+        run: bundle exec rake
+      - uses: actions/upload-artifact@v1
+        with:
+          name: build
+          path: ./build
+
+  deploy:
+    if: success() && github.ref == 'refs/heads/github-actions'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+        with:
+          ruby-version: "3.8"
+      - uses: dschep/install-pipenv-action@v1
+
+      # Python deployment dependencies
+      - name: Pipenv Cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pipenv-
+      - name: Pipenv Install
+        run: pipenv install
+
+      # Deploy to S3 bucket.
+      - uses: actions/download-artifact@v1
+        with:
+          name: build
+          path: ./build
+      - name: Deploy
+        env:
+          BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+        run: pipenv run aws s3 sync ./build/ "s3://${BUCKET_NAME}/" --delete
+
+      # Also commit build to github branch (gh-pages style) for easier history
+      # diffing of built website.
+      - name: Yarn Cache Path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Yarn Cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Yarn Install
+        run: yarn install
+      - name: Commit Build Hisotry
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: yarn run gh-pages --dist ./build/ --branch build-history --user "$GITHUB_ACTOR <$GITHUB_ACTOR@users.noreply.github.com>" --repo "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"

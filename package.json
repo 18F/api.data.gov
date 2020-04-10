@@ -4,5 +4,8 @@
     "bootstrap-sass": "^3.4.1",
     "jquery": "^3.4.1",
     "parsleyjs": "^2.9.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
