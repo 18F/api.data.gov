@@ -13,6 +13,10 @@ jobs:
             web_site_root_secret_name: WEB_SITE_ROOT
           - deploy_env: staging
             web_site_root_secret_name: STAGING_WEB_SITE_ROOT
+          - deploy_env: production
+            api_key_secret_name: API_KEY
+          - deploy_env: staging
+            api_key_secret_name: STAGING_API_KEY
     env:
       BUNDLE_JOBS: 4
       BUNDLE_RETRY: 3
@@ -58,6 +62,7 @@ jobs:
       - name: Build
         env:
           WEB_SITE_ROOT: ${{ secrets[matrix.web_site_root_secret_name] }}
+          API_KEY: ${{ secrets[matrix.api_key_secret_name] }}
         run: bundle exec rake
       - uses: actions/upload-artifact@v1
         with:
