@@ -5,6 +5,14 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        deploy_env: [production, staging]
+        include:
+          - deploy_env: production
+            web_site_root_secret_name: WEB_SITE_ROOT
+          - deploy_env: staging
+            web_site_root_secret_name: STAGING_WEB_SITE_ROOT
     env:
       BUNDLE_JOBS: 4
       BUNDLE_RETRY: 3
@@ -48,16 +56,38 @@ jobs:
 
       # Build
       - name: Build
+        env:
+          WEB_SITE_ROOT: ${{ secrets[matrix.web_site_root_secret_name] }}
         run: bundle exec rake
       - uses: actions/upload-artifact@v1
         with:
-          name: build
+          name: build-${{ matrix.deploy_env }}
           path: ./build
 
   deploy:
     if: success() && github.ref == 'refs/heads/github-actions'
     needs: build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        deploy_env: [production, staging]
+        include:
+          - deploy_env: production
+            bucket_name_secret_name: BUCKET_NAME
+          - deploy_env: staging
+            bucket_name_secret_name: STAGING_BUCKET_NAME
+          - deploy_env: production
+            aws_access_key_id_secret_name: AWS_ACCESS_KEY_ID
+          - deploy_env: staging
+            aws_access_key_id_secret_name: STAGING_AWS_ACCESS_KEY_ID
+          - deploy_env: production
+            aws_secret_access_key_secret_name: AWS_SECRET_ACCESS_KEY
+          - deploy_env: staging
+            aws_secret_access_key_secret_name: STAGING_AWS_SECRET_ACCESS_KEY
+          - deploy_env: production
+            aws_default_region_secret_name: AWS_DEFAULT_REGION
+          - deploy_env: staging
+            aws_default_region_secret_name: STAGING_AWS_DEFAULT_REGION
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v1
@@ -79,31 +109,12 @@ jobs:
       # Deploy to S3 bucket.
       - uses: actions/download-artifact@v1
         with:
-          name: build
+          name: build-${{ matrix.deploy_env }}
           path: ./build
       - name: Deploy
         env:
-          BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+          BUCKET_NAME: ${{ secrets[matrix.bucket_name_secret_name] }}
+          AWS_ACCESS_KEY_ID: ${{ secrets[matrix.aws_access_key_id_secret_name] }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets[matrix.aws_secret_access_key_secret_name] }}
+          AWS_DEFAULT_REGION: ${{ secrets[matrix.aws_default_region_secret_name] }}
         run: pipenv run aws s3 sync ./build/ "s3://${BUCKET_NAME}/" --delete
-
-      # Also commit build to github branch (gh-pages style) for easier history
-      # diffing of built website.
-      - name: Yarn Cache Path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Yarn Cache
-        uses: actions/cache@v1
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Yarn Install
-        run: yarn install
-      - name: Commit Build Hisotry
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: yarn run gh-pages --dist ./build/ --branch build-history --user "$GITHUB_ACTOR <$GITHUB_ACTOR@users.noreply.github.com>" --repo "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
