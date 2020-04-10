@@ -1,4 +1,3 @@
-//= require _signup_embed/rollbar.js
 //= require jquery/dist/jquery.js
 //= require _vendor/jquery.iecors.js
 //= require bootstrap-sass/assets/javascripts/bootstrap/button.js

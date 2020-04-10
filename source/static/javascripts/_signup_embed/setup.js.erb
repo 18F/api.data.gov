@@ -163,10 +163,6 @@ form.submit(function(event) {
   }).fail(function(xhr, message, error) {
     var messages = [],
         messageStr = '';
-    if(typeof(Rollbar) != 'undefined') {
-      Rollbar.error('Unexpected signup failure', { error: error, message: message, response: xhr.responseText  });
-    }
-
     if (xhr.responseJSON && xhr.responseJSON.errors) {
       $.each(xhr.responseJSON.errors, function(idx, error) {
         if (error.full_message || error.message) {
