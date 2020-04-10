@@ -122,4 +122,22 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets[matrix.aws_access_key_id_secret_name] }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets[matrix.aws_secret_access_key_secret_name] }}
           AWS_DEFAULT_REGION: ${{ secrets[matrix.aws_default_region_secret_name] }}
-        run: pipenv run aws s3 sync ./build/ "s3://${BUCKET_NAME}/" --delete
+        run: |
+          # Sync all cache-busted assets with long cache-control expirations.
+          pipenv run aws s3 sync ./build/ "s3://${BUCKET_NAME}/" \
+            --exclude '*' \
+            --include 'static/fonts/*' \
+            --include 'static/img/*' \
+            --include 'static/javascripts/all-*' \
+            --include 'static/javascripts/ie_lt_9-*' \
+            --include 'static/stylesheets/*' \
+            --include 'metrics/css/*' \
+            --include 'metrics/js/*' \
+            --cache-control 'public, max-age=31536000, immutable'
+          # Sync the remaining files, disallowing caching on those.
+          pipenv run aws s3 sync ./build/ "s3://${BUCKET_NAME}/" --cache-control 'max-age=0, no-cache, must-revalidate'
+          # Run the sync one more time to delete old files. Run this separately
+          # since otherwise --deletes occur first:
+          # https://github.com/aws/aws-cli/issues/1417
+          sleep 5
+          pipenv run aws s3 sync ./build/ "s3://${BUCKET_NAME}/" --cache-control 'max-age=0, no-cache, must-revalidate' --delete
