@@ -7,7 +7,7 @@ title: Department of Agriculture
 ### [Economic Research Service APIs](http://www.ers.usda.gov/developer/)
 The ERS mission is to inform and enhance public and private decision making on economic and policy issues related to agriculture, food, the environment, and rural development.
 
-### [Food Data Central](https://fdc.nal.usda.gov/)
+### [Food Data Central](https://fdc.nal.usda.gov/api-guide.html)
 The Food Data Central API allows developers to incorporate selected nutrient data elements into their applications.
 
 ### [Organic INTEGRITY Database API](https://organic.ams.usda.gov/integrity/Developer/APIHelp.aspx)
