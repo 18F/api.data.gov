@@ -7,8 +7,8 @@ title: Department of Agriculture
 ### [Economic Research Service APIs](http://www.ers.usda.gov/developer/)
 The ERS mission is to inform and enhance public and private decision making on economic and policy issues related to agriculture, food, the environment, and rural development.
 
-### [National Nutrient Database](http://ndb.nal.usda.gov/ndb/doc/)
-The National Nutrient Database API allows developers to incorporate selected nutrient data elements into their applications.
+### [Food Data Central](https://fdc.nal.usda.gov/)
+The Food Data Central API allows developers to incorporate selected nutrient data elements into their applications.
 
 ### [Organic INTEGRITY Database API](https://organic.ams.usda.gov/integrity/Developer/APIHelp.aspx)
 The Organic INTEGRITY Database API allows developers to incorporate organic operation data into their applications. INTEGRITY offers REST & SOAP access to get a download of all/filtered organic operations in the system in XML as well as JSON format depending on the request.
