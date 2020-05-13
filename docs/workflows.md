@@ -11,7 +11,7 @@ _This documents the steps that the api.data.gov team go through when onboarding 
 6. Grant the proper access.  
 7. Tell the agency that:  
   * They need to embed the api key sign up form in their API docs. Describe the customizations that must happen.  
-  * What contact info they want developers to use to get in touch with them, for our contact page.  
+  * What contact info they want developers to use to get in touch with them, for our contact page and for their error messages.  
   * Restrict access to just our IP addresses.  
   * What else?
 
