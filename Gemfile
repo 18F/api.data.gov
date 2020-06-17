@@ -17,9 +17,6 @@ gem "middleman-sprockets", "~> 4.1.0"
 # files.
 gem "sprockets", "< 4"
 gem "sass", "~> 3.7.3"
-# Try sassc master to fix GitHub Action crashes:
-# https://github.com/sass/sassc-ruby/issues/183
-gem "sassc", :git => "https://github.com/sass/sassc-ruby.git"
 
 # Asset minification
 gem "mini_racer", "~> 0.2.3"
