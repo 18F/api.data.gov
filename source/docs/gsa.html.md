@@ -19,6 +19,9 @@ Data.gov's own API can be accessed using the [Data.gov CKAN API](https://www.dat
 ### [Digital Signature Solution (DSS)](https://gsa.github.io/DSSAPIDocumentation/api-docs/)  
 DSS APIs provide capability for the GSA applications and business processes to transition from paper-based signing to digital signing by embedding digital signing as a step within the business process workflow. 
 
+### [Regulations.gov API]( https://open.gsa.gov/api/regulationsgov/)
+Regulations.gov provides access to Federal regulatory materials and increases public participation and their understanding of the Federal rule making process.  The Regulations.gov developer page describes how to access and use regulatory information and public comments via Web services.
+
 ### [SAM](https://gsa.github.io/sam_api/sam/)
 summary: The System for Award Management manages all the registrations of entities wishing to do business with the federal government. The SAM API provides easy access to public information about those entities.
 
