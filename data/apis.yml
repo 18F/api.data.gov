@@ -758,7 +758,7 @@
   - name: "My Right to Know API"
     url: "http://epa.gov/developer/myRTK.html"
   - name: "Regulations.gov Document Search API"
-    url: "http://www.regulations.gov/#!developers"
+    url: "https://open.gsa.gov/api/regulationsgov/"
   - name: "Regulations.gov Document Information API"
     url: "http://www.regulations.gov/#!developers"
   - name: "Regulations.gov Docket Information API"
