@@ -20,7 +20,7 @@ hidden_child: true
 - [Admin APIs](#admin-apis)
 - [How to post an alert box on api.data.gov and on the individual documentation pages to notify users of upcoming status changes.](#how-to-post-an-alert-box-on-apidatagov-and-on-the-individual-documentation-pages-to-notify-users-of-upcoming-status-changes)
 - [API key stripping from analytics logs](#api-key-stripping-from-analytics-logs)
-- [Using api.data.gov with Swagger / OpenAPI](https://github.com/18F/api.data.gov/wiki/User-Manual:-Agencies#using-apidatagov-with-swagger--openapi)
+- [Using api.data.gov with Swagger / OpenAPI](#using-apidatagov-with-swagger--openapi)
 
 ## Configuring your first API backend
 
