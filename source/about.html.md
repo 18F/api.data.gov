@@ -70,4 +70,4 @@ If you're interested in exploring any of this for your APIs, please [contact us]
 
 ### Administration Guide
 
-Are you an agency that's already signed up with api.data.gov but looking for additional help? Some answers to common administration questions are documented in the [manual](https://github.com/18F/api.data.gov/wiki/User-Manual:-Agencies), or you can always [contact us](/contact/#apidatagov-service-contact) with additional questions or feedback.
+Are you an agency that's already signed up with api.data.gov but looking for additional help? Some answers to common administration questions are documented in the [manual](/docs/agency-manual/), or you can always [contact us](/contact/#apidatagov-service-contact) with additional questions or feedback.
