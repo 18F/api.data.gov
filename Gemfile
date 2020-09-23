@@ -24,3 +24,6 @@ gem "mini_racer", "~> 0.2.3"
 # For making API calls within generated pages
 gem "rest-client", "~> 2.1.0"
 gem "multi_json", "~> 1.14.1"
+
+# GitHub-flavored markdown.
+gem "kramdown-parser-gfm", "~> 1.1.0"
