@@ -10,9 +10,6 @@ Analytics.USA.gov shows web traffic from across the federal web presence.  The A
 ### [Auctions](https://gsa.github.io/auctions_api/)
 GSA Auctions API is a public GET API. The Auction listings will be delivered to the user in two formats. One is JSON and the other one is XML. The auction listings delivered thru the API contains the auction listings from all the participating agencies.
 
-### [Code.gov](https://developers.code.gov/)
-The Code.gov API is a public GET API. Data from the API will be delivered in JSON format. All of its data is provided by partner agencies and is fully available to the public.
-
 ### [Data.gov](https://www.data.gov/developers/apis)
 Data.gov's own API can be accessed using the [Data.gov CKAN API](https://www.data.gov/developers/apis).
 
