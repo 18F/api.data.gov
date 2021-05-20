@@ -116,3 +116,7 @@ Checklist:
 ### Monitoring of New Relic Alerts
 
 New Relic alerts are emailed to the full team immediately.  The first team member to see the alert checks the site's status and posts in the project slack channel (#api-data-gov) the results.  The system owner then coordinates any necessary followup.  
+
+### Analysis of Security Impacts
+
+Every change is assessed for potential impact on security posture as part of the change request submission, and is code reviewed by GitHub Actions. Changes with a potential impact on security include a review of standards and guidelines as part of requirements development. After a deployment, security posture is reviewed and confirmed via the GSA SecOps scanning suite during regular scanning.   Dependabot is used across TTS Github repos to automatically scan for vulnerabilities and dependency versioning. If an update is identified as needed, the team reviews documentation and takes necessary action.
