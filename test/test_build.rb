@@ -17,7 +17,10 @@ class TestBuild < Minitest::Test
     # Make sure the full path to the embed stylesheet is absolute and looks
     # right (note the array in the output is a weird artifact of getting
     # Middleman to properly cache bust the path).
-    web_site_root = ENV["WEB_SITE_ROOT"] || "https://api.data.gov"
+    web_site_root = ENV["WEB_SITE_ROOT"].to_s
+    if web_site_root.empty?
+      web_site_root = "https://api.data.gov"
+    end
     assert_match(%r{^https://}, web_site_root)
     assert_match(%r{var (\w+)="#{web_site_root}";\w+\.href=\[\1,"/static/stylesheets/embed-\w+.css"\].join\(""\)}, content)
   end
