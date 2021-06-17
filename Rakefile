@@ -3,7 +3,9 @@ Rake::TestTask.new do |t|
   t.pattern = "test/**/test_*.rb"
 end
 
-ENV["WEB_SITE_ROOT"] ||= "https://api.data.gov"
+if ENV["WEB_SITE_ROOT"].to_s.empty?
+  ENV["WEB_SITE_ROOT"] = "https://api.data.gov"
+end
 
 # Build before running tests (since the tests rely on a build).
 task :test => [:build]
