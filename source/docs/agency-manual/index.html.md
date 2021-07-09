@@ -21,6 +21,7 @@ hidden_child: true
 - [How to post an alert box on api.data.gov and on the individual documentation pages to notify users of upcoming status changes.](#how-to-post-an-alert-box-on-apidatagov-and-on-the-individual-documentation-pages-to-notify-users-of-upcoming-status-changes)
 - [API key stripping from analytics logs](#api-key-stripping-from-analytics-logs)
 - [Using api.data.gov with Swagger / OpenAPI](#using-apidatagov-with-swagger--openapi)
+- [Best practices when deprecating an API]()
 
 ## Configuring your first API backend
 
@@ -459,3 +460,10 @@ Using the `query` authentication mechanism should work in the Swagger UI without
         - [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin): This header must be set to an appropriate value to allow calling from the domain where your Swagger documentation lives (either a specific URL, or wildcard, depending on your overall CORS requirements)
         - [`Access-Control-Allow-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers): This header must contain the `X-Api-Key` value.
     - If your underlying API responds to the `OPTIONS` request, but doesn't include the appropriate HTTP response headers for `Access-Control-Allow-Origin` or `Access-Control-Allow-Headers`, then you could use api.data.gov's API Backend configuration to force these values. Under the "Global Request Settings" or "Sub-URL Request Settings" you could use either the "Default Response Headers" or "Override Response Headers" options to set or override these response headers.
+
+## Best practices when deprecating an API
+
+* Beginning at least 1-2 months ahead of the planned deprecation date, look up all of the api keys that have used the API over the past 3-6 months and export their emails addresses.  Notify them in an email about the upcoming date.  
+* In the following days and weeks, monitor who is still using the API right now.  Send them a follow up email.
+* When it comes time to deprecate the API, 'tap the brakes' first.  Slightly modify the API backend configuration to break your api (e.g. insert a character in the Host settings).  Then, a few hours later, undo the change and fix the API.  This would be a good opportunity to email whoever is still using your API one last time.  Then, a day or two later, break it for longer - perhaps 12-24 hours, then fix it again.  Wait another day or three.  Then, finally turn if off for good.  This gives any developers who didn't see your email for whatever reason to notice their app breaking and reach out to get in touch.  
+* It's also a good practice to post a notice on the API docs page or developer hub about the upcoming deprecation.  
