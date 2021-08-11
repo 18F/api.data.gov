@@ -22,7 +22,7 @@ hidden_child: true
 - [API key stripping from analytics logs](#api-key-stripping-from-analytics-logs)
 - [Using api.data.gov with Swagger / OpenAPI](#using-apidatagov-with-swagger--openapi)
 - [Best practices when deprecating an API](#best-practices-when-deprecating-an-api)
-- [Process for removing an API backend]
+- [Process for removing an API backend](#process-for-removing-an-api-backend)
 
 ## Configuring your first API backend
 
