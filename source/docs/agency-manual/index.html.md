@@ -21,7 +21,8 @@ hidden_child: true
 - [How to post an alert box on api.data.gov and on the individual documentation pages to notify users of upcoming status changes.](#how-to-post-an-alert-box-on-apidatagov-and-on-the-individual-documentation-pages-to-notify-users-of-upcoming-status-changes)
 - [API key stripping from analytics logs](#api-key-stripping-from-analytics-logs)
 - [Using api.data.gov with Swagger / OpenAPI](#using-apidatagov-with-swagger--openapi)
-- [Best practices when deprecating an API]()
+- [Best practices when deprecating an API](#best-practices-when-deprecating-an-api)
+- [Process for removing an API backend]
 
 ## Configuring your first API backend
 
@@ -467,3 +468,16 @@ Using the `query` authentication mechanism should work in the Swagger UI without
 * In the following days and weeks, monitor who is still using the API right now.  Send them a follow up email.
 * When it comes time to deprecate the API, 'tap the brakes' first.  Slightly modify the API backend configuration to break your api (e.g. insert a character in the Host settings).  Then, a few hours later, undo the change and fix the API.  This would be a good opportunity to email whoever is still using your API one last time.  Then, a day or two later, break it for longer - perhaps 12-24 hours, then fix it again.  Wait another day or three.  Then, finally turn if off for good.  This gives any developers who didn't see your email for whatever reason to notice their app breaking and reach out to get in touch.  
 * It's also a good practice to post a notice on the API docs page or developer hub about the upcoming deprecation.  
+
+
+## Process for removing an API backend
+
+After you have followed the above best practices and are ready to fully deprecate an API, use the following steps to complete the process and reach out to the api.data.gov team if you have any questions.  Note that implementing these steps will immediately impact the API's availability, so you'll want to make sure that it takes at the time that you want to end access to the API.  
+
+1. Login to the api.data.gov admin. 
+2. In the top menu, navigate to the "Configuration" menu and pick "API Backends".
+3. Select the API backend that is used by your API.  
+4. At the bottom of the page, select "Delete API".  
+5. Click "OK" to confirm.  
+7. In order for this change to go live, it must be published. In the top menu navigate to the "Configuration" menu and pick "Publish Changes". Review your changes here and then click the big "Publish" button.
+8. Contact the api.data.gov team by emailing [api.data.gov@gsa.gov](mailto:api.data.gov@gsa.gov) to notify them so that they can then also delete the relevant API scopes and admin groups if needs be.  
