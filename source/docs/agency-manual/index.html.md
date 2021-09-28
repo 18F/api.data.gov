@@ -380,7 +380,7 @@ Everything you can do within the api.data.gov admin interface is powered by an A
 
 ## How to post an alert box on api.data.gov and on the individual documentation pages to notify users of upcoming status changes.
 
-Edit the source of your documentation page (for example, [source/docs/nrel/index.md.erb](https://github.com/18F/api.data.gov/blob/master/source/docs/nrel/index.md.erb)). Add a snippet like this to the top of the page below the front-matter (below the last `---` line):
+Edit the source of your documentation page (for example, [source/docs/nrel/index.md.erb](https://github.com/18F/api.data.gov/blob/main/source/docs/nrel/index.md.erb)). Add a snippet like this to the top of the page below the front-matter (below the last `---` line):
 
 ```html
 <div class="alert alert-danger">

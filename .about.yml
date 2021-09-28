@@ -52,10 +52,10 @@ team:
 licenses:
   api.data.gov:
     name: Public Domain (CC0)
-    url: https://github.com/18F/api.data.gov/blob/master/LICENSE.md
+    url: https://github.com/18F/api.data.gov/blob/main/LICENSE.md
   api-umbrella:
     name: MIT
-    url: https://github.com/NREL/api-umbrella/blob/master/LICENSE.txt
+    url: https://github.com/NREL/api-umbrella/blob/main/LICENSE.txt
 links:
 - https://api.data.gov
 - https://api.data.gov/metrics

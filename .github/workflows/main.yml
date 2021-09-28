@@ -70,7 +70,7 @@ jobs:
           path: ./build
 
   deploy:
-    if: success() && github.ref == 'refs/heads/master'
+    if: success() && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     strategy:
