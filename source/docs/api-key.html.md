@@ -32,7 +32,7 @@ curl -H 'X-Api-Key: DEMO_KEY' 'https://developer.nrel.gov/api/alt-fuel-stations/
 
 ### GET Query Parameter
 
-Pass the API key into the `api_key` GET query string parameter:
+In some cases, the API may support passing the API key into the `api_key` GET query string parameter:
 
 ```sh
 curl 'https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1&api_key=YOUR_KEY_HERE'
