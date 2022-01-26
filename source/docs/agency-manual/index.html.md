@@ -226,6 +226,7 @@ You can embed the API key signup form for api.data.gov on your own developer hub
       - Rate Limit: Custom rate limits. Define custom per minute and per hour rate limits (see screenshot below for an example)
       - Limit By: Rate limit by IP address
       - Roles: `api-umbrella-key-creator`
+        - This should be the only role assigned to this key.  Do not add any other roles to keys that are used for your signup forms. 
       - Restrict Access to HTTP Referers: `*//your-site.gov/*`
         - This must be the domain name where you'll embed the signup form on. You can list multiple domains separated by new lines, so if you have multiple places where your signup form is embedded (particularly during development or testing), you may specify multiple acceptable referrers:
            ```
