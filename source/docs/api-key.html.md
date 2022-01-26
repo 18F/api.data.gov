@@ -12,12 +12,6 @@ After [signing up](/signup), you'll be given your own, unique API key. This 40 c
 - Gives you access to all APIs from agencies participating in api.data.gov's service.
 - Should be kept private and should not be shared.
 
-To use your key, simply pass the key as a URL query parameter when making Web service requests. For example:
-
-```
-GET https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1&api_key=YOUR_KEY_HERE
-```
-
 ## Ways to Pass Your API Key
 
 Your API key may be passed to the service in a few different ways. Pick which ever method is easiest for you.
@@ -36,6 +30,10 @@ In some cases, the API may support passing the API key into the `api_key` GET qu
 
 ```sh
 curl 'https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1&api_key=YOUR_KEY_HERE'
+```
+  
+```
+GET https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1&api_key=YOUR_KEY_HERE
 ```
 
 *Note:* The GET query parameter may be used for non-GET requests (such as POST and PUT).
