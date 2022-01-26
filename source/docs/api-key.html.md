@@ -33,7 +33,7 @@ curl 'https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1&api_key=Y
 ```
   
 ```
-GET https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1&api_key=YOUR_KEY_HERE
+https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1&api_key=YOUR_KEY_HERE
 ```
 
 *Note:* The GET query parameter may be used for non-GET requests (such as POST and PUT).
