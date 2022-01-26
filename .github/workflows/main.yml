@@ -17,6 +17,10 @@ jobs:
             api_key_secret_name: API_KEY
           - deploy_env: staging
             api_key_secret_name: STAGING_API_KEY
+          - deploy_env: production
+            contact_api_key_secret_name: CONTACT_API_KEY
+          - deploy_env: staging
+            contact_api_key_secret_name: STAGING_CONTACT_API_KEY
     steps:
       - uses: actions/checkout@v2
         with:
@@ -45,6 +49,7 @@ jobs:
         env:
           WEB_SITE_ROOT: ${{ secrets[matrix.web_site_root_secret_name] }}
           API_KEY: ${{ secrets[matrix.api_key_secret_name] }}
+          CONTACT_API_KEY: ${{ secrets[matrix.contact_api_key_secret_name] }}
         run: bundle exec rake
       - uses: actions/upload-artifact@v1
         with:
