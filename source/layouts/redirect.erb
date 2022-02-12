@@ -1,7 +1,0 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <% raise "redirect_url not set" unless(current_page.data.redirect_url) %>
-    <meta http-equiv=refresh content="0; url=<%= current_page.data.redirect_url %>" />
-  </head>
-</html>
