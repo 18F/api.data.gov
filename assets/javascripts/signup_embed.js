@@ -6,14 +6,20 @@ import "promise-polyfill/src/polyfill";
 // eslint-disable-next-line import/no-unresolved
 import * as params from "@params";
 
-const style = document.createElement("link");
-style.rel = "stylesheet";
-style.type = "text/css";
-style.href = params.stylesheetPath;
-(
-  document.getElementsByTagName("head")[0] ||
-  document.getElementsByTagName("body")[0]
-).appendChild(style);
+const styleEl = document.createElement("link");
+styleEl.rel = "stylesheet";
+styleEl.type = "text/css";
+styleEl.href = params.stylesheetPath;
+
+function insertLink(root, options) {
+  const link = document.createElement('link');
+  link.rel = options.rel;
+  link.href = options.href;
+  if (options.as) {
+    link.as = options.as;
+  }
+  root.appendChild(link);
+}
 
 const webSiteRoot = params.webSiteRoot.replace(/\/$/, "");
 
@@ -24,6 +30,9 @@ const defaults = {
   exampleApiUrl: `${webSiteRoot}/example.json?api_key={{api_key}}`,
   signupConfirmationMessage: "",
   sendWelcomeEmail: true,
+  firstNameInput: true,
+  lastNameInput: true,
+  useDescriptionInput: true,
   websiteInput: false,
   termsCheckbox: true,
   termsUrl: `${webSiteRoot}/terms/`,
@@ -46,63 +55,66 @@ if (!options.registrationSource) {
 
 let signupFormTemplate = `
   <p>Sign up for an application programming interface (API) key to access and use web services.</p>
-  <p class="required-fields"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> Required fields</p>
+  <p class="required-fields">Required fields are marked with an asterisk (<abbr title="required" class="required">*</abbr>).</p>
   <form id="api_umbrella_signup_form" novalidate>
-    <div class="row mb-3">
-      <label class="col-sm-4 col-form-label text-end" for="user_first_name"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> First Name</label>
-      <div class="col-sm-8">
-        <input class="form-control" id="user_first_name" aria-describedby="user_first_name_feedback" name="user[first_name]" size="50" type="text" required />
-        <div id="user_first_name_feedback" class="invalid-feedback">Fill out this field.</div>
-      </div>
-    </div>
-    <div class="row mb-3">
-      <label class="col-sm-4 col-form-label text-end" for="user_last_name"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> Last Name</label>
-      <div class="col-sm-8">
-        <input class="form-control" id="user_last_name" aria-describedby="user_last_name_feedback"  name="user[last_name]" size="50" type="text" required />
-        <div id="user_last_name_feedback" class="invalid-feedback">Fill out this field.</div>
-      </div>
-    </div>
-    <div class="row mb-3">
-      <label class="col-sm-4 col-form-label text-end" for="user_email"><abbr title="Required" class="required"><span class="abbr-required">*</span></abbr> Email</label>
-      <div class="col-sm-8">
-        <input class="form-control" id="user_email" aria-describedby="user_email_feedback" name="user[email]" size="50" type="email" required />
-        <div id="user_email_feedback" class="invalid-feedback">Enter an email address.</div>
-      </div>
-    </div>
 `;
 
-if (options.websiteInput) {
+if (options.firstNameInput) {
   signupFormTemplate += `
-    <div class="row mb-3">
-      <label class="col-sm-4 col-form-label text-end" for="user_website">Website<br />(optional)</label>
-      <div class="col-sm-8">
-        <input class="form-control" id="user_website" aria-describedby="user_website_feedback" name="user[website]" size="50" type="url" placeholder="http://" />
-        <div id="user_website_feedback" class="invalid-feedback">Enter a URL.</div>
-      </div>
+    <div class="form-group">
+      <label class="form-label" for="user_first_name">First Name <abbr title="required" class="required">*</abbr></label>
+      <div id="user_first_name_feedback" class="invalid-feedback">Fill out this field.</div>
+      <input class="form-control" id="user_first_name" aria-describedby="user_first_name_feedback" name="user[first_name]" size="50" type="text" required />
+    </div>
+  `;
+}
+
+if (options.lastNameInput) {
+  signupFormTemplate += `
+    <div class="form-group">
+      <label class="form-label" for="user_last_name">Last Name <abbr title="required" class="required">*</abbr></label>
+      <div id="user_last_name_feedback" class="invalid-feedback">Fill out this field.</div>
+      <input class="form-control" id="user_last_name" aria-describedby="user_last_name_feedback"  name="user[last_name]" size="50" type="text" required />
     </div>
   `;
 }
 
 signupFormTemplate += `
-  <div class="row mb-3">
-    <label class="col-sm-4 col-form-label text-end" for="user_use_description">How will you use the APIs?<br />(optional)</label>
-    <div class="col-sm-8">
-      <textarea class="form-control" cols="40" id="user_use_description" name="user[use_description]" rows="3"></textarea>
-    </div>
+  <div class="form-group">
+    <label class="form-label" for="user_email">Email <abbr title="required" class="required">*</abbr></label>
+    <div id="user_email_feedback" class="invalid-feedback">Enter an email address.</div>
+    <input class="form-control" id="user_email" aria-describedby="user_email_feedback" name="user[email]" size="50" type="email" required />
   </div>
 `;
 
+if (options.websiteInput) {
+  signupFormTemplate += `
+    <div class="form-group">
+      <label class="form-label" for="user_website">Website (optional)</label>
+      <div id="user_website_feedback" class="invalid-feedback">Enter a URL.</div>
+      <input class="form-control" id="user_website" aria-describedby="user_website_feedback" name="user[website]" size="50" type="url" placeholder="http://" />
+    </div>
+  `;
+}
+
+if (options.useDescriptionInput) {
+  signupFormTemplate += `
+    <div class="form-group">
+      <label class="form-label" for="user_use_description">How will you use the APIs? (optional)</label>
+      <textarea class="form-control" cols="40" id="user_use_description" name="user[use_description]" rows="3"></textarea>
+    </div>
+  `;
+}
+
 if (options.termsCheckbox) {
   signupFormTemplate += `
-    <div class="row mb-3">
-      <div class="col-sm-8 offset-sm-4">
-        <div class="form-check">
-          <input id="user_terms_and_conditions" aria-describedby="user_terms_and_conditions_feedback" name="user[terms_and_conditions]" type="checkbox" class="form-check-input" value="true" required />
-          <label class="form-check-label" for="user_terms_and_conditions">I have read and agree to the <a href="${escapeHtml(
-            options.termsUrl
-          )}" onclick="window.open(this.href, &#x27;api_umbrella_terms&#x27;, &#x27;height=500,width=790,menubar=no,toolbar=no,location=no,personalbar=no,status=no,resizable=yes,scrollbars=yes&#x27;); return false;" title="Opens new window to terms and conditions">terms and conditions</a>.</label>
-          <div id="user_terms_and_conditions_feedback" class="invalid-feedback">You must agree to the terms and conditions to signup.</div>
-        </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input id="user_terms_and_conditions" aria-describedby="user_terms_and_conditions_feedback" name="user[terms_and_conditions]" type="checkbox" class="form-check-input" value="true" required />
+        <label class="form-check-label" for="user_terms_and_conditions">I have read and agree to the <a href="${escapeHtml(
+          options.termsUrl
+        )}" onclick="window.open(this.href, &#x27;api_umbrella_terms&#x27;, &#x27;height=500,width=790,menubar=no,toolbar=no,location=no,personalbar=no,status=no,resizable=yes,scrollbars=yes&#x27;); return false;" title="Opens new window to terms and conditions">terms and conditions</a>.</label>
+        <div id="user_terms_and_conditions_feedback" class="invalid-feedback">You must agree to the terms and conditions to signup.</div>
       </div>
     </div>
   `;
@@ -111,13 +123,11 @@ if (options.termsCheckbox) {
 }
 
 signupFormTemplate += `
-    <div class="row mb-3">
-      <div class="col-sm-8 offset-sm-4">
-        <input type="hidden" name="user[registration_source]" value="${escapeHtml(
-          options.registrationSource
-        )}" />
-        <button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">Signup</button>
-      </div>
+    <div class="submit">
+      <input type="hidden" name="user[registration_source]" value="${escapeHtml(
+        options.registrationSource
+      )}" />
+      <button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">Signup</button>
     </div>
 
     <div class="modal alert-modal" tabindex="-1" aria-hidden="true">
@@ -137,14 +147,36 @@ signupFormTemplate += `
 `;
 
 const containerEl = document.querySelector(options.containerSelector);
-containerEl.classList.add("api-umbrella-embed");
-containerEl.innerHTML = signupFormTemplate;
+const containerShadowRootEl = containerEl.attachShadow({ mode: 'open' });
 
-const modalEl = containerEl.querySelector(".alert-modal");
+const containerStyleRootEl = document.createElement('div');
+containerStyleRootEl.className = 'app-style-root';
+containerStyleRootEl.innerHTML = signupFormTemplate;
+containerShadowRootEl.appendChild(containerStyleRootEl);
+
+const bodyContainerEl = document.createElement('div');
+bodyContainerEl.id = 'api-umbrella-signup-embed-body-container';
+const bodyContainerShadowRootEl = bodyContainerEl.attachShadow({ mode: 'open' });
+const bodyContainerStyleRootEl = document.createElement('div');
+bodyContainerStyleRootEl.className = 'app-style-root';
+bodyContainerShadowRootEl.appendChild(bodyContainerStyleRootEl);
+document.body.appendChild(bodyContainerEl);
+
+insertLink(containerShadowRootEl, {
+  rel: 'stylesheet',
+  href: params.stylesheetPath,
+});
+
+insertLink(bodyContainerShadowRootEl, {
+  rel: 'stylesheet',
+  href: params.stylesheetPath,
+});
+
+const modalEl = containerShadowRootEl.querySelector(".alert-modal");
 const modalMessageEl = modalEl.querySelector(".alert-modal-message");
 const modal = new Modal(modalEl);
 
-const formEl = containerEl.querySelector("form");
+const formEl = containerShadowRootEl.querySelector("form");
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
 

@@ -1,24 +1,19 @@
-abbr.required,
-.abbr-required {
+abbr.required {
   border-style: none;
   cursor: default;
   color: #e87723;
   font-family: "Verdana";
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: bold;
   font-weight: 1000;
+  text-decoration: none;
 }
 
-label abbr.required,
-label .abbr-required {
-  margin-left: 2px;
+label abbr.required {
+  margin-left: 0.2rem;
 }
 
 .required-fields {
   font-size: 93%;
   color: #555;
-}
-
-.required-fields .abbr-required {
-  font-size: 12px;
 }
