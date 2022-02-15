@@ -38,3 +38,9 @@ module:
     - source: ./vendor/data.gov/roots-nextdatagov/assets/img/logo.png
       target: static/img/logo.png
 disable404: true
+security:
+  exec:
+    # Add HOME to allowed environment variables list for compatibility with
+    # asdf-nodejs for postcss.
+    osEnv:
+      - "(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|HOME)$"

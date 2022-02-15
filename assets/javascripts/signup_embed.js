@@ -149,9 +149,17 @@ signupFormTemplate += `
 const containerEl = document.querySelector(options.containerSelector);
 const containerShadowRootEl = containerEl.attachShadow({ mode: 'open' });
 
+// Compute how big the font size is wherever the container is being injected
+// and then compare that to the root font size, so we can fix `rem` units with
+// the help of https://github.com/GUI/postcss-relative-rem
+const rootFontSize = parseFloat(window.getComputedStyle(document.documentElement).getPropertyValue('font-size'));
+const containerFontSize = parseFloat(window.getComputedStyle(containerEl).getPropertyValue('font-size'));
+const remRelativeBaseSize = `${containerFontSize / rootFontSize}rem`
+
 const containerStyleRootEl = document.createElement('div');
 containerStyleRootEl.className = 'app-style-root';
 containerStyleRootEl.innerHTML = signupFormTemplate;
+containerStyleRootEl.style.setProperty('--api-umbrella-rem-relative-base', remRelativeBaseSize);
 containerShadowRootEl.appendChild(containerStyleRootEl);
 
 const bodyContainerEl = document.createElement('div');
