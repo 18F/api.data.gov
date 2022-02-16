@@ -97,10 +97,10 @@ jobs:
           path: ./public
       - name: Deploy
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets[matrix.aws_access_key_id_secret_name] }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets[matrix.aws_secret_access_key_secret_name] }}
-          AWS_DEFAULT_REGION: ${{ secrets[matrix.aws_default_region_secret_name] }}
-          S3_DEST: ":s3,env_auth=true:${{ secrets[matrix.bucket_name_secret_name] }}/"
+          RCLONE_S3_ACCESS_KEY_ID: ${{ secrets[matrix.aws_access_key_id_secret_name] }}
+          RCLONE_S3_SECRET_ACCESS_KEY: ${{ secrets[matrix.aws_secret_access_key_secret_name] }}
+          RCLONE_S3_REGION: ${{ secrets[matrix.aws_default_region_secret_name] }}
+          S3_DEST: ":s3:${{ secrets[matrix.bucket_name_secret_name] }}/"
         run: |
           # Identify cache-busted assets by the fingerprint in the filename.
           cache_busted_assets="/{images,javascripts,stylesheets}/**.{\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w}.*"
