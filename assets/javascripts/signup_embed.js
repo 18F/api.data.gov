@@ -76,7 +76,7 @@ let signupFormTemplate = "";
 
 if (options.showIntroText) {
   signupFormTemplate += `
-    <p>Sign up for an application programming interface (API) key to access and use web services.</p>
+    <p>Sign up for an application programming interface (API) key to access and use web services available on the Data.gov developer network.</p>
   `;
 }
 
