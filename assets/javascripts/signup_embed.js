@@ -23,24 +23,43 @@ function insertLink(root, options) {
 
 const webSiteRoot = params.webSiteRoot.replace(/\/$/, "");
 
-const defaults = {
+const defaultOptions = {
   containerSelector: "#api_umbrella_signup",
   apiUrlRoot: `${webSiteRoot}/api-umbrella`,
   contactUrl: `${webSiteRoot}/contact/`,
   exampleApiUrl: `${webSiteRoot}/example.json?api_key={{api_key}}`,
   signupConfirmationMessage: "",
   sendWelcomeEmail: true,
-  firstNameInput: true,
-  lastNameInput: true,
-  useDescriptionInput: true,
-  websiteInput: false,
-  termsCheckbox: true,
+  showIntroText: true,
+  showRequiredAsteriskExplainText: true,
+  showFirstNameInput: true,
+  showLastNameInput: true,
+  showUseDescriptionInput: true,
+  showWebsiteInput: false,
+  showTermsInput: true,
   termsUrl: `${webSiteRoot}/terms/`,
   verifyEmail: false,
 };
+
+const embedOptions = window.apiUmbrellaSignupOptions || {};
+
+// Handle legacy option names.
+if (
+  embedOptions.showWebsiteInput === undefined &&
+  embedOptions.websiteInput !== undefined
+) {
+  embedOptions.showWebsiteInput = embedOptions.websiteInput;
+}
+if (
+  embedOptions.showTermsInput === undefined &&
+  embedOptions.termsCheckbox !== undefined
+) {
+  embedOptions.showTermsInput = embedOptions.termsCheckbox;
+}
+
 const options = {
-  ...defaults,
-  ...(window.apiUmbrellaSignupOptions || {}),
+  ...defaultOptions,
+  ...embedOptions,
 };
 
 if (!options.apiKey) {
@@ -53,62 +72,82 @@ if (!options.registrationSource) {
   alert("apiUmbrellaSignupOptions.registrationSource must be set");
 }
 
-let signupFormTemplate = `
-  <p>Sign up for an application programming interface (API) key to access and use web services.</p>
-  <p class="required-fields">Required fields are marked with an asterisk (<abbr title="required" class="required">*</abbr>).</p>
+let signupFormTemplate = "";
+
+if (options.showIntroText) {
+  signupFormTemplate += `
+    <p>Sign up for an application programming interface (API) key to access and use web services.</p>
+  `;
+}
+
+if (options.showRequiredAsteriskExplainText) {
+  signupFormTemplate += `
+    <p class="required-fields">Required fields are marked with an asterisk (<abbr title="required" class="required">*</abbr>).</p>
+  `;
+}
+
+signupFormTemplate += `
   <form id="api_umbrella_signup_form" novalidate>
 `;
 
-if (options.firstNameInput) {
+if (options.showFirstNameInput) {
   signupFormTemplate += `
-    <div class="form-group">
+    <div class="form-group first-name-form-group">
       <label class="form-label" for="user_first_name">First Name <abbr title="required" class="required">*</abbr></label>
       <div id="user_first_name_feedback" class="invalid-feedback">Fill out this field.</div>
       <input class="form-control" id="user_first_name" aria-describedby="user_first_name_feedback" name="user[first_name]" size="50" type="text" required />
     </div>
   `;
+} else {
+  signupFormTemplate += `<input type="hidden" name="user[user_first_name]" value="${escapeHtml(
+    options.registrationSource
+  )} User" />`;
 }
 
-if (options.lastNameInput) {
+if (options.showLastNameInput) {
   signupFormTemplate += `
-    <div class="form-group">
+    <div class="form-group last-name-form-group">
       <label class="form-label" for="user_last_name">Last Name <abbr title="required" class="required">*</abbr></label>
       <div id="user_last_name_feedback" class="invalid-feedback">Fill out this field.</div>
       <input class="form-control" id="user_last_name" aria-describedby="user_last_name_feedback"  name="user[last_name]" size="50" type="text" required />
     </div>
   `;
+} else {
+  signupFormTemplate += `<input type="hidden" name="user[user_last_name]" value="${escapeHtml(
+    options.registrationSource
+  )} User" />`;
 }
 
 signupFormTemplate += `
-  <div class="form-group">
+  <div class="form-group email-form-group">
     <label class="form-label" for="user_email">Email <abbr title="required" class="required">*</abbr></label>
     <div id="user_email_feedback" class="invalid-feedback">Enter an email address.</div>
     <input class="form-control" id="user_email" aria-describedby="user_email_feedback" name="user[email]" size="50" type="email" required />
   </div>
 `;
 
-if (options.websiteInput) {
+if (options.showWebsiteInput) {
   signupFormTemplate += `
-    <div class="form-group">
+    <div class="form-group website-form-group">
       <label class="form-label" for="user_website">Website (optional)</label>
       <div id="user_website_feedback" class="invalid-feedback">Enter a URL.</div>
-      <input class="form-control" id="user_website" aria-describedby="user_website_feedback" name="user[website]" size="50" type="url" placeholder="http://" />
+      <input class="form-control" id="user_website" aria-describedby="user_website_feedback" name="user[website]" size="50" type="url" placeholder="https://" />
     </div>
   `;
 }
 
-if (options.useDescriptionInput) {
+if (options.showUseDescriptionInput) {
   signupFormTemplate += `
-    <div class="form-group">
+    <div class="form-group use-description-form-group">
       <label class="form-label" for="user_use_description">How will you use the APIs? (optional)</label>
       <textarea class="form-control" cols="40" id="user_use_description" name="user[use_description]" rows="3"></textarea>
     </div>
   `;
 }
 
-if (options.termsCheckbox) {
+if (options.showTermsInput) {
   signupFormTemplate += `
-    <div class="form-group">
+    <div class="form-group terms-form-group">
       <div class="form-check">
         <input id="user_terms_and_conditions" aria-describedby="user_terms_and_conditions_feedback" name="user[terms_and_conditions]" type="checkbox" class="form-check-input" value="true" required />
         <label class="form-check-label" for="user_terms_and_conditions">I have read and agree to the <a href="${escapeHtml(

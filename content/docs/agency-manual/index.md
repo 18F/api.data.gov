@@ -290,13 +290,35 @@ You can embed the API key signup form for api.data.gov on your own developer hub
            // user after signing up. Defaults to true.
            // sendWelcomeEmail: false,
 
+           // OPTIONAL: Show an intro paragraph explaining what the signup form is
+           // for.
+           // Defaults to true.
+           // showIntroText: false,
+
+           // OPTIONAL: Show a paragraph explaining that the asterisk denotes required
+           // fields in the form.
+           // Defaults to true.
+           // showRequiredAsteriskExplainText: false,
+
+           // OPTIONAL: Show the text input requesting the user's first name.
+           // Defaults to true.
+           // showFirstNameInput: false,
+
+           // OPTIONAL: Show the text input requesting the user's last name.
+           // Defaults to true.
+           // showLastNameInput: false,
+
+           // OPTIONAL: Show the textarea input asking how the user will use the APIs.
+           // Defaults to true.
+           // showUseDescriptionInput: false,
+
            // OPTIONAL: Provide an extra input field to ask for the user's website.
            // Defaults to false.
-           // websiteInput: true,
+           // showWebsiteInput: true,
 
            // OPTIONAL: Provide an extra checkbox asking the user to agree to terms
            // and conditions before signing up. Defaults to false.
-           // termsCheckbox: true,
+           // showTermsInput: true,
 
            // OPTIONAL: If the terms & conditions checkbox is enabled, link to this
            // URL for your API's terms & conditions. Defaults to "".
