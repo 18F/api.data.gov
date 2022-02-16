@@ -1,8 +1,11 @@
+const autoprefixer = require("autoprefixer");
+const postcssRelativeRem = require("postcss-relative-rem");
+
 module.exports = {
   plugins: [
-    require('autoprefixer'),
-    require('postcss-relative-rem')({
-      baseCssVariable: '--api-umbrella-rem-relative-base',
+    autoprefixer,
+    postcssRelativeRem({
+      baseCssVariable: "--api-umbrella-rem-relative-base",
     }),
-  ]
+  ],
 };

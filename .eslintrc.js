@@ -9,4 +9,12 @@ module.exports = {
   },
   extends: ["airbnb-base", "plugin:prettier/recommended"],
   ignorePatterns: ["vendor/**", "metrics/**", "status/**"],
+  rules: {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: ["postcss.config.js"],
+      },
+    ],
+  },
 };

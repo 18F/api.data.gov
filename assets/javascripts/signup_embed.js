@@ -12,7 +12,7 @@ styleEl.type = "text/css";
 styleEl.href = params.stylesheetPath;
 
 function insertLink(root, options) {
-  const link = document.createElement('link');
+  const link = document.createElement("link");
   link.rel = options.rel;
   link.href = options.href;
   if (options.as) {
@@ -147,36 +147,47 @@ signupFormTemplate += `
 `;
 
 const containerEl = document.querySelector(options.containerSelector);
-const containerShadowRootEl = containerEl.attachShadow({ mode: 'open' });
+const containerShadowRootEl = containerEl.attachShadow({ mode: "open" });
 
 // Compute how big the font size is wherever the container is being injected
 // and then compare that to the root font size, so we can fix `rem` units with
 // the help of https://github.com/GUI/postcss-relative-rem
-const rootFontSize = parseFloat(window.getComputedStyle(document.documentElement).getPropertyValue('font-size'));
-const containerFontSize = parseFloat(window.getComputedStyle(containerEl).getPropertyValue('font-size'));
-const remRelativeBaseSize = `${containerFontSize / rootFontSize}rem`
+const rootFontSize = parseFloat(
+  window
+    .getComputedStyle(document.documentElement)
+    .getPropertyValue("font-size")
+);
+const containerFontSize = parseFloat(
+  window.getComputedStyle(containerEl).getPropertyValue("font-size")
+);
+const remRelativeBaseSize = `${containerFontSize / rootFontSize}rem`;
 
-const containerStyleRootEl = document.createElement('div');
-containerStyleRootEl.className = 'app-style-root';
+const containerStyleRootEl = document.createElement("div");
+containerStyleRootEl.className = "app-style-root";
 containerStyleRootEl.innerHTML = signupFormTemplate;
-containerStyleRootEl.style.setProperty('--api-umbrella-rem-relative-base', remRelativeBaseSize);
+containerStyleRootEl.style.setProperty(
+  "--api-umbrella-rem-relative-base",
+  remRelativeBaseSize
+);
 containerShadowRootEl.appendChild(containerStyleRootEl);
 
-const bodyContainerEl = document.createElement('div');
-bodyContainerEl.id = 'api-umbrella-signup-embed-body-container';
-const bodyContainerShadowRootEl = bodyContainerEl.attachShadow({ mode: 'open' });
-const bodyContainerStyleRootEl = document.createElement('div');
-bodyContainerStyleRootEl.className = 'app-style-root';
+const bodyContainerEl = document.createElement("div");
+bodyContainerEl.id = "api-umbrella-signup-embed-body-container";
+const bodyContainerShadowRootEl = bodyContainerEl.attachShadow({
+  mode: "open",
+});
+const bodyContainerStyleRootEl = document.createElement("div");
+bodyContainerStyleRootEl.className = "app-style-root";
 bodyContainerShadowRootEl.appendChild(bodyContainerStyleRootEl);
 document.body.appendChild(bodyContainerEl);
 
 insertLink(containerShadowRootEl, {
-  rel: 'stylesheet',
+  rel: "stylesheet",
   href: params.stylesheetPath,
 });
 
 insertLink(bodyContainerShadowRootEl, {
-  rel: 'stylesheet',
+  rel: "stylesheet",
   href: params.stylesheetPath,
 });
 
