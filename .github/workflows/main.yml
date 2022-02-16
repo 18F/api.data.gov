@@ -49,7 +49,7 @@ jobs:
       - name: Build
         env:
           WEB_SITE_ROOT: ${{ secrets[matrix.web_site_root_secret_name] }}
-          SIGNUP_API_KEY: ${{ secrets[matrix.api_key_secret_name] }}
+          SIGNUP_API_KEY: ${{ secrets[matrix.signup_api_key_secret_name] }}
           CONTACT_API_KEY: ${{ secrets[matrix.contact_api_key_secret_name] }}
         run: |
           HUGO_PARAMS_APIUMBRELLACONTACTAPIKEY="$CONTACT_API_KEY" \
