@@ -7,13 +7,11 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel%7CLato%3A100%2C300%2C400%2C700&#038;ver=3.8">
 
-  {{ $options := (dict "includePaths" (slice "vendor/data.gov/roots-nextdatagov/assets/css" )) }}
-  {{ $css := resources.Get "stylesheets/application.scss" | resources.ToCSS $options -}}
-  {{ $secureCSS := $css | resources.Fingerprint -}}
+  {{ $css := resources.Get "stylesheets/application.scss" | resources.ToCSS (dict "includePaths" (slice "vendor/data.gov/roots-nextdatagov/assets/css" ) "outputStyle" "compressed") | resources.Fingerprint -}}
   <link
     rel="stylesheet"
-    href="{{ $secureCSS.RelPermalink }}"
-    integrity="{{ $secureCSS.Data.Integrity }}"
+    href="{{ $css.RelPermalink }}"
+    integrity="{{ $css.Data.Integrity }}"
     crossorigin="anonymous"
   />
 </head>

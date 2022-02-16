@@ -1,11 +1,12 @@
 {{ $css := resources.Get "stylesheets/signup_embed.scss" | resources.ToCSS (dict "includePaths" (slice "node_modules") "outputStyle" "compressed") | resources.PostCSS | resources.Fingerprint -}}
-{{ $js := resources.Get "javascripts/signup_embed.js" | js.Build (dict "params" (dict "stylesheetPath" $css.Permalink "webSiteRoot" .Site.BaseURL)) -}}
+{{ $js := resources.Get "javascripts/signup_embed.js" | js.Build (dict "targetPath" "static/javascripts/signup_embed.js" "params" (dict "stylesheetPath" $css.Permalink "webSiteRoot" .Site.BaseURL)) | resources.Minify -}}
+{{ $js := $js.Content | resources.FromString "static/javascripts/signup_embed.js" }}
 
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
   var apiUmbrellaSignupOptions = {
     registrationSource: 'web',
-    apiKey: '{{ .Site.Params.apiUmbrellaApiKey }}'
+    apiKey: '{{ .Site.Params.apiUmbrellaSignupApiKey }}'
   };
 
   /* * * DON'T EDIT BELOW THIS LINE * * */
