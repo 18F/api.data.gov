@@ -36,7 +36,7 @@ const defaultOptions = {
   showLastNameInput: true,
   showUseDescriptionInput: true,
   showWebsiteInput: false,
-  showTermsInput: true,
+  showTermsInput: false,
   termsUrl: `${webSiteRoot}/terms/`,
   verifyEmail: false,
 };
