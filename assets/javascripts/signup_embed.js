@@ -24,7 +24,7 @@ function insertLink(root, options) {
 const webSiteRoot = params.webSiteRoot.replace(/\/$/, "");
 
 const defaultOptions = {
-  containerSelector: "#api_umbrella_signup",
+  containerSelector: "#apidatagov_signup",
   apiUrlRoot: `${webSiteRoot}/api-umbrella`,
   contactUrl: `${webSiteRoot}/contact/`,
   exampleApiUrl: `${webSiteRoot}/example.json?api_key={{api_key}}`,
