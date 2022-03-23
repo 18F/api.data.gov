@@ -7,9 +7,7 @@
   "dependencies": {
     "bootstrap": "^5.1.0",
     "escape-html": "^1.0.3",
-    "form-serialize": "^0.7.2",
-    "promise-polyfill": "^8.2.0",
-    "whatwg-fetch": "^3.6.2"
+    "form-serialize": "^0.7.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",

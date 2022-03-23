@@ -1,8 +1,6 @@
 import Modal from "bootstrap/js/src/modal";
 import escapeHtml from "escape-html";
 import serialize from "form-serialize";
-import "whatwg-fetch";
-import "promise-polyfill/src/polyfill";
 // eslint-disable-next-line import/no-unresolved
 import * as params from "@params";
 
