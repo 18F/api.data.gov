@@ -17,3 +17,7 @@ label abbr.required {
   font-size: 93%;
   color: #555;
 }
+
+.dialog-container[aria-hidden="true"] {
+  display: none;
+}

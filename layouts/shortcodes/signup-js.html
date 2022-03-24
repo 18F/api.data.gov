@@ -6,7 +6,13 @@
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
   var apiUmbrellaSignupOptions = {
     registrationSource: 'web',
-    apiKey: '{{ .Site.Params.apiUmbrellaSignupApiKey }}'
+    apiKey: '{{ .Site.Params.apiUmbrellaSignupApiKey }}',
+    verifyEmail: true,
+    signupConfirmationMessage: '<h2>What Next?</h2>' +
+      '<ul>' +
+        '<li>Explore our <a href="/docs/">available Web services</a>.</li>' +
+        '<li>Need more help? <a href="/contact/">Contact us</a>.</li>' +
+      '</ul>'
   };
 
   /* * * DON'T EDIT BELOW THIS LINE * * */

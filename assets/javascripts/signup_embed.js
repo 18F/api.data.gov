@@ -1,4 +1,4 @@
-import Modal from "bootstrap/js/src/modal";
+import A11yDialog from "a11y-dialog";
 import escapeHtml from "escape-html";
 import serialize from "form-serialize";
 // eslint-disable-next-line import/no-unresolved
@@ -166,21 +166,26 @@ signupFormTemplate += `
       )}" />
       <button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">Signup</button>
     </div>
+  </form>
+`;
 
-    <div class="modal alert-modal" tabindex="-1" aria-hidden="true">
+const modalTemplate = `
+  <div id="alert_modal" class="dialog-container" aria-describedby="alert_modal_message" aria-hidden="true">
+    <div class="modal-backdrop show" data-a11y-dialog-hide></div>
+    <div role="document" class="modal show d-block">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">
-            <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-            <div class="alert-modal-message"></div>
+            <button type="button" class="btn-close float-end" aria-label="Close" data-a11y-dialog-hide></button>
+            <div id="alert_modal_message"></div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+            <button type="button" class="btn btn-primary" data-a11y-dialog-hide>OK</button>
           </div>
         </div>
       </div>
     </div>
-  </form>
+  </div>
 `;
 
 const containerEl = document.querySelector(options.containerSelector);
@@ -215,6 +220,11 @@ const bodyContainerShadowRootEl = bodyContainerEl.attachShadow({
 });
 const bodyContainerStyleRootEl = document.createElement("div");
 bodyContainerStyleRootEl.className = "app-style-root";
+bodyContainerStyleRootEl.innerHTML = modalTemplate;
+bodyContainerStyleRootEl.style.setProperty(
+  "--api-umbrella-rem-relative-base",
+  remRelativeBaseSize
+);
 bodyContainerShadowRootEl.appendChild(bodyContainerStyleRootEl);
 document.body.appendChild(bodyContainerEl);
 
@@ -228,9 +238,9 @@ insertLink(bodyContainerShadowRootEl, {
   href: params.stylesheetPath,
 });
 
-const modalEl = containerShadowRootEl.querySelector(".alert-modal");
-const modalMessageEl = modalEl.querySelector(".alert-modal-message");
-const modal = new Modal(modalEl);
+const modalEl = bodyContainerShadowRootEl.getElementById("alert_modal");
+const modalMessageEl = modalEl.querySelector("#alert_modal_message");
+const modal = new A11yDialog(modalEl);
 
 const formEl = containerShadowRootEl.querySelector("form");
 formEl.addEventListener("submit", (event) => {
@@ -265,16 +275,14 @@ formEl.addEventListener("submit", (event) => {
     formData.user.terms_and_conditions = true;
   }
 
-  return fetch(
-    `${options.apiUrlRoot}/v1/users.json?api_key=${options.apiKey}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    }
-  )
+  return fetch(`${options.apiUrlRoot}/v1/users.json`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Api-Key": options.apiKey,
+    },
+    body: JSON.stringify(formData),
+  })
     .then((response) => {
       const contentType = response.headers.get("Content-Type");
       if (!contentType || !contentType.includes("application/json")) {
@@ -299,37 +307,37 @@ formEl.addEventListener("submit", (event) => {
       let confirmationTemplate = "";
       if (data.options.verify_email) {
         confirmationTemplate += `
-        <p>Your API key for <strong>${escapeHtml(
-          user.email
-        )}</strong> has been e-mailed to you. You can use your API key to begin making web service requests immediately.</p>
-        <p>If you don't receive your API Key via e-mail within a few minutes, please <a href="${escapeHtml(
-          data.options.contact_url
-        )}">contact us</a>.</p>
-      `;
+          <p>Your API key for <strong>${escapeHtml(
+            user.email
+          )}</strong> has been e-mailed to you. You can use your API key to begin making web service requests immediately.</p>
+          <p>If you don't receive your API Key via e-mail within a few minutes, please <a href="${escapeHtml(
+            data.options.contact_url
+          )}">contact us</a>.</p>
+        `;
       } else {
         confirmationTemplate += `
-        <p>Your API key for <strong>${escapeHtml(user.email)}</strong> is:</p>
-        <pre class="signup-key"><code>${escapeHtml(user.api_key)}</code></pre>
-        <p>You can start using this key to make web service requests. Simply pass your key in the URL when making a web request. Here's an example:</p>
-        <pre class="signup-example"><a href="${escapeHtml(
-          data.options.example_api_url
-        )}">${data.options.example_api_url_formatted_html}</a></pre>
-      `;
+          <p>Your API key for <strong>${escapeHtml(user.email)}</strong> is:</p>
+          <pre class="signup-key"><code>${escapeHtml(user.api_key)}</code></pre>
+          <p>You can start using this key to make web service requests. Simply pass your key in the URL when making a web request. Here's an example:</p>
+          <pre class="signup-example"><a href="${escapeHtml(
+            data.options.example_api_url
+          )}">${data.options.example_api_url_formatted_html}</a></pre>
+        `;
       }
 
       confirmationTemplate += `
-      ${options.signupConfirmationMessage}
-      <div class="signup-footer">
-        <p>For additional support, please <a href="${escapeHtml(
-          data.options.contact_url
-        )}">contact us</a>. When contacting us, please tell us what API you're accessing and provide the following account details so we can quickly find you:</p>
-        Account Email: ${escapeHtml(user.email)}<br>
-        Account ID: ${escapeHtml(user.id)}
-      </div>
-    `;
+        ${options.signupConfirmationMessage}
+        <div class="signup-footer">
+          <p>For additional support, please <a href="${escapeHtml(
+            data.options.contact_url
+          )}">contact us</a>. When contacting us, please tell us what API you're accessing and provide the following account details so we can quickly find you:</p>
+          Account Email: ${escapeHtml(user.email)}<br>
+          Account ID: ${escapeHtml(user.id)}
+        </div>
+      `;
 
-      containerEl.innerHTML = confirmationTemplate;
-      containerEl.scrollIntoView();
+      containerStyleRootEl.innerHTML = confirmationTemplate;
+      containerStyleRootEl.scrollIntoView();
     })
     .catch((error) => {
       const messages = [];
