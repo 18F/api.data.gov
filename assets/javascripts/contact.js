@@ -1,4 +1,4 @@
-import Modal from "bootstrap/js/src/modal";
+import A11yDialog from "a11y-dialog";
 import escapeHtml from "escape-html";
 import serialize from "form-serialize";
 
@@ -14,8 +14,8 @@ if (!options.apiKey) {
 }
 
 const modalEl = document.getElementById("alert_modal");
-const modalMessageEl = document.getElementById("alert_modal_message");
-const modal = new Modal(modalEl);
+const modalMessageEl = modalEl.querySelector("#alert_modal_message");
+const modal = new A11yDialog(modalEl);
 
 const formEl = document.getElementById("api_umbrella_contact_form");
 formEl.addEventListener("submit", (event) => {
@@ -33,10 +33,11 @@ formEl.addEventListener("submit", (event) => {
     submitButtonEl.innerText = "Sending...";
   }, 0);
 
-  return fetch(`/api-umbrella/v1/contact.json?api_key=${options.apiKey}`, {
+  return fetch(`/api-umbrella/v1/contact.json`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "X-Api-Key": options.apiKey,
     },
     body: JSON.stringify(serialize(formEl, { hash: true })),
   })

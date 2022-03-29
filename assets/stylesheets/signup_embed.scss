@@ -7,24 +7,14 @@
 @import "bootstrap/scss/bootstrap";
 @import "_shared";
 
-:root {
-}
-
 // The root container for all other elements. Since we don't have a way to
 // target the root of the shadow DOM itself, we need some sort of wrapper like
 // this to apply base styles.
-.app-style-root-root {
-  // --bs-body-font-size: 16px;
-  // @extend :root;
-}
-
 .app-style-root {
   // Use bootstrap's "body" styles for defining our own root container inside
   // the shadow DOM.
   @extend :root;
   @extend body;
-
-  // font-size: 16px;
 }
 
 pre {

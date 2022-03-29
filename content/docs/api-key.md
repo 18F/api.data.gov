@@ -28,7 +28,7 @@ In some cases, the API may support passing the API key into the `api_key` GET qu
 ```sh
 curl 'https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1&api_key=YOUR_KEY_HERE'
 ```
-  
+
 ```
 https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1&api_key=YOUR_KEY_HERE
 ```

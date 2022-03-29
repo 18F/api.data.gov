@@ -2,8 +2,6 @@
 title: Documentation
 ---
 
-# Documentation
-
 Use this Web service documentation to access and use federal agencies' data via application programming interfaces (APIs) from the data.gov partners below. You'll need a key to use these APIs. [Sign up for an API key](/signup).
 
 {{< docs-links >}}

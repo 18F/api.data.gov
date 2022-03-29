@@ -7,7 +7,10 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel%7CLato%3A100%2C300%2C400%2C700&#038;ver=3.8">
 
-  {{ $css := resources.Get "stylesheets/application.scss" | resources.ToCSS (dict "includePaths" (slice "vendor/data.gov/roots-nextdatagov/assets/css" ) "outputStyle" "compressed") | resources.Fingerprint -}}
+  {{ $bootstrapCss := resources.Get "stylesheets/bootstrap.scss" | resources.ToCSS (dict "includePaths" (slice "node_modules") "outputStyle" "compressed") | resources.PostCSS (dict "config" "postcss-bootstrap") -}}
+  {{ $datagovCss := resources.Get "stylesheets/datagov.scss" | resources.ToCSS (dict "includePaths" (slice "vendor/data.gov/roots-nextdatagov/assets/css") "outputStyle" "compressed") -}}
+  {{ $applicationCss := resources.Get "stylesheets/application.scss" | resources.ToCSS (dict "includePaths" (slice "node_modules") "outputStyle" "compressed") | resources.PostCSS (dict "config" "postcss-bootstrap") -}}
+  {{ $css := slice $bootstrapCss $datagovCss $applicationCss | resources.Concat "application.css" | resources.Fingerprint -}}
   <link
     rel="stylesheet"
     href="{{ $css.RelPermalink }}"

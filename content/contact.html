@@ -28,21 +28,10 @@ title: Contact Us
 <h3 id="contact" style="margin-top: 3em;">
   <i class="fa fa-comments-o"></i> Contact us directly
 </h3>
-<p class="required-fields">
-  <abbr title="Required" class="required"
-    ><span class="abbr-required">*</span></abbr
-  >
-  Required fields
-</p>
+<p class="required-fields">Required fields are marked with an asterisk (<abbr title="required" class="required">*</abbr>).</p>
 <form id="api_umbrella_contact_form" novalidate>
-  <div class="row mb-3">
-    <label class="col-sm-4 col-form-label text-end" for="contact_name"
-      ><abbr title="Required" class="required"
-        ><span class="abbr-required">*</span></abbr
-      >
-      Name</label
-    >
-    <div class="col-sm-8">
+  <div class="form-group">
+    <label class="form-label" for="contact_name">Name <abbr title="required" class="required">*</abbr></label>
       <input
         class="form-control"
         id="contact_name"
@@ -52,19 +41,10 @@ title: Contact Us
         type="text"
         required
       />
-      <div id="contact_name_feedback" class="invalid-feedback">
-        Fill out this field.
-      </div>
-    </div>
+      <div id="contact_name_feedback" class="invalid-feedback">Fill out this field.</div>
   </div>
-  <div class="row mb-3">
-    <label class="col-sm-4 col-form-label text-end" for="contact_email"
-      ><abbr title="Required" class="required"
-        ><span class="abbr-required">*</span></abbr
-      >
-      Email</label
-    >
-    <div class="col-sm-8">
+  <div class="form-group">
+    <label class="form-label" for="contact_email">Email <abbr title="required" class="required">*</abbr></label>
       <input
         class="form-control"
         id="contact_email"
@@ -74,19 +54,10 @@ title: Contact Us
         type="email"
         required
       />
-      <div id="contact_email_feedback" class="invalid-feedback">
-        Enter an email address.
-      </div>
-    </div>
+      <div id="contact_email_feedback" class="invalid-feedback">Enter an email address.</div>
   </div>
-  <div class="row mb-3">
-    <label class="col-sm-4 col-form-label text-end" for="contact_api"
-      ><abbr title="Required" class="required"
-        ><span class="abbr-required">*</span></abbr
-      >
-      Which API are you inquiring about?</label
-    >
-    <div class="col-sm-8">
+  <div class="form-group">
+    <label class="form-label" for="contact_api">Which API are you inquiring about? <abbr title="required" class="required">*</abbr></label>
       <input
         class="form-control"
         id="contact_api"
@@ -96,19 +67,10 @@ title: Contact Us
         type="text"
         required
       />
-      <div id="contact_api_feedback" class="invalid-feedback">
-        Fill out this field.
-      </div>
-    </div>
+      <div id="contact_api_feedback" class="invalid-feedback">Fill out this field.</div>
   </div>
-  <div class="row mb-3">
-    <label class="col-sm-4 col-form-label text-end" for="contact_subject"
-      ><abbr title="Required" class="required"
-        ><span class="abbr-required">*</span></abbr
-      >
-      What can we help you with?</label
-    >
-    <div class="col-sm-8">
+  <div class="form-group">
+    <label class="form-label" for="contact_subject">What can we help you with? <abbr title="required" class="required">*</abbr></label>
       <select
         id="contact_subject"
         aria-describedby="contact_subject_feedback"
@@ -121,19 +83,10 @@ title: Contact Us
         <option>Requesting higher rate limits</option>
         <option>Other</option>
       </select>
-      <div id="contact_subject_feedback" class="invalid-feedback">
-        Select an item in the list.
-      </div>
-    </div>
+      <div id="contact_subject_feedback" class="invalid-feedback">Select an item in the list.</div>
   </div>
-  <div class="row mb-3">
-    <label class="col-sm-4 col-form-label text-end" for="contact_message"
-      ><abbr title="Required" class="required"
-        ><span class="abbr-required">*</span></abbr
-      >
-      Message</label
-    >
-    <div class="col-sm-8">
+  <div class="form-group">
+    <label class="form-label" for="contact_message">Message <abbr title="required" class="required">*</abbr></label>
       <textarea
         class="form-control"
         cols="40"
@@ -143,37 +96,28 @@ title: Contact Us
         rows="6"
         required
       ></textarea>
-      <div id="contact_message_feedback" class="invalid-feedback">
-        Fill out this field.
-      </div>
-    </div>
+      <div id="contact_message_feedback" class="invalid-feedback">Fill out this field.</div>
   </div>
-  <div class="row mb-3">
-    <div class="col-sm-8 offset-sm-4">
-      <noscript
-        ><div class="alert alert-danger" role="alert">
-          Please enable JavaScript to contact us.
-        </div></noscript
-      >
-      <button type="submit" class="btn btn-lg btn-primary">Send</button>
-    </div>
+  <div class="submit">
+    <noscript
+      ><div class="alert alert-danger" role="alert">
+        Please enable JavaScript to contact us.
+      </div></noscript
+    >
+    <button type="submit" class="btn btn-lg btn-primary">Send</button>
   </div>
-  <div class="modal" id="alert_modal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <button
-            type="button"
-            class="btn-close float-end"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-          <div id="alert_modal_message"></div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-            OK
-          </button>
+  <div id="alert_modal" class="dialog-container" aria-describedby="alert_modal_message" aria-hidden="true">
+    <div class="modal-backdrop show" data-a11y-dialog-hide></div>
+    <div role="document" class="modal show d-block">
+      <div class="modal-dialog">
+        <div class="modal-content" autofocus>
+          <div class="modal-body">
+            <button type="button" class="btn-close float-end" aria-label="Close" data-a11y-dialog-hide></button>
+            <div id="alert_modal_message"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-a11y-dialog-hide>OK</button>
+          </div>
         </div>
       </div>
     </div>
@@ -184,4 +128,5 @@ title: Contact Us
     apiKey: '{{< param apiUmbrellaContactApiKey >}}',
     issuesUrl: '{{< param githubRepoUrl >}}/issues'
   };
-</script> {{< contact-js >}}
+</script>
+{{< contact-js >}}

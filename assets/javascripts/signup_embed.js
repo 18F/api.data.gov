@@ -92,8 +92,8 @@ if (options.showFirstNameInput) {
   signupFormTemplate += `
     <div class="form-group first-name-form-group">
       <label class="form-label" for="user_first_name">First Name <abbr title="required" class="required">*</abbr></label>
-      <div id="user_first_name_feedback" class="invalid-feedback">Fill out this field.</div>
       <input class="form-control" id="user_first_name" aria-describedby="user_first_name_feedback" name="user[first_name]" size="50" type="text" required />
+      <div id="user_first_name_feedback" class="invalid-feedback">Fill out this field.</div>
     </div>
   `;
 } else {
@@ -106,8 +106,8 @@ if (options.showLastNameInput) {
   signupFormTemplate += `
     <div class="form-group last-name-form-group">
       <label class="form-label" for="user_last_name">Last Name <abbr title="required" class="required">*</abbr></label>
-      <div id="user_last_name_feedback" class="invalid-feedback">Fill out this field.</div>
       <input class="form-control" id="user_last_name" aria-describedby="user_last_name_feedback"  name="user[last_name]" size="50" type="text" required />
+      <div id="user_last_name_feedback" class="invalid-feedback">Fill out this field.</div>
     </div>
   `;
 } else {
@@ -119,8 +119,8 @@ if (options.showLastNameInput) {
 signupFormTemplate += `
   <div class="form-group email-form-group">
     <label class="form-label" for="user_email">Email <abbr title="required" class="required">*</abbr></label>
-    <div id="user_email_feedback" class="invalid-feedback">Enter an email address.</div>
     <input class="form-control" id="user_email" aria-describedby="user_email_feedback" name="user[email]" size="50" type="email" required />
+    <div id="user_email_feedback" class="invalid-feedback">Enter an email address.</div>
   </div>
 `;
 
@@ -128,8 +128,8 @@ if (options.showWebsiteInput) {
   signupFormTemplate += `
     <div class="form-group website-form-group">
       <label class="form-label" for="user_website">Website (optional)</label>
-      <div id="user_website_feedback" class="invalid-feedback">Enter a URL.</div>
       <input class="form-control" id="user_website" aria-describedby="user_website_feedback" name="user[website]" size="50" type="url" placeholder="https://" />
+      <div id="user_website_feedback" class="invalid-feedback">Enter a URL.</div>
     </div>
   `;
 }
@@ -174,7 +174,7 @@ const modalTemplate = `
     <div class="modal-backdrop show" data-a11y-dialog-hide></div>
     <div role="document" class="modal show d-block">
       <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" autofocus>
           <div class="modal-body">
             <button type="button" class="btn-close float-end" aria-label="Close" data-a11y-dialog-hide></button>
             <div id="alert_modal_message"></div>
