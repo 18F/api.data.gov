@@ -8,7 +8,7 @@ module.exports = {
     ecmaVersion: 12,
   },
   extends: ["airbnb-base", "plugin:prettier/recommended"],
-  ignorePatterns: ["vendor/**", "metrics/**", "status/**"],
+  ignorePatterns: ["vendor/**", "metrics/**"],
   rules: {
     "import/no-extraneous-dependencies": [
       "error",
