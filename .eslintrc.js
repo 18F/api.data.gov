@@ -13,7 +13,10 @@ module.exports = {
     "import/no-extraneous-dependencies": [
       "error",
       {
-        devDependencies: ["postcss.config.js"],
+        devDependencies: [
+          "postcss.config.js",
+          "postcss-bootstrap/postcss.config.js",
+        ],
       },
     ],
   },
