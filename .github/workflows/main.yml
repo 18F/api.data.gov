@@ -61,9 +61,6 @@ jobs:
       # Yarn dependencies
       - name: Yarn Install
         run: yarn install
-      # - name: Metrics Yarn Install
-      #   working-directory: metrics
-      #   run: yarn install
 
       # Build
       - name: Build

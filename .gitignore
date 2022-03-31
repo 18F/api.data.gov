@@ -25,3 +25,5 @@
 /public/
 /resources/
 /.hugo_build.lock
+
+/assets/jsconfig.json

@@ -8,7 +8,8 @@ module.exports = {
     ecmaVersion: 12,
   },
   extends: ["airbnb-base", "plugin:prettier/recommended"],
-  ignorePatterns: ["vendor/**", "metrics/**"],
+  plugins: ["simple-import-sort"],
+  ignorePatterns: ["vendor/**"],
   rules: {
     "import/no-extraneous-dependencies": [
       "error",
@@ -19,5 +20,7 @@ module.exports = {
         ],
       },
     ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
   },
 };

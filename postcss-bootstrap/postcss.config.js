@@ -9,7 +9,7 @@ module.exports = {
       baseCssVariable: "--api-umbrella-rem-relative-base",
     }),
     PrefixWrap(".api-data-gov-container", {
-      ignoredSelectors: [":root"],
+      ignoredSelectors: [":root", "body.api-metrics"],
     }),
   ],
 };

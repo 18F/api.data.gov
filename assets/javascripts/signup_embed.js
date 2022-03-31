@@ -1,8 +1,8 @@
+// eslint-disable-next-line import/no-unresolved
+import * as params from "@params";
 import A11yDialog from "a11y-dialog";
 import escapeHtml from "escape-html";
 import serialize from "form-serialize";
-// eslint-disable-next-line import/no-unresolved
-import * as params from "@params";
 
 const styleEl = document.createElement("link");
 styleEl.rel = "stylesheet";
