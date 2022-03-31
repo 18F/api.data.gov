@@ -3,6 +3,26 @@ name: CI
 on: [push, pull_request]
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          cache: yarn
+          cache-dependency-path: "**/yarn.lock"
+
+      - name: Yarn Install
+        run: yarn install
+
+      - name: ESLint
+        run: yarn run lint
+
+      - name: Prettier Check
+        run: yarn run prettier:check
+
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -44,12 +64,6 @@ jobs:
       # - name: Metrics Yarn Install
       #   working-directory: metrics
       #   run: yarn install
-
-      - name: ESLint
-        run: yarn run lint
-
-      - name: Prettier Check
-        run: yarn run prettier:check
 
       # Build
       - name: Build
