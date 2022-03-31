@@ -45,6 +45,12 @@ jobs:
       #   working-directory: metrics
       #   run: yarn install
 
+      - name: ESLint
+        run: yarn run lint
+
+      - name: Prettier Check
+        run: yarn run prettier:check
+
       # Build
       - name: Build
         env:
