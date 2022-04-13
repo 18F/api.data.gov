@@ -6,7 +6,12 @@ hidden_child: true
 
 - [Configuring your first API backend](#configuring-your-first-api-backend)
 - [Using your own domain name](#using-your-own-domain-name)
+  - [Setting up HTTPS on your own domain name](#setting-up-https-on-your-own-domain-name)
+  - [Hosting website content on your CNAMEd subdomain](#hosting-website-content-on-your-cnamed-subdomain)
 - [Securing your API backend](#securing-your-api-backend)
+  - [HTTP Basic Authentication](#http-basic-authentication)
+  - [Secret HTTP Header Token](#secret-http-header-token)
+  - [IP Based Restrictions](#ip-based-restrictions)
 - [Managing admins](#managing-admins)
 - [Filtering analytics data for just your APIs](#filtering-analytics-data-for-just-your-apis)
 - [Caching API responses](#caching-api-responses)
@@ -312,7 +317,14 @@ You can embed the API key signup form for api.data.gov on your own developer hub
        </script>
        <noscript>Please enable JavaScript to signup for an <a href="http://api.data.gov/">api.data.gov</a> API key.</noscript>
        ```
-3. Navigate to the webpage where you placed this snippet. You should see a signup form and be able to signup for an API key completely on your own site. Run into any issues? [File an issue](https://github.com/18F/api.data.gov/issues).
+3. If your site uses a Content Security Policy, allow https://api.data.gov for both `script-src` and `connect-src`.
+
+    - Here is an example - your CSP will likely include other entries already: 
+  
+    ```
+    Content-Security-Policy: default-src 'self' script-src 'self' https://api.data.gov object-src 'self' ; style-src 'self' img-src 'unsafe-inline' 'self' font-src 'unsafe-inline' 'self' connect-src 'self' https://api.data.gov; frame-src 'self';
+    ```
+4.  Navigate to the webpage where you placed the snippet. You should see a signup form and be able to signup for an API key completely on your own site. Run into any issues? [File an issue](https://github.com/18F/api.data.gov/issues).
 
 ## Linking to your own contact/support address
 
