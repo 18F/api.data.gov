@@ -317,12 +317,12 @@ You can embed the API key signup form for api.data.gov on your own developer hub
        </script>
        <noscript>Please enable JavaScript to signup for an <a href="http://api.data.gov/">api.data.gov</a> API key.</noscript>
        ```
-3. If your site uses a Content Security Policy, allow https://api.data.gov for both `script-src` and `connect-src`.
+3. If your site uses a Content Security Policy, allow https://api.data.gov for `script-src`, `connect-src`, `font-src`, and `style-src`.
 
     - Here is an example - your CSP will likely include other entries already: 
   
     ```
-    Content-Security-Policy: default-src 'self' script-src 'self' https://api.data.gov object-src 'self' ; style-src 'self' img-src 'unsafe-inline' 'self' font-src 'unsafe-inline' 'self' connect-src 'self' https://api.data.gov; frame-src 'self';
+    Content-Security-Policy: default-src 'self' script-src 'self' https://api.data.gov object-src 'self' ; style-src 'self' https://api.data.gov img-src 'unsafe-inline' 'self' font-src 'self' https://api.data.gov connect-src 'self' https://api.data.gov; frame-src 'self';
     ```
 4.  Navigate to the webpage where you placed the snippet. You should see a signup form and be able to signup for an API key completely on your own site. Run into any issues? [File an issue](https://github.com/18F/api.data.gov/issues).
 
