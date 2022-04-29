@@ -147,3 +147,10 @@ end
 if(build?)
   ENV["WEB_SITE_ROOT"] ||= "https://api.data.gov"
 end
+
+after_build do
+  # Remove the Glyphicons font-face from the compiled CSS. We're not using this
+  # font, but it's presence causes unnecessary CSP warnings.
+  embed_css_path = Dir.glob(File.join(config[:build_dir], "static/stylesheets/embed-*.css"))[0]
+  File.write(embed_css_path, File.read(embed_css_path).gsub(/@font-face{[^}]*}/, ""))
+end
