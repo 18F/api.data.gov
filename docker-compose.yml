@@ -1,0 +1,13 @@
+version: "2.4"
+services:
+  web:
+    build:
+      context: .
+    volumes:
+      - .:/app
+      - yarn_cache:/usr/local/node_modules
+    ports:
+      - "4490:4490"
+      - "4491:4491"
+volumes:
+  yarn_cache:

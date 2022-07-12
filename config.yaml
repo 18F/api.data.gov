@@ -1,6 +1,6 @@
 baseURL: /
 languageCode: en-us
-title: My New Hugo Site
+title: api.data.gov
 params:
   githubRepoUrl: https://github.com/NREL/api-umbrella
   apiUmbrellaContactApiKey: DEMO_KEY
