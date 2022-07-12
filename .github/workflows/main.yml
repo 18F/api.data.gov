@@ -80,30 +80,29 @@ jobs:
           path: ./public
 
   deploy:
-    if: success() && github.repository_owner == '18F' && github.ref == 'refs/heads/signup-form-updates'
+    if: success() && github.repository_owner == '18F' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     container:
       image: rclone/rclone:1.57.0
     strategy:
       matrix:
-        # deploy_env: [production, staging]
-        deploy_env: [staging]
+        deploy_env: [production, staging]
         include:
-          # - deploy_env: production
-          #   bucket_name_secret_name: BUCKET_NAME
+          - deploy_env: production
+            bucket_name_secret_name: BUCKET_NAME
           - deploy_env: staging
             bucket_name_secret_name: STAGING_BUCKET_NAME
-          # - deploy_env: production
-          #   aws_access_key_id_secret_name: AWS_ACCESS_KEY_ID
+          - deploy_env: production
+            aws_access_key_id_secret_name: AWS_ACCESS_KEY_ID
           - deploy_env: staging
             aws_access_key_id_secret_name: STAGING_AWS_ACCESS_KEY_ID
-          # - deploy_env: production
-          #   aws_secret_access_key_secret_name: AWS_SECRET_ACCESS_KEY
+          - deploy_env: production
+            aws_secret_access_key_secret_name: AWS_SECRET_ACCESS_KEY
           - deploy_env: staging
             aws_secret_access_key_secret_name: STAGING_AWS_SECRET_ACCESS_KEY
-          # - deploy_env: production
-          #   aws_default_region_secret_name: AWS_DEFAULT_REGION
+          - deploy_env: production
+            aws_default_region_secret_name: AWS_DEFAULT_REGION
           - deploy_env: staging
             aws_default_region_secret_name: STAGING_AWS_DEFAULT_REGION
     steps:
