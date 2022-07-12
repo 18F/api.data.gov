@@ -28,7 +28,7 @@ const defaultOptions = {
   exampleApiUrl: `${webSiteRoot}/example.json?api_key={{api_key}}`,
   signupConfirmationMessage: "",
   sendWelcomeEmail: true,
-  showIntroText: true,
+  showIntroText: false,
   showRequiredAsteriskExplainText: true,
   showFirstNameInput: true,
   showLastNameInput: true,

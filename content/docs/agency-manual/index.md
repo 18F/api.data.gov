@@ -297,8 +297,8 @@ You can embed the API key signup form for api.data.gov on your own developer hub
 
            // OPTIONAL: Show an intro paragraph explaining what the signup form is
            // for.
-           // Defaults to true.
-           // showIntroText: false,
+           // Defaults to false.
+           // showIntroText: true,
 
            // OPTIONAL: Show a paragraph explaining that the asterisk denotes required
            // fields in the form.
