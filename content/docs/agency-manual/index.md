@@ -6,7 +6,12 @@ bodyClass: docs_agency-manual
 
 - [Configuring your first API backend](#configuring-your-first-api-backend)
 - [Using your own domain name](#using-your-own-domain-name)
+  - [Setting up HTTPS on your own domain name](#setting-up-https-on-your-own-domain-name)
+  - [Hosting website content on your CNAMEd subdomain](#hosting-website-content-on-your-cnamed-subdomain)
 - [Securing your API backend](#securing-your-api-backend)
+  - [HTTP Basic Authentication](#http-basic-authentication)
+  - [Secret HTTP Header Token](#secret-http-header-token)
+  - [IP Based Restrictions](#ip-based-restrictions)
 - [Managing admins](#managing-admins)
 - [Filtering analytics data for just your APIs](#filtering-analytics-data-for-just-your-apis)
 - [Caching API responses](#caching-api-responses)
@@ -334,7 +339,28 @@ You can embed the API key signup form for api.data.gov on your own developer hub
        </script>
        <noscript>Please enable JavaScript to signup for an <a href="https://api.data.gov/">api.data.gov</a> API key.</noscript>
        ```
-3. Navigate to the webpage where you placed this snippet. You should see a signup form and be able to signup for an API key completely on your own site. Run into any issues? [File an issue](https://github.com/18F/api.data.gov/issues).
+3. If your site uses a Content Security Policy, allow the following directives:
+
+    - `script-src 'unsafe-inline' https://api.data.gov`: The `'unsafe-inline'` directive is for embedding the `<script>` tag directly into your HTML page, while the `https://api.data.gov` directive is for loading the remote javascript that contains the signup form logic.
+    - `style-src https://api.data.gov`: Allows for loading the CSS file from api.data.gov to style the embedded widget.
+    - `img-src data:`: Allows for inline `data:` icons the api.data.gov stylesheet uses.
+    - `connect-src https://api.data.gov`: Allows for making HTTP requests to api.data.gov to perform the signup.
+
+    Here is minimal example, although your CSP will likely include other entries already:
+
+    - HTML meta tag:
+
+      ```html
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://api.data.gov; style-src 'self' https://api.data.gov; img-src 'self' data:; connect-src 'self' https://api.data.gov" />
+      ```
+
+    - HTTP header:
+
+      ```
+      Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://api.data.gov; style-src 'self' https://api.data.gov; img-src 'self' data:; connect-src 'self' https://api.data.gov;
+      ```
+
+4.  Navigate to the webpage where you placed the snippet. You should see a signup form and be able to signup for an API key completely on your own site. Run into any issues? [File an issue](https://github.com/18F/api.data.gov/issues).
 
 ## Linking to your own contact/support address
 
