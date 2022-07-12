@@ -138,7 +138,7 @@ if (options.showUseDescriptionInput) {
   signupFormTemplate += `
     <div class="form-group use-description-form-group">
       <label class="form-label" for="user_use_description">How will you use the APIs? (optional)</label>
-      <textarea class="form-control" cols="40" id="user_use_description" name="user[use_description]" rows="3"></textarea>
+      <textarea class="form-control" cols="40" id="user_use_description" name="user[use_description]" rows="2"></textarea>
     </div>
   `;
 }
