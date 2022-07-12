@@ -1,0 +1,24 @@
+{{ $css := resources.Get "stylesheets/signup_embed.scss" | resources.ToCSS (dict "includePaths" (slice "node_modules") "outputStyle" "compressed") | resources.PostCSS | resources.Fingerprint -}}
+{{ $js := resources.Get "javascripts/signup_embed.js" | js.Build (dict "targetPath" "static/javascripts/signup_embed.js" "params" (dict "stylesheetPath" $css.Permalink "webSiteRoot" .Site.BaseURL)) | resources.Minify -}}
+{{ $js := $js.Content | resources.FromString "static/javascripts/signup_embed.js" }}
+
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var apiUmbrellaSignupOptions = {
+    registrationSource: 'web',
+    apiKey: '{{ .Site.Params.apiUmbrellaSignupApiKey }}',
+    verifyEmail: true,
+    signupConfirmationMessage: '<h2>What Next?</h2>' +
+      '<ul>' +
+        '<li>Explore our <a href="/docs/">available Web services</a>.</li>' +
+        '<li>Need more help? <a href="/contact/">Contact us</a>.</li>' +
+      '</ul>'
+  };
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var apiUmbrella = document.createElement('script'); apiUmbrella.type = 'text/javascript'; apiUmbrella.async = true;
+    apiUmbrella.src = '{{ $js.RelPermalink }}';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(apiUmbrella);
+  })();
+</script>

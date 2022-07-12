@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+  {{- partial "head.html" . -}}
+  <body class="archive category {{ .Params.bodyClass }}">
+    {{- partial "header.html" . -}}
+    {{- block "main" . }}{{- end }}
+    {{- partial "footer.html" . -}}
+  </body>
+</html>

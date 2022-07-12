@@ -1,0 +1,47 @@
+baseURL: /
+languageCode: en-us
+title: api.data.gov
+params:
+  githubRepoUrl: https://github.com/NREL/api-umbrella
+  apiUmbrellaContactApiKey: DEMO_KEY
+  apiUmbrellaSignupApiKey: DEMO_KEY
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: github
+menu:
+  main:
+    - identifier: docs
+      name: API Docs
+      pageRef: /docs/
+    - identifier: signup
+      name: API Key Signup
+      pageRef: /signup.html
+sectionPagesMenu: main
+module:
+  mounts:
+    - source: content
+      target: content
+    - source: static
+      target: static
+    - source: layouts
+      target: layouts
+    - source: data
+      target: data
+    - source: assets
+      target: assets
+    - source: i18n
+      target: i18n
+    - source: archetypes
+      target: archetypes
+    - source: ./vendor/data.gov/roots-nextdatagov/assets/img/logo.png
+      target: static/img/logo.png
+disable404: true
+security:
+  exec:
+    # Add HOME to allowed environment variables list for compatibility with
+    # asdf-nodejs for postcss.
+    osEnv:
+      - "(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|HOME)$"

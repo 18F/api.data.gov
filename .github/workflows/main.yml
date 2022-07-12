@@ -3,6 +3,26 @@ name: CI
 on: [push, pull_request]
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          cache: yarn
+          cache-dependency-path: "**/yarn.lock"
+
+      - name: Yarn Install
+        run: yarn install
+
+      - name: ESLint
+        run: yarn run lint
+
+      - name: Prettier Check
+        run: yarn run prettier:check
+
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -14,9 +34,9 @@ jobs:
           - deploy_env: staging
             web_site_root_secret_name: STAGING_WEB_SITE_ROOT
           - deploy_env: production
-            api_key_secret_name: API_KEY
+            signup_api_key_secret_name: API_KEY
           - deploy_env: staging
-            api_key_secret_name: STAGING_API_KEY
+            signup_api_key_secret_name: STAGING_API_KEY
           - deploy_env: production
             contact_api_key_secret_name: CONTACT_API_KEY
           - deploy_env: staging
@@ -26,40 +46,45 @@ jobs:
         with:
           submodules: recursive
 
-      - uses: ruby/setup-ruby@v1
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
         with:
-          ruby-version: "2.7"
-          bundler-cache: true
+          hugo-version: "0.101.0"
+          extended: true
 
       - uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "16"
           cache: yarn
           cache-dependency-path: "**/yarn.lock"
 
       # Yarn dependencies
       - name: Yarn Install
         run: yarn install
-      - name: Metrics Yarn Install
-        working-directory: metrics
-        run: yarn install
 
       # Build
       - name: Build
         env:
           WEB_SITE_ROOT: ${{ secrets[matrix.web_site_root_secret_name] }}
-          API_KEY: ${{ secrets[matrix.api_key_secret_name] }}
+          SIGNUP_API_KEY: ${{ secrets[matrix.signup_api_key_secret_name] }}
           CONTACT_API_KEY: ${{ secrets[matrix.contact_api_key_secret_name] }}
-        run: bundle exec rake
+        run: |
+          HUGO_PARAMS_APIUMBRELLACONTACTAPIKEY="$CONTACT_API_KEY" \
+          HUGO_PARAMS_APIUMBRELLASIGNUPAPIKEY="$SIGNUP_API_KEY" \
+          hugo \
+            --minify \
+            --baseURL "$WEB_SITE_ROOT"
       - uses: actions/upload-artifact@v1
         with:
           name: build-${{ matrix.deploy_env }}
-          path: ./build
+          path: ./public
 
   deploy:
-    if: success() && github.ref == 'refs/heads/main'
+    if: success() && github.repository_owner == '18F' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
+    container:
+      image: rclone/rclone:1.57.0
     strategy:
       matrix:
         deploy_env: [production, staging]
@@ -81,50 +106,53 @@ jobs:
           - deploy_env: staging
             aws_default_region_secret_name: STAGING_AWS_DEFAULT_REGION
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v1
-        with:
-          python-version: "3.8"
-      - uses: dschep/install-pipenv-action@v1
-
-      # Python deployment dependencies
-      - name: Pipenv Cache
-        uses: actions/cache@v1
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pipenv-
-      - name: Pipenv Install
-        run: pipenv install
-
       # Deploy to S3 bucket.
       - uses: actions/download-artifact@v1
         with:
           name: build-${{ matrix.deploy_env }}
-          path: ./build
+          path: ./public
       - name: Deploy
         env:
-          BUCKET_NAME: ${{ secrets[matrix.bucket_name_secret_name] }}
-          AWS_ACCESS_KEY_ID: ${{ secrets[matrix.aws_access_key_id_secret_name] }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets[matrix.aws_secret_access_key_secret_name] }}
-          AWS_DEFAULT_REGION: ${{ secrets[matrix.aws_default_region_secret_name] }}
+          RCLONE_S3_ACCESS_KEY_ID: ${{ secrets[matrix.aws_access_key_id_secret_name] }}
+          RCLONE_S3_SECRET_ACCESS_KEY: ${{ secrets[matrix.aws_secret_access_key_secret_name] }}
+          RCLONE_S3_REGION: ${{ secrets[matrix.aws_default_region_secret_name] }}
+          S3_DEST: ":s3:${{ secrets[matrix.bucket_name_secret_name] }}/"
         run: |
+          # Identify cache-busted assets by the fingerprint in the filename.
+          cache_busted_assets="/{images,javascripts,stylesheets}/**.{\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w}.*"
           # Sync all cache-busted assets with long cache-control expirations.
-          pipenv run aws s3 sync ./build/ "s3://${BUCKET_NAME}/" \
-            --exclude '*' \
-            --include 'static/fonts/*' \
-            --include 'static/img/*' \
-            --include 'static/javascripts/all-*' \
-            --include 'static/javascripts/ie_lt_9-*' \
-            --include 'static/stylesheets/*' \
-            --include 'metrics/css/*' \
-            --include 'metrics/js/*' \
-            --cache-control 'public, max-age=31536000, immutable'
+          rclone \
+            copy \
+            --verbose \
+            --checksum \
+            --no-update-modtime \
+            --s3-no-check-bucket \
+            --s3-no-head \
+            --header-upload "Cache-Control: public, max-age=31536000, immutable" \
+            --include "$cache_busted_assets" \
+            ./public/ \
+            "$S3_DEST"
           # Sync the remaining files, disallowing caching on those.
-          pipenv run aws s3 sync ./build/ "s3://${BUCKET_NAME}/" --cache-control 'max-age=0, no-cache, must-revalidate'
-          # Run the sync one more time to delete old files. Run this separately
-          # since otherwise --deletes occur first:
-          # https://github.com/aws/aws-cli/issues/1417
-          sleep 5
-          pipenv run aws s3 sync ./build/ "s3://${BUCKET_NAME}/" --cache-control 'max-age=0, no-cache, must-revalidate' --delete
+          rclone \
+            copy \
+            --verbose \
+            --checksum \
+            --no-update-modtime \
+            --s3-no-check-bucket \
+            --s3-no-head \
+            --header-upload "Cache-Control: no-cache, max-age=0, must-revalidate" \
+            ./public/ \
+            "$S3_DEST"
+          # Run the sync one more time to delete old files. Keep old asset
+          # files around, so that if old HTML pages continue to load for a few
+          # minutes, they can still load older assets.
+          rclone \
+            sync \
+            --verbose \
+            --checksum \
+            --no-update-modtime \
+            --s3-no-check-bucket \
+            --s3-no-head \
+            --exclude "$cache_busted_assets" \
+            ./public/ \
+            "$S3_DEST"

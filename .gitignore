@@ -7,9 +7,6 @@
 # Ignore local virtualenv (for awscli)
 /vendor/venv
 
-# Ignore the bundler binstubs
-/bin
-
 # Ignore the build directory
 /build
 
@@ -21,3 +18,11 @@
 *.log
 
 /node_modules
+
+/public/
+/resources/
+/.hugo_build.lock
+
+/assets/jsconfig.json
+
+/docker-compose.override.yml

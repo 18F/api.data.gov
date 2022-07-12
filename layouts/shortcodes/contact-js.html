@@ -1,0 +1,2 @@
+{{ $js := resources.Get "javascripts/contact.js" | js.Build | resources.Minify | resources.Fingerprint -}}
+<script type="text/javascript" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
