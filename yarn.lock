@@ -373,10 +373,10 @@ csstype@^2.6.8:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.20.tgz#9229c65ea0b260cf4d3d997cb06288e36a8d6dda"
   integrity sha512-/WwNkdXfckNgw6S5R125rrW8ez139lBHWouiBvX8dfMFtcn6V81REDqnH7+CRpRipfYlyU1CmOnOxrmGcFOjeA==
 
-datatables.net-bs5@^1.11.5:
-  version "1.11.5"
-  resolved "https://registry.yarnpkg.com/datatables.net-bs5/-/datatables.net-bs5-1.11.5.tgz#593608d54aeb7f91bcbd80bde304155ba3795663"
-  integrity sha512-1zyh972GtuK1uAb9h8nP3jJ7f/3UgCDq69LAaZS2bVd4mEHECJ6vrZLacxrkOHOs/q/H3v5sEMeZ46vXz8ox4w==
+datatables.net-bs5@^1.12.1:
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/datatables.net-bs5/-/datatables.net-bs5-1.12.1.tgz#b05d4bcaed77f6b77df0b50eaf1d5ec8e5d476bd"
+  integrity sha512-CcQCImfmH4YZk7I0aC0kTiNPyfHJ2ueGgOh/kFB9KqsZD8bNJy2A88gC6hn9A7TbmmenOL+K3Q1ti7G8yqi8SQ==
   dependencies:
     datatables.net ">=1.11.3"
     jquery ">=1.7"
