@@ -157,10 +157,10 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.31.tgz#c90de7126d833dcd3a4c7534d534be2fb41faa4e"
   integrity sha512-ymN2pj6zEjiKJZbrf98UM2pfDd6F2H7ksKw7NDt/ZZ1fh5Ei39X5tABugtT03ZRlWd9imccoK0hE8hpjpU7irQ==
 
-a11y-dialog@^7.3.0:
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/a11y-dialog/-/a11y-dialog-7.4.0.tgz#0641256a17925a61f07ce374db3515177c3cb9c8"
-  integrity sha512-NrLXedddjbIxvapn0ac488DkVuWZjCNxLxHxXPUxjNF7crdHJ4dquPwJ89dV21IPQsXtA5YHNn++Mxouu+ciuQ==
+a11y-dialog@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/a11y-dialog/-/a11y-dialog-7.5.0.tgz#1540627b18e3b1e266e0dcbdb5d1e7ac52079fe1"
+  integrity sha512-UF7cy4lfZQtvjRV5N4xdWFba+Pb1qW6FPp0p58dLjMTJ4PwIGGekTbmqUt3etBBRo9HbTqhlNsXQhzIuXeJpng==
   dependencies:
     focusable-selectors "^0.3.1"
 
