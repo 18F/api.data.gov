@@ -30,7 +30,7 @@
     "postcss-cli": "^9.1.0",
     "postcss-prefixwrap": "^1.29.0",
     "postcss-relative-rem": "^0.1.0",
-    "prettier": "^2.3.2",
+    "prettier": "^2.7.1",
     "prettier-plugin-go-template": "^0.0.11"
   }
 }
