@@ -97,7 +97,7 @@ if (options.showFirstNameInput) {
     </div>
   `;
 } else {
-  signupFormTemplate += `<input type="hidden" name="user[user_first_name]" value="${escapeHtml(
+  signupFormTemplate += `<input type="hidden" name="user[first_name]" value="${escapeHtml(
     options.registrationSource
   )} User" />`;
 }
@@ -111,7 +111,7 @@ if (options.showLastNameInput) {
     </div>
   `;
 } else {
-  signupFormTemplate += `<input type="hidden" name="user[user_last_name]" value="${escapeHtml(
+  signupFormTemplate += `<input type="hidden" name="user[last_name]" value="${escapeHtml(
     options.registrationSource
   )} User" />`;
 }
