@@ -1,0 +1,203 @@
+<!doctype html>
+<base href="#">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h2>Example:</h2>
+      <div class="card" style="max-width: 30rem; border-width: 2px; border-style: dashed; padding: 1rem;">
+        <div id="apidatagov_signup">Loading signup form...</div>
+        <script type="text/javascript">
+         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+         var apiUmbrellaSignupOptions = {
+           // Pick a short, unique name to identify your site, like 'gsa-auctions'
+           // in this example.
+           registrationSource: 'open.fda.gov',
+
+           // Enter the API key you signed up for and specially configured for this
+           // API key signup embed form.
+           apiKey: '8Mndjk7k8ygsU4rM1lwBltMzet1FEAIuZeaqzEqV',
+
+           // Provide a URL or e-mail address to be used for customer support.
+           //
+           // The format for e-mail addresses can be given as either
+           // 'example@example.com' or 'mailto:example@example.com'.
+           contactUrl: 'https://agency.gov/contact',
+
+           // Provide the name of your developer site. This will appear in the
+           // subject of the welcome e-mail as "Your {{siteName}} API key".
+           siteName: 'Agency Developer Network',
+
+           // Provide a sender name for who the welcome email appears from. The
+           // actual address will be "noreply@api.data.gov", but this will
+           // change the name of the displayed sender in this fashion:
+           // "{{emailFromName}} <noreply@api.data.gov>".
+           emailFromName: 'Agency Developer Network',
+
+           // Provide an example URL you want to show to users after they signup.
+           // This can be any API endpoint on your server, and you can use the
+           // special {{api_key}} variable to automatically substitute in the API
+           // key the user just signed up for.
+           exampleApiUrl: 'https://api.data.gov/gsa/auctions?api_key={{api_key}}&format=JSON',
+
+           // OPTIONAL: Provide extra content to display on the signup confirmation
+           // page. This will be displayed below the user's API key and the example
+           // API URL are shown. HTML is allowed. Defaults to ""
+           // signupConfirmationMessage: '',
+
+           // OPTIONAL: Set to true to verify the user's e-mail address by only
+           // sending them their API key via e-mail, and not displaying it on the
+           // signup confirmation web page. Defaults to false.
+           verifyEmail: true,
+
+           // OPTIONAL: Set to false to disable sending a welcome e-mail to the
+           // user after signing up. Defaults to true.
+           // sendWelcomeEmail: false,
+
+           // OPTIONAL: Show an intro paragraph explaining what the signup form is
+           // for.
+           // Defaults to false.
+           showIntroText: false,
+
+           // OPTIONAL: Show a paragraph explaining that the asterisk denotes required
+           // fields in the form.
+           // Defaults to true.
+           // showRequiredAsteriskExplainText: false,
+
+           // OPTIONAL: Show the text input requesting the user's first name.
+           // Defaults to true.
+           showFirstNameInput: false,
+
+           // OPTIONAL: Show the text input requesting the user's last name.
+           // Defaults to true.
+           showLastNameInput: false,
+
+           // OPTIONAL: Show the textarea input asking how the user will use the APIs.
+           // Defaults to true.
+           showUseDescriptionInput: false,
+
+           // OPTIONAL: Provide an extra input field to ask for the user's website.
+           // Defaults to false.
+           // showWebsiteInput: true,
+
+           // OPTIONAL: Provide an extra checkbox asking the user to agree to terms
+           // and conditions before signing up. Defaults to false.
+           // showTermsInput: true,
+
+           // OPTIONAL: If the terms & conditions checkbox is enabled, link to this
+           // URL for your API's terms & conditions. Defaults to "".
+           // termsUrl: "https://agency.gov/api-terms/",
+         };
+
+         /* * * DON'T EDIT BELOW THIS LINE * * */
+         (function() {
+           var apiUmbrella = document.createElement('script'); apiUmbrella.type = 'text/javascript'; apiUmbrella.async = true;
+           apiUmbrella.src = 'https://api.data.gov/static/javascripts/signup_embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(apiUmbrella);
+         })();
+        </script>
+        <noscript>Please enable JavaScript to signup for an <a href="https://api.data.gov/">api.data.gov</a> API key.</noscript>
+      </div>
+
+      <hr>
+
+      <pre>
+&lt;div id="apidatagov_signup"&gt;Loading signup form...&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+ /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+ var apiUmbrellaSignupOptions = {
+   // Pick a short, unique name to identify your site, like 'gsa-auctions'
+   // in this example.
+   registrationSource: 'open.fda.gov',
+
+   // Enter the API key you signed up for and specially configured for this
+   // API key signup embed form.
+   apiKey: 'YOUR_KEY_HERE',
+
+   // Provide a URL or e-mail address to be used for customer support.
+   //
+   // The format for e-mail addresses can be given as either
+   // 'example@example.com' or 'mailto:example@example.com'.
+   contactUrl: 'https://agency.gov/contact',
+
+   // Provide the name of your developer site. This will appear in the
+   // subject of the welcome e-mail as "Your {{siteName}} API key".
+   siteName: 'Agency Developer Network',
+
+   // Provide a sender name for who the welcome email appears from. The
+   // actual address will be "noreply@api.data.gov", but this will
+   // change the name of the displayed sender in this fashion:
+   // "{{emailFromName}} &lt;noreply@api.data.gov&gt;".
+   emailFromName: 'Agency Developer Network',
+
+   // Provide an example URL you want to show to users after they signup.
+   // This can be any API endpoint on your server, and you can use the
+   // special {{api_key}} variable to automatically substitute in the API
+   // key the user just signed up for.
+   exampleApiUrl: 'https://api.data.gov/gsa/auctions?api_key={{api_key}}&format=JSON',
+
+   // OPTIONAL: Provide extra content to display on the signup confirmation
+   // page. This will be displayed below the user's API key and the example
+   // API URL are shown. HTML is allowed. Defaults to ""
+   // signupConfirmationMessage: '',
+
+   // OPTIONAL: Set to true to verify the user's e-mail address by only
+   // sending them their API key via e-mail, and not displaying it on the
+   // signup confirmation web page. Defaults to false.
+   verifyEmail: true,
+
+   // OPTIONAL: Set to false to disable sending a welcome e-mail to the
+   // user after signing up. Defaults to true.
+   // sendWelcomeEmail: false,
+
+   // OPTIONAL: Show an intro paragraph explaining what the signup form is
+   // for.
+   // Defaults to false.
+   showIntroText: false,
+
+   // OPTIONAL: Show a paragraph explaining that the asterisk denotes required
+   // fields in the form.
+   // Defaults to true.
+   // showRequiredAsteriskExplainText: false,
+
+   // OPTIONAL: Show the text input requesting the user's first name.
+   // Defaults to true.
+   showFirstNameInput: false,
+
+   // OPTIONAL: Show the text input requesting the user's last name.
+   // Defaults to true.
+   showLastNameInput: false,
+
+   // OPTIONAL: Show the textarea input asking how the user will use the APIs.
+   // Defaults to true.
+   showUseDescriptionInput: false,
+
+   // OPTIONAL: Provide an extra input field to ask for the user's website.
+   // Defaults to false.
+   // showWebsiteInput: true,
+
+   // OPTIONAL: Provide an extra checkbox asking the user to agree to terms
+   // and conditions before signing up. Defaults to false.
+   // showTermsInput: true,
+
+   // OPTIONAL: If the terms & conditions checkbox is enabled, link to this
+   // URL for your API's terms & conditions. Defaults to "".
+   // termsUrl: "https://agency.gov/api-terms/",
+ };
+
+ /* * * DON'T EDIT BELOW THIS LINE * * */
+ (function() {
+   var apiUmbrella = document.createElement('script'); apiUmbrella.type = 'text/javascript'; apiUmbrella.async = true;
+   apiUmbrella.src = 'https://api.data.gov/static/javascripts/signup_embed.js';
+   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(apiUmbrella);
+ })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to signup for an &lt;a href="https://api.data.gov/"&gt;api.data.gov&lt;/a&gt; API key.&lt;/noscript&gt;
+      </pre>
+    </div>
+  </body>
+</html>
