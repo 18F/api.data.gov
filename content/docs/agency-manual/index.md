@@ -62,7 +62,7 @@ If you're an existing agency partner who has previously sent us custom SSL certi
 
 If you're migrating an existing domain to use our automatic SSL, there's a couple of technical compatibility notes to be aware of, but in practice, we haven't seen many compatibility issues in the real world:
 
-- Clients must support [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication): Nearly all clients support SNI, so in our experience, this hasn't been much of a compatibility issue. *(If you must be compatible with clients that do not support SNI, there are some workarounds, so let us know.)* 
+- Clients must support [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication): Nearly all clients support SNI, so in our experience, this hasn't been much of a compatibility issue. *(If you must be compatible with clients that do not support SNI, there are some workarounds, so let us know.)*
 - Clients must trust [Let's Encrypt certificates](https://letsencrypt.org/docs/certificate-compatibility/): Nearly all clients support Let's Encrypt's certificates, so in our experience, this hasn't been much of a compatibility issue. Until July 2016, Java based API clients might have lacked support, but the latest JVM updates now trust Let's Encrypt.
 
 ### Hosting website content on your CNAMEd subdomain
@@ -153,14 +153,14 @@ One of the common approaches is to only allow api.data.gov's server IP addresses
 
 ## Managing admins
 
-If you need to add, edit, or remove agency admin accounts (i.e. other users who can view analytics, set rate limits, etc.), please email [api.data.gov@gsa.gov](mailto:api.data.gov@gsa.gov) and we'll make the change for you right away.   
+If you need to add, edit, or remove agency admin accounts (i.e. other users who can view analytics, set rate limits, etc.), please email [api.data.gov@gsa.gov](mailto:api.data.gov@gsa.gov) and we'll make the change for you right away.
 
-When you email, be sure to include the email address of the user account(s) at issue and to clarify whether they should have: 
+When you email, be sure to include the email address of the user account(s) at issue and to clarify whether they should have:
 * Agency-wide view-only access to the API analytics (recommended)
 * API-specific view-only access to the API analytics of a certain API
 * Configuration access to manage the api.data.gov configuration of a certain API
 
-We will write you back shortly thereafter to confirm the change.  
+We will write you back shortly thereafter to confirm the change.
 
 ## Filtering analytics data for just your APIs
 
@@ -231,7 +231,7 @@ You can embed the API key signup form for api.data.gov on your own developer hub
       - Rate Limit: Custom rate limits. Define custom per minute and per hour rate limits (see screenshot below for an example)
       - Limit By: Rate limit by IP address
       - Roles: `api-umbrella-key-creator`
-        - This should be the only role assigned to this key.  Do not add any other roles to keys that are used for your signup forms. 
+        - This should be the only role assigned to this key.  Do not add any other roles to keys that are used for your signup forms.
       - Restrict Access to HTTP Referers: `*//your-site.gov/*`
         - This must be the domain name where you'll embed the signup form on. You can list multiple domains separated by new lines, so if you have multiple places where your signup form is embedded (particularly during development or testing), you may specify multiple acceptable referrers:
            ```
@@ -457,7 +457,6 @@ Examples of Swagger docs for APIs using api.data.gov:
 * [FCC ECFS API](https://www.fcc.gov/ecfs/help/public_api)
 * [FEC](https://api.open.fec.gov/developers/)
 * [GSA Digital Signature API](https://gsa.github.io/DSSAPIDocumentation/api-docs/console/)
-* [GSA Digital Registry](https://usdigitalregistry.digitalgov.gov/#swagger-api-docs)
 * [GSA SFTools](https://sftool.gov/developer/documentation)
 * [GovInfo](https://api.govinfo.gov/docs/)
 * [NPS](https://www.nps.gov/subjects/developer/api-documentation.htm)
@@ -513,20 +512,20 @@ Using the `query` authentication mechanism should work in the Swagger UI without
 
 ## Best practices when deprecating an API
 
-* Beginning at least 1-2 months ahead of the planned deprecation date, look up all of the api keys that have used the API over the past 3-6 months and export their emails addresses.  Notify them in an email about the upcoming date.  
+* Beginning at least 1-2 months ahead of the planned deprecation date, look up all of the api keys that have used the API over the past 3-6 months and export their emails addresses.  Notify them in an email about the upcoming date.
 * In the following days and weeks, monitor who is still using the API right now.  Send them a follow up email.
-* When it comes time to deprecate the API, 'tap the brakes' first.  Slightly modify the API backend configuration to break your api (e.g. insert a character in the Host settings).  Then, a few hours later, undo the change and fix the API.  This would be a good opportunity to email whoever is still using your API one last time.  Then, a day or two later, break it for longer - perhaps 12-24 hours, then fix it again.  Wait another day or three.  Then, finally turn if off for good.  This gives any developers who didn't see your email for whatever reason to notice their app breaking and reach out to get in touch.  
-* It's also a good practice to post a notice on the API docs page or developer hub about the upcoming deprecation.  
+* When it comes time to deprecate the API, 'tap the brakes' first.  Slightly modify the API backend configuration to break your api (e.g. insert a character in the Host settings).  Then, a few hours later, undo the change and fix the API.  This would be a good opportunity to email whoever is still using your API one last time.  Then, a day or two later, break it for longer - perhaps 12-24 hours, then fix it again.  Wait another day or three.  Then, finally turn if off for good.  This gives any developers who didn't see your email for whatever reason to notice their app breaking and reach out to get in touch.
+* It's also a good practice to post a notice on the API docs page or developer hub about the upcoming deprecation.
 
 
 ## Process for removing an API backend
 
-After you have followed the above best practices and are ready to fully deprecate an API, use the following steps to complete the process and reach out to the api.data.gov team if you have any questions.  Note that implementing these steps will immediately impact the API's availability, so you'll want to make sure that it takes at the time that you want to end access to the API.  
+After you have followed the above best practices and are ready to fully deprecate an API, use the following steps to complete the process and reach out to the api.data.gov team if you have any questions.  Note that implementing these steps will immediately impact the API's availability, so you'll want to make sure that it takes at the time that you want to end access to the API.
 
-1. Login to the api.data.gov admin. 
+1. Login to the api.data.gov admin.
 2. In the top menu, navigate to the "Configuration" menu and pick "API Backends".
-3. Select the API backend that is used by your API.  
-4. At the bottom of the page, select "Delete API".  
-5. Click "OK" to confirm.  
+3. Select the API backend that is used by your API.
+4. At the bottom of the page, select "Delete API".
+5. Click "OK" to confirm.
 7. In order for this change to go live, it must be published. In the top menu navigate to the "Configuration" menu and pick "Publish Changes". Review your changes here and then click the big "Publish" button.
-8. Contact the api.data.gov team by emailing [api.data.gov@gsa.gov](mailto:api.data.gov@gsa.gov) to notify them so that they can then also delete the relevant API scopes and admin groups if needs be.  
+8. Contact the api.data.gov team by emailing [api.data.gov@gsa.gov](mailto:api.data.gov@gsa.gov) to notify them so that they can then also delete the relevant API scopes and admin groups if needs be.
