@@ -453,7 +453,6 @@ This means that even if the API consumer passed the API key via a GET query stri
 ## Using api.data.gov with Swagger / OpenAPI
 
 Examples of Swagger docs for APIs using api.data.gov:
-* [FBI Crime Data API](https://crime-data-explorer.fr.cloud.gov/api)
 * [FCC ECFS API](https://www.fcc.gov/ecfs/help/public_api)
 * [FEC](https://api.open.fec.gov/developers/)
 * [GSA Digital Signature API](https://gsa.github.io/DSSAPIDocumentation/api-docs/console/)
