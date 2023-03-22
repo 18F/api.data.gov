@@ -244,7 +244,7 @@ You can embed the API key signup form for api.data.gov on your own developer hub
         [![API key configuration for embedded form usage](images/embed_special_key_example.png)](images/embed_special_key_example.png)
     - Save the user.
 2. <a name="signup-embed-snippet"></a>Embed the following snippet of code on your own website. A couple of notes:
-    - Be sure to replace the variables at the top: `registrationSource`, `apiKey`, `contactUrl`, `siteName`, `emailFromName`, and `exampleApiUrl`.
+    - Be sure to replace the variables at the top: `registrationSource`, `apiKey`, and `contactUrl`.
     - If you're embedding this snippet on a GitHub Pages website (that uses Jekyll), you must wrap the entire snippet between Jekyll raw tags: `{% raw %} ... snippet goes here ... {% endraw %}`.
        ```html
        <div id="apidatagov_signup">Loading signup form...</div>
@@ -265,31 +265,10 @@ You can embed the API key signup form for api.data.gov on your own developer hub
            // 'example@example.com' or 'mailto:example@example.com'.
            contactUrl: 'https://agency.gov/contact',
 
-           // Provide the name of your developer site. This will appear in the
-           // subject of the welcome e-mail as "Your {{siteName}} API key".
-           siteName: 'Agency Developer Network',
-
-           // Provide a sender name for who the welcome email appears from. The
-           // actual address will be "noreply@api.data.gov", but this will
-           // change the name of the displayed sender in this fashion:
-           // "{{emailFromName}} <noreply@api.data.gov>".
-           emailFromName: 'Agency Developer Network',
-
-           // Provide an example URL you want to show to users after they signup.
-           // This can be any API endpoint on your server, and you can use the
-           // special {{api_key}} variable to automatically substitute in the API
-           // key the user just signed up for.
-           exampleApiUrl: 'https://api.data.gov/gsa/auctions?api_key={{api_key}}&format=JSON'
-
            // OPTIONAL: Provide extra content to display on the signup confirmation
            // page. This will be displayed below the user's API key and the example
            // API URL are shown. HTML is allowed. Defaults to ""
            // signupConfirmationMessage: '',
-
-           // OPTIONAL: Set to true to verify the user's e-mail address by only
-           // sending them their API key via e-mail, and not displaying it on the
-           // signup confirmation web page. Defaults to false.
-           // verifyEmail: true,
 
            // OPTIONAL: Set to false to disable sending a welcome e-mail to the
            // user after signing up. Defaults to true.
@@ -366,17 +345,13 @@ You can embed the API key signup form for api.data.gov on your own developer hub
 
 In a few different places, api.data.gov will return links for users needing further support. By default, these links will lead users to https://api.data.gov/contact/, but we recommend customizing these links so that users can directly reach out to your agency if they're in need of support with your API.
 
-- If you are using the [embedded signup form](#embedding-the-api-key-signup-form-on-your-own-documentation-site), ensure you fill out the `contactUrl`, `siteName`, and `emailFromName` options with something like:
+- If you are using the [embedded signup form](#embedding-the-api-key-signup-form-on-your-own-documentation-site), ensure you fill out the `contactUrl` option with something like:
 
   ```js
   contactUrl: 'https://api.agency.gov/contact/',
-  siteName: 'Your Agency Name',
-  emailFromName: 'Your Agency Name',
   ```
 
     - Set `contactUrl` to either a URL or e-mail address users should use for contacting you about your API. This will be used in support links given to the user during API key signup and in the e-mail they receive after signup.
-    - `siteName` will be used in the subject of the welcome e-mail as "Your `{{siteName}}` API key".
-    - `emailFromName` will change the name of the displayed sender in this fashion: "`{{emailFromName}}` <noreply@api.data.gov>".
 - For each API Backend you have configured in the api.data.gov admin, customize the URLs returned in error messages. Under Advanced Settings > Error Data fill out the "Common (All Errors)" field with something like:
 
   ```yaml
