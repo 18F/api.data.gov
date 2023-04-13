@@ -36,6 +36,8 @@ module:
       target: i18n
     - source: archetypes
       target: archetypes
+    - source: ./node_modules/@uswds/uswds/dist
+      target: static/node_modules/@uswds/uswds/dist
     - source: ./vendor/data.gov/roots-nextdatagov/assets/img/logo.png
       target: static/img/logo.png
 disable404: true

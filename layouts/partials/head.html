@@ -18,16 +18,18 @@
     ga('legacy.send', 'pageview');
   </script>
 
+  <script src="/node_modules/@uswds/uswds/dist/js/uswds-init.js"></script>
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel%7CLato%3A100%2C300%2C400%2C700&#038;ver=3.8">
 
-  {{ $bootstrapCss := resources.Get "stylesheets/bootstrap.scss" | resources.ToCSS (dict "includePaths" (slice "node_modules") "outputStyle" "compressed") | resources.PostCSS (dict "config" "postcss-bootstrap") -}}
-  {{ $datagovCss := resources.Get "stylesheets/datagov.scss" | resources.ToCSS (dict "includePaths" (slice "vendor/data.gov/roots-nextdatagov/assets/css") "outputStyle" "compressed") -}}
-  {{ $applicationCss := resources.Get "stylesheets/application.scss" | resources.ToCSS (dict "includePaths" (slice "node_modules") "outputStyle" "compressed") | resources.PostCSS (dict "config" "postcss-bootstrap") -}}
-  {{ $css := slice $bootstrapCss $datagovCss $applicationCss | resources.Concat "application.css" | resources.Fingerprint -}}
+  {{ $applicationCss := resources.Get "stylesheets/application.scss" | resources.ToCSS (dict "transpiler" "dartsass" "includePaths" (slice "node_modules" "node_modules/@uswds/uswds/packages") "outputStyle" "compressed") -}}
+  {{ $css := slice $applicationCss | resources.Concat "application.css" | resources.Fingerprint -}}
   <link
     rel="stylesheet"
     href="{{ $css.RelPermalink }}"
     integrity="{{ $css.Data.Integrity }}"
     crossorigin="anonymous"
   />
+
+  <script async src="/node_modules/@uswds/uswds/dist/js/uswds.js"></script>
 </head>

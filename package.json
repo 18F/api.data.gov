@@ -5,6 +5,7 @@
     "prettier:check": "prettier --check ."
   },
   "dependencies": {
+    "@uswds/uswds": "^3.4.1",
     "a11y-dialog": "^7.3.0",
     "bootstrap": "^5.1.0",
     "datatables.net-bs5": "^1.11.5",
