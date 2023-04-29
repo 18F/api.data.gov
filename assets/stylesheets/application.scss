@@ -1,26 +1,6 @@
 @forward "../../vendor/datagov-11ty/styles/styles";
 
-@media all and (min-width: 64em) {
-  #menu-navigation.usa-nav .usa-accordion {
-    margin-top: 1.35rem;
-    margin-bottom: 1.35rem;
-  }
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-img,
-svg {
-  vertical-align: middle;
-}
-
-@import "_datagov/api";
+@import "datagov/_base";
+@import "datagov/_api";
 @import "_shared";
 @import "_metrics";

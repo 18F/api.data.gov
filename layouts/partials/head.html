@@ -22,8 +22,7 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel%7CLato%3A100%2C300%2C400%2C700&#038;ver=3.8">
 
-  {{ $applicationCss := resources.Get "stylesheets/application.scss" | resources.ToCSS (dict "transpiler" "dartsass" "includePaths" (slice "node_modules" "node_modules/@uswds/uswds/packages") "outputStyle" "compressed") -}}
-  {{ $css := slice $applicationCss | resources.Concat "application.css" | resources.Fingerprint -}}
+  {{ $css := resources.Get "stylesheets/application.scss" | resources.ToCSS (dict "transpiler" "dartsass" "includePaths" (slice "node_modules" "node_modules/@uswds/uswds/packages") "outputStyle" "compressed") | resources.PostCSS | resources.Fingerprint -}}
   <link
     rel="stylesheet"
     href="{{ $css.RelPermalink }}"

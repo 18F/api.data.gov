@@ -2,7 +2,7 @@ baseURL: /
 languageCode: en-us
 title: api.data.gov
 params:
-  githubRepoUrl: https://github.com/NREL/api-umbrella
+  githubRepoUrl: https://github.com/18F/api.data.gov
   apiUmbrellaContactApiKey: DEMO_KEY
   apiUmbrellaSignupApiKey: DEMO_KEY
 markup:

@@ -12,17 +12,17 @@ import {
 export default defineComponent({
   template: `
     <div>
-      <div class="row">
-        <div class="col-12">
+      <div class="grid-row">
+        <div class="desktop:grid-col">
           <div ref="chartEl" class="chart" style="width: 100%; height: 400px;"></div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-6 text-center">
-          <p class="h3 font-weight-light">{{ Number(hitsTotal).toLocaleString() }}<br>Hits</p>
+      <div class="grid-row">
+        <div class="desktop:grid-col text-center">
+          <p class="font-heading-xl">{{ Number(hitsTotal).toLocaleString() }}<br>Hits</p>
         </div>
-        <div class="col-sm-6 text-center">
-          <p class="h3 font-weight-light">{{ Number(activeApiKeysTotal).toLocaleString() }}<br>Unique API Keys</p>
+        <div class="desktop:grid-col text-center">
+          <p class="font-heading-xl">{{ Number(activeApiKeysTotal).toLocaleString() }}<br>Unique API Keys</p>
         </div>
       </div>
     </div>
