@@ -3,52 +3,52 @@ project: "api.data.gov"
 full_name: api.data.gov
 name: api-data-gov
 github:
-- 18F/api.data.gov
-- NREL/api-umbrella
-description: 'A hosted, shared-service that provides an API key, analytics, and proxy solution for government web services. We are currently accepting clients for this free service: contact us to learn more.'
+  - 18F/api.data.gov
+  - NREL/api-umbrella
+description: "A hosted, shared-service that provides an API key, analytics, and proxy solution for government web services. We are currently accepting clients for this free service: contact us to learn more."
 owner_type: project
-testable: true 
+testable: true
 partners:
-- BusinessUSA.gov
-- Department of Agriculture
-- Department of Commerce
-- Department of Education
-- Federal Election Commission
-- Federal Communications Commission
-- Food and Drug Administration
-- General Services Administration
-- National Aeronautics and Space Administration
-- National Institutes of Health
-- National Renewable Energy Laboratory
-- Regulations.gov
+  - BusinessUSA.gov
+  - Department of Agriculture
+  - Department of Commerce
+  - Department of Education
+  - Federal Election Commission
+  - Federal Communications Commission
+  - Food and Drug Administration
+  - General Services Administration
+  - National Aeronautics and Space Administration
+  - National Institutes of Health
+  - National Renewable Energy Laboratory
+  - Regulations.gov
 stage: beta
 impact: 2,800 API users and 66 million API requests served since July 2013
-milestones: 
-- 'August 2012: Prototype launched on data.gov'
-- 'July 2013: Project begins soliciting agency users'
-- 'September 2013: White House begins using service'
-- 'July 2014: Metrics hub launched'
+milestones:
+  - "August 2012: Prototype launched on data.gov"
+  - "July 2013: Project begins soliciting agency users"
+  - "September 2013: White House begins using service"
+  - "July 2014: Metrics hub launched"
 type: app
 contact:
-- api.data.gov@gsa.gov
-stack: 
-- JavaScript (Node and Ember)
-- Rails
-- nginx
-- elasticsearch
-- Varnish
-- redis
-- MongoDB
-team: 
-- github: gbinal
-  role: lead
-  id: gray
-- github: sashax
-  role: developer
-  id: sasha
-- github: gui
-  role: developer
-  id: nickm
+  - api.data.gov@gsa.gov
+stack:
+  - JavaScript (Node and Ember)
+  - Rails
+  - nginx
+  - elasticsearch
+  - Varnish
+  - redis
+  - MongoDB
+team:
+  - github: gbinal
+    role: lead
+    id: gray
+  - github: sashax
+    role: developer
+    id: sasha
+  - github: gui
+    role: developer
+    id: nickm
 licenses:
   api.data.gov:
     name: Public Domain (CC0)
@@ -57,9 +57,9 @@ licenses:
     name: MIT
     url: https://github.com/NREL/api-umbrella/blob/main/LICENSE.txt
 links:
-- https://api.data.gov
-- https://api.data.gov/metrics
-- https://api.data.gov/about
+  - https://api.data.gov
+  - https://api.data.gov/metrics
+  - https://api.data.gov/about
 blog:
-- API
-status: 
+  - API
+status:

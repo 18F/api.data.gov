@@ -25,7 +25,8 @@ This should be resolved by future [JVM updates](https://bugs.openjdk.java.net/br
    SHA256(dst-root-ca-x3.pem)= 139a5e4a4e0fa505378c72c5f700934ce8333f4e6b1b508886c4b0eb14f4be99
    ```
 
-     - If you'd like further verification that this "DST Root CA X3" certificate is part of most trusted root stores, you can find the "DST Root CA X3" certificate, with the same contents, at <https://curl.haxx.se/ca/cacert.pem> (this file is extracted from Mozilla Firefox's trusted certificates).
+   - If you'd like further verification that this "DST Root CA X3" certificate is part of most trusted root stores, you can find the "DST Root CA X3" certificate, with the same contents, at <https://curl.haxx.se/ca/cacert.pem> (this file is extracted from Mozilla Firefox's trusted certificates).
+
 3. Find the `JAVA_HOME` environment variable on your system. This may already be set, or you may need to [find it](http://stackoverflow.com/a/20653441) and set it.
 4. Add the `dst-root-ca-x3.pem` root certificate to the JVM keystore:
 

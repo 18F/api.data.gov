@@ -9,7 +9,12 @@
       >
         <div class="usa-banner__inner">
           <div class="grid-col-auto">
-            <img aria-hidden="true" class="usa-banner__header-flag" src="/node_modules/@uswds/uswds/dist/img/us_flag_small.png" alt="" />
+            <img
+              aria-hidden="true"
+              class="usa-banner__header-flag"
+              src="/node_modules/@uswds/uswds/dist/img/us_flag_small.png"
+              alt=""
+            />
           </div>
           <div class="grid-col-fill tablet:grid-col-auto">
             <p class="usa-banner__header-text">
@@ -31,7 +36,13 @@
       <div class="usa-banner__content usa-accordion__content" id="gov-banner">
         <div class="grid-row grid-gap-lg">
           <div class="usa-banner__guidance tablet:grid-col-6">
-            <img class="usa-banner__icon usa-media-block__img" src="/node_modules/uswds/dist/img/icon-dot-gov.svg" role="img" alt="" aria-hidden="true" />
+            <img
+              class="usa-banner__icon usa-media-block__img"
+              src="/node_modules/uswds/dist/img/icon-dot-gov.svg"
+              role="img"
+              alt=""
+              aria-hidden="true"
+            />
             <div class="usa-media-block__body">
               <p>
                 <strong>The .gov means it's official.</strong>
@@ -43,7 +54,13 @@
             </div>
           </div>
           <div class="usa-banner__guidance tablet:grid-col-6">
-            <img class="usa-banner__icon usa-media-block__img" src="/node_modules/uswds/dist/img/icon-https.svg" role="img" alt="" aria-hidden="true" />
+            <img
+              class="usa-banner__icon usa-media-block__img"
+              src="/node_modules/uswds/dist/img/icon-https.svg"
+              role="img"
+              alt=""
+              aria-hidden="true"
+            />
             <div class="usa-media-block__body">
               <p>
                 <strong>The site is secure.</strong>
@@ -62,72 +79,71 @@
 </div>
 
 <header class="usa-header usa-header--extended" role="banner">
-    <div class="grid-container">
-        <div class="grid-row">
-            <div class="grid-col-fill desktop:grid-col-auto">
-                <div class="usa-navbar">
-                    <div class="usa-logo" id="extended-logo">
-                      <em class="usa-logo__text"><a href="/" title="Home" aria-label="Home"></a></em>
-                    </div>
-                    <button class="usa-menu-btn">Menu</button>
-                </div>
-            </div>
-            <div class="grid-col-auto desktop:grid-col-fill">
-                <nav id="menu-navigation" aria-label="Menu navigation" role="navigation" class="usa-nav">
-                    <div class="usa-nav__inner">
-                        <button class="usa-nav__close">{{ chomp (partial "usa-icon" (dict "icon" "close")) }}</button>
-                        <ul class="usa-nav__primary usa-accordion">
-    
-                            <li class="usa-nav__primary-item">
-                                <a
-                                    class="usa-nav__link"
-                                    href="https://catalog.data.gov"
-                                    ><span class="text-uppercase">Data</span></a
-                                >
-                            </li>
-                                
-                            <li class="usa-nav__primary-item">
-                                <a
-                                    class="usa-nav__link"
-                                    href="https://catalog.data.gov/report"
-                                    ><span class="text-uppercase">Reports</span></a
-                                >
-                            </li>
-                                
-                            <li class="usa-nav__primary-item">
-                                <a
-                                    class="usa-nav__link"
-                                    href="https://data.gov/open-gov"
-                                    ><span class="text-uppercase">Open Government</span></a
-                                >
-                            </li>
-                                
-                            <li class="usa-nav__primary-item">
-                                <a
-                                    class="usa-nav__link"
-                                    href="/contact/"
-                                    ><span class="text-uppercase">Contact</span></a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+  <div class="grid-container">
+    <div class="grid-row">
+      <div class="grid-col-fill desktop:grid-col-auto">
+        <div class="usa-navbar">
+          <div class="usa-logo" id="extended-logo">
+            <em class="usa-logo__text"
+              ><a href="/" title="Home" aria-label="Home"></a
+            ></em>
+          </div>
+          <button class="usa-menu-btn">Menu</button>
         </div>
+      </div>
+      <div class="grid-col-auto desktop:grid-col-fill">
+        <nav
+          id="menu-navigation"
+          aria-label="Menu navigation"
+          role="navigation"
+          class="usa-nav"
+        >
+          <div class="usa-nav__inner">
+            <button class="usa-nav__close">
+              {{ chomp (partial "usa-icon" (dict "icon" "close")) }}
+            </button>
+            <ul class="usa-nav__primary usa-accordion">
+              <li class="usa-nav__primary-item">
+                <a class="usa-nav__link" href="https://catalog.data.gov"
+                  ><span class="text-uppercase">Data</span></a
+                >
+              </li>
+
+              <li class="usa-nav__primary-item">
+                <a class="usa-nav__link" href="https://catalog.data.gov/report"
+                  ><span class="text-uppercase">Reports</span></a
+                >
+              </li>
+
+              <li class="usa-nav__primary-item">
+                <a class="usa-nav__link" href="https://data.gov/open-gov"
+                  ><span class="text-uppercase">Open Government</span></a
+                >
+              </li>
+
+              <li class="usa-nav__primary-item">
+                <a class="usa-nav__link" href="/contact/"
+                  ><span class="text-uppercase">Contact</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </div>
+  </div>
 </header>
 
 <header class="navbar navbar-static-top masthead">
-    
-    <div class="header_new banner_new page-heading_new">
-        <div class="grid-container">
-            <div class="page-header_new">
-                <div class="main-heading">
-                    <h1>
-                      <a href="/">api.data.gov</a>
-                    </h1>
-                </div>
-            </div>
+  <div class="header_new banner_new page-heading_new">
+    <div class="grid-container">
+      <div class="page-header_new">
+        <div class="main-heading">
+          <h1>
+            <a href="/">api.data.gov</a>
+          </h1>
         </div>
+      </div>
     </div>
+  </div>
 </header>

@@ -37,8 +37,8 @@ As a quick example, let's step through how you might setup http://api.data.gov/g
 2. In the top menu, navigate to the "Configuration" menu and pick "API Backends".
 3. Click the "Add API Backend" button.
 4. Here's how you would fill out the form to proxy http://api.data.gov/google/whatever to http://maps.googleapis.com/whatever as an example API backend:
-  ![API backend example configuration](images/api_backend_example.png)
-    * *Note:* Be sure to add a server to the "Backend" section with the "Add Server" section, in addition to filling out the "Backend Host" field under the "Host" section. In most cases, these will be the same value, but they may differ depending on load balancing or virtual host configuration on your API backend.
+   ![API backend example configuration](images/api_backend_example.png)
+   - _Note:_ Be sure to add a server to the "Backend" section with the "Add Server" section, in addition to filling out the "Backend Host" field under the "Host" section. In most cases, these will be the same value, but they may differ depending on load balancing or virtual host configuration on your API backend.
 5. Save your changes.
 6. In order for your changes to go live, they must be published. In the top menu navigate to the "Configuration" menu and pick "Publish Changes". Review your changes here and then click the big "Publish" button.
 
@@ -62,7 +62,7 @@ If you're an existing agency partner who has previously sent us custom SSL certi
 
 If you're migrating an existing domain to use our automatic SSL, there's a couple of technical compatibility notes to be aware of, but in practice, we haven't seen many compatibility issues in the real world:
 
-- Clients must support [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication): Nearly all clients support SNI, so in our experience, this hasn't been much of a compatibility issue. *(If you must be compatible with clients that do not support SNI, there are some workarounds, so let us know.)* 
+- Clients must support [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication): Nearly all clients support SNI, so in our experience, this hasn't been much of a compatibility issue. _(If you must be compatible with clients that do not support SNI, there are some workarounds, so let us know.)_
 - Clients must trust [Let's Encrypt certificates](https://letsencrypt.org/docs/certificate-compatibility/): Nearly all clients support Let's Encrypt's certificates, so in our experience, this hasn't been much of a compatibility issue. Until July 2016, Java based API clients might have lacked support, but the latest JVM updates now trust Let's Encrypt.
 
 ### Hosting website content on your CNAMEd subdomain
@@ -80,11 +80,11 @@ To configure this, you can use the "Website Backend" section in the api.data.gov
    - Backend Port: `443`
    - Additional configuration for GitHub Pages:
      - Add a `CNAME` file to your GitHub Pages project containing `api.agency.gov`. See [Adding a CNAME file to your repository](https://help.github.com/articles/adding-a-cname-file-to-your-repository/) for more details.
-     - *Note:* With this approach, you may get "Page build warning" emails from GitHub Pages since `api.agency.gov` is CNAMEd to api.data.gov's servers instead of github.io directly. However, these e-mails can safely be ignored.
+     - _Note:_ With this approach, you may get "Page build warning" emails from GitHub Pages since `api.agency.gov` is CNAMEd to api.data.gov's servers instead of github.io directly. However, these e-mails can safely be ignored.
 4. Save your changes.
 5. In order for your changes to go live, they must be published. In the top menu navigate to the "Configuration" menu and pick "Publish Changes". Review your changes here and then click the big "Publish" button.
 
-***Note:*** Since we will only route to this website backend content if a request does not match an API, this means you must not have any API Backends matching your root URL path. So your API Backends must match more specific URL paths (eg, `/service-name/`) instead of the root path (`/`).
+**_Note:_** Since we will only route to this website backend content if a request does not match an API, this means you must not have any API Backends matching your root URL path. So your API Backends must match more specific URL paths (eg, `/service-name/`) instead of the root path (`/`).
 
 ## Securing your API backend
 
@@ -100,10 +100,10 @@ To set this up:
 
 1. **Add HTTP Basic Authentication requirements to your API backend:** Setup your API backend to require HTTP Basic Auth for accessing it directly. This can be done in your web server (e.g., [Apache](http://httpd.apache.org/docs/current/howto/auth.html#gettingitworking), [nginx](https://www.nginx.com/resources/admin-guide/restricting-access-auth-basic/)) or in your web application (e.g., [Ruby on Rails](http://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Basic.html)).
 1. **Configure api.data.gov to add HTTP basic authentication requests:**
-    - Login to the [api.data.gov admin](https://api.data.gov/admin/#/apis).
-    - Navigate to Configuration > API Backends and edit your API backend.
-    - Under "Global Request Settings" fill in the "HTTP Basic Authentication" field with `username:password` (so, for example, if my username was "johndoe" and my password was "supersecret", then I would fill in `johndoe:supersecret`).
-    - Save and then publish your changes.
+   - Login to the [api.data.gov admin](https://api.data.gov/admin/#/apis).
+   - Navigate to Configuration > API Backends and edit your API backend.
+   - Under "Global Request Settings" fill in the "HTTP Basic Authentication" field with `username:password` (so, for example, if my username was "johndoe" and my password was "supersecret", then I would fill in `johndoe:supersecret`).
+   - Save and then publish your changes.
 
 ### Secret HTTP Header Token
 
@@ -113,20 +113,21 @@ To set this up:
 
 1. **Add secret token requirements to your API backend:** Setup your API backend to require a secret token to be passed via a custom HTTP header for accessing it directly. This is probably easiest to implement in your web application. For example, you might check that the `X-Secret-Token` HTTP header has a value of `foobar` in order to directly access your API.
 1. **Configure api.data.gov to add HTTP basic authentication requests:**
-    - Login to the [api.data.gov admin](https://api.data.gov/admin/#/apis).
-    - Navigate to Configuration > API Backends and edit your API backend.
-    - Under "Global Request Settings" fill in the "Set Request Headers" field with `Header: value` (so, for example, if my API backend required the "X-Secret-Token" HTTP header to have a value of "foobar", then I would fill in `X-Secret-Token: foobar`).
-    - Save and then publish your changes.
+   - Login to the [api.data.gov admin](https://api.data.gov/admin/#/apis).
+   - Navigate to Configuration > API Backends and edit your API backend.
+   - Under "Global Request Settings" fill in the "Set Request Headers" field with `Header: value` (so, for example, if my API backend required the "X-Secret-Token" HTTP header to have a value of "foobar", then I would fill in `X-Secret-Token: foobar`).
+   - Save and then publish your changes.
 
 ### IP Based Restrictions
 
-***Note:*** *Our IPs might be changing in the future, so we're starting to steer people away from this approach (so you won't have to change IPs soon). However, if you prefer or require IP based restrictions, we can still share our IPs, and we'll be sure to give you ample notification if our IPs do change).*
+**_Note:_** _Our IPs might be changing in the future, so we're starting to steer people away from this approach (so you won't have to change IPs soon). However, if you prefer or require IP based restrictions, we can still share our IPs, and we'll be sure to give you ample notification if our IPs do change)._
 
 One of the common approaches is to only allow api.data.gov's server IP addresses to access your API backend. Here's a few general examples of how to restrict access by IP addresses to get you started:
 
-*Note:* These examples use `1.2.3.4` and `1.2.3.5` as example IPs. [Contact us](https://api.data.gov/contact/#contact) directly for the real api.data.gov IP addresses in use (and if we ever add or change IP addresses, we'll be sure to give you ample notification).
+_Note:_ These examples use `1.2.3.4` and `1.2.3.5` as example IPs. [Contact us](https://api.data.gov/contact/#contact) directly for the real api.data.gov IP addresses in use (and if we ever add or change IP addresses, we'll be sure to give you ample notification).
 
-* Apache
+- Apache
+
   ```
   Order deny,allow
   Deny from all
@@ -134,33 +135,36 @@ One of the common approaches is to only allow api.data.gov's server IP addresses
   Allow from 1.2.3.5
   ```
 
-* nginx
+- nginx
+
   ```
   allow 1.2.3.4;
   allow 1.2.3.5;
   deny all;
   ```
 
-* Firewall
+- Firewall
+
   ```
   iptables -A INPUT -m state --state NEW -m tcp -p tcp --src 1.2.3.4 --dport 443 -j ACCEPT
   iptables -A INPUT -m state --state NEW -m tcp -p tcp --src 1.2.3.5 --dport 443 -j ACCEPT
   iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j DROP
   ```
 
-* Application
-  * You could also implement this type of access control in your API application. Just be sure you check the actual IP address of the connection, and do not use a function that parses the `X-Forwarded-For` header.
+- Application
+  - You could also implement this type of access control in your API application. Just be sure you check the actual IP address of the connection, and do not use a function that parses the `X-Forwarded-For` header.
 
 ## Managing admins
 
-If you need to add, edit, or remove agency admin accounts (i.e. other users who can view analytics, set rate limits, etc.), please email [api.data.gov@gsa.gov](mailto:api.data.gov@gsa.gov) and we'll make the change for you right away.   
+If you need to add, edit, or remove agency admin accounts (i.e. other users who can view analytics, set rate limits, etc.), please email [api.data.gov@gsa.gov](mailto:api.data.gov@gsa.gov) and we'll make the change for you right away.
 
-When you email, be sure to include the email address of the user account(s) at issue and to clarify whether they should have: 
-* Agency-wide view-only access to the API analytics (recommended)
-* API-specific view-only access to the API analytics of a certain API
-* Configuration access to manage the api.data.gov configuration of a certain API
+When you email, be sure to include the email address of the user account(s) at issue and to clarify whether they should have:
 
-We will write you back shortly thereafter to confirm the change.  
+- Agency-wide view-only access to the API analytics (recommended)
+- API-specific view-only access to the API analytics of a certain API
+- Configuration access to manage the api.data.gov configuration of a certain API
+
+We will write you back shortly thereafter to confirm the change.
 
 ## Filtering analytics data for just your APIs
 
@@ -182,8 +186,8 @@ The default rate limit for api.data.gov APIs is [1,000 requests per hour](http:/
 2. Find the API backend you want to adjust the default rate limits for, and click to edit.
 3. Under the "Global Request Settings" section choose "Custom rate limits for the "Rate Limit" field.
 4. Add your custom rate limits:
-  ![User rate limits example](images/user_rate_limits.png)
-    * *Note:* If you're allowing a user a higher hourly rate limit, we typically recommend also keeping a short duration rate limit in place too (for example, a per-second or per-15 second limit). This ensures that a user can't flood your server with all of their hourly requests every hour.
+   ![User rate limits example](images/user_rate_limits.png)
+   - _Note:_ If you're allowing a user a higher hourly rate limit, we typically recommend also keeping a short duration rate limit in place too (for example, a per-second or per-15 second limit). This ensures that a user can't flood your server with all of their hourly requests every hour.
 5. Save the API backend.
 6. Publish your changes under the Configuration > Publish Changes option in order to activate your new default rate limits.
 
@@ -195,8 +199,8 @@ You can manage a specific API user's rate limits if you wish to grant an individ
 2. Find the API user you wish grant higher rate limits to, and click to edit the account.
 3. Under the "Rate Limiting" section choose "Custom rate limits" for the "Rate Limit" field.
 4. Add your custom rate limits:
-  ![User rate limits example](images/user_rate_limits.png)
-    * *Note:* If you're allowing a user a higher hourly rate limit, we typically recommend also keeping a short duration rate limit in place too (for example, a per-second or per-15 second limit). This ensures that a user can't flood your server with all of their hourly requests every hour.
+   ![User rate limits example](images/user_rate_limits.png)
+   - _Note:_ If you're allowing a user a higher hourly rate limit, we typically recommend also keeping a short duration rate limit in place too (for example, a per-second or per-15 second limit). This ensures that a user can't flood your server with all of their hourly requests every hour.
 5. Save the user. Their higher rate limits should immediately be in place.
 
 ## Client-side API key rate limits
@@ -224,122 +228,137 @@ Inside the API Backend configuration, this is under the "Sub-URL Request Setting
 You can embed the API key signup form for api.data.gov on your own developer hub. Here is an [example](http://gsa.github.io/auctions_api/key) of the embedded signup form in action. To place the signup form on your own website embed this snippet of code on your site
 
 1. Create a special API key for use with this signup form:
-    - [Signup](https://api.data.gov/signup/) for a new API key. Make note of this API key.
-    - Login to the [api.data.gov admin](https://api.data.gov/admin/#/api_users).
-    - Navigate to the Users > API Users, find the user you just signed up as, and click on it to edit.
-    - Under rate limiting and permissions make the following changes:
-      - Rate Limit: Custom rate limits. Define custom per minute and per hour rate limits (see screenshot below for an example)
-      - Limit By: Rate limit by IP address
-      - Roles: `api-umbrella-key-creator`
-        - This should be the only role assigned to this key.  Do not add any other roles to keys that are used for your signup forms. 
-      - Restrict Access to HTTP Referers: `*//your-site.gov/*`
-        - This must be the domain name where you'll embed the signup form on. You can list multiple domains separated by new lines, so if you have multiple places where your signup form is embedded (particularly during development or testing), you may specify multiple acceptable referrers:
-           ```
-           *//your-site.gov/*
-           *//agency.github.io/*
-           *//localhost/*
-           ```
-        - This restriction will prevent your API key from being used on another signup form on another web page. This simply helps prevent casual/accidental reuse of your API key, since this API key will be public.
-      - Your configuration should look something like:
-        [![API key configuration for embedded form usage](images/embed_special_key_example.png)](images/embed_special_key_example.png)
-    - Save the user.
+   - [Signup](https://api.data.gov/signup/) for a new API key. Make note of this API key.
+   - Login to the [api.data.gov admin](https://api.data.gov/admin/#/api_users).
+   - Navigate to the Users > API Users, find the user you just signed up as, and click on it to edit.
+   - Under rate limiting and permissions make the following changes:
+     - Rate Limit: Custom rate limits. Define custom per minute and per hour rate limits (see screenshot below for an example)
+     - Limit By: Rate limit by IP address
+     - Roles: `api-umbrella-key-creator`
+       - This should be the only role assigned to this key. Do not add any other roles to keys that are used for your signup forms.
+     - Restrict Access to HTTP Referers: `*//your-site.gov/*`
+       - This must be the domain name where you'll embed the signup form on. You can list multiple domains separated by new lines, so if you have multiple places where your signup form is embedded (particularly during development or testing), you may specify multiple acceptable referrers:
+         ```
+         *//your-site.gov/*
+         *//agency.github.io/*
+         *//localhost/*
+         ```
+       - This restriction will prevent your API key from being used on another signup form on another web page. This simply helps prevent casual/accidental reuse of your API key, since this API key will be public.
+     - Your configuration should look something like:
+       [![API key configuration for embedded form usage](images/embed_special_key_example.png)](images/embed_special_key_example.png)
+   - Save the user.
 2. <a name="signup-embed-snippet"></a>Embed the following snippet of code on your own website. A couple of notes:
-    - Be sure to replace the variables at the top: `registrationSource`, `apiKey`, and `contactUrl`.
-    - If you're embedding this snippet on a GitHub Pages website (that uses Jekyll), you must wrap the entire snippet between Jekyll raw tags: `{% raw %} ... snippet goes here ... {% endraw %}`.
-       ```html
-       <div id="apidatagov_signup">Loading signup form...</div>
-       <script type="text/javascript">
-         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-         var apiUmbrellaSignupOptions = {
-           // Pick a short, unique name to identify your site, like 'gsa-auctions'
-           // in this example.
-           registrationSource: 'gsa-auctions',
 
-           // Enter the API key you signed up for and specially configured for this
-           // API key signup embed form.
-           apiKey: 'YOUR_KEY_HERE',
+   - Be sure to replace the variables at the top: `registrationSource`, `apiKey`, and `contactUrl`.
+   - If you're embedding this snippet on a GitHub Pages website (that uses Jekyll), you must wrap the entire snippet between Jekyll raw tags: `{% raw %} ... snippet goes here ... {% endraw %}`.
 
-           // Provide a URL or e-mail address to be used for customer support.
-           //
-           // The format for e-mail addresses can be given as either
-           // 'example@example.com' or 'mailto:example@example.com'.
-           contactUrl: 'https://agency.gov/contact',
+     ```html
+     <div id="apidatagov_signup">Loading signup form...</div>
+     <script type="text/javascript">
+       /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+       var apiUmbrellaSignupOptions = {
+         // Pick a short, unique name to identify your site, like 'gsa-auctions'
+         // in this example.
+         registrationSource: "gsa-auctions",
 
-           // OPTIONAL: Provide extra content to display on the signup confirmation
-           // page. This will be displayed below the user's API key and the example
-           // API URL are shown. HTML is allowed. Defaults to ""
-           // signupConfirmationMessage: '',
+         // Enter the API key you signed up for and specially configured for this
+         // API key signup embed form.
+         apiKey: "YOUR_KEY_HERE",
 
-           // OPTIONAL: Set to false to disable sending a welcome e-mail to the
-           // user after signing up. Defaults to true.
-           // sendWelcomeEmail: false,
+         // Provide a URL or e-mail address to be used for customer support.
+         //
+         // The format for e-mail addresses can be given as either
+         // 'example@example.com' or 'mailto:example@example.com'.
+         contactUrl: "https://agency.gov/contact",
 
-           // OPTIONAL: Show an intro paragraph explaining what the signup form is
-           // for.
-           // Defaults to false.
-           // showIntroText: true,
+         // OPTIONAL: Provide extra content to display on the signup confirmation
+         // page. This will be displayed below the user's API key and the example
+         // API URL are shown. HTML is allowed. Defaults to ""
+         // signupConfirmationMessage: '',
 
-           // OPTIONAL: Show a paragraph explaining that the asterisk denotes required
-           // fields in the form.
-           // Defaults to true.
-           // showRequiredAsteriskExplainText: false,
+         // OPTIONAL: Set to false to disable sending a welcome e-mail to the
+         // user after signing up. Defaults to true.
+         // sendWelcomeEmail: false,
 
-           // OPTIONAL: Show the text input requesting the user's first name.
-           // Defaults to true.
-           // showFirstNameInput: false,
+         // OPTIONAL: Show an intro paragraph explaining what the signup form is
+         // for.
+         // Defaults to false.
+         // showIntroText: true,
 
-           // OPTIONAL: Show the text input requesting the user's last name.
-           // Defaults to true.
-           // showLastNameInput: false,
+         // OPTIONAL: Show a paragraph explaining that the asterisk denotes required
+         // fields in the form.
+         // Defaults to true.
+         // showRequiredAsteriskExplainText: false,
 
-           // OPTIONAL: Show the textarea input asking how the user will use the APIs.
-           // Defaults to true.
-           // showUseDescriptionInput: false,
+         // OPTIONAL: Show the text input requesting the user's first name.
+         // Defaults to true.
+         // showFirstNameInput: false,
 
-           // OPTIONAL: Provide an extra input field to ask for the user's website.
-           // Defaults to false.
-           // showWebsiteInput: true,
+         // OPTIONAL: Show the text input requesting the user's last name.
+         // Defaults to true.
+         // showLastNameInput: false,
 
-           // OPTIONAL: Provide an extra checkbox asking the user to agree to terms
-           // and conditions before signing up. Defaults to false.
-           // showTermsInput: true,
+         // OPTIONAL: Show the textarea input asking how the user will use the APIs.
+         // Defaults to true.
+         // showUseDescriptionInput: false,
 
-           // OPTIONAL: If the terms & conditions checkbox is enabled, link to this
-           // URL for your API's terms & conditions. Defaults to "".
-           // termsUrl: "https://agency.gov/api-terms/",
-         };
+         // OPTIONAL: Provide an extra input field to ask for the user's website.
+         // Defaults to false.
+         // showWebsiteInput: true,
 
-         /* * * DON'T EDIT BELOW THIS LINE * * */
-         (function() {
-           var apiUmbrella = document.createElement('script'); apiUmbrella.type = 'text/javascript'; apiUmbrella.async = true;
-           apiUmbrella.src = 'https://api.data.gov/static/javascripts/signup_embed.js';
-           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(apiUmbrella);
-         })();
-       </script>
-       <noscript>Please enable JavaScript to signup for an <a href="https://api.data.gov/">api.data.gov</a> API key.</noscript>
-       ```
+         // OPTIONAL: Provide an extra checkbox asking the user to agree to terms
+         // and conditions before signing up. Defaults to false.
+         // showTermsInput: true,
+
+         // OPTIONAL: If the terms & conditions checkbox is enabled, link to this
+         // URL for your API's terms & conditions. Defaults to "".
+         // termsUrl: "https://agency.gov/api-terms/",
+       };
+
+       /* * * DON'T EDIT BELOW THIS LINE * * */
+       (function () {
+         var apiUmbrella = document.createElement("script");
+         apiUmbrella.type = "text/javascript";
+         apiUmbrella.async = true;
+         apiUmbrella.src =
+           "https://api.data.gov/static/javascripts/signup_embed.js";
+         (
+           document.getElementsByTagName("head")[0] ||
+           document.getElementsByTagName("body")[0]
+         ).appendChild(apiUmbrella);
+       })();
+     </script>
+     <noscript
+       >Please enable JavaScript to signup for an
+       <a href="https://api.data.gov/">api.data.gov</a> API key.</noscript
+     >
+     ```
+
 3. If your site uses a Content Security Policy, allow the following directives:
 
-    - `script-src 'unsafe-inline' https://api.data.gov`: The `'unsafe-inline'` directive is for embedding the `<script>` tag directly into your HTML page, while the `https://api.data.gov` directive is for loading the remote javascript that contains the signup form logic.
-    - `style-src https://api.data.gov`: Allows for loading the CSS file from api.data.gov to style the embedded widget.
-    - `img-src data:`: Allows for inline `data:` icons the api.data.gov stylesheet uses.
-    - `connect-src https://api.data.gov`: Allows for making HTTP requests to api.data.gov to perform the signup.
+   - `script-src 'unsafe-inline' https://api.data.gov`: The `'unsafe-inline'` directive is for embedding the `<script>` tag directly into your HTML page, while the `https://api.data.gov` directive is for loading the remote javascript that contains the signup form logic.
+   - `style-src https://api.data.gov`: Allows for loading the CSS file from api.data.gov to style the embedded widget.
+   - `img-src data:`: Allows for inline `data:` icons the api.data.gov stylesheet uses.
+   - `connect-src https://api.data.gov`: Allows for making HTTP requests to api.data.gov to perform the signup.
 
-    Here is minimal example, although your CSP will likely include other entries already:
+   Here is minimal example, although your CSP will likely include other entries already:
 
-    - HTML meta tag:
+   - HTML meta tag:
 
-      ```html
-      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://api.data.gov; style-src 'self' https://api.data.gov; img-src 'self' data:; connect-src 'self' https://api.data.gov" />
-      ```
+     ```html
+     <meta
+       http-equiv="Content-Security-Policy"
+       content="default-src 'self'; script-src 'self' 'unsafe-inline' https://api.data.gov; style-src 'self' https://api.data.gov; img-src 'self' data:; connect-src 'self' https://api.data.gov"
+     />
+     ```
 
-    - HTTP header:
+   - HTTP header:
 
-      ```
-      Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://api.data.gov; style-src 'self' https://api.data.gov; img-src 'self' data:; connect-src 'self' https://api.data.gov;
-      ```
+     ```
+     Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://api.data.gov; style-src 'self' https://api.data.gov; img-src 'self' data:; connect-src 'self' https://api.data.gov;
+     ```
 
-4.  Navigate to the webpage where you placed the snippet. You should see a signup form and be able to signup for an API key completely on your own site. Run into any issues? [File an issue](https://github.com/18F/api.data.gov/issues).
+4. Navigate to the webpage where you placed the snippet. You should see a signup form and be able to signup for an API key completely on your own site. Run into any issues? [File an issue](https://github.com/18F/api.data.gov/issues).
 
 ## Linking to your own contact/support address
 
@@ -351,7 +370,8 @@ In a few different places, api.data.gov will return links for users needing furt
   contactUrl: 'https://api.agency.gov/contact/',
   ```
 
-    - Set `contactUrl` to either a URL or e-mail address users should use for contacting you about your API. This will be used in support links given to the user during API key signup and in the e-mail they receive after signup.
+  - Set `contactUrl` to either a URL or e-mail address users should use for contacting you about your API. This will be used in support links given to the user during API key signup and in the e-mail they receive after signup.
+
 - For each API Backend you have configured in the api.data.gov admin, customize the URLs returned in error messages. Under Advanced Settings > Error Data fill out the "Common (All Errors)" field with something like:
 
   ```yaml
@@ -366,41 +386,40 @@ In a few different places, api.data.gov will return links for users needing furt
 Creating new API keys is powered by an API. We provide a [default signup form](#embedding-the-api-key-signup-form-on-your-own-documentation-site) utilizing this API that can easily be embedded on your own website for most use-cases. However, if you'd like further control over the signup process, or would like to integrate it into other tools, you can use the underlying API. To use this API:
 
 1. Create a special API key for use in calling this key creation API.
-    - Login to the [api.data.gov admin](https://api.data.gov/admin/#/api_users).
-    - Navigate to the Users > API Users and click on the "Add New API User" button.
-    - Fill out the form normally, while customizing the following fields:
-      - Roles: Add the `api-umbrella-key-creator` role. This is required for this API key to have permissions to create further API keys.
-      - If you're going to use this API key to perform registrations from a client-side JavaScript app, then also be sure to customize the "Rate Limits" and "Restrict Access to HTTP Referers" as described in [Embedding the API key signup form on your own documentation site](#embedding-the-api-key-signup-form-on-your-own-documentation-site) (but this key will only be used in server-side applications, then customizing these may not be necessary).
-    - Save the new API user, and make note of this API key.
+   - Login to the [api.data.gov admin](https://api.data.gov/admin/#/api_users).
+   - Navigate to the Users > API Users and click on the "Add New API User" button.
+   - Fill out the form normally, while customizing the following fields:
+     - Roles: Add the `api-umbrella-key-creator` role. This is required for this API key to have permissions to create further API keys.
+     - If you're going to use this API key to perform registrations from a client-side JavaScript app, then also be sure to customize the "Rate Limits" and "Restrict Access to HTTP Referers" as described in [Embedding the API key signup form on your own documentation site](#embedding-the-api-key-signup-form-on-your-own-documentation-site) (but this key will only be used in server-side applications, then customizing these may not be necessary).
+   - Save the new API user, and make note of this API key.
 2. Use this special API key to call the API endpoint to create further API keys. Here's an example using curl:
 
-    ```sh
-    curl 'https://api.data.gov/api-umbrella/v1/users.json?api_key=YOUR_API_KEY_WITH_KEY_CREATOR_ROLE' \
-      -H 'Content-Type: application/json' \
-      -H 'Accept: application/json' \
-      --verbose \
-      --data '{
-      "user": {
-        "first_name": "Steve",
-        "last_name": "McQueen",
-        "email": "steve.mcqueen@example.com",
-        "terms_and_conditions": true,
-        "registration_source": "my_agency_site"
-      },
-      "options": {
-        "contact_url": "https://my-agency.gov/contact/",
-        "send_welcome_email": true,
-        "verify_email": false,
-        "email_from_name": "My Agency APIs",
-        "example_api_url": "https://my-agency.gov/api/example?api_key={{api_key}}"
-      }
-    }'
-    ```
+   ```sh
+   curl 'https://api.data.gov/api-umbrella/v1/users.json?api_key=YOUR_API_KEY_WITH_KEY_CREATOR_ROLE' \
+     -H 'Content-Type: application/json' \
+     -H 'Accept: application/json' \
+     --verbose \
+     --data '{
+     "user": {
+       "first_name": "Steve",
+       "last_name": "McQueen",
+       "email": "steve.mcqueen@example.com",
+       "terms_and_conditions": true,
+       "registration_source": "my_agency_site"
+     },
+     "options": {
+       "contact_url": "https://my-agency.gov/contact/",
+       "send_welcome_email": true,
+       "verify_email": false,
+       "email_from_name": "My Agency APIs",
+       "example_api_url": "https://my-agency.gov/api/example?api_key={{api_key}}"
+     }
+   }'
+   ```
 
 ## Admin APIs
 
 Everything you can do within the api.data.gov admin interface is powered by an API. If you wish access this admin functionality programmatically (for example, to pull analytics data via an API call), you can do so using the [API Umbrella REST API](https://api-umbrella.readthedocs.io/en/latest/admin/api.html) (note that an API key and the `X-Admin-Auth-Token` header with your own admin credentials must be supplied). The root URL for API requests will be `https://api.data.gov/api-umbrella/v1/*`.
-
 
 ## How to post an alert box on api.data.gov and on the individual documentation pages to notify users of upcoming status changes.
 
@@ -408,7 +427,9 @@ Edit the source of your documentation page (for example, [source/docs/nrel/index
 
 ```html
 <div class="alert alert-danger">
-  <strong>Upcoming Downtime</strong> Agency X's APIs will be inaccessible Saturday, August 9th from 8AM - 9AM ET. We apologize for the inconvenience. <a href="mailto:contact@agency.gov">Contact us</a> with any questions.
+  <strong>Upcoming Downtime</strong> Agency X's APIs will be inaccessible
+  Saturday, August 9th from 8AM - 9AM ET. We apologize for the inconvenience.
+  <a href="mailto:contact@agency.gov">Contact us</a> with any questions.
 </div>
 ```
 
@@ -424,42 +445,27 @@ When viewing the API analytics in the admin, note that the URLs shown will alway
 
 This means that even if the API consumer passed the API key via a GET query string parameter, the URL in the analytics will not reflect that. For example if an API consumer made a request to `https://api.data.gov/api/example.json?foo=bar&api_key=DEMO_KEY`, that request would be logged in the analytics as though the URL was `https://api.data.gov/api/example.json?foo=bar`. This would also be the same URL logged if the user had originally passed the API key in via an HTTP header instead of the GET query string.
 
-
 ## Using api.data.gov with Swagger / OpenAPI
 
 Examples of Swagger docs for APIs using api.data.gov:
-* [FCC ECFS API](https://www.fcc.gov/ecfs/help/public_api)
-* [FEC](https://api.open.fec.gov/developers/)
-* [GSA Digital Signature API](https://gsa.github.io/DSSAPIDocumentation/api-docs/console/)
-* [GSA Digital Registry](https://usdigitalregistry.digitalgov.gov/#swagger-api-docs)
-* [GSA SFTools](https://sftool.gov/developer/documentation)
-* [GovInfo](https://api.govinfo.gov/docs/)
-* [NPS](https://www.nps.gov/subjects/developer/api-documentation.htm)
-* [NREL](https://developer.nrel.gov/docs/cleap/buildings_and_industry/)
-* [Regulations.gov](https://regulationsgov.github.io/developers/console/)
+
+- [FCC ECFS API](https://www.fcc.gov/ecfs/help/public_api)
+- [FEC](https://api.open.fec.gov/developers/)
+- [GSA Digital Signature API](https://gsa.github.io/DSSAPIDocumentation/api-docs/console/)
+- [GSA Digital Registry](https://usdigitalregistry.digitalgov.gov/#swagger-api-docs)
+- [GSA SFTools](https://sftool.gov/developer/documentation)
+- [GovInfo](https://api.govinfo.gov/docs/)
+- [NPS](https://www.nps.gov/subjects/developer/api-documentation.htm)
+- [NREL](https://developer.nrel.gov/docs/cleap/buildings_and_industry/)
+- [Regulations.gov](https://regulationsgov.github.io/developers/console/)
 
 To integrate API key requirements into your OpenAPI/Swagger specifications, you can utilize the authentication configuration:
 
 - For [OpenAPI 3](https://swagger.io/docs/specification/authentication/api-keys/):
-    ```yml
-    openapi: 3.0.0
-    components:
-      securitySchemes:
-        ApiKeyQueryAuth:
-          type: apiKey
-          in: query
-          name: api_key
-        ApiKeyHeaderAuth:
-          type: apiKey
-          in: header
-          name: X-Api-Key
-    security:
-      - ApiKeyQueryAuth: []
-      - ApiKeyHeaderAuth: []
-    ```
-- For [OpenAPI 2](https://swagger.io/docs/specification/2-0/authentication/api-keys/):
-    ```yml
-    securityDefinitions:
+  ```yml
+  openapi: 3.0.0
+  components:
+    securitySchemes:
       ApiKeyQueryAuth:
         type: apiKey
         in: query
@@ -468,39 +474,53 @@ To integrate API key requirements into your OpenAPI/Swagger specifications, you 
         type: apiKey
         in: header
         name: X-Api-Key
-    security:
-      - ApiKeyQueryAuth: []
-      - ApiKeyHeaderAuth: []
-    ```
+  security:
+    - ApiKeyQueryAuth: []
+    - ApiKeyHeaderAuth: []
+  ```
+- For [OpenAPI 2](https://swagger.io/docs/specification/2-0/authentication/api-keys/):
+  ```yml
+  securityDefinitions:
+    ApiKeyQueryAuth:
+      type: apiKey
+      in: query
+      name: api_key
+    ApiKeyHeaderAuth:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+  security:
+    - ApiKeyQueryAuth: []
+    - ApiKeyHeaderAuth: []
+  ```
 
 Using the `query` authentication mechanism should work in the Swagger UI without additional configuration. If you'd like to use the HTTP header authentication mechanism in the Swagger UI, additional steps are required:
 
 1. Disable API key requirements for the CORS `OPTIONS` pre-flight request on your api.data.gov API Backend configuration:
-    1. Under "Sub-URL Request Settings" add a rule.
-    2. Pick "OPTIONS" for the HTTP method and enter `.*` for the regex.
-    3. For "API Key Checks" choose "Disabled".
+   1. Under "Sub-URL Request Settings" add a rule.
+   2. Pick "OPTIONS" for the HTTP method and enter `.*` for the regex.
+   3. For "API Key Checks" choose "Disabled".
 2. Your underlying API must respond to the `OPTIONS` pre-flight request:
-    - The following HTTP headers need to be returned on the pre-flight response:
-        - [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin): This header must be set to an appropriate value to allow calling from the domain where your Swagger documentation lives (either a specific URL, or wildcard, depending on your overall CORS requirements)
-        - [`Access-Control-Allow-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers): This header must contain the `X-Api-Key` value.
-    - If your underlying API responds to the `OPTIONS` request, but doesn't include the appropriate HTTP response headers for `Access-Control-Allow-Origin` or `Access-Control-Allow-Headers`, then you could use api.data.gov's API Backend configuration to force these values. Under the "Global Request Settings" or "Sub-URL Request Settings" you could use either the "Default Response Headers" or "Override Response Headers" options to set or override these response headers.
+   - The following HTTP headers need to be returned on the pre-flight response:
+     - [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin): This header must be set to an appropriate value to allow calling from the domain where your Swagger documentation lives (either a specific URL, or wildcard, depending on your overall CORS requirements)
+     - [`Access-Control-Allow-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers): This header must contain the `X-Api-Key` value.
+   - If your underlying API responds to the `OPTIONS` request, but doesn't include the appropriate HTTP response headers for `Access-Control-Allow-Origin` or `Access-Control-Allow-Headers`, then you could use api.data.gov's API Backend configuration to force these values. Under the "Global Request Settings" or "Sub-URL Request Settings" you could use either the "Default Response Headers" or "Override Response Headers" options to set or override these response headers.
 
 ## Best practices when deprecating an API
 
-* Beginning at least 1-2 months ahead of the planned deprecation date, look up all of the api keys that have used the API over the past 3-6 months and export their emails addresses.  Notify them in an email about the upcoming date.  
-* In the following days and weeks, monitor who is still using the API right now.  Send them a follow up email.
-* When it comes time to deprecate the API, 'tap the brakes' first.  Slightly modify the API backend configuration to break your api (e.g. insert a character in the Host settings).  Then, a few hours later, undo the change and fix the API.  This would be a good opportunity to email whoever is still using your API one last time.  Then, a day or two later, break it for longer - perhaps 12-24 hours, then fix it again.  Wait another day or three.  Then, finally turn if off for good.  This gives any developers who didn't see your email for whatever reason to notice their app breaking and reach out to get in touch.  
-* It's also a good practice to post a notice on the API docs page or developer hub about the upcoming deprecation.  
-
+- Beginning at least 1-2 months ahead of the planned deprecation date, look up all of the api keys that have used the API over the past 3-6 months and export their emails addresses. Notify them in an email about the upcoming date.
+- In the following days and weeks, monitor who is still using the API right now. Send them a follow up email.
+- When it comes time to deprecate the API, 'tap the brakes' first. Slightly modify the API backend configuration to break your api (e.g. insert a character in the Host settings). Then, a few hours later, undo the change and fix the API. This would be a good opportunity to email whoever is still using your API one last time. Then, a day or two later, break it for longer - perhaps 12-24 hours, then fix it again. Wait another day or three. Then, finally turn if off for good. This gives any developers who didn't see your email for whatever reason to notice their app breaking and reach out to get in touch.
+- It's also a good practice to post a notice on the API docs page or developer hub about the upcoming deprecation.
 
 ## Process for removing an API backend
 
-After you have followed the above best practices and are ready to fully deprecate an API, use the following steps to complete the process and reach out to the api.data.gov team if you have any questions.  Note that implementing these steps will immediately impact the API's availability, so you'll want to make sure that it takes at the time that you want to end access to the API.  
+After you have followed the above best practices and are ready to fully deprecate an API, use the following steps to complete the process and reach out to the api.data.gov team if you have any questions. Note that implementing these steps will immediately impact the API's availability, so you'll want to make sure that it takes at the time that you want to end access to the API.
 
-1. Login to the api.data.gov admin. 
+1. Login to the api.data.gov admin.
 2. In the top menu, navigate to the "Configuration" menu and pick "API Backends".
-3. Select the API backend that is used by your API.  
-4. At the bottom of the page, select "Delete API".  
-5. Click "OK" to confirm.  
-7. In order for this change to go live, it must be published. In the top menu navigate to the "Configuration" menu and pick "Publish Changes". Review your changes here and then click the big "Publish" button.
-8. Contact the api.data.gov team by emailing [api.data.gov@gsa.gov](mailto:api.data.gov@gsa.gov) to notify them so that they can then also delete the relevant API scopes and admin groups if needs be.  
+3. Select the API backend that is used by your API.
+4. At the bottom of the page, select "Delete API".
+5. Click "OK" to confirm.
+6. In order for this change to go live, it must be published. In the top menu navigate to the "Configuration" menu and pick "Publish Changes". Review your changes here and then click the big "Publish" button.
+7. Contact the api.data.gov team by emailing [api.data.gov@gsa.gov](mailto:api.data.gov@gsa.gov) to notify them so that they can then also delete the relevant API scopes and admin groups if needs be.

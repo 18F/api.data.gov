@@ -23,7 +23,7 @@ body.api-metrics {
   }
 
   tbody .numeric-value {
-    @include styles.u-font('mono', 'sm');
+    @include styles.u-font("mono", "sm");
     @extend .text-tabular;
     @extend .text-right;
   }
@@ -72,7 +72,9 @@ body.api-metrics {
 
   .usa-table--striped tbody tr:nth-child(odd) td.sorting_1,
   .usa-table--striped tbody tr:nth-child(odd) th.sorting_1 {
-    background-color: styles.color(styles.$theme-table-sorted-stripe-background-color);
+    background-color: styles.color(
+      styles.$theme-table-sorted-stripe-background-color
+    );
     color: styles.$table-sorted-stripe-text-color;
   }
 

@@ -12,7 +12,11 @@
           {{ $response := getJSON "https://catalog.data.gov/api/3/action/package_search?fq_list=organization:" .data_gov_agency_id "&fq_list=res_format:API&rows=20&sort=title%20asc" }}
           <ul>
             {{ range sort $response.result.results "title" }}
-              <li><a href="https://catalog.data.gov/dataset/{{ .name }}">{{ .title }}</a></li>
+              <li>
+                <a href="https://catalog.data.gov/dataset/{{ .name }}"
+                  >{{ .title }}</a
+                >
+              </li>
             {{ end }}
           </ul>
         {{ end }}
