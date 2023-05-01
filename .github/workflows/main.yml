@@ -2,29 +2,51 @@ name: CI
 
 on: [push, pull_request]
 
+env:
+  COMPOSE_FILE: docker-compose.ci.yml
+  TEST_IMAGE_REPO: ghcr.io/18f/api.data.gov
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      image-tag: ${{ steps.image-metadata.outputs.version }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - name: Container metadata
+        id: image-metadata
+        uses: docker/metadata-action@v4
         with:
-          node-version: "16"
-          cache: yarn
-          cache-dependency-path: "**/yarn.lock"
+          images: ${{ env.TEST_IMAGE_REPO }}
+          flavor: |
+            prefix=test-image-
 
-      - name: Yarn Install
-        run: yarn install
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Docker build
+        run: docker buildx bake -f "${{ env.COMPOSE_FILE }}" --push
+        env:
+          TEST_IMAGE_TAG: ${{ steps.image-metadata.outputs.version }}
 
       - name: ESLint
-        run: yarn run lint
+        run: docker compose run --rm web yarn run lint --max-warnings 0
+        env:
+          TEST_IMAGE_TAG: ${{ steps.image-metadata.outputs.version }}
 
       - name: Prettier Check
-        run: yarn run prettier:check
+        run: docker compose run --rm web yarn run prettier:check
+        env:
+          TEST_IMAGE_TAG: ${{ steps.image-metadata.outputs.version }}
 
   build:
     runs-on: ubuntu-latest
+    needs: test
     strategy:
       matrix:
         deploy_env: [production, staging]
@@ -42,36 +64,21 @@ jobs:
           - deploy_env: staging
             contact_api_key_secret_name: STAGING_CONTACT_API_KEY
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: recursive
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "0.111.3"
-          extended: true
-
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "16"
-          cache: yarn
-          cache-dependency-path: "**/yarn.lock"
-
-      # Yarn dependencies
-      - name: Yarn Install
-        run: yarn install
 
       # Build
       - name: Build
         env:
+          TEST_IMAGE_TAG: ${{ needs.test.outputs.image-tag }}
           WEB_SITE_ROOT: ${{ secrets[matrix.web_site_root_secret_name] }}
           SIGNUP_API_KEY: ${{ secrets[matrix.signup_api_key_secret_name] }}
           CONTACT_API_KEY: ${{ secrets[matrix.contact_api_key_secret_name] }}
         run: |
           HUGO_PARAMS_APIUMBRELLACONTACTAPIKEY="$CONTACT_API_KEY" \
           HUGO_PARAMS_APIUMBRELLASIGNUPAPIKEY="$SIGNUP_API_KEY" \
-          hugo \
+          docker compose run --rm web hugo \
             --minify \
             --baseURL "$WEB_SITE_ROOT"
       - uses: actions/upload-artifact@v1
@@ -84,7 +91,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     container:
-      image: rclone/rclone:1.57.0
+      image: rclone/rclone:1.62.2
     strategy:
       matrix:
         deploy_env: [production, staging]
