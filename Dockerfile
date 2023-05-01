@@ -29,6 +29,12 @@ RUN mkdir -p "$NODE_MODULES_DIR" && \
   ln -s "$NODE_MODULES_DIR" /app/node_modules && \
   yarn
 
-COPY . /app
+COPY .eslintrc.js .prettierignore .prettierrc.yml config.yaml postcss.config.js /app/
+COPY assets /app/assets
+COPY config /app/config
+COPY content /app/content
+COPY data /app/data
+COPY layouts /app/layouts
+COPY vendor/datagov-11ty/styles /app/vendor/datagov-11ty/styles
 
 CMD ["/app/bin/docker-start"]
