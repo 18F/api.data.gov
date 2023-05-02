@@ -37,4 +37,5 @@ COPY data /app/data
 COPY layouts /app/layouts
 COPY vendor/datagov-11ty/styles /app/vendor/datagov-11ty/styles
 
+ENTRYPOINT ["/app/bin/docker-entrypoint", "--"]
 CMD ["/app/bin/docker-start"]

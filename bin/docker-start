@@ -3,9 +3,6 @@
 set -Eeuxo pipefail
 
 # Install NPM dependencies.
-rm -rf ./node_modules
-mkdir -p /usr/local/node_modules
-ln -s /usr/local/node_modules ./node_modules
 yarn install
 
 hugo server --bind "0.0.0.0" --port 4490 --liveReloadPort 4491
