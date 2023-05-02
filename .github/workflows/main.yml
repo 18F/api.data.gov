@@ -13,6 +13,8 @@ jobs:
       image-tag: ${{ steps.image-metadata.outputs.version }}
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: recursive
 
       - name: Container metadata
         id: image-metadata
