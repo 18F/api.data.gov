@@ -36,10 +36,26 @@ module:
       target: i18n
     - source: archetypes
       target: archetypes
-    - source: ./node_modules/@uswds/uswds/dist
-      target: static/node_modules/@uswds/uswds/dist
-    - source: ./vendor/data.gov/roots-nextdatagov/assets/img/logo.png
-      target: static/img/logo.png
+    - source: ./node_modules/@uswds/uswds/dist/fonts/
+      target: static/node_modules/@uswds/uswds/dist/fonts/
+    - source: ./node_modules/@uswds/uswds/dist/img/expand_less.svg
+      target: static/node_modules/@uswds/uswds/dist/img/expand_less.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/usa-icons/expand_more.svg
+      target: static/node_modules/@uswds/uswds/dist/img/usa-icons/expand_more.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/usa-icons/unfold_less.svg
+      target: static/node_modules/@uswds/uswds/dist/img/usa-icons/unfold_less.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/usa-icons/unfold_more.svg
+      target: static/node_modules/@uswds/uswds/dist/img/usa-icons/unfold_more.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/icon-dot-gov.svg
+      target: static/node_modules/@uswds/uswds/dist/img/icon-dot-gov.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/icon-https.svg
+      target: static/node_modules/@uswds/uswds/dist/img/icon-https.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/sprite.svg
+      target: static/node_modules/@uswds/uswds/dist/img/sprite.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/us_flag_small.png
+      target: static/node_modules/@uswds/uswds/dist/img/us_flag_small.png
+    - source: ./node_modules/@uswds/uswds/dist/js/
+      target: static/node_modules/@uswds/uswds/dist/js/
 disable404: true
 security:
   exec:

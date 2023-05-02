@@ -116,3 +116,17 @@ pre {
     background-color: transparent !important;
   }
 }
+
+.usa-button.centered-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.child-icon-margin-right svg {
+  margin-right: 0.3rem;
+}
+
+.child-icon-margin-left svg {
+  margin-left: 0.3rem;
+}
