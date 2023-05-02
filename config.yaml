@@ -38,8 +38,8 @@ module:
       target: archetypes
     - source: ./node_modules/@uswds/uswds/dist/fonts/
       target: static/node_modules/@uswds/uswds/dist/fonts/
-    - source: ./node_modules/@uswds/uswds/dist/img/expand_less.svg
-      target: static/node_modules/@uswds/uswds/dist/img/expand_less.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/usa-icons/expand_less.svg
+      target: static/node_modules/@uswds/uswds/dist/img/usa-icons/expand_less.svg
     - source: ./node_modules/@uswds/uswds/dist/img/usa-icons/expand_more.svg
       target: static/node_modules/@uswds/uswds/dist/img/usa-icons/expand_more.svg
     - source: ./node_modules/@uswds/uswds/dist/img/usa-icons/unfold_less.svg
