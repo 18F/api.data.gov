@@ -18,7 +18,8 @@ svg {
 // The data.gov theme removes the max-width on usa-prose paragraphs, so make
 // lists match.
 .usa-prose > ul li,
-.usa-prose > ol li {
+.usa-prose > ol li,
+.usa-list li {
   max-width: none;
 }
 
