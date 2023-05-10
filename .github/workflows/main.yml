@@ -89,7 +89,7 @@ jobs:
             web \
             hugo \
             --minify \
-            --baseURL "$WEB_SITE_ROOT"
+            --baseURL "${{ secrets[matrix.web_site_root_secret_name] }}"
       - uses: actions/upload-artifact@v1
         with:
           name: build-${{ matrix.deploy_env }}
