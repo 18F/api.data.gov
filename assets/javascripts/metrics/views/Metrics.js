@@ -17,7 +17,7 @@ export default defineComponent({
   },
 
   template: `
-    <div class="home">
+    <div class="home grid-container usa-prose">
       <h1>api.data.gov Metrics</h1>
 
       <div class="container form-group custom-select-lg-container">
@@ -27,8 +27,8 @@ export default defineComponent({
         </select>
       </div>
 
-      <div class="row">
-        <div class="col-md-6">
+      <div class="grid-row">
+        <div class="desktop:grid-col">
           <UsageChart
             title="Last 30 Days"
             v-bind:hits="store.hitsRecentDaily(selectedOrganization)"
@@ -37,7 +37,7 @@ export default defineComponent({
             v-bind:active-api-keys-total="store.activeApiKeysRecentTotal(selectedOrganization)"
             />
         </div>
-        <div class="col-md-6">
+        <div class="desktop:grid-col">
           <UsageChart
             title="All Time"
             v-bind:hits="store.hitsMonthly(selectedOrganization)"
@@ -50,7 +50,7 @@ export default defineComponent({
 
       <hr>
 
-      <div class="form-group h3 text-center font-weight-light">
+      <div class="font-heading-xl text-center">
         {{ organizationNames.length }} participating agencies
       </div>
 

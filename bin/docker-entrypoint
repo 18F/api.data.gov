@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+app_root_dir="/app"
+
+# Symlink the node_modules to the expected location for better Docker caching
+# when /app is mounted for development/test purposes.
+if [ ! -L "${app_root_dir}/node_modules" ] || [ "$(readlink "${app_root_dir}/node_modules")" != "$NODE_MODULES_DIR" ]; then
+  mkdir -p "$NODE_MODULES_DIR"
+  set -x
+  rm -rf "${app_root_dir}/node_modules"
+  ln -s "$NODE_MODULES_DIR" "${app_root_dir}/node_modules"
+  { set +x; } 2>/dev/null
+fi
+
+exec "$@"

@@ -1,0 +1,51 @@
+// Replicate data.gov's default link hanlding (coming from their inclusion of
+// Bootstrap).
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+// Replicate data.gov's default alignment (coming from their inclusion of
+// Bootstrap).
+img,
+svg {
+  vertical-align: middle;
+}
+
+// The data.gov theme removes the max-width on usa-prose paragraphs, so make
+// lists match.
+.usa-prose > ul li,
+.usa-prose > ol li,
+.usa-list li {
+  max-width: none;
+}
+
+// Styles for the header bar based on data.gov's theme on their Catalog page
+// (not present in the default styles we're pulling in from them).
+header .header_new.banner_new.page-heading_new {
+  background-color: #0050d8;
+  color: #ffffff;
+  padding: 7px 0 5px 0;
+
+  a {
+    color: #fff;
+  }
+}
+.page-header_new h1 {
+  font-size: 18px;
+  padding-bottom: 0.2em;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+// We don't include the "User Guide" part of the nav, which is what's forcing
+// the Data.gov header height, so replicate that manually.
+@media all and (min-width: 64em) {
+  #menu-navigation.usa-nav .usa-accordion {
+    margin-top: 1.35rem;
+    margin-bottom: 1.35rem;
+  }
+}

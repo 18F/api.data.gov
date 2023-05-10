@@ -7,7 +7,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 12,
   },
-  extends: ["airbnb-base", "plugin:prettier/recommended"],
+  extends: ["airbnb-base", "prettier"],
   plugins: ["simple-import-sort"],
   ignorePatterns: ["vendor/**"],
   rules: {
@@ -16,7 +16,7 @@ module.exports = {
       {
         devDependencies: [
           "postcss.config.js",
-          "postcss-bootstrap/postcss.config.js",
+          "config/embed/postcss.config.js",
         ],
       },
     ],

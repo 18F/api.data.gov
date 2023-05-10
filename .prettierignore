@@ -2,14 +2,3 @@
 /vendor
 /public
 /resources
-
-# These could maybe be included, but for now ignore (to prevent lots of changes
-# on existing content).
-/.about.yml
-/.github/dependabot.yml
-/README.md
-/content
-/data
-/docs
-/layouts
-/system-security-plan.yml

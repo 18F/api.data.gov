@@ -1,8 +1,13 @@
 baseURL: /
 languageCode: en-us
 title: api.data.gov
+disableKinds:
+  - RSS
+  - section
+  - taxonomy
+  - term
 params:
-  githubRepoUrl: https://github.com/NREL/api-umbrella
+  githubRepoUrl: https://github.com/18F/api.data.gov
   apiUmbrellaContactApiKey: DEMO_KEY
   apiUmbrellaSignupApiKey: DEMO_KEY
 markup:
@@ -36,8 +41,26 @@ module:
       target: i18n
     - source: archetypes
       target: archetypes
-    - source: ./vendor/data.gov/roots-nextdatagov/assets/img/logo.png
-      target: static/img/logo.png
+    - source: ./node_modules/@uswds/uswds/dist/fonts/
+      target: static/node_modules/@uswds/uswds/dist/fonts/
+    - source: ./node_modules/@uswds/uswds/dist/img/usa-icons/expand_less.svg
+      target: static/node_modules/@uswds/uswds/dist/img/usa-icons/expand_less.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/usa-icons/expand_more.svg
+      target: static/node_modules/@uswds/uswds/dist/img/usa-icons/expand_more.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/usa-icons/unfold_less.svg
+      target: static/node_modules/@uswds/uswds/dist/img/usa-icons/unfold_less.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/usa-icons/unfold_more.svg
+      target: static/node_modules/@uswds/uswds/dist/img/usa-icons/unfold_more.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/icon-dot-gov.svg
+      target: static/node_modules/@uswds/uswds/dist/img/icon-dot-gov.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/icon-https.svg
+      target: static/node_modules/@uswds/uswds/dist/img/icon-https.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/sprite.svg
+      target: static/node_modules/@uswds/uswds/dist/img/sprite.svg
+    - source: ./node_modules/@uswds/uswds/dist/img/us_flag_small.png
+      target: static/node_modules/@uswds/uswds/dist/img/us_flag_small.png
+    - source: ./node_modules/@uswds/uswds/dist/js/
+      target: static/node_modules/@uswds/uswds/dist/js/
 disable404: true
 security:
   exec:

@@ -289,12 +289,10 @@ formEl.addEventListener("submit", (event) => {
         throw new Error("Response is not JSON");
       }
 
-      return response.json().then((data) => {
-        return {
-          response,
-          data,
-        };
-      });
+      return response.json().then((data) => ({
+        response,
+        data,
+      }));
     })
     .then(({ response, data }) => {
       if (!response.ok) {

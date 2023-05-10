@@ -5,13 +5,13 @@ bodyClass: about-page
 
 [api.data.gov](http://api.data.gov/) is a free API management service for federal agencies. Our aim is to make it easier for you to release and manage your APIs.
 
-* [How It Works](#how-it-works)
-* [Features](#features)
-* [How To Participate](#how-to-participate)
+- [How It Works](#how-it-works)
+- [Features](#features)
+- [How To Participate](#how-to-participate)
 
 ## How It Works
 
-api.data.gov acts as a layer above your existing APIs. It transparently adds  extra functionality to your APIs and helps deal with some of the repetitive parts of managing APIs.
+api.data.gov acts as a layer above your existing APIs. It transparently adds extra functionality to your APIs and helps deal with some of the repetitive parts of managing APIs.
 
 ![features of api.data.gov](/images/about_features.png)
 
@@ -38,7 +38,7 @@ We'll track all the traffic to your API and give you tools to easily analyze it:
 
 - **Demonstrate value:** Understand how your API is being used so you can gauge the value and success of your APIs.
 - **Visualize usage and trends**: View graphs of the overall usage trends for your APIs.
-- **Flexible querying**: Drill down into the stats based on any criteria. Find out how much traffic individual users are generating, or answer more complex  questions about aggregate usage.
+- **Flexible querying**: Drill down into the stats based on any criteria. Find out how much traffic individual users are generating, or answer more complex questions about aggregate usage.
 - **Monitor API performance**: We gather metrics on the speed of your API, so you can keep an eye on how your API is performing.
 - **No coding required**: No code changes are required to your API. If your API is being hit through api.data.gov, we can take care of logging the necessary details.
 

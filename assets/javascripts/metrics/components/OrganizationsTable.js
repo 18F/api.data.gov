@@ -1,4 +1,4 @@
-import datatables from "datatables.net-bs5";
+import datatables from "datatables.net-dt";
 import jQuery from "jquery";
 import {
   computed,
@@ -15,8 +15,8 @@ const DataTable = datatables(window, jQuery);
 
 export default defineComponent({
   template: `
-    <div>
-      <table ref="tableEl" class="organizations-table table table-striped table-bordered" style="width: 100%"></table>
+    <div class="usa-table-container--scrollable">
+      <table ref="tableEl" class="usa-table usa-table--compact usa-table--striped organizations-table" style="width: 100%"></table>
     </div>
   `,
 
@@ -57,6 +57,7 @@ export default defineComponent({
 
       dataTable = new DataTable(tableEl.value, {
         data: this.organizations,
+        autoWidth: false,
         columns: [
           {
             title: "Agency",
@@ -65,35 +66,48 @@ export default defineComponent({
           {
             title: "Number of APIs",
             data: "api_backend_url_match_count",
+            className: "numeric-value",
+            width: "7.2rem",
             render: numberRender,
           },
           {
             title: "Hits<br>(Last 30 Days)",
             data: "hits_recent",
+            className: "numeric-value",
+            width: "10.2rem",
             render: numberRender,
           },
           {
             title: "Unique API Keys<br>(Last 30 Days)",
             data: "active_api_keys_recent",
+            className: "numeric-value",
+            width: "11rem",
             render: numberRender,
           },
           {
             title: "Average Response Time<br>(Last 30 Days)",
             data: "average_response_times_recent",
+            className: "numeric-value",
+            width: "14.8rem",
             render: msRender,
           },
           {
             title: "Hits<br>(All Time)",
             data: "hits",
+            className: "numeric-value",
+            width: "9rem",
             render: numberRender,
           },
           {
             title: "Unique API Keys<br>(All Time)",
             data: "active_api_keys",
+            className: "numeric-value",
+            width: "11rem",
             render: numberRender,
           },
         ],
         order: [[2, "desc"]],
+        orderMulti: false,
         paging: false,
         searching: false,
         info: false,

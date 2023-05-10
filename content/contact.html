@@ -7,157 +7,189 @@ title: Contact Us
   with Your API Site Name.
 </p>
 
-<div class="row">
-  <div class="col-md-6 text-center">
+<div class="grid-row grid-gap-lg">
+  <div class="tablet:grid-col text-center">
     <a
       href="{{< param githubRepoUrl >}}/issues"
-      class="center-block btn btn-secondary btn-lg"
+      class="center-block usa-button usa-button--big centered-icon-button child-icon-margin-right"
     >
-      <i class="fa fa-github"></i>
-      <span>File an issue on GitHub</span>
+      {{< usa-icon "github" >}}
+      File an issue on GitHub
     </a>
   </div>
-  <div class="col-md-6 text-center">
-    <a href="#contact" class="center-block btn btn-secondary btn-lg">
-      <i class="fa fa-comments-o"></i>
-      <span>Contact us directly</span>
+  <div class="tablet:grid-col margin-top-2 tablet:margin-top-0 text-center">
+    <a
+      href="#contact"
+      class="center-block usa-button usa-button--big centered-icon-button child-icon-margin-right"
+    >
+      {{< usa-icon "chat" >}}
+      Contact us directly
     </a>
   </div>
 </div>
 
-<h3 id="contact" style="margin-top: 3em;">
-  <i class="fa fa-comments-o"></i> Contact us directly
-</h3>
-<p class="required-fields">
-  Required fields are marked with an asterisk (<abbr
-    title="required"
-    class="required"
-    >*</abbr
-  >).
-</p>
-<form id="api_umbrella_contact_form" novalidate>
-  <div class="form-group">
-    <label class="form-label" for="contact_name"
-      >Name <abbr title="required" class="required">*</abbr></label
-    >
-    <input
-      class="form-control"
-      id="contact_name"
-      aria-describedby="contact_name_feedback"
-      name="contact[name]"
-      size="50"
-      type="text"
-      required
-    />
-    <div id="contact_name_feedback" class="invalid-feedback">
-      Fill out this field.
+<form
+  id="api_umbrella_contact_form"
+  novalidate
+  class="usa-form usa-form--large margin-top-6"
+>
+  <fieldset class="usa-fieldset" id="contact">
+    <legend class="usa-legend usa-legend--large child-icon-margin-right">
+      {{< usa-icon "chat" >}} Contact us directly
+    </legend>
+    <p>
+      Required fields are marked with an asterisk (<abbr
+        title="required"
+        class="usa-hint usa-hint--required"
+        >*</abbr
+      >).
+    </p>
+
+    <div class="form-group">
+      <label class="usa-label" for="contact_name"
+        >Name
+        <abbr title="required" class="usa-hint usa-hint--required"
+          >*</abbr
+        ></label
+      >
+      <input
+        class="usa-input"
+        id="contact_name"
+        aria-describedby="contact_name_feedback"
+        name="contact[name]"
+        size="50"
+        type="text"
+        required
+      />
+      <div id="contact_name_feedback" class="usa-error-message" role="alert">
+        Fill out this field.
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="form-label" for="contact_email"
-      >Email <abbr title="required" class="required">*</abbr></label
-    >
-    <input
-      class="form-control"
-      id="contact_email"
-      aria-describedby="contact_email_feedback"
-      name="contact[email]"
-      size="50"
-      type="email"
-      required
-    />
-    <div id="contact_email_feedback" class="invalid-feedback">
-      Enter an email address.
+
+    <div class="form-group">
+      <label class="usa-label" for="contact_email"
+        >Email
+        <abbr title="required" class="usa-hint usa-hint--required"
+          >*</abbr
+        ></label
+      >
+      <input
+        class="usa-input"
+        id="contact_email"
+        aria-describedby="contact_email_feedback"
+        name="contact[email]"
+        size="50"
+        type="email"
+        required
+      />
+      <div id="contact_email_feedback" class="usa-error-message" role="alert">
+        Enter an email address.
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="form-label" for="contact_api"
-      >Which API are you inquiring about?
-      <abbr title="required" class="required">*</abbr></label
-    >
-    <input
-      class="form-control"
-      id="contact_api"
-      aria-describedby="contact_api_feedback"
-      name="contact[api]"
-      size="50"
-      type="text"
-      required
-    />
-    <div id="contact_api_feedback" class="invalid-feedback">
-      Fill out this field.
+
+    <div class="form-group">
+      <label class="usa-label" for="contact_api"
+        >Which API are you inquiring about?
+        <abbr title="required" class="usa-hint usa-hint--required"
+          >*</abbr
+        ></label
+      >
+      <input
+        class="usa-input"
+        id="contact_api"
+        aria-describedby="contact_api_feedback"
+        name="contact[api]"
+        size="50"
+        type="text"
+        required
+      />
+      <div id="contact_api_feedback" class="usa-error-message" role="alert">
+        Fill out this field.
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="form-label" for="contact_subject"
-      >What can we help you with?
-      <abbr title="required" class="required">*</abbr></label
-    >
-    <select
-      id="contact_subject"
-      aria-describedby="contact_subject_feedback"
-      name="contact[subject]"
-      class="form-select"
-      required
-    >
-      <option value="">Please select one...</option>
-      <option>API key support</option>
-      <option>Requesting higher rate limits</option>
-      <option>Other</option>
-    </select>
-    <div id="contact_subject_feedback" class="invalid-feedback">
-      Select an item in the list.
+
+    <div class="form-group">
+      <label class="usa-label" for="contact_subject"
+        >What can we help you with?
+        <abbr title="required" class="usa-hint usa-hint--required"
+          >*</abbr
+        ></label
+      >
+      <select
+        id="contact_subject"
+        aria-describedby="contact_subject_feedback"
+        name="contact[subject]"
+        class="usa-select"
+        required
+      >
+        <option value="">Please select one...</option>
+        <option>API key support</option>
+        <option>Requesting higher rate limits</option>
+        <option>Other</option>
+      </select>
+      <div id="contact_subject_feedback" class="usa-error-message" role="alert">
+        Select an item in the list.
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="form-label" for="contact_message"
-      >Message <abbr title="required" class="required">*</abbr></label
-    >
-    <textarea
-      class="form-control"
-      cols="40"
-      id="contact_message"
-      aria-describedby="contact_message_feedback"
-      name="contact[message]"
-      rows="6"
-      required
-    ></textarea>
-    <div id="contact_message_feedback" class="invalid-feedback">
-      Fill out this field.
+
+    <div class="form-group">
+      <label class="usa-label" for="contact_message"
+        >Message
+        <abbr title="required" class="usa-hint usa-hint--required"
+          >*</abbr
+        ></label
+      >
+      <textarea
+        class="usa-textarea"
+        cols="40"
+        id="contact_message"
+        aria-describedby="contact_message_feedback"
+        name="contact[message]"
+        rows="6"
+        required
+      ></textarea>
+      <div id="contact_message_feedback" class="usa-error-message" role="alert">
+        Fill out this field.
+      </div>
     </div>
-  </div>
-  <div class="submit">
-    <noscript
-      ><div class="alert alert-danger" role="alert">
-        Please enable JavaScript to contact us.
-      </div></noscript
-    >
-    <button type="submit" class="btn btn-lg btn-primary">Send</button>
-  </div>
+
+    <div class="submit margin-top-3">
+      <noscript
+        ><div class="alert alert-danger" role="alert">
+          Please enable JavaScript to contact us.
+        </div></noscript
+      >
+      <button type="submit" class="usa-button usa-button--big">Send</button>
+    </div>
+  </fieldset>
+
   <div
     id="alert_modal"
     class="dialog-container"
     aria-describedby="alert_modal_message"
     aria-hidden="true"
   >
-    <div class="modal-backdrop show" data-a11y-dialog-hide></div>
-    <div role="document" class="modal show d-block">
-      <div class="modal-dialog">
-        <div class="modal-content" autofocus>
-          <div class="modal-body">
-            <button
-              type="button"
-              class="btn-close float-end"
-              aria-label="Close"
-              data-a11y-dialog-hide
-            ></button>
-            <div id="alert_modal_message"></div>
+    <div class="modal-backdrop show" data-a11y-dialog-hide>
+      <div role="document" class="modal show d-block">
+        <div class="modal-dialog">
+          <div class="modal-content" autofocus>
+            <div class="modal-body">
+              <div class="usa-prose" id="alert_modal_message"></div>
+              <div class="usa-modal__footer">
+                <button type="button" class="usa-button" data-a11y-dialog-hide>
+                  OK
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-a11y-dialog-hide>
-              OK
-            </button>
-          </div>
+          <button
+            type="button"
+            class="usa-button usa-modal__close"
+            aria-label="Close"
+            data-a11y-dialog-hide
+          >
+            {{< usa-icon "close" >}}
+          </button>
         </div>
       </div>
     </div>

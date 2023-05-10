@@ -1,0 +1,18 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      cache_from:
+        - "${TEST_IMAGE_REPO}:${TEST_IMAGE_TAG}"
+        - "${TEST_IMAGE_REPO}:recent-test-image"
+      cache_to:
+        - type=inline
+      x-bake:
+        tags:
+          - "${TEST_IMAGE_REPO}:${TEST_IMAGE_TAG}"
+          - "${TEST_IMAGE_REPO}:recent-test-image"
+    environment:
+      CI: true
+    volumes:
+      - .:/app

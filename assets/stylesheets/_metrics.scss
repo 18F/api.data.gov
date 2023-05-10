@@ -1,23 +1,79 @@
 body.api-metrics {
-  .container.content-page {
-    width: 100% !important;
+  #main-content .grid-container {
+    max-width: none !important;
   }
 }
 
 #api-metrics {
-  @import "datatables.net-bs5/css/dataTables.bootstrap5";
-
   width: 100% !important;
 
   h1 {
     text-align: center;
   }
 
-  tr.odd,
-  tr.odd td,
-  thead th,
-  thead td {
-    text-align: left;
+  .font-heading-xl {
+    line-height: 1.2;
+    margin: 1rem 0rem;
+  }
+
+  .usa-table-container--scrollable td {
+    white-space: normal;
+  }
+
+  tbody .numeric-value {
+    @include styles.u-font("mono", "sm");
+    @extend .text-tabular;
+    @extend .text-right;
+  }
+
+  table.dataTable thead > tr > th.sorting,
+  table.dataTable thead > tr > th.sorting_asc,
+  table.dataTable thead > tr > th.sorting_desc,
+  table.dataTable thead > tr > th.sorting_asc_disabled,
+  table.dataTable thead > tr > th.sorting_desc_disabled,
+  table.dataTable thead > tr > td.sorting,
+  table.dataTable thead > tr > td.sorting_asc,
+  table.dataTable thead > tr > td.sorting_desc,
+  table.dataTable thead > tr > td.sorting_asc_disabled,
+  table.dataTable thead > tr > td.sorting_desc_disabled {
+    cursor: pointer;
+    position: relative;
+    padding-right: 2rem;
+  }
+
+  table.dataTable thead > tr > th.sorting:after,
+  table.dataTable thead > tr > td.sorting:after {
+    content: url('data:image/svg+xml; utf8, <svg class="usa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g class="unsorted"><polygon points="15.17 15 13 17.17 13 6.83 15.17 9 16.58 7.59 12 3 7.41 7.59 8.83 9 11 6.83 11 17.17 8.83 15 7.42 16.41 12 21 16.59 16.41 15.17 15"></polygon></g></svg>');
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    right: 0.25rem;
+    top: 50%;
+  }
+
+  table.dataTable thead > tr > th.sorting_desc:after,
+  table.dataTable thead > tr > td.sorting_desc:after {
+    content: url('data:image/svg+xml; utf8, <svg class="usa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g class="descending"><path d="M17 17L15.59 15.59L12.9999 18.17V2H10.9999V18.17L8.41 15.58L7 17L11.9999 22L17 17Z"></path></g></svg>');
+  }
+
+  table.dataTable thead > tr > th.sorting_asc:after,
+  table.dataTable thead > tr > td.sorting_asc:after {
+    content: url('data:image/svg+xml; utf8, <svg class="usa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g class="ascending"><path transform="rotate(180, 12, 12)" d="M17 17L15.59 15.59L12.9999 18.17V2H10.9999V18.17L8.41 15.58L7 17L11.9999 22L17 17Z"></path></g></svg>');
+  }
+
+  .usa-table td.sorting_1,
+  .usa-table th.sorting_1 {
+    background-color: styles.color(styles.$theme-table-sorted-background-color);
+    color: styles.$table-sorted-text-color;
+  }
+
+  .usa-table--striped tbody tr:nth-child(odd) td.sorting_1,
+  .usa-table--striped tbody tr:nth-child(odd) th.sorting_1 {
+    background-color: styles.color(
+      styles.$theme-table-sorted-stripe-background-color
+    );
+    color: styles.$table-sorted-stripe-text-color;
   }
 
   .custom-select {

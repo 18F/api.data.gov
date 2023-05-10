@@ -1,2 +1,6 @@
 {{ $js := resources.Get "javascripts/metrics/main.js" | js.Build (dict "minify" true) | resources.Fingerprint -}}
-<script type="text/javascript" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+<script
+  type="text/javascript"
+  src="{{ $js.RelPermalink }}"
+  integrity="{{ $js.Data.Integrity }}"
+></script>

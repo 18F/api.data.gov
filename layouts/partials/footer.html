@@ -1,45 +1,148 @@
-          <div style="text-align: center; font-style: italic; padding: 3em 0.5em 0em 0.5em;">
-            {{ if .File }}
-              <a href="https://github.com/18F/api.data.gov/blob/main/content/{{ .File.Path }}">Help Improve this Content</a>
-            {{ end }}
-          </div>
+<footer class="usa-footer site-footer" role="contentinfo">
+  <div class="footer-section-bottom bg-base-lighter">
+    <div class="grid-container">
+      <div class="grid-row padding-top-4">
+        <div class="site-footer__logo">
+          <a href="https://data.gov">
+            <img
+              class="width-30 height-auto"
+              src="https://s3-us-gov-west-1.amazonaws.com/cg-0817d6e3-93c4-4de8-8b32-da6919464e61/logo.png"
+              alt="Data.gov logo"
+            />
+          </a>
         </div>
       </div>
-    </main>
-    <!-- /.main -->
-  </div>
-  <!-- /.content -->
-</div>
-<!-- /.wrap -->
-
-<footer class="content-info" role="contentinfo">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-lg-6">
-        <div class="footer-logo">
-          <a class="logo-brand local-link" href="https://www.data.gov/" alt="Data.gov">Data.gov</a>
-        </div>
-        <ul id="menu-footer2" class="nav"><li class="menu-privacy-and-website-policies"><a href="https://www.data.gov/privacy-policy" class="local-link">Privacy and Website Policies</a></li>
-          <li class="menu-usa-gov"><a href="https://www.usa.gov/" class="external ext-link" rel="external" onclick="this.target=&#039;_blank&#039;;">USA.GOV</a></li>
-          <li class="menu-performance-gov"><a href="http://www.performance.gov/" class="external ext-link" rel="external" onclick="this.target=&#039;_blank&#039;;">PERFORMANCE.GOV</a></li>
-        </ul>
-      </div>
-      <nav class="col-md-3 col-lg-3" role="navigation">
-        <ul id="menu-footer" class="nav"><li class="menu-about"><a href="https://www.data.gov/about" class="local-link">About</a></li>
-          <li class="menu-open-government"><a href="https://www.data.gov/open-gov/" class="local-link">Open Government</a></li>
-          <li class="menu-blog"><a href="https://www.data.gov/meta/" class="local-link">Blog</a></li>
-          <li class="menu-metrics"><a href="https://www.data.gov/metrics" class="local-link">Metrics</a></li>
-          <li class="menu-events"><a href="https://www.data.gov/events/">Events</a></li>
-          <li class="menu-log-in"><a href="/admin/" class="local-link">Log In</a></li>
-        </ul>
-      </nav>
-      <div class="col-md-3 col-lg-3 social-nav">
-        <nav role="navigation">
-          <ul id="menu-social_navigation" class="nav"><li><a href="https://twitter.com/usdatagov" title="This link will direct you to an external website that may have different content and privacy policies from Data.gov." class="local-link"><i class="fa fa-twitter" ></i><span>Twitter</span></a></li>
-            <li><a href="http://github.com/GSA/data.gov/" title="This link will direct you to an external website that may have different content and privacy policies from Data.gov." class="local-link"><i class="fa fa-github" ></i><span>Github</span></a></li>
+      <div class="grid-row padding-bottom-1">
+        <div class="grid-col-auto site-footer__links-container">
+          <ul class="grid-row grid-gap site-footer__links--datagov">
+            <li><a href="https://data.gov/about/">About</a></li>
+            <li><a href="https://data.gov/open-gov/">Open Government</a></li>
+            <li>
+              <a href="https://data.gov/privacy-policy/">Website Policies</a>
+            </li>
+            <li><a href="https://www.performance.gov/">PERFORMANCE.GOV</a></li>
           </ul>
-        </nav>
+          <ul class="site-footer__links--social">
+            <li>
+              <a href="https://twitter.com/usdatagov"
+                >{{ chomp (partial "usa-icon" (dict "icon" "twitter")) }}<span
+                  >Twitter</span
+                ></a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/GSA/data.gov"
+                >{{ chomp (partial "usa-icon" (dict "icon" "github")) }}<span
+                  >Github</span
+                ></a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </footer>
+
+<div class="usa-identifier">
+  <section
+    class="usa-identifier__section usa-identifier__section--masthead"
+    aria-label="Agency identifier,,,"
+  >
+    <div class="grid-container-widescreen">
+      <div class="usa-identifier__container">
+        <div class="usa-identifier__logos">
+          <div class="usa-identifier__logo">
+            <img
+              class="usa-identifier__logo-img"
+              alt="GSA logo"
+              role="img"
+              src="https://s3-us-gov-west-1.amazonaws.com/cg-0817d6e3-93c4-4de8-8b32-da6919464e61/gsa_starmark.png"
+            />
+          </div>
+        </div>
+        <div class="usa-identifier__identity" aria-label="Agency description">
+          <p class="usa-identifier__identity-domain">data.gov</p>
+          <p class="usa-identifier__identity-disclaimer">
+            An official website of the GSA's
+            <a
+              href="https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services"
+              class="usa-identifier__required-link usa-link"
+              >Technology Transformation Services</a
+            >&nbsp;{{ chomp (partial "usa-icon" (dict "icon" "launch")) }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <nav
+    class="usa-identifier__section usa-identifier__section--required-links"
+    aria-label="Important links,,,"
+  >
+    <div class="usa-identifier__container">
+      <ul class="usa-identifier__required-links-list">
+        <li class="usa-identifier__required-links-item">
+          <a
+            href="https://www.gsa.gov/about-us"
+            class="usa-identifier__required-link usa-link"
+            >About GSA</a
+          >&nbsp;{{ chomp (partial "usa-icon" (dict "icon" "launch")) }}
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a
+            href="https://www.gsa.gov/website-information/website-policies#accessibility"
+            class="usa-identifier__required-link usa-link"
+            >Accessibility support</a
+          >&nbsp;{{ chomp (partial "usa-icon" (dict "icon" "launch")) }}
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a
+            href="https://www.gsa.gov/reference/freedom-of-information-act-foia"
+            class="usa-identifier__required-link usa-link"
+            >FOIA requests</a
+          >&nbsp;{{ chomp (partial "usa-icon" (dict "icon" "launch")) }}
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a
+            href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002"
+            class="usa-identifier__required-link usa-link"
+            >No FEAR Act data</a
+          >&nbsp;{{ chomp (partial "usa-icon" (dict "icon" "launch")) }}
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a
+            href="https://www.gsaig.gov"
+            class="usa-identifier__required-link usa-link"
+            >Office of the Inspector General</a
+          >&nbsp;{{ chomp (partial "usa-icon" (dict "icon" "launch")) }}
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a
+            href="https://www.gsa.gov/reference/reports/budget-performance"
+            class="usa-identifier__required-link usa-link"
+            >Performance reports</a
+          >&nbsp;{{ chomp (partial "usa-icon" (dict "icon" "launch")) }}
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a
+            href="https://www.gsa.gov/website-information/website-policies#privacy"
+            class="usa-identifier__required-link usa-link"
+            >Privacy policy</a
+          >&nbsp;{{ chomp (partial "usa-icon" (dict "icon" "launch")) }}
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <section
+    class="usa-identifier__section usa-identifier__section--usagov"
+    aria-label="U.S. government information and services,,,"
+  >
+    <div class="usa-identifier__container">
+      <div class="usa-identifier__usagov-description">
+        Looking for U.S. government information and services?
+      </div>
+      &nbsp;<a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a
+      >&nbsp;{{ chomp (partial "usa-icon" (dict "icon" "launch")) }}
+    </div>
+  </section>
+</div>

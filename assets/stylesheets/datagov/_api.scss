@@ -1,0 +1,151 @@
+html {
+  scroll-padding-top: 3.5rem;
+}
+
+@media all and (min-width: 64em) {
+  html {
+    scroll-padding-top: 6rem;
+  }
+}
+
+hr {
+  border-width: 0px;
+  height: 1px !important;
+  background-color: #bbb;
+  margin: 2rem 0px;
+}
+
+.metrics-callout:first-child {
+  border-left: none;
+}
+
+.metrics-callout {
+  text-align: center;
+  border-left: 1px solid #ddd;
+  margin-top: 30px;
+}
+
+.metrics-callout i.fa {
+  font-size: 36px;
+  color: #555;
+}
+
+.metrics-callout em {
+  font-style: normal;
+  font-size: 48px;
+  font-weight: 300;
+  display: block;
+  line-height: 100%;
+  margin: 8px 0px 2px 0px;
+}
+
+.metrics-since {
+  text-align: center;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 8px;
+  margin-bottom: 80px;
+}
+
+.metrics-last-updated {
+  text-align: center;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 40px;
+}
+
+.docs_agency-manual img {
+  max-width: 100%;
+  box-sizing: initial;
+}
+
+label {
+  font-weight: normal;
+}
+
+pre {
+  background-color: #f5f5f5;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+.highlight pre {
+  background-color: #f5f5f5 !important;
+}
+
+.table thead th {
+  background-color: #8db4d3;
+}
+
+.table tr.odd,
+.table tr.odd td {
+  text-align: left;
+}
+
+.table-bordered {
+  border-width: 0px;
+}
+
+#api_umbrella_contact_form {
+  .usa-error-message {
+    display: none;
+  }
+
+  &.was-validated :invalid ~ .usa-error-message {
+    display: block;
+  }
+}
+
+// Add uswds modal styles to our markup that's based more on old Bootstrap
+// modals. The reason we don't use uswds markup directly is that we need to
+// trigger these modals via javascript, and uswds modals don't easily support
+// that (https://github.com/uswds/uswds/issues/4793), but if we use the markup,
+// various javascript does execute on load that manipulates the dom, which we
+// want to avoid for our purposes.
+.dialog-container {
+  @extend .usa-modal-wrapper;
+
+  .modal-backdrop {
+    @extend .usa-modal-overlay;
+    z-index: 1050;
+  }
+
+  .modal {
+    @extend .usa-modal;
+    z-index: 1051;
+  }
+
+  .modal-dialog {
+    @extend .usa-modal__content;
+  }
+
+  .modal-content {
+    @extend .usa-modal__main;
+  }
+
+  .usa-modal__close {
+    margin-top: -2em !important;
+    background-color: transparent !important;
+  }
+}
+
+.usa-button.centered-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.child-icon-margin-right svg {
+  margin-right: 0.3rem;
+}
+
+.child-icon-margin-left svg {
+  margin-left: 0.3rem;
+}
+
+@media all and (min-width: 64em) {
+  .agency-list {
+    column-count: 3;
+  }
+}

@@ -1,3 +1,7 @@
-@import "_datagov/api";
+@forward "../../vendor/datagov-11ty/styles/styles";
+@use "../../vendor/datagov-11ty/styles/styles";
+
+@import "datagov/_base";
+@import "datagov/_api";
 @import "_shared";
 @import "_metrics";
