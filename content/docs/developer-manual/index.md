@@ -1,5 +1,9 @@
 ---
 title: Developer Manual
+aliases:
+  - /docs/errors/
+  - /docs/api-key/
+  - /docs/rate-limits/
 ---
 
 - [API Key Usage](#api-key-usage)
