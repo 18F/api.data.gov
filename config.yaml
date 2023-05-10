@@ -1,6 +1,11 @@
 baseURL: /
 languageCode: en-us
 title: api.data.gov
+disableKinds:
+  - RSS
+  - section
+  - taxonomy
+  - term
 params:
   githubRepoUrl: https://github.com/18F/api.data.gov
   apiUmbrellaContactApiKey: DEMO_KEY
