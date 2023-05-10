@@ -81,13 +81,13 @@ jobs:
       - name: Build
         env:
           TEST_IMAGE_TAG: ${{ needs.test.outputs.image-tag }}
-          WEB_SITE_ROOT: ${{ secrets[matrix.web_site_root_secret_name] }}
-          SIGNUP_API_KEY: ${{ secrets[matrix.signup_api_key_secret_name] }}
-          CONTACT_API_KEY: ${{ secrets[matrix.contact_api_key_secret_name] }}
         run: |
-          HUGO_PARAMS_APIUMBRELLACONTACTAPIKEY="$CONTACT_API_KEY" \
-          HUGO_PARAMS_APIUMBRELLASIGNUPAPIKEY="$SIGNUP_API_KEY" \
-          docker compose run --rm web hugo \
+          docker compose run \
+            -e "HUGO_PARAMS_APIUMBRELLACONTACTAPIKEY=${{ secrets[matrix.contact_api_key_secret_name] }}" \
+            -e "HUGO_PARAMS_APIUMBRELLASIGNUPAPIKEY=${{ secrets[matrix.signup_api_key_secret_name] }}" \
+            --rm \
+            web \
+            hugo \
             --minify \
             --baseURL "$WEB_SITE_ROOT"
       - uses: actions/upload-artifact@v1
