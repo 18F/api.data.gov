@@ -7,4 +7,10 @@
     alt="{{ $altText }}"
     {{ with $title }}title="{{ . }}"{{ end }}
   />
+{{ else }}
+  <img
+    src="{{ .Destination }}"
+    alt="{{ $altText }}"
+    {{ with $title }}title="{{ . }}"{{ end }}
+  />
 {{ end }}
