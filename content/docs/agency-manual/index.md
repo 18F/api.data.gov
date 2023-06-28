@@ -176,7 +176,7 @@ In the admin analytics, you can filter the results to only view API usage data y
 
 ## Caching API responses
 
-api.data.gov can serve as an HTTP caching layer to prevent repetitive requests from hitting your API backend. To enable caching, your API must return HTTP headers to control the cache duration. View the [HTTP header documentation](http://apiumbrella.io/docs/caching/) for details on which cache headers are supported.
+api.data.gov can serve as an HTTP caching layer to prevent repetitive requests from hitting your API backend. To enable caching, your API must return HTTP headers to control the cache duration. View the [HTTP header documentation](https://api-umbrella.readthedocs.io/en/latest/admin/api-backends/caching.html) for details on which cache headers are supported.
 
 ## Setting your API's default rate limits
 
