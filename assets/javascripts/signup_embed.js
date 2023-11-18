@@ -19,6 +19,13 @@ function insertLink(root, options) {
   root.appendChild(link);
 }
 
+function insertScript(root, options) {
+  const script = document.createElement("script");
+  script.type = options.type;
+  script.src = options.src;
+  root.appendChild(script);
+}
+
 const webSiteRoot = params.webSiteRoot.replace(/\/$/, "");
 
 const defaultOptions = {
@@ -37,6 +44,8 @@ const defaultOptions = {
   showTermsInput: false,
   termsUrl: `${webSiteRoot}/terms/`,
   verifyEmail: false,
+  recaptchaV2SiteKey: "6LcdGhQpAAAAAFhrRTwTEdDKWr8X7vZVQ48XdWpW",
+  recaptchaV3SiteKey: "6LfqGBQpAAAAABpbQk2rmStYVX96vczXo0V-s1G5",
 };
 
 const embedOptions = window.apiUmbrellaSignupOptions || {};
@@ -71,6 +80,12 @@ if (!options.registrationSource) {
 }
 
 let signupFormTemplate = "";
+let recaptchaV2Enabled = !!options.recaptchaV2SiteKey;
+let recaptchaV2WidgetId;
+let recaptchaV2Response;
+let recaptchaV3Enabled = !!options.recaptchaV3SiteKey;
+let recaptchaV3WidgetId;
+let recaptchaV3Response;
 
 if (options.showIntroText) {
   signupFormTemplate += `
@@ -160,14 +175,19 @@ if (options.showTermsInput) {
 }
 
 signupFormTemplate += `
-    <div class="submit">
-      <input type="hidden" name="user[registration_source]" value="${escapeHtml(
-        options.registrationSource,
-      )}" />
-      <button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">Signup</button>
-    </div>
-  </form>
+  <div class="submit">
+    <input type="hidden" name="user[registration_source]" value="${escapeHtml(
+      options.registrationSource,
+    )}" />
+    <button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">Signup</button>
+  </div>
 `;
+
+if (recaptchaV2Enabled || recaptchaV3Enabled) {
+  signupFormTemplate += `<div class="recaptcha-notice">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</div>`;
+}
+
+signupFormTemplate += `</form>`;
 
 const modalTemplate = `
   <div id="alert_modal" class="dialog-container" aria-describedby="alert_modal_message" aria-hidden="true">
@@ -189,7 +209,28 @@ const modalTemplate = `
 `;
 
 const containerEl = document.querySelector(options.containerSelector);
-const containerShadowRootEl = containerEl.attachShadow({ mode: "open" });
+containerEl.textContent = "";
+const containerContentEl = document.createElement("div");
+containerContentEl.className = "api-umbrella-signup-embed-content-container";
+containerEl.appendChild(containerContentEl);
+const containerShadowRootEl = containerContentEl.attachShadow({ mode: "open" });
+
+// The recaptcha elements need to exist outside of the shadow DOM for recaptcha
+// compatibility.
+let recaptchaV2El;
+if (recaptchaV2Enabled) {
+  recaptchaV2El = document.createElement("div");
+  recaptchaV2El.className = "api-umbrella-signup-embed-recaptcha-v2";
+  recaptchaV2El.style = "visibility: hidden;";
+  containerEl.appendChild(recaptchaV2El);
+}
+let recaptchaV3El;
+if (recaptchaV3Enabled) {
+  recaptchaV3El = document.createElement("div");
+  recaptchaV3El.className = "api-umbrella-signup-embed-recaptcha-v3";
+  recaptchaV3El.style = "visibility: hidden;";
+  containerEl.appendChild(recaptchaV3El);
+}
 
 // Compute how big the font size is wherever the container is being injected
 // and then compare that to the root font size, so we can fix `rem` units with
@@ -243,14 +284,7 @@ const modalMessageEl = modalEl.querySelector("#alert_modal_message");
 const modal = new A11yDialog(modalEl);
 
 const formEl = containerShadowRootEl.querySelector("form");
-formEl.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  if (!formEl.checkValidity()) {
-    formEl.classList.add("was-validated");
-    return false;
-  }
-
+function submitFetch() {
   const submitButtonEl = formEl.querySelector("button[type=submit]");
   const submitButtonOrig = submitButtonEl.innerHTML;
   setTimeout(() => {
@@ -275,6 +309,14 @@ formEl.addEventListener("submit", (event) => {
     formData.user.terms_and_conditions = true;
   }
 
+  if (recaptchaV2Enabled) {
+    formData["g-recaptcha-response-v2"] = recaptchaV2Response;
+  }
+
+  if (recaptchaV3Enabled) {
+    formData["g-recaptcha-response-v3"] = recaptchaV3Response;
+  }
+
   return fetch(`${options.apiUrlRoot}/v1/users.json`, {
     method: "POST",
     headers: {
@@ -282,6 +324,8 @@ formEl.addEventListener("submit", (event) => {
       "X-Api-Key": options.apiKey,
     },
     body: JSON.stringify(formData),
+    // Ensure admin credentials aren't sent in for signed in admins.
+    credentials: "omit",
   })
     .then((response) => {
       const contentType = response.headers.get("Content-Type");
@@ -374,4 +418,119 @@ formEl.addEventListener("submit", (event) => {
       submitButtonEl.disabled = false;
       submitButtonEl.innerHTML = submitButtonOrig;
     });
+}
+
+function recaptchaCallback() {
+  if (recaptchaV2Enabled) {
+    recaptchaV2Response = window.grecaptcha.getResponse(recaptchaV2WidgetId);
+  }
+
+  if (recaptchaV3Enabled) {
+    recaptchaV3Response = window.grecaptcha.getResponse(recaptchaV3WidgetId);
+  }
+
+  if (
+    ((recaptchaV2Enabled && recaptchaV2Response) || !recaptchaV2Enabled) &&
+    ((recaptchaV3Enabled && recaptchaV3Response) || !recaptchaV3Enabled)
+  ) {
+    submitFetch();
+  }
+}
+
+window.apiUmbrellaRecaptchaLoadCallback =
+  function apiUmbrellaRecaptchaLoadCallback() {
+    if (recaptchaV2Enabled) {
+      recaptchaV2WidgetId = window.grecaptcha.render(recaptchaV2El, {
+        sitekey: options.recaptchaV2SiteKey,
+        size: "invisible",
+        isolated: true,
+        callback: recaptchaCallback,
+        "error-callback": () => {
+          recaptchaV2Enabled = false;
+          // eslint-disable-next-line no-console
+          console.error("recaptcha v2 render error");
+        },
+      });
+    }
+
+    if (recaptchaV3Enabled) {
+      recaptchaV3WidgetId = window.grecaptcha.render(recaptchaV3El, {
+        sitekey: options.recaptchaV3SiteKey,
+        size: "invisible",
+        isolated: true,
+        callback: recaptchaCallback,
+        "error-callback": () => {
+          recaptchaV3Enabled = false;
+          // eslint-disable-next-line no-console
+          console.error("recaptcha v3 render error");
+        },
+      });
+    }
+  };
+
+if (recaptchaV2Enabled || recaptchaV3Enabled) {
+  insertScript(document.body, {
+    src: `https://www.google.com/recaptcha/api.js?render=explicit&onload=apiUmbrellaRecaptchaLoadCallback`,
+    type: "text/javascript",
+    async: true,
+    defer: true,
+  });
+}
+
+formEl.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (!formEl.checkValidity()) {
+    formEl.classList.add("was-validated");
+    return false;
+  }
+
+  if (recaptchaV2Enabled || recaptchaV3Enabled) {
+    try {
+      if (recaptchaV2Enabled) {
+        recaptchaV2Response = null;
+        window.grecaptcha
+          .execute(recaptchaV2WidgetId)
+          .then(() => {
+            if (!recaptchaV2Enabled) {
+              recaptchaCallback();
+            }
+          })
+          .catch((e) => {
+            // eslint-disable-next-line no-console
+            console.error("recaptcha v2 execute catch: ", e);
+            recaptchaV2Enabled = false;
+            recaptchaCallback();
+          });
+      }
+
+      if (recaptchaV3Enabled) {
+        recaptchaV3Response = null;
+        window.grecaptcha
+          .execute(recaptchaV3WidgetId, { action: "signup" })
+          .then(() => {
+            if (!recaptchaV3Enabled) {
+              recaptchaCallback();
+            }
+          })
+          .catch((e) => {
+            // eslint-disable-next-line no-console
+            console.error("recaptcha v3 execute catch: ", e);
+            recaptchaV3Enabled = false;
+            recaptchaCallback();
+          });
+      }
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error("recaptcha error: ", e);
+      // eslint-disable-next-line no-alert
+      alert(
+        "Unexpected error occurred while validating CAPTCHA. Please try again or contact us for assistance",
+      );
+    }
+  } else {
+    submitFetch();
+  }
+
+  return undefined;
 });
