@@ -93,7 +93,7 @@ formEl.addEventListener("submit", (event) => {
       }
 
       modalMessageEl.innerHTML = `Sending your message unexpectedly failed.${messageStr}<br>Please try again or <a href="${escapeHtml(
-        options.issuesUrl
+        options.issuesUrl,
       )}">file an issue</a> for assistance.`;
       modal.show();
     })

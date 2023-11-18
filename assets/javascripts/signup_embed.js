@@ -98,7 +98,7 @@ if (options.showFirstNameInput) {
   `;
 } else {
   signupFormTemplate += `<input type="hidden" name="user[first_name]" value="${escapeHtml(
-    options.registrationSource
+    options.registrationSource,
   )} User" />`;
 }
 
@@ -112,7 +112,7 @@ if (options.showLastNameInput) {
   `;
 } else {
   signupFormTemplate += `<input type="hidden" name="user[last_name]" value="${escapeHtml(
-    options.registrationSource
+    options.registrationSource,
   )} User" />`;
 }
 
@@ -149,7 +149,7 @@ if (options.showTermsInput) {
       <div class="form-check">
         <input id="user_terms_and_conditions" aria-describedby="user_terms_and_conditions_feedback" name="user[terms_and_conditions]" type="checkbox" class="form-check-input" value="true" required />
         <label class="form-check-label" for="user_terms_and_conditions">I have read and agree to the <a href="${escapeHtml(
-          options.termsUrl
+          options.termsUrl,
         )}" onclick="window.open(this.href, &#x27;api_umbrella_terms&#x27;, &#x27;height=500,width=790,menubar=no,toolbar=no,location=no,personalbar=no,status=no,resizable=yes,scrollbars=yes&#x27;); return false;" title="Opens new window to terms and conditions">terms and conditions</a>.</label>
         <div id="user_terms_and_conditions_feedback" class="invalid-feedback">You must agree to the terms and conditions to signup.</div>
       </div>
@@ -162,7 +162,7 @@ if (options.showTermsInput) {
 signupFormTemplate += `
     <div class="submit">
       <input type="hidden" name="user[registration_source]" value="${escapeHtml(
-        options.registrationSource
+        options.registrationSource,
       )}" />
       <button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">Signup</button>
     </div>
@@ -197,10 +197,10 @@ const containerShadowRootEl = containerEl.attachShadow({ mode: "open" });
 const rootFontSize = parseFloat(
   window
     .getComputedStyle(document.documentElement)
-    .getPropertyValue("font-size")
+    .getPropertyValue("font-size"),
 );
 const containerFontSize = parseFloat(
-  window.getComputedStyle(containerEl).getPropertyValue("font-size")
+  window.getComputedStyle(containerEl).getPropertyValue("font-size"),
 );
 const remRelativeBaseSize = `${containerFontSize / rootFontSize}rem`;
 
@@ -209,7 +209,7 @@ containerStyleRootEl.className = "app-style-root";
 containerStyleRootEl.innerHTML = signupFormTemplate;
 containerStyleRootEl.style.setProperty(
   "--api-umbrella-rem-relative-base",
-  remRelativeBaseSize
+  remRelativeBaseSize,
 );
 containerShadowRootEl.appendChild(containerStyleRootEl);
 
@@ -223,7 +223,7 @@ bodyContainerStyleRootEl.className = "app-style-root";
 bodyContainerStyleRootEl.innerHTML = modalTemplate;
 bodyContainerStyleRootEl.style.setProperty(
   "--api-umbrella-rem-relative-base",
-  remRelativeBaseSize
+  remRelativeBaseSize,
 );
 bodyContainerShadowRootEl.appendChild(bodyContainerStyleRootEl);
 document.body.appendChild(bodyContainerEl);
@@ -306,10 +306,10 @@ formEl.addEventListener("submit", (event) => {
       if (data.options.verify_email) {
         confirmationTemplate += `
           <p>Your API key for <strong>${escapeHtml(
-            user.email
+            user.email,
           )}</strong> has been e-mailed to you. You can use your API key to begin making web service requests immediately.</p>
           <p>If you don't receive your API Key via e-mail within a few minutes, please <a href="${escapeHtml(
-            data.options.contact_url
+            data.options.contact_url,
           )}">contact us</a>.</p>
         `;
       } else {
@@ -318,7 +318,7 @@ formEl.addEventListener("submit", (event) => {
           <pre class="signup-key"><code>${escapeHtml(user.api_key)}</code></pre>
           <p>You can start using this key to make web service requests. Simply pass your key in the URL when making a web request. Here's an example:</p>
           <pre class="signup-example"><a href="${escapeHtml(
-            data.options.example_api_url
+            data.options.example_api_url,
           )}">${data.options.example_api_url_formatted_html}</a></pre>
         `;
       }
@@ -327,7 +327,7 @@ formEl.addEventListener("submit", (event) => {
         ${options.signupConfirmationMessage}
         <div class="signup-footer">
           <p>For additional support, please <a href="${escapeHtml(
-            data.options.contact_url
+            data.options.contact_url,
           )}">contact us</a>. When contacting us, please tell us what API you're accessing and provide the following account details so we can quickly find you:</p>
           Account Email: ${escapeHtml(user.email)}<br>
           Account ID: ${escapeHtml(user.id)}
@@ -366,7 +366,7 @@ formEl.addEventListener("submit", (event) => {
       }
 
       modalMessageEl.innerHTML = `API key signup unexpectedly failed.${messageStr}<br>Please try again or <a href="${escapeHtml(
-        options.issuesUrl
+        options.issuesUrl,
       )}">file an issue</a> for assistance.`;
       modal.show();
     })

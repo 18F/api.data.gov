@@ -73,7 +73,7 @@ export default defineStore({
     async fetchAnalytics() {
       const data = await ky
         .get(
-          "https://api.data.gov/api-umbrella/v0/analytics/summary.json?api_key=biBHFQWowEsEGZAkH9DTUu6khOW1oPQHqGQAxzoO"
+          "https://api.data.gov/api-umbrella/v0/analytics/summary.json?api_key=biBHFQWowEsEGZAkH9DTUu6khOW1oPQHqGQAxzoO",
         )
         .json();
 
