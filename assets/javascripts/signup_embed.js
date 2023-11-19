@@ -486,6 +486,13 @@ formEl.addEventListener("submit", (event) => {
   }
 
   if (recaptchaV2Enabled || recaptchaV3Enabled) {
+    // If recaptcha never loaded (eg, due to CSP), disable for now until we
+    // complete the required rollout.
+    if (!window.grecaptcha || !window.grecaptcha.execute) {
+      recaptchaV2Enabled = false;
+      recaptchaV3Enabled = false;
+    }
+
     try {
       if (recaptchaV2Enabled) {
         recaptchaV2Response = null;
