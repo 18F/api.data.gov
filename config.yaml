@@ -26,8 +26,9 @@ params:
       - https://www.google-analytics.com
       - https://ssl.google-analytics.com
 
-      # Google Analytics snippet
+      # Google Analytics snippet (one for dev, one for minified build).
       - "'sha256-mv2dNKWU2RZMrC9ORr0aby1yXgZ/xQWeRNDk6vy/cL8='"
+      - "'sha256-+1RoZRAphnNzPiW07Ff8Tr475vaH1/HWgpt/tg+K7Lo='"
     imgSrc:
       - "'self'"
 
