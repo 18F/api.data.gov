@@ -10,6 +10,58 @@ params:
   githubRepoUrl: https://github.com/18F/api.data.gov
   apiUmbrellaContactApiKey: DEMO_KEY
   apiUmbrellaSignupApiKey: DEMO_KEY
+  csp:
+    defaultSrc:
+      - "'self'"
+    scriptSrc:
+      - "'self'"
+      # DAP
+      - https://dap.digitalgov.gov
+
+      # Google Tag Manager, GA4:
+      # https://developers.google.com/tag-platform/tag-manager/csp#google_analytics_4_google_analytics
+      - https://*.googletagmanager.com
+
+      # Universal Analytics
+      - https://www.google-analytics.com
+      - https://ssl.google-analytics.com
+
+      # Google Analytics snippet
+      - "'sha256-mv2dNKWU2RZMrC9ORr0aby1yXgZ/xQWeRNDk6vy/cL8='"
+    imgSrc:
+      - "'self'"
+
+      # Google Tag Manager, GA4:
+      # https://developers.google.com/tag-platform/tag-manager/csp#google_analytics_4_google_analytics
+      - https://*.google-analytics.com
+      - https://*.googletagmanager.com
+
+      # Data.gov template images
+      - https://s3-us-gov-west-1.amazonaws.com/cg-0817d6e3-93c4-4de8-8b32-da6919464e61/
+    connectSrc:
+      - "'self'"
+      # Google Tag Manager, GA4:
+      # https://developers.google.com/tag-platform/tag-manager/csp#google_analytics_4_google_analytics
+      - https://*.google-analytics.com
+      - https://*.analytics.google.com
+      - https://*.googletagmanager.com
+      - https://analytics.google.com
+    frameSrc:
+      - "'self'"
+
+      # Google Tag Manager, GA4:
+      # https://developers.google.com/tag-platform/tag-manager/csp#google_analytics_4_google_analytics
+      - https://www.googletagmanager.com/
+    styleSrc:
+      - "'self'"
+
+      # Google Fonts
+      - https://fonts.googleapis.com
+    fontSrc:
+      - "'self'"
+
+      # Google Fonts
+      - https://fonts.gstatic.com
 markup:
   goldmark:
     renderer:

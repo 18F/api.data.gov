@@ -6,6 +6,24 @@
       api.data.gov
     {{ end }}
   </title>
+  <meta
+    http-equiv="Content-Security-Policy"
+    {{ (
+      printf "content=%q"
+      (
+      printf
+      "default-src %s; script-src %s; img-src %s; connect-src %s; frame-src %s; style-src %s; font-src %s;"
+      (delimit (union .Site.Params.csp.defaultSrc .Params.csp.defaultSrc) " ")
+      (delimit (complement (default slice .Params.csp.excludeScriptSrc) (union .Site.Params.csp.scriptSrc .Params.csp.scriptSrc)) " ")
+      (delimit (union .Site.Params.csp.imgSrc .Params.csp.imgSrc) " ")
+      (delimit (union .Site.Params.csp.connectSrc .Params.csp.connectSrc) " ")
+      (delimit (union .Site.Params.csp.frameSrc .Params.csp.frameSrc) " ")
+      (delimit (union .Site.Params.csp.styleSrc .Params.csp.styleSrc) " ")
+      (delimit (union .Site.Params.csp.fontSrc .Params.csp.fontSrc) " ")
+      )
+      ) | safe.HTMLAttr
+    }}
+  />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
   <meta content="en" name="language" />
@@ -34,7 +52,7 @@
       window,
       document,
       "script",
-      "//www.google-analytics.com/analytics.js",
+      "https://www.google-analytics.com/analytics.js",
       "ga",
     );
 

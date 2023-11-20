@@ -1,5 +1,12 @@
 ---
 title: Contact Us
+csp:
+  scriptSrc:
+    # Variables script tag for contact form.
+    - "'unsafe-inline'"
+  excludeScriptSrc:
+    # Since unsafe-inline can't be combined with hash, remove the hash.
+    - "'sha256-mv2dNKWU2RZMrC9ORr0aby1yXgZ/xQWeRNDk6vy/cL8='"
 ---
 
 <p>

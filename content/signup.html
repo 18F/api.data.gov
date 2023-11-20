@@ -1,5 +1,21 @@
 ---
 title: API Key Signup
+csp:
+  scriptSrc:
+    # API key signup form.
+    - "'unsafe-inline'"
+    # reCAPTCHA: https://developers.google.com/recaptcha/docs/faq#im-using-content-security-policy-csp-on-my-website.-how-can-i-configure-it-to-work-with-recaptcha
+    - https://www.google.com/recaptcha/
+    - https://www.gstatic.com/recaptcha/
+  excludeScriptSrc:
+    # Since unsafe-inline can't be combined with hash, remove the hash.
+    - "'sha256-mv2dNKWU2RZMrC9ORr0aby1yXgZ/xQWeRNDk6vy/cL8='"
+  imgSrc:
+    # API key signup form.
+    - "data:"
+  frameSrc:
+    - https://www.google.com/recaptcha/
+    - https://recaptcha.google.com/recaptcha/
 ---
 
 <div id="apidatagov_signup">Loading signup form...</div>

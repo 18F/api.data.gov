@@ -2,6 +2,10 @@
 title: Agency Manual
 generalDocs: true
 bodyClass: docs_agency-manual
+csp:
+  styleSrc:
+    # Syntax highlighting
+    - "'unsafe-inline'"
 ---
 
 - [Configuring your first API backend](#configuring-your-first-api-backend)
@@ -336,10 +340,11 @@ You can embed the API key signup form for api.data.gov on your own developer hub
 
 3. If your site uses a Content Security Policy, allow the following directives:
 
-   - `script-src 'unsafe-inline' https://api.data.gov`: The `'unsafe-inline'` directive is for embedding the `<script>` tag directly into your HTML page, while the `https://api.data.gov` directive is for loading the remote javascript that contains the signup form logic.
+   - `script-src 'unsafe-inline' https://api.data.gov https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/`: The `'unsafe-inline'` directive is for embedding the `<script>` tag directly into your HTML page, while the `https://api.data.gov` directive is for loading the remote javascript that contains the signup form logic. The `recaptcha` values allow for the signup form's usage of [reCAPTCHA](https://developers.google.com/recaptcha/docs/faq#im-using-content-security-policy-csp-on-my-website.-how-can-i-configure-it-to-work-with-recaptcha).
    - `style-src https://api.data.gov`: Allows for loading the CSS file from api.data.gov to style the embedded widget.
    - `img-src data:`: Allows for inline `data:` icons the api.data.gov stylesheet uses.
    - `connect-src https://api.data.gov`: Allows for making HTTP requests to api.data.gov to perform the signup.
+   - `frame-src https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/`: Allows for the signup form's usage of [reCAPTCHA](https://developers.google.com/recaptcha/docs/faq#im-using-content-security-policy-csp-on-my-website.-how-can-i-configure-it-to-work-with-recaptcha).
 
    Here is minimal example, although your CSP will likely include other entries already:
 
@@ -348,14 +353,14 @@ You can embed the API key signup form for api.data.gov on your own developer hub
      ```html
      <meta
        http-equiv="Content-Security-Policy"
-       content="default-src 'self'; script-src 'self' 'unsafe-inline' https://api.data.gov; style-src 'self' https://api.data.gov; img-src 'self' data:; connect-src 'self' https://api.data.gov"
+       content="default-src 'self'; script-src 'self' 'unsafe-inline' https://api.data.gov https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' https://api.data.gov; img-src 'self' data:; connect-src 'self' https://api.data.gov; frame-src https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/"
      />
      ```
 
    - HTTP header:
 
      ```
-     Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://api.data.gov; style-src 'self' https://api.data.gov; img-src 'self' data:; connect-src 'self' https://api.data.gov;
+     Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://api.data.gov https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' https://api.data.gov; img-src 'self' data:; connect-src 'self' https://api.data.gov; frame-src https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/;
      ```
 
 4. Navigate to the webpage where you placed the snippet. You should see a signup form and be able to signup for an API key completely on your own site. Run into any issues? [File an issue](https://github.com/18F/api.data.gov/issues).

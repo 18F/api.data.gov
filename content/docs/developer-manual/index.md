@@ -4,6 +4,10 @@ aliases:
   - /docs/errors/
   - /docs/api-key/
   - /docs/rate-limits/
+csp:
+  styleSrc:
+    # Syntax highlighting
+    - "'unsafe-inline'"
 ---
 
 - [API Key Usage](#api-key-usage)
