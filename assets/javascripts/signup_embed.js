@@ -45,7 +45,6 @@ const defaultOptions = {
   termsUrl: `${webSiteRoot}/terms/`,
   verifyEmail: false,
   recaptchaV2SiteKey: "6LcdGhQpAAAAAFhrRTwTEdDKWr8X7vZVQ48XdWpW",
-  recaptchaV3SiteKey: "6LfqGBQpAAAAABpbQk2rmStYVX96vczXo0V-s1G5",
 };
 
 const embedOptions = window.apiUmbrellaSignupOptions || {};
