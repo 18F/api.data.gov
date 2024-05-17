@@ -21,6 +21,7 @@ csp:
 - [Caching API responses](#caching-api-responses)
 - [Setting your API's default rate limits](#setting-your-apis-default-rate-limits)
 - [Setting up per-user rate limits](#setting-up-per-user-rate-limits)
+- [Disabling an API key](#disabling-an-api-key)
 - [Client-side API key rate limits](#client-side-api-key-rate-limits)
 - [Defining custom settings for specific URLs or specific types of requests](#defining-custom-settings-for-specific-urls-or-specific-types-of-requests)
 - [Embedding the API key signup form on your own documentation site](#embedding-the-api-key-signup-form-on-your-own-documentation-site)
@@ -206,6 +207,16 @@ You can manage a specific API user's rate limits if you wish to grant an individ
    ![User rate limits example](images/user_rate_limits.png)
    - _Note:_ If you're allowing a user a higher hourly rate limit, we typically recommend also keeping a short duration rate limit in place too (for example, a per-second or per-15 second limit). This ensures that a user can't flood your server with all of their hourly requests every hour.
 5. Save the user. Their higher rate limits should immediately be in place.
+
+## Disabling an API key
+
+If you receive a request from a user to deactivate, disable, or delete their API key, then admins with user management access can disable API keys in the admin.
+
+1. **Note:** It's best practice to have the user prove ownership over the key in some fashion, preferably by sending you an e-mail from the e-mail address on file with the full key. Try to be careful not to be phished into disabling a key someone does not actually own.
+2. In the top menu, navigate to the "Users" menu and choose "API Users".
+3. Find the API user you wish to disable.
+4. Under "Account Enabled" choose "Disabled".
+5. Save the changes to the form. This key will no longer be able to make any API requests.
 
 ## Client-side API key rate limits
 
