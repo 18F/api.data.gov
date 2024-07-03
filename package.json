@@ -9,7 +9,7 @@
     "a11y-dialog": "^7.3.0",
     "bootstrap": "^5.1.0",
     "datatables.net-dt": "^1.11.5",
-    "echarts": "^5.3.1",
+    "echarts": "^5.5.0",
     "escape-html": "^1.0.3",
     "form-serialize": "^0.7.2",
     "jquery": "^3.6.0",
