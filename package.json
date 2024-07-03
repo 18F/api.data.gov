@@ -17,7 +17,7 @@
     "lodash-es": "^4.17.21",
     "pinia": "^2.0.12",
     "vue": "^3.2.31",
-    "vue-router": "^4.0.14"
+    "vue-router": "^4.3.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
