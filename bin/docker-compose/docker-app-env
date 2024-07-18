@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-exec docker-compose run --rm web env "$@"
+exec docker compose run --rm web env "$@"

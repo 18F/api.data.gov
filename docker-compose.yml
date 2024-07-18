@@ -1,13 +1,14 @@
-version: "3"
 services:
   web:
     build:
       context: .
     volumes:
       - .:/app
-      - yarn_cache:/usr/local/node_modules
+      - pnpm_cache:/usr/local/pnpm
+      - npm_cache:/usr/local/node_modules
     ports:
       - "4490:4490"
       - "4491:4491"
 volumes:
-  yarn_cache:
+  pnpm_cache:
+  npm_cache:

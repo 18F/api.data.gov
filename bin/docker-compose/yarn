@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-exec docker-compose run --rm web "$(basename "$0")" "$@"

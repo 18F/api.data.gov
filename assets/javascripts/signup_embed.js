@@ -283,6 +283,12 @@ const modalEl = bodyContainerShadowRootEl.getElementById("alert_modal");
 const modalMessageEl = modalEl.querySelector("#alert_modal_message");
 const modal = new A11yDialog(modalEl);
 
+// Setup close handlers for a11y-dialog when inside the shadow DOM (since their
+// default document listeners won't work).
+modalEl.querySelectorAll('[data-a11y-dialog-hide]').forEach((closer) => {
+  closer.addEventListener('click', modal.hide);
+});
+
 const formEl = containerShadowRootEl.querySelector("form");
 const submitButtonEl = formEl.querySelector("button[type=submit]");
 

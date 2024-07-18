@@ -7,7 +7,10 @@ app_root_dir="/app"
 # Symlink the node_modules to the expected location for better Docker caching
 # when /app is mounted for development/test purposes.
 if [ ! -L "${app_root_dir}/node_modules" ] || [ "$(readlink "${app_root_dir}/node_modules")" != "$NODE_MODULES_DIR" ]; then
-  mkdir -p "$NODE_MODULES_DIR"
+  # Note, we create a `.pnpm` directory inside, since it seems to sidestep this
+  # issue of install failing if node_modules is a symlink:
+  # https://github.com/pnpm/pnpm/issues/7690
+  mkdir -p "${NODE_MODULES_DIR}/.pnpm"
   set -x
   rm -rf "${app_root_dir}/node_modules"
   ln -s "$NODE_MODULES_DIR" "${app_root_dir}/node_modules"

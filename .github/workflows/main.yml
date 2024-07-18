@@ -37,12 +37,12 @@ jobs:
           TEST_IMAGE_TAG: ${{ steps.image-metadata.outputs.version }}
 
       - name: ESLint
-        run: docker compose run --rm web yarn run lint --max-warnings 0
+        run: docker compose run --rm web pnpm run lint --max-warnings 0
         env:
           TEST_IMAGE_TAG: ${{ steps.image-metadata.outputs.version }}
 
       - name: Prettier Check
-        run: docker compose run --rm web yarn run prettier:check
+        run: docker compose run --rm web pnpm run prettier:check
         env:
           TEST_IMAGE_TAG: ${{ steps.image-metadata.outputs.version }}
 
