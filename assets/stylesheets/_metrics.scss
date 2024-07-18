@@ -70,7 +70,8 @@ body.api-metrics {
 
     // Fix bottom border getting clipped by usa-table-container--scrollable
     // caused by these empty elements datatables adds.
-    colgroup, tfoot {
+    colgroup,
+    tfoot {
       display: none;
     }
   }

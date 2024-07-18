@@ -12,7 +12,6 @@
     "echarts": "^5.5.1",
     "escape-html": "^1.0.3",
     "form-serialize": "^0.7.2",
-    "jquery": "^3.7.1",
     "ky": "^1.4.0",
     "lodash-es": "^4.17.21",
     "pinia": "^2.1.7",

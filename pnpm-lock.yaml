@@ -29,9 +29,6 @@ importers:
       form-serialize:
         specifier: ^0.7.2
         version: 0.7.2
-      jquery:
-        specifier: ^3.7.1
-        version: 3.7.1
       ky:
         specifier: ^1.4.0
         version: 1.4.0

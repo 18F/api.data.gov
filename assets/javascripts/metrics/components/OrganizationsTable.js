@@ -1,5 +1,4 @@
 import DataTable from "datatables.net-dt";
-import jQuery from "jquery";
 import {
   computed,
   defineComponent,
@@ -11,7 +10,7 @@ import {
 
 import useMetricsStore from "../stores/metrics";
 
-DataTable.defaults.column.orderSequence = ['asc', 'desc'];
+DataTable.defaults.column.orderSequence = ["asc", "desc"];
 
 export default defineComponent({
   template: `
