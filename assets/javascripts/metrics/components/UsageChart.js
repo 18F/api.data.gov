@@ -1,7 +1,6 @@
 import * as echarts from "echarts";
 import debounce from "lodash-es/debounce";
 import {
-  computed,
   defineComponent,
   onMounted,
   ref,
@@ -34,32 +33,19 @@ export default defineComponent({
     hitsTotal: Number,
     activeApiKeys: Array,
     activeApiKeysTotal: Number,
+    dateFormatOptions: Object,
   },
 
   setup(props) {
-    const chartData = computed(() => {
-      const data = {
-        labels: [],
-        hits: [],
-        activeApiKeys: [],
-      };
-
-      props.hits.forEach((day) => {
-        data.labels.push(day[0]);
-        data.hits.push(day[1]);
-      });
-
-      props.activeApiKeys.forEach((day) => {
-        data.activeApiKeys.push(day[1]);
-      });
-
-      return data;
-    });
-
     const chartEl = ref();
     let chart;
     onMounted(() => {
       const colors = ["#30A64A", "#0E5FC2"];
+
+      const dateFormatter = new Intl.DateTimeFormat(
+        undefined,
+        props.dateFormatOptions,
+      );
 
       chart = echarts.init(chartEl.value);
       chart.setOption({
@@ -73,10 +59,17 @@ export default defineComponent({
         },
         tooltip: {
           trigger: "axis",
+          axisPointer: {
+            label: {
+              formatter: (params) => {
+                const date = new Date(params.value);
+                return dateFormatter.format(date);
+              },
+            },
+          },
         },
         xAxis: {
-          type: "category",
-          data: chartData.value.labels,
+          type: "time",
           axisLine: {
             show: false,
           },
@@ -109,13 +102,16 @@ export default defineComponent({
             name: "Hits",
             type: "line",
             yAxisIndex: 0,
-            data: chartData.value.hits,
+            data: props.hits,
+            label: {
+              formatter: "{b}: {@score}",
+            },
           },
           {
             name: "Unique API Keys",
             type: "line",
             yAxisIndex: 1,
-            data: chartData.value.activeApiKeys,
+            data: props.activeApiKeys,
           },
         ],
       });
@@ -123,20 +119,17 @@ export default defineComponent({
       window.addEventListener("resize", debounce(chart.resize));
     });
 
-    watch(chartData, () => {
+    watch(props, () => {
       if (chart) {
         chart.setOption({
-          xAxis: {
-            data: chartData.value.labels,
-          },
           series: [
             {
               name: "Hits",
-              data: chartData.value.hits,
+              data: props.hits,
             },
             {
               name: "Unique API Keys",
-              data: chartData.value.activeApiKeys,
+              data: props.activeApiKeys,
             },
           ],
         });

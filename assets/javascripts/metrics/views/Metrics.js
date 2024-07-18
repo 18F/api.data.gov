@@ -35,6 +35,7 @@ export default defineComponent({
             v-bind:hits-total="store.hitsRecentTotal(selectedOrganization)"
             v-bind:active-api-keys="store.activeApiKeysRecentDaily(selectedOrganization)"
             v-bind:active-api-keys-total="store.activeApiKeysRecentTotal(selectedOrganization)"
+            v-bind:date-format-options="{ year: 'numeric', month: 'long', day: 'numeric' }"
             />
         </div>
         <div class="desktop:grid-col">
@@ -44,6 +45,7 @@ export default defineComponent({
             v-bind:hits-total="store.hitsTotal(selectedOrganization)"
             v-bind:active-api-keys="store.activeApiKeysMonthly(selectedOrganization)"
             v-bind:active-api-keys-total="store.activeApiKeysTotal(selectedOrganization)"
+            v-bind:date-format-options="{ year: 'numeric', month: 'long' }"
             />
         </div>
       </div>
