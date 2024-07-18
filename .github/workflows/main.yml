@@ -12,20 +12,20 @@ jobs:
     outputs:
       image-tag: ${{ steps.image-metadata.outputs.version }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: recursive
 
       - name: Container metadata
         id: image-metadata
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5
         with:
           images: ${{ env.TEST_IMAGE_REPO }}
           flavor: |
             prefix=test-image-
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -66,12 +66,12 @@ jobs:
           - deploy_env: staging
             contact_api_key_secret_name: STAGING_CONTACT_API_KEY
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: recursive
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -90,7 +90,7 @@ jobs:
             hugo \
             --minify \
             --baseURL "${{ secrets[matrix.web_site_root_secret_name] }}"
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v4
         with:
           name: build-${{ matrix.deploy_env }}
           path: ./public
@@ -123,7 +123,7 @@ jobs:
             aws_default_region_secret_name: STAGING_AWS_DEFAULT_REGION
     steps:
       # Deploy to S3 bucket.
-      - uses: actions/download-artifact@v1
+      - uses: actions/download-artifact@v4
         with:
           name: build-${{ matrix.deploy_env }}
           path: ./public
