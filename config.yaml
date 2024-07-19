@@ -75,7 +75,7 @@ menu:
       name: API Docs
       pageRef: /docs/
     - identifier: signup
-      name: API Key Signup
+      name: API Key Sign Up
       pageRef: /signup.html
 sectionPagesMenu: main
 module:

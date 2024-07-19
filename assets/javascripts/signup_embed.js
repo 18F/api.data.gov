@@ -121,7 +121,7 @@ if (options.showLastNameInput) {
   signupFormTemplate += `
     <div class="form-group last-name-form-group">
       <label class="form-label" for="user_last_name">Last Name <abbr title="required" class="required">*</abbr></label>
-      <input class="form-control" id="user_last_name" aria-describedby="user_last_name_feedback"  name="user[last_name]" size="50" type="text" required />
+      <input class="form-control" id="user_last_name" aria-describedby="user_last_name_feedback" name="user[last_name]" size="50" type="text" required />
       <div id="user_last_name_feedback" class="invalid-feedback">Fill out this field.</div>
     </div>
   `;
@@ -179,7 +179,7 @@ signupFormTemplate += `
     <input type="hidden" name="user[registration_source]" value="${escapeHtml(
       options.registrationSource,
     )}" />
-    <button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">Signup</button>
+    <button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">Sign up</button>
   </div>
 `;
 
@@ -396,6 +396,8 @@ function submitFetch() {
       `;
 
       containerStyleRootEl.innerHTML = confirmationTemplate;
+      containerStyleRootEl.tabIndex = -1;
+      containerStyleRootEl.focus();
       containerStyleRootEl.scrollIntoView();
     })
     .catch((error) => {
@@ -513,6 +515,8 @@ formEl.addEventListener("submit", (event) => {
 
   if (!formEl.checkValidity()) {
     formEl.classList.add("was-validated");
+    // Focus on the first invalid input.
+    formEl.reportValidity();
     enableSubmitButton();
     return false;
   }

@@ -243,7 +243,7 @@ Inside the API Backend configuration, this is under the "Sub-URL Request Setting
 You can embed the API key signup form for api.data.gov on your own developer hub. Here is an [example](http://gsa.github.io/auctions_api/key) of the embedded signup form in action. To place the signup form on your own website embed this snippet of code on your site
 
 1. Create a special API key for use with this signup form:
-   - [Signup](https://api.data.gov/signup/) for a new API key. Make note of this API key.
+   - [Sign up](https://api.data.gov/signup/) for a new API key. Make note of this API key.
    - Login to the [api.data.gov admin](https://api.data.gov/admin/#/api_users).
    - Navigate to the Users > API Users, find the user you just signed up as, and click on it to edit.
    - Under rate limiting and permissions make the following changes:
