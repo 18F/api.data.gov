@@ -127,21 +127,21 @@ Certain, general errors will be returned in a standardized way from all API Umbr
       <th class="doc-parameter-name" scope="row">API_KEY_DISABLED</th>
       <td class="doc-parameter-name">403</td>
       <td class="doc-parameter-description">
-        The API key supplied has been disabled by an administrator. Please <a href="/contact/">contact us</a> for assistance.
+        The API key supplied has been disabled by an administrator. Please contact the API owner at the agency that offers the service for assistance.
       </td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">API_KEY_UNAUTHORIZED</th>
       <td class="doc-parameter-name">403</td>
       <td class="doc-parameter-description">
-        The API key supplied is not authorized to access the given service. Please <a href="/contact/">contact us</a> for assistance.
+        The API key supplied is not authorized to access the given service. Please contact the API owner at the agency that offers the service for assistance.
       </td>
     </tr>
     <tr>
       <th class="doc-parameter-name" scope="row">API_KEY_UNVERIFIED</th>
       <td class="doc-parameter-name">403</td>
       <td class="doc-parameter-description">
-        The API key supplied has not been verified yet. Please check your e-mail to verify the API key. Please <a href="/contact/">contact us</a> for assistance.
+        The API key supplied has not been verified yet. Please check your e-mail to verify the API key. Please contact the API owner at the agency that offers the service for assistance.
       </td>
     </tr>
     <tr>
@@ -155,7 +155,7 @@ Certain, general errors will be returned in a standardized way from all API Umbr
       <th class="doc-parameter-name" scope="row">OVER_RATE_LIMIT</th>
       <td class="doc-parameter-name">429</td>
       <td class="doc-parameter-description">
-        The API key has exceeded the rate limits. See <a href="/docs/rate-limits/">rate limits</a> for more details or <a href="/contact/">contact us</a> for assistance.
+        The API key has exceeded the rate limits. See <a href="/docs/rate-limits/">rate limits</a> for more details or contact the API owner at the agency that offers the service for assistance.
       </td>
     </tr>
     <tr>

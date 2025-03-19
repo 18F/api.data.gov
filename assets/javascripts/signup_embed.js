@@ -31,7 +31,7 @@ const webSiteRoot = params.webSiteRoot.replace(/\/$/, "");
 const defaultOptions = {
   containerSelector: "#apidatagov_signup",
   apiUrlRoot: `${webSiteRoot}/api-umbrella`,
-  contactUrl: `${webSiteRoot}/contact/`,
+  contactUrl: `${webSiteRoot}/`,
   exampleApiUrl: `${webSiteRoot}/example.json?api_key={{api_key}}`,
   signupConfirmationMessage: "",
   sendWelcomeEmail: true,
