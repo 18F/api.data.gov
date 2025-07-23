@@ -44,7 +44,7 @@ const defaultOptions = {
   showTermsInput: false,
   termsUrl: `${webSiteRoot}/terms/`,
   verifyEmail: false,
-  // recaptchaV2SiteKey: "6LdFHW0qAAAAACcMULmTY87UMii2nxUbQ7JnYDAo",
+  recaptchaV2SiteKey: "6LdFHW0qAAAAACcMULmTY87UMii2nxUbQ7JnYDAo",
 };
 
 const embedOptions = window.apiUmbrellaSignupOptions || {};
