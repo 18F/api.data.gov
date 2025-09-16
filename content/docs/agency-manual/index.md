@@ -8,6 +8,7 @@ csp:
     - "'unsafe-inline'"
 ---
 
+- [Logging In](#logging-in)
 - [Configuring your first API backend](#configuring-your-first-api-backend)
 - [Using your own domain name](#using-your-own-domain-name)
   - [Setting up HTTPS on your own domain name](#setting-up-https-on-your-own-domain-name)
@@ -33,6 +34,10 @@ csp:
 - [Using api.data.gov with Swagger / OpenAPI](#using-apidatagov-with-swagger--openapi)
 - [Best practices when deprecating an API](#best-practices-when-deprecating-an-api)
 - [Process for removing an API backend](#process-for-removing-an-api-backend)
+
+## Logging In
+
+To access the admin page for agency users, go to [https://api.data.gov/admin](https://api.data.gov/admin).  
 
 ## Configuring your first API backend
 
