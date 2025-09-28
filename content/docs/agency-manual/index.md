@@ -37,7 +37,7 @@ csp:
 
 ## Logging In
 
-To access the admin page for agency users, go to [https://api.data.gov/admin](https://api.data.gov/admin).  
+To access the admin page for agency users, go to [https://api.data.gov/admin](https://api.data.gov/admin).
 
 ## Configuring your first API backend
 
