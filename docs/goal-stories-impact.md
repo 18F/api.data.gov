@@ -12,7 +12,7 @@ nasa offerings
 Comment submission through regulations.gov and ecfs at fcc
 
 
-
+- [NREL Use Case](https://docs.google.com/document/d/12K484eJ1zCuJMM4xV8sYUj_TLUq_Rk-6GXc1Alnl6bA/edit?tab=t.0#heading=h.mfess7ef7ldb)
 
 
 
