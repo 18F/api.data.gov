@@ -16,6 +16,8 @@ Comment submission through regulations.gov and ecfs at fcc
 
 
 
+Other links:
+- [NREL presentation on usage](https://docs.nlr.gov/docs/fy20osti/76408.pdf)
 
 
 
