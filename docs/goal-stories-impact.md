@@ -1,26 +1,17 @@
+Congress.gov rebuilt its website on top of their API and use our service both to see how website usage calls the API and also to ensure that other developers cannot use the resource for other purposes.
 
-
-
-Congress.gov rebuilt its website on top of their API and use our service both to see how  website usage calls the API and also to ensure that other developers cannot use the resource for other purposes. 
-
-NASA also uses our service to unify the various API programs across the agency under one umbrella and thus provide a consistent developer experience for anyone interacting with their services. 
-
+NASA also uses our service to unify the various API programs across the agency under one umbrella and thus provide a consistent developer experience for anyone interacting with their services.
 
 Other ideas:
-nps offerings 
-nasa offerings 
+nps offerings
+nasa offerings
 Comment submission through regulations.gov and ecfs at fcc
-
 
 - [NREL Use Case](https://docs.google.com/document/d/12K484eJ1zCuJMM4xV8sYUj_TLUq_Rk-6GXc1Alnl6bA/edit?tab=t.0#heading=h.mfess7ef7ldb)
 
-
-
 Other links:
+
 - [NREL presentation on usage](https://docs.nlr.gov/docs/fy20osti/76408.pdf)
-
-
-
 
 ## What api.data.gov Powers
 
@@ -35,12 +26,12 @@ Government Services provides:
   - the commerce.gov Content API
 - At the Department of Education:
   - the College Scorecard website and API
-- At the Department of Energy: 
+- At the Department of Energy:
   - the National Renewable Energy Laboratory’s Solar Panel Calculations and Electric Vehicle Charging Stations APIs along with 78 other energy services
   - The Energy Information Administration’s Data APIs
 - At the Department of Health and Human Services:
   - the Food and Drug Administration’s COVID-19 Serological Testing, Medical Device Recall, Drug Adverse Effects, and Food Recall APIs along with 21 other medical services
-  - the National Institutes’ of Health Dietary Supplement Label API 
+  - the National Institutes’ of Health Dietary Supplement Label API
 - At the Department of the Interior:
   - the National Park Service’s Campground, Visitor Center, Emergency Alert, and Webcam APIs along with 25 other Park APIs.
   - the Federal Geographic Data Committee’s 80 geospatial data-sharing web services
@@ -61,14 +52,12 @@ Government Services provides:
 - At the Federal Communications Commission:
   - the Comment Filing System API
 - At the Federal Deposit Insurance Corporation:
-  - the Bank Data API 
+  - the Bank Data API
 - At the Federal Election Commission:
   - the Candidates, Fundraising, and Expenditures APIs, along with 16 other electioneering web services
 - At the Federal Trade Commission:
   - the Do Not Call Complaints and Pre-Merger Filings APIs
 - At the General Services Administration:
-  - the Per Diem, Contract-Awarded Labor Category, Digital Analytics Program, Digital Signatures, Fleet, gsa.gov Content, and regulations.gov APIs, along with 86 other services 
+  - the Per Diem, Contract-Awarded Labor Category, Digital Analytics Program, Digital Signatures, Fleet, gsa.gov Content, and regulations.gov APIs, along with 86 other services
 - At the Government Publishing Office:
   - the GovInfo website and content APIs
-
-
